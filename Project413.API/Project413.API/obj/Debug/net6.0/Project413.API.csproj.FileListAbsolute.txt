@@ -1,0 +1,7 @@
+/Users/adem_tsranchaliev/Projects/Project413.API/Project413.API/obj/Debug/net6.0/Project413.API.csproj.AssemblyReference.cache
+/Users/adem_tsranchaliev/Projects/Project413.API/Project413.API/obj/Debug/net6.0/Project413.API.GeneratedMSBuildEditorConfig.editorconfig
+/Users/adem_tsranchaliev/Projects/Project413.API/Project413.API/obj/Debug/net6.0/Project413.API.AssemblyInfoInputs.cache
+/Users/adem_tsranchaliev/Projects/Project413.API/Project413.API/obj/Debug/net6.0/Project413.API.AssemblyInfo.cs
+/Users/adem_tsranchaliev/Projects/Project413.API/Project413.API/obj/Debug/net6.0/Project413.API.csproj.CoreCompileInputs.cache
+/Users/adem_tsranchaliev/Projects/Project413.API/Project413.API/obj/Debug/net6.0/Project413.API.MvcApplicationPartsAssemblyInfo.cs
+/Users/adem_tsranchaliev/Projects/Project413.API/Project413.API/obj/Debug/net6.0/Project413.API.MvcApplicationPartsAssemblyInfo.cache
