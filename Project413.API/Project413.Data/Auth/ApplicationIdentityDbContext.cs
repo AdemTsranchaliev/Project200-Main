@@ -4,9 +4,9 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Project413.Data
 {
-    public class ApplicationDbContext : IdentityDbContext<IdentityUser>
+    public class ApplicationIdentityDbContext : IdentityDbContext<IdentityUser>
     {
-        public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options)
+        public ApplicationIdentityDbContext(DbContextOptions<ApplicationIdentityDbContext> options) : base(options)
         {
         }
         protected override void OnModelCreating(ModelBuilder builder)
