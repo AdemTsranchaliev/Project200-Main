@@ -15,9 +15,10 @@ export class LoginComponent implements OnInit {
   loginMode: UserLoginModel = new UserLoginModel();
   status: number = -1;
 
+
   loginForm = this._formBuilder.group({
     email: ['', [Validators.required, Validators.email]],
-    password: ['', [Validators.required, Validators.minLength(5)]]
+    password: ['', [Validators.required, Validators.minLength(6), Validators.maxLength(30)]]
   });
 
   constructor(private authService: AuthService, private _formBuilder: FormBuilder, private router: Router) { }
@@ -31,18 +32,23 @@ export class LoginComponent implements OnInit {
       email: this.loginForm.get('email')?.value,
       password: this.loginForm.get('password')?.value
     };
-    console.log(model)
-    this.authService.loginUser("Authenticate/login",
-      model)
-      .subscribe(
-        res => {
-          localStorage.setItem("token", res.token);
-          this.router.navigate(['home']);
-        },
-        err => {
-          this.status = 1;
-        }
-      );
+
+    if (this.loginForm.valid) {
+      console.log(model);
+      this.authService.loginUser("Authenticate/login", model)
+        .subscribe(
+          res => {
+            localStorage.setItem("token", res.token);
+            this.router.navigate(['home']);
+          },
+          err => {
+            this.status = 1;
+          }
+        );
+    } else {
+      this.status = 1;
+    }
   }
+
 
 }
