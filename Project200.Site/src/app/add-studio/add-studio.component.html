@@ -1,1 +1,5 @@
-<app-add-studio-zero>   </app-add-studio-zero>
+<app-add-studio-zero (nextPageEvent)="nextStep($event)" (previousPageEvent)="previousStep($event)" *ngIf='stepper==0'>   </app-add-studio-zero>
+<app-add-studio-first (nextPageEvent)="nextStep($event)" (previousPageEvent)="previousStep($event)" *ngIf='stepper==1'>   </app-add-studio-first>
+<app-add-studio-second (nextPageEvent)="nextStep($event)" (previousPageEvent)="previousStep($event)" *ngIf='stepper==2'>   </app-add-studio-second>
+<app-add-studio-third (nextPageEvent)="nextStep($event)" (previousPageEvent)="previousStep($event)" *ngIf='stepper==3'>   </app-add-studio-third>
+<app-add-studio-fourth (nextPageEvent)="nextStep($event)" (previousPageEvent)="previousStep($event)" *ngIf='stepper==4'>   </app-add-studio-fourth>

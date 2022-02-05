@@ -14,7 +14,7 @@ export class RegisterComponent implements OnInit {
 
   registerMode: UserRegisterModel = new UserRegisterModel();
   status: number = -1;
-  
+
   registerForm = this._formBuilder.group({
     name: ['', [Validators.required, Validators.minLength(2)]],
     email: ['', [Validators.required, Validators.email]],

@@ -27,9 +27,9 @@
           </div>
         </div>
         <div class="row form-block flex-column flex-sm-row">
-          <div class="col text-center text-sm-start"><a class="btn btn-link text-muted" href="user-add-1.html"> <i class="fa-chevron-left fa me-2"></i>Back</a>
+          <div class="col text-center text-sm-start"><button class="btn btn-link text-muted" (click)='previousPage()'> <i class="fa-chevron-left fa me-2"></i>Back</button>
           </div>
-          <div class="col text-center text-sm-end"><a class="btn btn-primary px-3" href="user-add-3.html"> Next step<i class="fa-chevron-right fa ms-2"></i></a></div>
+          <div class="col text-center text-sm-end"><button class="btn btn-primary px-3" (click)='nextPage()'> Next step<i class="fa-chevron-right fa ms-2"></i></button></div>
         </div>
       </form>
     </div>

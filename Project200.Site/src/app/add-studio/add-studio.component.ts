@@ -7,9 +7,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AddStudioComponent implements OnInit {
 
+  stepper = 0;
+
+
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  nextStep($event: any) {
+    this.stepper++;
+    console.log('next ' + $event);
+  }
+  previousStep($event: any) {
+    this.stepper--;
+    console.log('previous' + $event);
   }
 
 }

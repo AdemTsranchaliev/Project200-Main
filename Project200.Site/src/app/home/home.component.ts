@@ -11,7 +11,7 @@ export class HomeComponent implements OnInit {
   constructor(private authService:AuthService) { }
 
   ngOnInit(): void {
-    this.authService.loginUser('Authenticate/login',{email:"test",password:"te"}).subscribe();
+    //this.authService.loginUser('Authenticate/login',{email:"test",password:"te"}).subscribe();
   }
 
 }
