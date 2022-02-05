@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { FormBuilder, Validators } from '@angular/forms';
 import * as Leaflet from 'leaflet';
 
 @Component({
@@ -12,11 +13,18 @@ export class AddStudioFirstComponent implements OnInit {
   @Output() previousPageEvent = new EventEmitter<string>();
 
   @Input() item = '';
-  constructor() { }
+
+  salonForm = this._formBuilder.group({
+    salonName: ['', [Validators.required, Validators.minLength(2), Validators.maxLength(40)]],
+  });
+
+
+  constructor(private _formBuilder: FormBuilder) { }
+
   public map: Leaflet.Map | undefined;
 
   ngOnInit(): void {
-    this.map=Leaflet.map('map').setView([28.644800, 77.216721], 5);
+    this.map = Leaflet.map('map').setView([28.644800, 77.216721], 5);
     Leaflet.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
       attribution: 'edupala.com © Angular LeafLet',
     }).addTo(this.map);
@@ -24,17 +32,18 @@ export class AddStudioFirstComponent implements OnInit {
     Leaflet.marker([28.6, 77]).addTo(this.map).bindPopup('Delhi').openPopup();
     Leaflet.marker([34, 77]).addTo(this.map).bindPopup('Leh').openPopup();
 
-    this.map.on('click', x => { 
-        console.log(x.target)      
+    this.map.on('click', x => {
+      console.log(x.target)
     });
-    
+
   }
 
-  
   nextPage() {
     this.nextPageEvent.next('test 1 2 3 4 5 6 7 ');
   }
-  previousPage(){
+  previousPage() {
     this.previousPageEvent.next('');
   }
+
+  onSubmit() {}
 }
