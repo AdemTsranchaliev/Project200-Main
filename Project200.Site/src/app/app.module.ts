@@ -15,6 +15,11 @@ import { AddStudioThirdComponent } from './add-studio/add-studio-third/add-studi
 import { AddStudioFourthComponent } from './add-studio/add-studio-fourth/add-studio-fourth.component';
 import { AddStudioFinalComponent } from './add-studio/add-studio-final/add-studio-final.component';
 import { CommingSoonComponent } from './shared/components/comming-soon/comming-soon.component';
+import { JwtModule } from '@auth0/angular-jwt';
+import { AuthService } from './shared/services/auth.service';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { GoogleLoginProvider, SocialAuthService } from 'angularx-social-login';
 
 @NgModule({
   declarations: [
@@ -35,9 +40,35 @@ import { CommingSoonComponent } from './shared/components/comming-soon/comming-s
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule,
+    JwtModule.forRoot({
+      config: {
+        tokenGetter: () => {
+          return localStorage.getItem("token");
+        },
+        allowedDomains: ["localhost:5001"],
+      }
+    })
   ],
-  providers: [],
+  providers: [
+    AuthService,
+    {
+      provide: 'SocialAuthServiceConfig',
+      useValue: {
+        autoLogin: true, //keeps the user signed in
+        providers: [
+          {
+            id: GoogleLoginProvider.PROVIDER_ID,
+            provider: new GoogleLoginProvider('***apps.googleusercontent.com') // your client id
+          }
+        ]
+      }
+    },
+    SocialAuthService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
