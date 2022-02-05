@@ -1,25 +1,35 @@
 ﻿using System;
+using System.ComponentModel.DataAnnotations;
+
 namespace Project413.Data.Models
 {
-	public class Studio
-	{
-		public Studio()
-		{
-		}
+    public class Studio
+    {
+        public Studio()
+        {
+        }
 
-        public Guid Id { get; set; }
+        [Key]
+        public Guid SdudioId { get; set; }
 
+        [Required]
         public string Name { get; set; }
 
+        [Required]
         public string Address { get; set; }
 
-        public ICollection<string> Phones { get; set; }
+        [Required]
+        public string Phones { get; set; }
 
-		public string WorkingTime { get; set; }
+        [Required]
+        public string WorkingTime { get; set; }
 
-        public ICollection<string> ImageSources { get; set; }
+        public string ImageSources { get; set; }
 
+        [Required]
         public string Description { get; set; }
+
+        public ICollection<StudioUser> StudioUser { get; set; }
 
         public ICollection<Review> Reviews { get; set; }
 

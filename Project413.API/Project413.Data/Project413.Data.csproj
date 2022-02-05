@@ -14,7 +14,6 @@
     <None Remove="Microsoft.AspNetCore.Identity.EntityFrameworkCore" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Models\" />
     <Folder Include="Auth\" />
   </ItemGroup>
   <ItemGroup>

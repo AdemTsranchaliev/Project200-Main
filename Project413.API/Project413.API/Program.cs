@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using Project413.Data;
+using Project413.Data.Models;
 using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -11,11 +12,11 @@ ConfigurationManager configuration = builder.Configuration;
 // Add services to the container.
 
 // For Entity Framework
-builder.Services.AddDbContext<ApplicationIdentityDbContext>(options => options.UseSqlServer(configuration.GetConnectionString("ConnStr")));
+builder.Services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(configuration.GetConnectionString("ConnStr")));
 
 // For Identity
-builder.Services.AddIdentity<IdentityUser, IdentityRole>()
-    .AddEntityFrameworkStores<ApplicationIdentityDbContext>()
+builder.Services.AddIdentity<ApplicationUser, IdentityRole<Guid>>()
+    .AddEntityFrameworkStores<ApplicationDbContext>()
     .AddDefaultTokenProviders();
 
 // Adding Authentication

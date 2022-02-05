@@ -13,7 +13,7 @@ namespace Project413.Data.Migrations
                 name: "AspNetRoles",
                 columns: table => new
                 {
-                    Id = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     Name = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
                     NormalizedName = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
                     ConcurrencyStamp = table.Column<string>(type: "nvarchar(max)", nullable: true)
@@ -27,7 +27,7 @@ namespace Project413.Data.Migrations
                 name: "AspNetUsers",
                 columns: table => new
                 {
-                    Id = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     UserName = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
                     NormalizedUserName = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
                     Email = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
@@ -49,12 +49,29 @@ namespace Project413.Data.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "Studio",
+                columns: table => new
+                {
+                    SdudioId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Address = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Phones = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    WorkingTime = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    ImageSources = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Description = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Studio", x => x.SdudioId);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "AspNetRoleClaims",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    RoleId = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    RoleId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     ClaimType = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     ClaimValue = table.Column<string>(type: "nvarchar(max)", nullable: true)
                 },
@@ -75,7 +92,7 @@ namespace Project413.Data.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    UserId = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    UserId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     ClaimType = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     ClaimValue = table.Column<string>(type: "nvarchar(max)", nullable: true)
                 },
@@ -97,7 +114,7 @@ namespace Project413.Data.Migrations
                     LoginProvider = table.Column<string>(type: "nvarchar(450)", nullable: false),
                     ProviderKey = table.Column<string>(type: "nvarchar(450)", nullable: false),
                     ProviderDisplayName = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    UserId = table.Column<string>(type: "nvarchar(450)", nullable: false)
+                    UserId = table.Column<Guid>(type: "uniqueidentifier", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -114,8 +131,8 @@ namespace Project413.Data.Migrations
                 name: "AspNetUserRoles",
                 columns: table => new
                 {
-                    UserId = table.Column<string>(type: "nvarchar(450)", nullable: false),
-                    RoleId = table.Column<string>(type: "nvarchar(450)", nullable: false)
+                    UserId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    RoleId = table.Column<Guid>(type: "uniqueidentifier", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -138,7 +155,7 @@ namespace Project413.Data.Migrations
                 name: "AspNetUserTokens",
                 columns: table => new
                 {
-                    UserId = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    UserId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     LoginProvider = table.Column<string>(type: "nvarchar(450)", nullable: false),
                     Name = table.Column<string>(type: "nvarchar(450)", nullable: false),
                     Value = table.Column<string>(type: "nvarchar(max)", nullable: true)
@@ -151,6 +168,74 @@ namespace Project413.Data.Migrations
                         column: x => x.UserId,
                         principalTable: "AspNetUsers",
                         principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Review",
+                columns: table => new
+                {
+                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    Email = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Rating = table.Column<int>(type: "int", nullable: false),
+                    Description = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    AddedOn = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    StudioSdudioId = table.Column<Guid>(type: "uniqueidentifier", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Review", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Review_Studio_StudioSdudioId",
+                        column: x => x.StudioSdudioId,
+                        principalTable: "Studio",
+                        principalColumn: "SdudioId");
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Service",
+                columns: table => new
+                {
+                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Description = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Duration = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Price = table.Column<double>(type: "float", nullable: false),
+                    StudioSdudioId = table.Column<Guid>(type: "uniqueidentifier", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Service", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Service_Studio_StudioSdudioId",
+                        column: x => x.StudioSdudioId,
+                        principalTable: "Studio",
+                        principalColumn: "SdudioId");
+                });
+
+            migrationBuilder.CreateTable(
+                name: "StudioUser",
+                columns: table => new
+                {
+                    ApplicationUserId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    StudioId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    Role = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_StudioUser", x => new { x.StudioId, x.ApplicationUserId });
+                    table.ForeignKey(
+                        name: "FK_StudioUser_AspNetUsers_ApplicationUserId",
+                        column: x => x.ApplicationUserId,
+                        principalTable: "AspNetUsers",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_StudioUser_Studio_StudioId",
+                        column: x => x.StudioId,
+                        principalTable: "Studio",
+                        principalColumn: "SdudioId",
                         onDelete: ReferentialAction.Cascade);
                 });
 
@@ -192,6 +277,21 @@ namespace Project413.Data.Migrations
                 column: "NormalizedUserName",
                 unique: true,
                 filter: "[NormalizedUserName] IS NOT NULL");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Review_StudioSdudioId",
+                table: "Review",
+                column: "StudioSdudioId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Service_StudioSdudioId",
+                table: "Service",
+                column: "StudioSdudioId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_StudioUser_ApplicationUserId",
+                table: "StudioUser",
+                column: "ApplicationUserId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
@@ -212,10 +312,22 @@ namespace Project413.Data.Migrations
                 name: "AspNetUserTokens");
 
             migrationBuilder.DropTable(
+                name: "Review");
+
+            migrationBuilder.DropTable(
+                name: "Service");
+
+            migrationBuilder.DropTable(
+                name: "StudioUser");
+
+            migrationBuilder.DropTable(
                 name: "AspNetRoles");
 
             migrationBuilder.DropTable(
                 name: "AspNetUsers");
+
+            migrationBuilder.DropTable(
+                name: "Studio");
         }
     }
 }
