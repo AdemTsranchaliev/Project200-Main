@@ -61,6 +61,18 @@ namespace Project413.Data.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "ServiceCategory",
+                columns: table => new
+                {
+                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    Name = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_ServiceCategory", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "Studio",
                 columns: table => new
                 {
@@ -235,11 +247,18 @@ namespace Project413.Data.Migrations
                     Description = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Duration = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Price = table.Column<double>(type: "float", nullable: false),
+                    ServiceCategoryId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     StudioSdudioId = table.Column<Guid>(type: "uniqueidentifier", nullable: true)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Service", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Service_ServiceCategory_ServiceCategoryId",
+                        column: x => x.ServiceCategoryId,
+                        principalTable: "ServiceCategory",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
                         name: "FK_Service_Studio_StudioSdudioId",
                         column: x => x.StudioSdudioId,
@@ -347,6 +366,11 @@ namespace Project413.Data.Migrations
                 column: "StudioSdudioId");
 
             migrationBuilder.CreateIndex(
+                name: "IX_Service_ServiceCategoryId",
+                table: "Service",
+                column: "ServiceCategoryId");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_Service_StudioSdudioId",
                 table: "Service",
                 column: "StudioSdudioId");
@@ -396,6 +420,9 @@ namespace Project413.Data.Migrations
 
             migrationBuilder.DropTable(
                 name: "AspNetRoles");
+
+            migrationBuilder.DropTable(
+                name: "ServiceCategory");
 
             migrationBuilder.DropTable(
                 name: "Category");

@@ -312,14 +312,34 @@ namespace Project413.Data.Migrations
                     b.Property<double>("Price")
                         .HasColumnType("float");
 
+                    b.Property<Guid>("ServiceCategoryId")
+                        .HasColumnType("uniqueidentifier");
+
                     b.Property<Guid?>("StudioSdudioId")
                         .HasColumnType("uniqueidentifier");
 
                     b.HasKey("Id");
 
+                    b.HasIndex("ServiceCategoryId");
+
                     b.HasIndex("StudioSdudioId");
 
                     b.ToTable("Service");
+                });
+
+            modelBuilder.Entity("Project413.Data.Models.ServiceCategory", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("ServiceCategory");
                 });
 
             modelBuilder.Entity("Project413.Data.Models.Studio", b =>
@@ -465,9 +485,17 @@ namespace Project413.Data.Migrations
 
             modelBuilder.Entity("Project413.Data.Models.Service", b =>
                 {
+                    b.HasOne("Project413.Data.Models.ServiceCategory", "ServiceCategory")
+                        .WithMany("Services")
+                        .HasForeignKey("ServiceCategoryId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.HasOne("Project413.Data.Models.Studio", null)
                         .WithMany("Services")
                         .HasForeignKey("StudioSdudioId");
+
+                    b.Navigation("ServiceCategory");
                 });
 
             modelBuilder.Entity("Project413.Data.Models.StudioCategory", b =>
@@ -516,6 +544,11 @@ namespace Project413.Data.Migrations
             modelBuilder.Entity("Project413.Data.Models.Category", b =>
                 {
                     b.Navigation("StudioCategories");
+                });
+
+            modelBuilder.Entity("Project413.Data.Models.ServiceCategory", b =>
+                {
+                    b.Navigation("Services");
                 });
 
             modelBuilder.Entity("Project413.Data.Models.Studio", b =>
