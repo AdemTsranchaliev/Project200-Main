@@ -1,109 +1,316 @@
-<div class="progress rounded-0 sticky-top" style="height: 8px; top: 72px;">
-    <div class="progress-bar" role="progressbar" style="width: 20%" aria-valuenow="20" aria-valuemin="0"
-        aria-valuemax="100"></div>
+<div class="progress rounded-0 sticky-top" style="height: 8px; top: 71px">
+  <div
+    class="progress-bar"
+    role="progressbar"
+    style="width: 20%"
+    aria-valuenow="20"
+    aria-valuemin="0"
+    aria-valuemax="100"
+  ></div>
 </div>
 <section class="py-5">
-    <div class="container">
-        <p class="subtitle text-primary">Add new listing</p>
-        <h1 class="h2 mb-5"> Basic information <span class="text-muted float-end">Step 1</span> </h1>
-        <form>
-            <div class="row form-block">
-                <div class="col-lg-4">
-                    <h4>Basic</h4>
-                    <p class="text-muted text-sm">His room, a proper human room although a little too small, lay
-                        peacefully between its four familiar walls. A collection of textile samples lay spread out on
-                        the table.</p>
-                </div>
-                <div class="col-lg-7 ms-auto">
-                    <div class="mb-4">
-                        <label class="form-label" for="form_name">Име на студио</label>
-                        <input class="form-control" name="name" id="form_name">
-                    </div>
-                    <div class="mb-4">
-                        <label class="form-label" for="form_type">Тип на студио</label>
-                        <select class="selectpicker form-control" name="type" id="form_type"
-                            data-style="btn-selectpicker" title="" aria-describedby="propertyTypeHelp">
-                            <option value="type_0">Entire place </option>
-                            <option value="type_1">Private room </option>
-                            <option value="type_2">Shared room </option>
-                        </select><small class="form-text text-muted" id="propertyTypeHelp">One morning, when Gregor
-                            Samsa woke from troubled dreams, he found himself transformed in his bed into a horrible
-                            vermin. He lay on his armour-like back, and if he lifted his head a little he could see his
-                            brown belly, slightly domed and divided by arches into stiff sections</small>
-                    </div>
-                    <div class="mb-4">
-                        <label class="form-label">Желаете ли вашите клиенти да могат да запазват час онлайн?</label>
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" id="guests_0" name="guests">
-                            <label class="form-check-label" for="guests_0">Yes, it's primarily set up for guests</label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" id="guests_1" name="guests">
-                            <label class="form-check-label" for="guests_1">No, I keep my personal belongings
-                                there</label>
-                        </div>
-                    </div>
-                </div>
+  <div class="container">
+    <p class="subtitle text-primary">Добавяне на салон</p>
+    <h1 class="h2 mb-5">
+      Основна информация <span class="text-muted float-end">Първа стъпка</span>
+    </h1>
+    <form [formGroup]="salonForm" (ngSubmit)="onSubmit()">
+      <div class="row form-block">
+        <div class="col-lg-4">
+          <h4>Основна част</h4>
+          <p class="text-muted text-sm">
+            В основната част трябва да добавите името на салона, услугите които
+            предлагате, също така дали желаете клиентите посещаващи сайта да
+            имат възможност да си запазват часове онлайн чрез предадената от вас
+            информация.
+          </p>
+        </div>
+        <div class="col-lg-7 ms-auto">
+          <div class="mb-4">
+            <label class="form-label" for="form_name">Име на салон</label>
+            <input
+              class="form-control"
+              name="name"
+              id="form_name"
+              formControlName="salonName"
+              [ngClass]="{
+                invalid:
+                  salonForm.get('salonName')?.touched ||
+                  (salonForm.get('salonName')?.dirty &&
+                    salonForm.get('salonName')?.valid)
+              }"
+            />
+            <div
+              class="custom-input-alert"
+              *ngIf="
+                salonForm.get('salonName')?.dirty ||
+                salonForm.get('salonName')?.touched
+              "
+            >
+              <p *ngIf="salonForm.get('salonName')?.errors?.required">
+                Полето е задължително!
+              </p>
             </div>
-            <div class="row form-block">
-                <div class="col-lg-4">
-                    <h4>Location</h4>
-                    <p class="text-muted text-sm">Samsa was a travelling salesman - and above it there hung a picture
-                        that he had recently cut out of an illustrated magazine and housed in a nice, gilded frame.</p>
+          </div>
+          <div class="mb-4">
+            <label class="form-label" for="form_type">Предлагани услуги</label>
+            <!-- MODAL start here -->
+            <button
+              class="btn btn-primary form-control"
+              type="button"
+              data-bs-toggle="modal"
+              data-bs-target="#salon-services-modal"
+            >
+              Изберете какви услуги ще предлагате
+            </button>
+            <div
+              class="modal fade bd-example-modal-lg"
+              id="salon-services-modal"
+              tabindex="-1"
+              aria-labelledby="salon-services-modal-label"
+              style="display: none"
+              aria-modal="true"
+              role="dialog"
+            >
+              <div class="modal-dialog modal-lg" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h6
+                      class="modal-title text-uppercase"
+                      id="salon-services-modal-label"
+                    >
+                      Услуги
+                    </h6>
+                    <button
+                      class="btn-close"
+                      type="button"
+                      data-bs-dismiss="modal"
+                      aria-label="Close"
+                    ></button>
+                  </div>
+                  <div class="modal-body-spec-content">
+                    <!-- <p class="text-muted"></p> -->
+                    <div class="modal-body-content">
+                      <input
+                        class="salon-service-input"
+                        id="salon-services-check"
+                        type="checkbox"
+                      />
+                      <label
+                        class="salon-service-label"
+                        for="salon-services-check"
+                        >маникюр</label
+                      >
+                    </div>
+
+                    <div class="modal-body-content">
+                      <input
+                        class="salon-service-input"
+                        id="salon-services-check-2"
+                        type="checkbox"
+                      />
+                      <label
+                        class="salon-service-label"
+                        for="salon-services-check-2"
+                        >бръснар 2</label
+                      >
+                    </div>
+
+                    <div class="modal-body-content">
+                      <input
+                        class="salon-service-input"
+                        id="salon-services-check-3"
+                        type="checkbox"
+                      />
+                      <label
+                        class="salon-service-label"
+                        for="salon-services-check-3"
+                        >козметик 3</label
+                      >
+                    </div>
+
+                    <div class="modal-body-content">
+                      <input
+                        class="salon-service-input"
+                        id="salon-services-check-4"
+                        type="checkbox"
+                      />
+                      <label
+                        class="salon-service-label"
+                        for="salon-services-check-4"
+                        >фризьор 4</label
+                      >
+                    </div>
+
+                    <div class="modal-body-content">
+                      <input
+                        class="salon-service-input"
+                        id="salon-services-check-5"
+                        type="checkbox"
+                      />
+                      <label
+                        class="salon-service-label"
+                        for="salon-services-check-5"
+                        >епилация 5</label
+                      >
+                    </div>
+
+                    <div class="modal-body-content">
+                      <input
+                        class="salon-service-input"
+                        id="salon-services-check-6"
+                        type="checkbox"
+                      />
+                      <label
+                        class="salon-service-label"
+                        for="salon-services-check-6"
+                        >лазерна епилация 6</label
+                      >
+                    </div>
+
+                    <div class="modal-body-content">
+                      <input
+                        class="salon-service-input"
+                        id="salon-services-check-7"
+                        type="checkbox"
+                      />
+                      <label
+                        class="salon-service-label"
+                        for="salon-services-check-7"
+                        >механик 7</label
+                      >
+                    </div>
+                  </div>
+                  <div class="modal-footer justify-content-end bg-gray-100">
+                    <button class="btn btn-primary" type="button">
+                      Запази промените
+                    </button>
+                    <button
+                      class="btn btn-outline-muted"
+                      type="button"
+                      data-bs-dismiss="modal"
+                    >
+                      Затвори
+                    </button>
+                  </div>
                 </div>
-                <div class="col-lg-7 ms-auto">
-                    <!-- Country-->
-                    <div class="mb-4">
-                        <label class="form-label" for="form_country">Област</label>
-                        <select class="selectpicker form-control" name="country" id="form_country"
-                            data-style="btn-selectpicker" title=" " data-live-search="true">
-                            <option value="country_#{index}">Afghanistan </option>
-                            <option value="country_#{index}">Albania </option>
-                            <option value="country_#{index}">Algeria </option>
-                            <option value="country_#{index}">Andorra </option>
-                            <option value="country_#{index}">Angola </option>
-                            <option value="country_#{index}">Anguilla </option>
-                            <option value="country_#{index}">Antigua &amp; Barbuda </option>
-                        
-                        </select>
-                    </div>
-                    <!-- Street-->
-                    <div class="mb-4">
-                        <label class="form-label" for="form_street">Улица</label>
-                        <input class="form-control" name="name" id="form_street">
-                    </div>
-                    <!-- City + State-->
-                    <div class="row">
-                        <div class="col-md-6">
-                            <div class="mb-4">
-                                <label class="form-label" for="form_city">Град</label>
-                                <input class="form-control" name="name" id="form_city">
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="mb-4">
-                                <label class="form-label" for="form_state">Община</label>
-                                <input class="form-control" name="name" id="form_state">
-                            </div>
-                        </div>
-                    </div>
-                    <!-- ZIP Code-->
-                    <div class="row">
-                        <div class="col-md-6">
-                            <div class="mb-4">
-                                <label class="form-label" for="form_zip">Пощенски код</label>
-                                <input class="form-control" name="name" id="form_zip">
-                            </div>
-                        </div>
-                    </div>
-                </div>
+              </div>
             </div>
-            <div id="map"></div>
-            <div class="row form-block flex-column flex-sm-row">
-                <div class="col text-center text-sm-start">
-                </div>
-                <div class="col text-center text-sm-end"><button class="btn btn-primary px-3" (click)='nextPage()'> Напред<i class="fa-chevron-right fa ms-2"></i></button></div>
+            <!-- MODAL end here -->
+            <select
+              class="form-control"
+              name="type"
+              id="form_type"
+              data-style="btn-selectpicker"
+              title=""
+              aria-describedby="propertyTypeHelp"
+              onfocus="this.size=5;"
+              onblur="this.size=1;"
+              onchange="this.size=1; this.blur();"
+            >
+              <option value="type_0">Изберете услуги</option>
+              <option value="type_1">Private room</option>
+              <option value="type_2">Shared room</option>
+              <option value="type_3">Shared room 3</option>
+              <option value="type_4">Shared room 4</option>
+              <option value="type_5">Shared room 5</option>
+              <option value="type_6">Shared room 6</option>
+              <option value="type_7">Shared room 7</option>
+              <option value="type_8">Shared room 8</option>
+              <option value="type_9">Shared room 9</option>
+            </select>
+          </div>
+          <div class="mb-4">
+            <div class="form-check form-switch">
+              <input
+                class="form-check-input"
+                id="formSwitch"
+                type="checkbox"
+                checked=""
+              />
+              <label class="form-check-label form-label" for="formSwitch"
+                >Желаете ли вашите клиенти да запазват час онлайн?</label
+              >
             </div>
-        </form>
-    </div>
+          </div>
+        </div>
+      </div>
+      <div class="row form-block">
+        <div class="col-lg-4">
+          <h4>Локация</h4>
+          <p class="text-muted text-sm">
+            На този етап апликацията предоставя достъп към обекти в област
+            Пазарджик. В полетата трябва да посочите: Община, Град, Пощенски код
+            и Улица. На картата отбележете локацията на обекта с цел по-добър
+            ориентир към бъдещите Ви клиенти.
+          </p>
+        </div>
+        <div class="col-lg-7 ms-auto">
+          <!-- Country-->
+          <div class="mb-4">
+            <label class="form-label" for="form_country">Област</label>
+            <select
+              class="form-control"
+              name="country"
+              id="form_country"
+              data-style="btn-selectpicker"
+              title=" "
+              data-live-search="true"
+            >
+              <option value="country_#{index}">Пазарджик</option>
+              <option value="country_#{index}">Afghanistan</option>
+              <option value="country_#{index}">Albania</option>
+              <option value="country_#{index}">Algeria</option>
+              <option value="country_#{index}">Andorra</option>
+              <option value="country_#{index}">Angola</option>
+              <option value="country_#{index}">Anguilla</option>
+              <option value="country_#{index}">Antigua &amp; Barbuda</option>
+            </select>
+          </div>
+          <!-- Street-->
+          <div class="mb-4">
+            <label class="form-label" for="form_street">Улица</label>
+            <input class="form-control" name="name" id="form_street" />
+          </div>
+          <!-- City + State-->
+          <div class="row">
+            <div class="col-md-6">
+              <div class="mb-4">
+                <label class="form-label" for="form_city">Град</label>
+                <input class="form-control" name="name" id="form_city" />
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="mb-4">
+                <label class="form-label" for="form_state">Община</label>
+                <input class="form-control" name="name" id="form_state" />
+              </div>
+            </div>
+          </div>
+          <!-- ZIP Code-->
+          <div class="row">
+            <div class="col-md-6">
+              <div class="mb-4">
+                <label class="form-label" for="form_zip">Пощенски код</label>
+                <input class="form-control" name="name" id="form_zip" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <section>
+        <div class="map-wrapper-450">
+          <div class="h-100" id="map"></div>
+        </div>
+      </section>
+      <div class="row form-block flex-column flex-sm-row">
+        <div class="col text-center text-sm-start"></div>
+        <div class="col text-center text-sm-end">
+          <button class="btn btn-primary px-3" (click)="nextPage()">
+            Напред<i class="fa-chevron-right fa ms-2"></i>
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>
 </section>

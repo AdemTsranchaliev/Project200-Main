@@ -9,12 +9,13 @@ import { StudioDetailComponent } from './studio-detail/studio-detail.component';
 import { StudioListMainComponent } from './studio-list-main/studio-list-main.component';
 
 const routes: Routes = [
+  { path: '', pathMatch: 'full', redirectTo: '/home' },
   { path: 'home', component: HomeComponent },
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
-  { path: 'studioListMain', component: StudioListMainComponent },
-  { path: 'studioDetail', component: StudioDetailComponent },
-  { path: 'addStudio', component: AddStudioComponent },
+  { path: 'studio-list-main', component: StudioListMainComponent },
+  { path: 'studio-detail', component: StudioDetailComponent },
+  { path: 'add-studio', component: AddStudioComponent },
   { path: '**', component: CommingSoonComponent },
 
 

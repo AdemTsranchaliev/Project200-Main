@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { FormBuilder, Validators } from '@angular/forms';
 import * as Leaflet from 'leaflet';
 
 @Component({
@@ -12,7 +13,14 @@ export class AddStudioFirstComponent implements OnInit {
   @Output() previousPageEvent = new EventEmitter<string>();
 
   @Input() item = '';
-  constructor() { }
+
+  salonForm = this._formBuilder.group({
+    salonName: ['', [Validators.required, Validators.minLength(2), Validators.maxLength(40)]],
+  });
+
+
+  constructor(private _formBuilder: FormBuilder) { }
+
   public map: Leaflet.Map | undefined;
 
   ngOnInit(): void {
@@ -27,14 +35,15 @@ export class AddStudioFirstComponent implements OnInit {
     this.map.on('click', x => { 
         console.log()      
     });
-    
+
   }
 
-  
   nextPage() {
     this.nextPageEvent.next('test 1 2 3 4 5 6 7 ');
   }
-  previousPage(){
+  previousPage() {
     this.previousPageEvent.next('');
   }
+
+  onSubmit() {}
 }
