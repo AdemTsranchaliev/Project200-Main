@@ -16,7 +16,7 @@ export class AddStudioFirstComponent implements OnInit {
   public map: Leaflet.Map | undefined;
 
   ngOnInit(): void {
-    this.map=Leaflet.map('map').setView([28.644800, 77.216721], 5);
+    this.map=Leaflet.map('map').setView([28.644800, 77.216721], 10);
     Leaflet.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
       attribution: 'edupala.com © Angular LeafLet',
     }).addTo(this.map);
@@ -25,7 +25,7 @@ export class AddStudioFirstComponent implements OnInit {
     Leaflet.marker([34, 77]).addTo(this.map).bindPopup('Leh').openPopup();
 
     this.map.on('click', x => { 
-        console.log(x.target)      
+        console.log()      
     });
     
   }
