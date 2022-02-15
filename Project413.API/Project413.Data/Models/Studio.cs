@@ -1,14 +1,9 @@
-﻿using System;
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
 
 namespace Project413.Data.Models
 {
     public class Studio
     {
-        public Studio()
-        {
-        }
-
         [Key]
         public Guid SdudioId { get; set; }
 
@@ -29,11 +24,16 @@ namespace Project413.Data.Models
         [Required]
         public string Description { get; set; }
 
+        public Map Map { get; set; }
+        public Guid MapId { get; set; }
+
         public ICollection<StudioUser> StudioUser { get; set; }
 
         public ICollection<Review> Reviews { get; set; }
 
         public ICollection<Service> Services { get; set; }
+
+        public ICollection<StudioCategory> StudioCategories { get; set; }
 
     }
 }

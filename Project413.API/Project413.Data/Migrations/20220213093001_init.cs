@@ -49,6 +49,30 @@ namespace Project413.Data.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "Category",
+                columns: table => new
+                {
+                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    Name = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Category", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "ServiceCategory",
+                columns: table => new
+                {
+                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    Name = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_ServiceCategory", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "Studio",
                 columns: table => new
                 {
@@ -58,7 +82,8 @@ namespace Project413.Data.Migrations
                     Phones = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     WorkingTime = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     ImageSources = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Description = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                    Description = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    MapId = table.Column<Guid>(type: "uniqueidentifier", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -172,6 +197,26 @@ namespace Project413.Data.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "Map",
+                columns: table => new
+                {
+                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    Lat = table.Column<double>(type: "float", nullable: false),
+                    Lng = table.Column<double>(type: "float", nullable: false),
+                    StudioId = table.Column<Guid>(type: "uniqueidentifier", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Map", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Map_Studio_StudioId",
+                        column: x => x.StudioId,
+                        principalTable: "Studio",
+                        principalColumn: "SdudioId",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "Review",
                 columns: table => new
                 {
@@ -202,16 +247,47 @@ namespace Project413.Data.Migrations
                     Description = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Duration = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Price = table.Column<double>(type: "float", nullable: false),
+                    ServiceCategoryId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     StudioSdudioId = table.Column<Guid>(type: "uniqueidentifier", nullable: true)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Service", x => x.Id);
                     table.ForeignKey(
+                        name: "FK_Service_ServiceCategory_ServiceCategoryId",
+                        column: x => x.ServiceCategoryId,
+                        principalTable: "ServiceCategory",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
                         name: "FK_Service_Studio_StudioSdudioId",
                         column: x => x.StudioSdudioId,
                         principalTable: "Studio",
                         principalColumn: "SdudioId");
+                });
+
+            migrationBuilder.CreateTable(
+                name: "StudioCategory",
+                columns: table => new
+                {
+                    StudioId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    CategoryId = table.Column<Guid>(type: "uniqueidentifier", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_StudioCategory", x => new { x.CategoryId, x.StudioId });
+                    table.ForeignKey(
+                        name: "FK_StudioCategory_Category_CategoryId",
+                        column: x => x.CategoryId,
+                        principalTable: "Category",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_StudioCategory_Studio_StudioId",
+                        column: x => x.StudioId,
+                        principalTable: "Studio",
+                        principalColumn: "SdudioId",
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
@@ -279,14 +355,30 @@ namespace Project413.Data.Migrations
                 filter: "[NormalizedUserName] IS NOT NULL");
 
             migrationBuilder.CreateIndex(
+                name: "IX_Map_StudioId",
+                table: "Map",
+                column: "StudioId",
+                unique: true);
+
+            migrationBuilder.CreateIndex(
                 name: "IX_Review_StudioSdudioId",
                 table: "Review",
                 column: "StudioSdudioId");
 
             migrationBuilder.CreateIndex(
+                name: "IX_Service_ServiceCategoryId",
+                table: "Service",
+                column: "ServiceCategoryId");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_Service_StudioSdudioId",
                 table: "Service",
                 column: "StudioSdudioId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_StudioCategory_StudioId",
+                table: "StudioCategory",
+                column: "StudioId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_StudioUser_ApplicationUserId",
@@ -312,16 +404,28 @@ namespace Project413.Data.Migrations
                 name: "AspNetUserTokens");
 
             migrationBuilder.DropTable(
+                name: "Map");
+
+            migrationBuilder.DropTable(
                 name: "Review");
 
             migrationBuilder.DropTable(
                 name: "Service");
 
             migrationBuilder.DropTable(
+                name: "StudioCategory");
+
+            migrationBuilder.DropTable(
                 name: "StudioUser");
 
             migrationBuilder.DropTable(
                 name: "AspNetRoles");
+
+            migrationBuilder.DropTable(
+                name: "ServiceCategory");
+
+            migrationBuilder.DropTable(
+                name: "Category");
 
             migrationBuilder.DropTable(
                 name: "AspNetUsers");

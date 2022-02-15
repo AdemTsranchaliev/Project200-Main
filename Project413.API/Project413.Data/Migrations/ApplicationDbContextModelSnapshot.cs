@@ -219,6 +219,44 @@ namespace Project413.Data.Migrations
                     b.ToTable("AspNetUsers", (string)null);
                 });
 
+            modelBuilder.Entity("Project413.Data.Models.Category", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Category");
+                });
+
+            modelBuilder.Entity("Project413.Data.Models.Map", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<double>("Lat")
+                        .HasColumnType("float");
+
+                    b.Property<double>("Lng")
+                        .HasColumnType("float");
+
+                    b.Property<Guid>("StudioId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("StudioId")
+                        .IsUnique();
+
+                    b.ToTable("Map");
+                });
+
             modelBuilder.Entity("Project413.Data.Models.Review", b =>
                 {
                     b.Property<Guid>("Id")
@@ -274,14 +312,34 @@ namespace Project413.Data.Migrations
                     b.Property<double>("Price")
                         .HasColumnType("float");
 
+                    b.Property<Guid>("ServiceCategoryId")
+                        .HasColumnType("uniqueidentifier");
+
                     b.Property<Guid?>("StudioSdudioId")
                         .HasColumnType("uniqueidentifier");
 
                     b.HasKey("Id");
 
+                    b.HasIndex("ServiceCategoryId");
+
                     b.HasIndex("StudioSdudioId");
 
                     b.ToTable("Service");
+                });
+
+            modelBuilder.Entity("Project413.Data.Models.ServiceCategory", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("ServiceCategory");
                 });
 
             modelBuilder.Entity("Project413.Data.Models.Studio", b =>
@@ -302,6 +360,9 @@ namespace Project413.Data.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<Guid>("MapId")
+                        .HasColumnType("uniqueidentifier");
+
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -317,6 +378,21 @@ namespace Project413.Data.Migrations
                     b.HasKey("SdudioId");
 
                     b.ToTable("Studio");
+                });
+
+            modelBuilder.Entity("Project413.Data.Models.StudioCategory", b =>
+                {
+                    b.Property<Guid>("CategoryId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("StudioId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.HasKey("CategoryId", "StudioId");
+
+                    b.HasIndex("StudioId");
+
+                    b.ToTable("StudioCategory");
                 });
 
             modelBuilder.Entity("Project413.Data.Models.StudioUser", b =>
@@ -389,6 +465,17 @@ namespace Project413.Data.Migrations
                         .IsRequired();
                 });
 
+            modelBuilder.Entity("Project413.Data.Models.Map", b =>
+                {
+                    b.HasOne("Project413.Data.Models.Studio", "Studio")
+                        .WithOne("Map")
+                        .HasForeignKey("Project413.Data.Models.Map", "StudioId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Studio");
+                });
+
             modelBuilder.Entity("Project413.Data.Models.Review", b =>
                 {
                     b.HasOne("Project413.Data.Models.Studio", null)
@@ -398,9 +485,36 @@ namespace Project413.Data.Migrations
 
             modelBuilder.Entity("Project413.Data.Models.Service", b =>
                 {
+                    b.HasOne("Project413.Data.Models.ServiceCategory", "ServiceCategory")
+                        .WithMany("Services")
+                        .HasForeignKey("ServiceCategoryId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.HasOne("Project413.Data.Models.Studio", null)
                         .WithMany("Services")
                         .HasForeignKey("StudioSdudioId");
+
+                    b.Navigation("ServiceCategory");
+                });
+
+            modelBuilder.Entity("Project413.Data.Models.StudioCategory", b =>
+                {
+                    b.HasOne("Project413.Data.Models.Category", "Category")
+                        .WithMany("StudioCategories")
+                        .HasForeignKey("CategoryId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Project413.Data.Models.Studio", "Studio")
+                        .WithMany("StudioCategories")
+                        .HasForeignKey("StudioId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Category");
+
+                    b.Navigation("Studio");
                 });
 
             modelBuilder.Entity("Project413.Data.Models.StudioUser", b =>
@@ -427,11 +541,26 @@ namespace Project413.Data.Migrations
                     b.Navigation("StudioUser");
                 });
 
+            modelBuilder.Entity("Project413.Data.Models.Category", b =>
+                {
+                    b.Navigation("StudioCategories");
+                });
+
+            modelBuilder.Entity("Project413.Data.Models.ServiceCategory", b =>
+                {
+                    b.Navigation("Services");
+                });
+
             modelBuilder.Entity("Project413.Data.Models.Studio", b =>
                 {
+                    b.Navigation("Map")
+                        .IsRequired();
+
                     b.Navigation("Reviews");
 
                     b.Navigation("Services");
+
+                    b.Navigation("StudioCategories");
 
                     b.Navigation("StudioUser");
                 });

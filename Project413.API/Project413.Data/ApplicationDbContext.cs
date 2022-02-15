@@ -25,6 +25,24 @@ namespace Project413.Data
                 .WithMany(x => x.StudioUser)
                 .HasForeignKey(x => x.ApplicationUserId);
 
+            builder.Entity<StudioCategory>()
+                .HasKey(x => new { x.CategoryId, x.StudioId });
+
+            builder.Entity<StudioCategory>()
+                .HasOne(x => x.Studio)
+                .WithMany(x => x.StudioCategories)
+                .HasForeignKey(x => x.StudioId);
+
+            builder.Entity<StudioCategory>()
+                .HasOne(x => x.Category)
+                .WithMany(x => x.StudioCategories)
+                .HasForeignKey(x => x.CategoryId);
+
+            builder.Entity<Studio>()
+                .HasOne(x => x.Map)
+                .WithOne(x => x.Studio)
+                .HasForeignKey<Map>(x => x.StudioId);
+
             base.OnModelCreating(builder);
         }
     }
