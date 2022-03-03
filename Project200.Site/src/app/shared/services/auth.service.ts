@@ -20,8 +20,7 @@ export class AuthService {
         return this._http.post<any>(this.createCompleteRoute(route, environment.ResourceServer.Endpoint), body);
     }
 
-    public loginUser = (route: string, body: UserLoginModel) => {
-        console.log(this.createCompleteRoute(route, environment.ResourceServer.Endpoint))
+    public loginUser = (route: string, body: UserLoginModel) => {        
         return this._http.post<any>(this.createCompleteRoute(route, environment.ResourceServer.Endpoint), body);
     }
 

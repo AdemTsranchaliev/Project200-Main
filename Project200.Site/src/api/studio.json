@@ -1,0 +1,83 @@
+[{
+    "id":"1",
+    "name":"От звяр до красавица",
+    "address":"Михаил Такев 26",
+    "phones":[
+       "0892600221",
+       "0213284239"
+    ],
+    "workingTime":[
+       {
+          "day":"Понеделник",
+          "isWorking":true,
+          "fromTo":[
+             {
+                "key":"08:00",
+                "value":"18:00"
+             }
+          ]
+       },
+       {
+          "day":"Вторник",
+          "isWorking":true,
+          "fromTo":[
+             {
+                "key":"08:00",
+                "value":"18:00"
+             }
+          ]
+       },
+       {
+          "day":"Сряда",
+          "isWorking":true,
+          "fromTo":[
+             {
+                "key":"08:00",
+                "value":"12:00"
+             }
+          ]
+       }
+    ],
+    "description":"Много добър салон, номер 1, браво",
+    "imageSources":"",
+    "serviceCategory":[
+       {
+          "name":"Маникюр",
+          "services":[
+             {
+                "name":"Маникюр обикновен",
+                "description":"Бля бля бля",
+                "duration":"30",
+                "price":25
+             },
+             {
+                "name":"Педикюр",
+                "description":"Бля бля бля",
+                "duration":"30",
+                "price":29.99
+             }
+          ]
+       },
+       {
+          "name":"Подстрижка",
+          "services":[
+             {
+                "name":"Коса и брада",
+                "description":"Бля бля бля",
+                "duration":"20",
+                "price":45
+             },
+             {
+                "name":"Коса",
+                "description":"Бля бля бля",
+                "duration":"25",
+                "price":60
+             }
+          ]
+       }
+    ],
+    "map":{
+       "lat":42.029021,
+       "lng":24.296614
+    }
+ }]
