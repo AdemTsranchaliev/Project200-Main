@@ -7,8 +7,13 @@ namespace Project413.Data
 {
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser, IdentityRole<Guid>, Guid>
     {
+        DbSet<Studio> studios;
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options)
         {
+        }
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+            optionsBuilder.UseSqlServer(@"Server=tcp:127.0.0.1,1433;Database=Studios;MultipleActiveResultSets=true;User=sa;Password=MyPass@word;");
         }
         protected override void OnModelCreating(ModelBuilder builder)
         {

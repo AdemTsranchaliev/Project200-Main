@@ -12,9 +12,11 @@
     <None Remove="Auth\" />
     <None Remove="Microsoft.EntityFrameworkCore.Tools" />
     <None Remove="Microsoft.AspNetCore.Identity.EntityFrameworkCore" />
+    <None Remove="Repository\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Auth\" />
+    <Folder Include="Repository\" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="6.0.1">
