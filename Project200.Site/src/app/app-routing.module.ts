@@ -14,11 +14,9 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'studio-list-main', component: StudioListMainComponent },
-  { path: 'studio-detail', component: StudioDetailComponent },
+  { path: 'studio-details', component: StudioDetailComponent },
   { path: 'add-studio', component: AddStudioComponent },
   { path: '**', component: CommingSoonComponent },
-
-
 ];
 
 @NgModule({

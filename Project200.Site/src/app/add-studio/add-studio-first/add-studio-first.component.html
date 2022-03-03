@@ -54,149 +54,6 @@
           </div>
           <div class="mb-4">
             <label class="form-label" for="form_type">Предлагани услуги</label>
-            <!-- MODAL start here -->
-            <button
-              class="btn btn-primary form-control"
-              type="button"
-              data-bs-toggle="modal"
-              data-bs-target="#salon-services-modal"
-            >
-              Изберете какви услуги ще предлагате
-            </button>
-            <div
-              class="modal fade bd-example-modal-lg"
-              id="salon-services-modal"
-              tabindex="-1"
-              aria-labelledby="salon-services-modal-label"
-              style="display: none"
-              aria-modal="true"
-              role="dialog"
-            >
-              <div class="modal-dialog modal-lg" role="document">
-                <div class="modal-content">
-                  <div class="modal-header">
-                    <h6
-                      class="modal-title text-uppercase"
-                      id="salon-services-modal-label"
-                    >
-                      Услуги
-                    </h6>
-                    <button
-                      class="btn-close"
-                      type="button"
-                      data-bs-dismiss="modal"
-                      aria-label="Close"
-                    ></button>
-                  </div>
-                  <div class="modal-body-spec-content">
-                    <!-- <p class="text-muted"></p> -->
-                    <div class="modal-body-content">
-                      <input
-                        class="salon-service-input"
-                        id="salon-services-check"
-                        type="checkbox"
-                      />
-                      <label
-                        class="salon-service-label"
-                        for="salon-services-check"
-                        >маникюр</label
-                      >
-                    </div>
-
-                    <div class="modal-body-content">
-                      <input
-                        class="salon-service-input"
-                        id="salon-services-check-2"
-                        type="checkbox"
-                      />
-                      <label
-                        class="salon-service-label"
-                        for="salon-services-check-2"
-                        >бръснар 2</label
-                      >
-                    </div>
-
-                    <div class="modal-body-content">
-                      <input
-                        class="salon-service-input"
-                        id="salon-services-check-3"
-                        type="checkbox"
-                      />
-                      <label
-                        class="salon-service-label"
-                        for="salon-services-check-3"
-                        >козметик 3</label
-                      >
-                    </div>
-
-                    <div class="modal-body-content">
-                      <input
-                        class="salon-service-input"
-                        id="salon-services-check-4"
-                        type="checkbox"
-                      />
-                      <label
-                        class="salon-service-label"
-                        for="salon-services-check-4"
-                        >фризьор 4</label
-                      >
-                    </div>
-
-                    <div class="modal-body-content">
-                      <input
-                        class="salon-service-input"
-                        id="salon-services-check-5"
-                        type="checkbox"
-                      />
-                      <label
-                        class="salon-service-label"
-                        for="salon-services-check-5"
-                        >епилация 5</label
-                      >
-                    </div>
-
-                    <div class="modal-body-content">
-                      <input
-                        class="salon-service-input"
-                        id="salon-services-check-6"
-                        type="checkbox"
-                      />
-                      <label
-                        class="salon-service-label"
-                        for="salon-services-check-6"
-                        >лазерна епилация 6</label
-                      >
-                    </div>
-
-                    <div class="modal-body-content">
-                      <input
-                        class="salon-service-input"
-                        id="salon-services-check-7"
-                        type="checkbox"
-                      />
-                      <label
-                        class="salon-service-label"
-                        for="salon-services-check-7"
-                        >механик 7</label
-                      >
-                    </div>
-                  </div>
-                  <div class="modal-footer justify-content-end bg-gray-100">
-                    <button class="btn btn-primary" type="button">
-                      Запази промените
-                    </button>
-                    <button
-                      class="btn btn-outline-muted"
-                      type="button"
-                      data-bs-dismiss="modal"
-                    >
-                      Затвори
-                    </button>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <!-- MODAL end here -->
             <select
               class="form-control"
               name="type"
@@ -246,11 +103,14 @@
           </p>
         </div>
         <div class="col-lg-7 ms-auto">
+          <!-- START Dropdown -->
+
+          <!-- This part works & it is older one -->
           <!-- Country-->
-          <div class="mb-4">
+          <!-- <div class="mb-4">
             <label class="form-label" for="form_country">Област</label>
             <select
-              class="form-control"
+              class="selectpicker form-control"
               name="country"
               id="form_country"
               data-style="btn-selectpicker"
@@ -266,13 +126,171 @@
               <option value="country_#{index}">Anguilla</option>
               <option value="country_#{index}">Antigua &amp; Barbuda</option>
             </select>
+          </div> -->
+
+          <!-- This is new part & need testing -->
+          <div class="dropdown bootstrap-select form-control">
+            <label class="form-label" for="form_country">Област</label>
+            <select
+              class="selectpicker form-control"
+              name="country"
+              id="form_country"
+              data-style="btn-selectpicker"
+              title=" "
+              data-live-search="true"
+              tabindex="null"
+            >
+              <option class="bs-title-option" value=""></option>
+              <option value="country_#{index}">Пазарджик1</option>
+              <option value="country_#{index}">Пазарджик2</option>
+              <option value="country_#{index}">Пазарджик3</option>
+              <option value="country_#{index}">Пазарджик4</option>
+              <option value="country_#{index}">Пазарджик5</option>
+              <option value="country_#{index}">Пазарджик6</option>
+              <option value="country_#{index}">Пазарджик7</option>
+              <option value="country_#{index}">Пазарджик8</option>
+            </select>
+            <button
+              type="button"
+              tabindex="-1"
+              class="btn dropdown-toggle bs-placeholder btn-selectpicker"
+              data-bs-toggle="dropdown"
+              role="combobox"
+              aria-owns="bs-select-2"
+              aria-haspopup="listbox"
+              aria-expanded="false"
+              title=""
+              data-id="form_country"
+            >
+              <div class="filter-option">
+                <div class="filter-option-inner">
+                  <div class="filter-option-inner-inner"></div>
+                </div>
+              </div>
+            </button>
+            <div
+              class="dropdown-menu"
+              style="max-height: 195.025px; overflow: hidden; min-height: 202px"
+            >
+              <div class="bs-searchbox">
+                <input
+                  type="search"
+                  class="form-control"
+                  autocomplete="off"
+                  role="combobox"
+                  aria-label="Search"
+                  aria-controls="bs-select-2"
+                  aria-autocomplete="list"
+                  aria-activedescendant="bs-select-2-0"
+                />
+              </div>
+              <div
+                class="inner show"
+                role="listbox"
+                id="bs-select-2"
+                tabindex="-1"
+                style="
+                  max-height: 131.025px;
+                  overflow-y: auto;
+                  min-height: 138px;
+                "
+              >
+                <ul
+                  class="dropdown-menu inner show"
+                  role="presentation"
+                  style="margin-top: 0px; margin-bottom: 0px"
+                >
+                  <li class="">
+                    <a
+                      role="option"
+                      class="dropdown-item"
+                      id="bs-select-2-0"
+                      tabindex="0"
+                      aria-setsize="165"
+                      aria-posinset="1"
+                      ><span class="text">Пазарджик1</span></a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      role="option"
+                      class="dropdown-item"
+                      id="bs-select-2-1"
+                      tabindex="0"
+                      ><span class="text">Пазарджик2</span></a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      role="option"
+                      class="dropdown-item"
+                      id="bs-select-2-2"
+                      tabindex="0"
+                      ><span class="text">Пазарджик3</span></a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      role="option"
+                      class="dropdown-item"
+                      id="bs-select-2-3"
+                      tabindex="0"
+                      aria-setsize="205"
+                      aria-posinset="4"
+                      ><span class="text">Пазарджик4</span></a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      role="option"
+                      class="dropdown-item"
+                      id="bs-select-2-4"
+                      tabindex="0"
+                      aria-setsize="205"
+                      aria-posinset="5"
+                      ><span class="text">Пазарджик5</span></a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      role="option"
+                      class="dropdown-item"
+                      id="bs-select-2-5"
+                      tabindex="0"
+                      aria-setsize="205"
+                      aria-posinset="6"
+                      ><span class="text">Пазарджик6</span></a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      role="option"
+                      class="dropdown-item"
+                      id="bs-select-2-6"
+                      tabindex="0"
+                      aria-setsize="205"
+                      aria-posinset="7"
+                      ><span class="text">Пазарджик7</span></a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      role="option"
+                      class="dropdown-item"
+                      id="bs-select-2-7"
+                      tabindex="0"
+                      aria-setsize="205"
+                      aria-posinset="8"
+                      ><span class="text">Пазарджик8</span></a
+                    >
+                  </li>
+                </ul>
+              </div>
+            </div>
           </div>
-          <!-- Street-->
-          <div class="mb-4">
-            <label class="form-label" for="form_street">Улица</label>
-            <input class="form-control" name="name" id="form_street" />
-          </div>
-          <!-- City + State-->
+          <!-- END Dropdown -->
+
+          <!-- City + ZIP Code-->
           <div class="row">
             <div class="col-md-6">
               <div class="mb-4">
@@ -282,19 +300,15 @@
             </div>
             <div class="col-md-6">
               <div class="mb-4">
-                <label class="form-label" for="form_state">Община</label>
-                <input class="form-control" name="name" id="form_state" />
-              </div>
-            </div>
-          </div>
-          <!-- ZIP Code-->
-          <div class="row">
-            <div class="col-md-6">
-              <div class="mb-4">
                 <label class="form-label" for="form_zip">Пощенски код</label>
                 <input class="form-control" name="name" id="form_zip" />
               </div>
             </div>
+          </div>
+          <!-- Street-->
+          <div class="mb-4">
+            <label class="form-label" for="form_street">Улица</label>
+            <input class="form-control" name="name" id="form_street" />
           </div>
         </div>
       </div>

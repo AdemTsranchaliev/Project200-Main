@@ -13,6 +13,7 @@ export class AddStudioThirdComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+    window.scrollTo(0, 0);
   }
 
   nextPage() {

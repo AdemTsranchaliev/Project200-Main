@@ -6,19 +6,20 @@ import { Component, EventEmitter, OnInit, Output } from '@angular/core';
   styleUrls: ['./add-studio-second.component.css']
 })
 export class AddStudioSecondComponent implements OnInit {
-  
+
   @Output() nextPageEvent = new EventEmitter<string>();
   @Output() previousPageEvent = new EventEmitter<string>();
 
   constructor() { }
 
   ngOnInit(): void {
+    window.scrollTo(0, 0);
   }
 
   nextPage() {
     this.nextPageEvent.next('test 1 2 3 4 5 6 7 ');
   }
-  previousPage(){
+  previousPage() {
     this.previousPageEvent.next('');
   }
 }
