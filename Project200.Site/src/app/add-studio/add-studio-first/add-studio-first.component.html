@@ -1,12 +1,6 @@
 <div class="progress rounded-0 sticky-top" style="height: 8px; top: 71px">
-  <div
-    class="progress-bar"
-    role="progressbar"
-    style="width: 20%"
-    aria-valuenow="20"
-    aria-valuemin="0"
-    aria-valuemax="100"
-  ></div>
+  <div class="progress-bar" role="progressbar" style="width: 20%" aria-valuenow="20" aria-valuemin="0"
+    aria-valuemax="100"></div>
 </div>
 <section class="py-5">
   <div class="container">
@@ -28,25 +22,16 @@
         <div class="col-lg-7 ms-auto">
           <div class="mb-4">
             <label class="form-label" for="form_name">Име на салон</label>
-            <input
-              class="form-control"
-              name="name"
-              id="form_name"
-              formControlName="salonName"
-              [ngClass]="{
+            <input class="form-control" name="name" id="form_name" formControlName="salonName" [ngClass]="{
                 invalid:
                   salonForm.get('salonName')?.touched ||
                   (salonForm.get('salonName')?.dirty &&
                     salonForm.get('salonName')?.valid)
-              }"
-            />
-            <div
-              class="custom-input-alert"
-              *ngIf="
+              }" />
+            <div class="custom-input-alert" *ngIf="
                 salonForm.get('salonName')?.dirty ||
                 salonForm.get('salonName')?.touched
-              "
-            >
+              ">
               <p *ngIf="salonForm.get('salonName')?.errors?.required">
                 Полето е задължително!
               </p>
@@ -54,40 +39,24 @@
           </div>
           <div class="mb-4">
             <label class="form-label" for="form_type">Предлагани услуги</label>
-            <select
-              class="form-control"
-              name="type"
-              id="form_type"
-              data-style="btn-selectpicker"
-              title=""
-              aria-describedby="propertyTypeHelp"
-              onfocus="this.size=5;"
-              onblur="this.size=1;"
-              onchange="this.size=1; this.blur();"
-            >
-              <option value="type_0">Изберете услуги</option>
-              <option value="type_1">Private room</option>
-              <option value="type_2">Shared room</option>
-              <option value="type_3">Shared room 3</option>
-              <option value="type_4">Shared room 4</option>
-              <option value="type_5">Shared room 5</option>
-              <option value="type_6">Shared room 6</option>
-              <option value="type_7">Shared room 7</option>
-              <option value="type_8">Shared room 8</option>
-              <option value="type_9">Shared room 9</option>
+            <div class="m-2">
+              <span class="badge bg-primary m-1" *ngFor='let item of temp'>{{item}} <button
+                  class="btn badge bg-secondary" (click)="test2(item)"><i class="fa fa-times m-1 p-0"
+                    aria-hidden="true"></i>
+                </button></span>
+            </div>
+            <select class="selectpicker form-control" data-live-search="true" [ngModelOptions]="{standalone: true}"
+              [(ngModel)]='inp' (ngModelChange)='test()'>
+              <option selected hidden></option>
+              <option *ngFor="let it of temp2" value="{{it}}">{{it}}</option>
             </select>
+
           </div>
           <div class="mb-4">
             <div class="form-check form-switch">
-              <input
-                class="form-check-input"
-                id="formSwitch"
-                type="checkbox"
-                checked=""
-              />
-              <label class="form-check-label form-label" for="formSwitch"
-                >Желаете ли вашите клиенти да запазват час онлайн?</label
-              >
+              <input class="form-check-input" id="formSwitch" type="checkbox" checked="" />
+              <label class="form-check-label form-label" for="formSwitch">Желаете ли вашите клиенти да запазват час
+                онлайн?</label>
             </div>
           </div>
         </div>
@@ -131,15 +100,8 @@
           <!-- This is new part & need testing -->
           <div class="dropdown bootstrap-select form-control">
             <label class="form-label" for="form_country">Област</label>
-            <select
-              class="selectpicker form-control"
-              name="country"
-              id="form_country"
-              data-style="btn-selectpicker"
-              title=" "
-              data-live-search="true"
-              tabindex="null"
-            >
+            <select class="selectpicker form-control" name="country" id="form_country" data-style="btn-selectpicker"
+              title=" " data-live-search="true" tabindex="null">
               <option class="bs-title-option" value=""></option>
               <option value="country_#{index}">Пазарджик1</option>
               <option value="country_#{index}">Пазарджик2</option>
@@ -150,139 +112,57 @@
               <option value="country_#{index}">Пазарджик7</option>
               <option value="country_#{index}">Пазарджик8</option>
             </select>
-            <button
-              type="button"
-              tabindex="-1"
-              class="btn dropdown-toggle bs-placeholder btn-selectpicker"
-              data-bs-toggle="dropdown"
-              role="combobox"
-              aria-owns="bs-select-2"
-              aria-haspopup="listbox"
-              aria-expanded="false"
-              title=""
-              data-id="form_country"
-            >
+            <button type="button" tabindex="-1" class="btn dropdown-toggle bs-placeholder btn-selectpicker"
+              data-bs-toggle="dropdown" role="combobox" aria-owns="bs-select-2" aria-haspopup="listbox"
+              aria-expanded="false" title="" data-id="form_country">
               <div class="filter-option">
                 <div class="filter-option-inner">
                   <div class="filter-option-inner-inner"></div>
                 </div>
               </div>
             </button>
-            <div
-              class="dropdown-menu"
-              style="max-height: 195.025px; overflow: hidden; min-height: 202px"
-            >
+            <div class="dropdown-menu" style="max-height: 195.025px; overflow: hidden; min-height: 202px">
               <div class="bs-searchbox">
-                <input
-                  type="search"
-                  class="form-control"
-                  autocomplete="off"
-                  role="combobox"
-                  aria-label="Search"
-                  aria-controls="bs-select-2"
-                  aria-autocomplete="list"
-                  aria-activedescendant="bs-select-2-0"
-                />
+                <input type="search" class="form-control" autocomplete="off" role="combobox" aria-label="Search"
+                  aria-controls="bs-select-2" aria-autocomplete="list" aria-activedescendant="bs-select-2-0" />
               </div>
-              <div
-                class="inner show"
-                role="listbox"
-                id="bs-select-2"
-                tabindex="-1"
-                style="
+              <div class="inner show" role="listbox" id="bs-select-2" tabindex="-1" style="
                   max-height: 131.025px;
                   overflow-y: auto;
                   min-height: 138px;
-                "
-              >
-                <ul
-                  class="dropdown-menu inner show"
-                  role="presentation"
-                  style="margin-top: 0px; margin-bottom: 0px"
-                >
+                ">
+                <ul class="dropdown-menu inner show" role="presentation" style="margin-top: 0px; margin-bottom: 0px">
                   <li class="">
-                    <a
-                      role="option"
-                      class="dropdown-item"
-                      id="bs-select-2-0"
-                      tabindex="0"
-                      aria-setsize="165"
-                      aria-posinset="1"
-                      ><span class="text">Пазарджик1</span></a
-                    >
+                    <a role="option" class="dropdown-item" id="bs-select-2-0" tabindex="0" aria-setsize="165"
+                      aria-posinset="1"><span class="text">Пазарджик1</span></a>
                   </li>
                   <li>
-                    <a
-                      role="option"
-                      class="dropdown-item"
-                      id="bs-select-2-1"
-                      tabindex="0"
-                      ><span class="text">Пазарджик2</span></a
-                    >
+                    <a role="option" class="dropdown-item" id="bs-select-2-1" tabindex="0"><span
+                        class="text">Пазарджик2</span></a>
                   </li>
                   <li>
-                    <a
-                      role="option"
-                      class="dropdown-item"
-                      id="bs-select-2-2"
-                      tabindex="0"
-                      ><span class="text">Пазарджик3</span></a
-                    >
+                    <a role="option" class="dropdown-item" id="bs-select-2-2" tabindex="0"><span
+                        class="text">Пазарджик3</span></a>
                   </li>
                   <li>
-                    <a
-                      role="option"
-                      class="dropdown-item"
-                      id="bs-select-2-3"
-                      tabindex="0"
-                      aria-setsize="205"
-                      aria-posinset="4"
-                      ><span class="text">Пазарджик4</span></a
-                    >
+                    <a role="option" class="dropdown-item" id="bs-select-2-3" tabindex="0" aria-setsize="205"
+                      aria-posinset="4"><span class="text">Пазарджик4</span></a>
                   </li>
                   <li>
-                    <a
-                      role="option"
-                      class="dropdown-item"
-                      id="bs-select-2-4"
-                      tabindex="0"
-                      aria-setsize="205"
-                      aria-posinset="5"
-                      ><span class="text">Пазарджик5</span></a
-                    >
+                    <a role="option" class="dropdown-item" id="bs-select-2-4" tabindex="0" aria-setsize="205"
+                      aria-posinset="5"><span class="text">Пазарджик5</span></a>
                   </li>
                   <li>
-                    <a
-                      role="option"
-                      class="dropdown-item"
-                      id="bs-select-2-5"
-                      tabindex="0"
-                      aria-setsize="205"
-                      aria-posinset="6"
-                      ><span class="text">Пазарджик6</span></a
-                    >
+                    <a role="option" class="dropdown-item" id="bs-select-2-5" tabindex="0" aria-setsize="205"
+                      aria-posinset="6"><span class="text">Пазарджик6</span></a>
                   </li>
                   <li>
-                    <a
-                      role="option"
-                      class="dropdown-item"
-                      id="bs-select-2-6"
-                      tabindex="0"
-                      aria-setsize="205"
-                      aria-posinset="7"
-                      ><span class="text">Пазарджик7</span></a
-                    >
+                    <a role="option" class="dropdown-item" id="bs-select-2-6" tabindex="0" aria-setsize="205"
+                      aria-posinset="7"><span class="text">Пазарджик7</span></a>
                   </li>
                   <li>
-                    <a
-                      role="option"
-                      class="dropdown-item"
-                      id="bs-select-2-7"
-                      tabindex="0"
-                      aria-setsize="205"
-                      aria-posinset="8"
-                      ><span class="text">Пазарджик8</span></a
-                    >
+                    <a role="option" class="dropdown-item" id="bs-select-2-7" tabindex="0" aria-setsize="205"
+                      aria-posinset="8"><span class="text">Пазарджик8</span></a>
                   </li>
                 </ul>
               </div>

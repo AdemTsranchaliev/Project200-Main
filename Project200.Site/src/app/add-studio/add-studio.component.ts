@@ -8,8 +8,8 @@ import { Component, OnInit } from '@angular/core';
 export class AddStudioComponent implements OnInit {
 
   stepper = 0;
-
-
+  show: boolean[] = [false, true, true, true, true];
+  
   constructor() { }
 
   ngOnInit(): void {
@@ -17,10 +17,14 @@ export class AddStudioComponent implements OnInit {
   }
 
   nextStep($event: any) {
+    this.show[this.stepper] = true;
     this.stepper++;
+    this.show[this.stepper] = false;
   }
   previousStep($event: any) {
+    this.show[this.stepper] = true;
     this.stepper--;
+    this.show[this.stepper] = false;
   }
 
 }

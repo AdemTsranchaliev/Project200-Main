@@ -15,6 +15,11 @@ export class AddStudioFirstComponent implements OnInit {
 
   @Input() item = '';
 
+  temp: string[] = [];
+  temp2: string[] = ['Маникюр', 'Лазерна епилация', 'Фризъорски салон', 'Подстрижка'];
+
+  inp: string = '';
+
   salonForm = this._formBuilder.group({
     salonName: ['', [Validators.required, Validators.minLength(2), Validators.maxLength(40)]],
   });
@@ -41,6 +46,15 @@ export class AddStudioFirstComponent implements OnInit {
       this.theMarker = L.marker(e.latlng, { draggable: true }).addTo(this.map).bindPopup('Моята локация').openPopup();
       console.log(this.theMarker);
     });
+  }
+
+  test() {
+    console.log(this.inp);
+    this.temp.push(this.inp);
+    this.inp = '';
+  }
+  test2(varr: string) {
+    this.temp.splice(this.temp.findIndex(x => x == varr), 1);
   }
 
   nextPage() {
