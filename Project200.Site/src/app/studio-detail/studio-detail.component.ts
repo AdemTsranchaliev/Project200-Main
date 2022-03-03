@@ -19,6 +19,7 @@ export class StudioDetailComponent implements OnInit {
     this.route.params.subscribe(params => {
       this.http.get<Studio>("api/studio.json").subscribe(x => {
         this.studio = x;
+        console.log(x)
       })
     });
   }
