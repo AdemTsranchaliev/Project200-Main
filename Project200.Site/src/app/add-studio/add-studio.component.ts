@@ -18,11 +18,9 @@ export class AddStudioComponent implements OnInit {
 
   nextStep($event: any) {
     this.stepper++;
-    console.log('next ' + $event);
   }
   previousStep($event: any) {
     this.stepper--;
-    console.log('previous' + $event);
   }
 
 }
