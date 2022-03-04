@@ -1,104 +1,143 @@
-[
-   {
-      "id":"1",
-      "name":"От звяр до красавица",
-      "address":"Михаил Такев 26",
-      "contacts":{
-         "phones":[
-            "0892600221",
-            "0213284239"
+{
+   "id": "1",
+   "tag": "фризьор & маникюр",
+   "name": "От звяр до красавица",
+   "address": "София, Михаил Такев 26",
+   "contacts": {
+      "phones": [
+         "0892600221",
+         "0213284239"
+      ],
+      "email": "studio@abv.bg",
+      "site": "studio.com",
+      "facebook": "facebook.com",
+      "twiter": "twiter.com",
+      "instagram": "instagram.com"
+   },
+   "backgroundImageSource": [
+      "https://i.pinimg.com/564x/a6/dc/48/a6dc4830567c321e5a9448bb3e90df3f.jpg"
+   ],
+   "imageSources": [
+      "https://www.mvsalon.bg/wp-content/uploads/2018/08/mv.jpg",
+      "https://www.mvsalon.bg/wp-content/uploads/2018/08/mv.jpg",
+      "https://www.mvsalon.bg/wp-content/uploads/2018/08/mv.jpg",
+      "https://www.mvsalon.bg/wp-content/uploads/2018/08/mv.jpg",
+      "https://www.mvsalon.bg/wp-content/uploads/2018/08/mv.jpg",
+      "https://www.mvsalon.bg/wp-content/uploads/2018/08/mv.jpg"
+   ],
+   "workingTime": [
+      {
+         "day": "Понеделник",
+         "isWorking": true,
+         "fromTo": [
+            {
+               "key": "08:00",
+               "value": "18:00"
+            }
+         ]
+      },
+      {
+         "day": "Вторник",
+         "isWorking": true,
+         "fromTo": [
+            {
+               "key": "08:00",
+               "value": "18:00"
+            }
+         ]
+      },
+      {
+         "day": "Сряда",
+         "isWorking": true,
+         "fromTo": [
+            {
+               "key": "08:00",
+               "value": "12:00"
+            }
+         ]
+      },
+      {
+         "day": "Петък",
+         "isWorking": false,
+         "fromTo": [
+            {
+               "key": "08:00",
+               "value": "12:00"
+            }
+         ]
+      }
+   ],
+   "description": "Lorem Ipsum е елементарен примерен текст, използван в печатарската и типографската индустрия. Lorem Ipsum е индустриален стандарт от около 1500 година, когато неизвестен печатар взема няколко печатарски букви и ги разбърква, за да напечата с тях книга с примерни шрифтове. Този начин не само е оцелял повече от 5 века, но е навлязъл и в публикуването на електронни издания като е запазен почти без промяна. Популяризиран е през 60те години на 20ти век със издаването на Letraset листи, съдържащи Lorem Ipsum пасажи, популярен е и в наши дни във софтуер за печатни издания като Aldus PageMaker, който включва различни версии на Lorem Ipsum.",
+   "serviceCategory": [
+      {
+         "name": "Маникюр",
+         "services": [
+            {
+               "name": "Маникюр обикновен",
+               "description": "Бля бля бля",
+               "duration": "30",
+               "price": 25
+            },
+            {
+               "name": "Педикюр",
+               "description": "Бля бля бля",
+               "duration": "30",
+               "price": 29.99
+            }
+         ]
+      },
+      {
+         "name": "Подстрижка",
+         "services": [
+            {
+               "name": "Коса и брада",
+               "description": "Бля бля бля",
+               "duration": "20",
+               "price": 45
+            },
+            {
+               "name": "Коса",
+               "description": "Бля бля бля",
+               "duration": "25",
+               "price": 60
+            }
+         ]
+      }
+   ],
+   "map": {
+      "lat": 42.69917,
+      "lng": 23.32250
+   },
+   "amenities": [
+      "Асансьор",
+      "Пушенето забранено",
+      "Платен паркинг",
+      "Хотдог",
+      "WiFi"
+   ],
+   "reviews": [
+      {
+         "name": "Adem Tsranchaliev",
+         "email": "adem@abv.bg",
+         "review": "Чудесно място, препоръчвам го!",
+         "rating": [
+            1,
+            2,
+            3
          ],
-         "email":"studio@abv.bg",
-         "site":"studio.com",
-         "facebook":"facebook.com",
-         "twiter":"twiter.com",
-         "instagram":"instagram.com"
+         "addedOn": "10/10/2021"
       },
-      "imageSources":[
-         "https://www.monitor.bg/web/files/articles/225413/gallery/thumb_1920x1080_1f0730df29a4bf396412755530ab4e4c.jpg"
-      ],
-      "workingTime":[
-         {
-            "day":"Понеделник",
-            "isWorking":true,
-            "fromTo":[
-               {
-                  "key":"08:00",
-                  "value":"18:00"
-               }
-            ]
-         },
-         {
-            "day":"Вторник",
-            "isWorking":true,
-            "fromTo":[
-               {
-                  "key":"08:00",
-                  "value":"18:00"
-               }
-            ]
-         },
-         {
-            "day":"Сряда",
-            "isWorking":true,
-            "fromTo":[
-               {
-                  "key":"08:00",
-                  "value":"12:00"
-               }
-            ]
-         }
-      ],
-      "description":"Много добър салон, номер 1, браво",
-      "imageSources":"",
-      "serviceCategory":[
-         {
-            "name":"Маникюр",
-            "services":[
-               {
-                  "name":"Маникюр обикновен",
-                  "description":"Бля бля бля",
-                  "duration":"30",
-                  "price":25
-               },
-               {
-                  "name":"Педикюр",
-                  "description":"Бля бля бля",
-                  "duration":"30",
-                  "price":29.99
-               }
-            ]
-         },
-         {
-            "name":"Подстрижка",
-            "services":[
-               {
-                  "name":"Коса и брада",
-                  "description":"Бля бля бля",
-                  "duration":"20",
-                  "price":45
-               },
-               {
-                  "name":"Коса",
-                  "description":"Бля бля бля",
-                  "duration":"25",
-                  "price":60
-               }
-            ]
-         }
-      ],
-      "map":{
-         "lat":42.029021,
-         "lng":24.296614
-      },
-      "reviews":[
-         {
-            "name":"Adem Tsranchaliev",
-            "email":"adem@abv.bg",
-            "review":"Top place",
-            "rating":3,
-            "addedOn":"10/10/2021"
-         }
-      ]
-   }
-]
+      {
+         "name": "John Doe",
+         "email": "john@mail.bg",
+         "review": "Чудесно място, препоръчвам го!",
+         "rating": [
+            1,
+            2,
+            3,
+            4
+         ],
+         "addedOn": "4/10/2021"
+      }
+   ]
+}

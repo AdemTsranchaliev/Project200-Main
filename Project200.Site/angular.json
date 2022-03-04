@@ -41,13 +41,8 @@
               "./node_modules/bootstrap-select/dist/js/bootstrap-select.min.js",
               "./node_modules/object-fit-images/dist/ofi.min.js",
               "./node_modules/nouislider/dist/nouislider.min.js",
-
               "./node_modules/dropzone/dist/min/dropzone.min.js",
               "./node_modules/dropzone/dist/min/dropzone-amd-module.min.js",
-              
-              "./src/assets/vendor/dropzone/min/dropzone.min.js",
-              "./src/assets/vendor/dropzone/min/dropzone-amd-module.min.js",
-              
               "./src/assets/js/theme.js",
               "./src/assets/js/map-layers.js",
               "./src/assets/js/map-detail.js",
