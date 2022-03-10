@@ -53,12 +53,13 @@ export class AddStudioFirstComponent implements OnInit {
     this.temp.push(this.inp);
     this.inp = '';
   }
+
   test2(varr: string) {
     this.temp.splice(this.temp.findIndex(x => x == varr), 1);
   }
 
   nextPage() {
-    this.nextPageEvent.next('test 1 2 3 4 5 6 7 ');
+    this.nextPageEvent.next('');
   }
   previousPage() {
     this.previousPageEvent.next('');
