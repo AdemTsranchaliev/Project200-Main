@@ -21,11 +21,13 @@ export class StudioDetailComponent implements OnInit {
     this.route.params.subscribe(params => {
       this.http.get<Studio>("api/studio.json").subscribe(x => {
         this.studio = x;
-        
+
         // console.log(this.studio?.workingTime?.fromTo);
 
-        this.map = Leaflet.map('detailMapStudio').setView([this.studio.map.lat, this.studio.map.lng], 7);
-        Leaflet.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png').addTo(this.map);
+        this.map = Leaflet.map('detail-map-studio').setView([this.studio.map.lat, this.studio.map.lng], 7);
+        Leaflet.tileLayer('https://api.maptiler.com/maps/openstreetmap/{z}/{x}/{y}.jpg?key=4qv5M5kkcFMGvn0T4xhj', {
+          attribution: '<a href="https://www.maptiler.com/copyright/" target="_blank">&copy; MapTiler</a> <a href="https://www.openstreetmap.org/copyright" target="_blank">&copy; OpenStreetMap contributors</a>'
+        }).addTo(this.map);
 
         Leaflet.marker([this.studio.map.lat, this.studio.map.lng]).addTo(this.map).bindPopup('Име на салон').openPopup();
       });

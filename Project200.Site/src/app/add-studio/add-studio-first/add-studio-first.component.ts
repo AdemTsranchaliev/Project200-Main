@@ -22,6 +22,9 @@ export class AddStudioFirstComponent implements OnInit {
 
   salonForm = this._formBuilder.group({
     salonName: ['', [Validators.required, Validators.minLength(2), Validators.maxLength(40)]],
+    city: ['', [Validators.required, Validators.minLength(3), Validators.maxLength(20)]],
+    postCode: ['', [Validators.required, Validators.pattern("^[0-9]*$"), Validators.minLength(4), Validators.maxLength(4)]],
+    street: ['', [Validators.required, Validators.minLength(4), Validators.maxLength(60)]],
   });
 
   constructor(private _formBuilder: FormBuilder) { }
@@ -32,8 +35,10 @@ export class AddStudioFirstComponent implements OnInit {
   ngOnInit(): void {
     window.scrollTo(0, 0);
 
-    this.map = Leaflet.map('map').setView([42.67510859030425, 25.877197156660262], 7);
-    Leaflet.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png').addTo(this.map);
+    this.map = Leaflet.map('add-studio-map').setView([42.67510859030425, 25.877197156660262], 7);
+    Leaflet.tileLayer('https://api.maptiler.com/maps/openstreetmap/{z}/{x}/{y}.jpg?key=4qv5M5kkcFMGvn0T4xhj', {
+      attribution: '<a href="https://www.maptiler.com/copyright/" target="_blank">&copy; MapTiler</a> <a href="https://www.openstreetmap.org/copyright" target="_blank">&copy; OpenStreetMap contributors</a>'
+    }).addTo(this.map);
 
     Leaflet.marker([42.2, 24.33333]).addTo(this.map).bindPopup('Пазарджик').openPopup();
 
