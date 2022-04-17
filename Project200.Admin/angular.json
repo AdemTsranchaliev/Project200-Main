@@ -27,9 +27,11 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.css",
-              "./src/assets/css/custom.css",
-              "./src/assets/css/maps/jquery-jvectormap-2.0.3.css"
+              "./src/assets/vendors/bootstrap/dist/css/bootstrap.min.css",
+              "./src/assets/vendors/bootstrap/dist/css/bootstrap-theme.min.css",
+              "./src/assets/vendors/font-awesome/css/font-awesome.min.css",
+              "./src/assets/css/maps/jquery-jvectormap-2.0.3.css",
+              "./src/assets/css/custom.min.css"
             ],
             "scripts": [
               "./src/assets/js/helpers/smartresize.js",
