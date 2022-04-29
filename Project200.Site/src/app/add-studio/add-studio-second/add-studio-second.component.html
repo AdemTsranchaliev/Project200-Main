@@ -8,7 +8,7 @@
     <h1 class="h2 mb-5">
       Текстова част <span class="text-muted float-end">Втора стъпка</span>
     </h1>
-    <form>
+    <form [formGroup]="salonForm" (ngSubmit)="onSubmit()">
       <div class="row form-block">
         <div class="col-lg-4">
           <h4>Описание</h4>
@@ -21,20 +21,86 @@
         <div class="col-lg-7 ms-auto">
           <div class="mb-5">
             <label class="form-label" for="form_description">
-              Напишете информация за вашия салон</label>
-            <textarea class="form-control" name="name" id="form_description" rows="5"
-              aria-describedby="descriptionHelp"></textarea><small class="form-text text-muted mt-2"
-              id="descriptionHelp">The bedding was hardly able to cover it and seemed ready to slide
+              Напишете информация за вашия салон</label
+            >
+            <textarea
+              class="form-control"
+              name="name"
+              id="form_description"
+              rows="5"
+              aria-describedby="descriptionHelp"
+              formControlName="salonInformation"
+              [ngClass]="{
+                invalid:
+                  salonForm.get('salonInformation')?.touched ||
+                  (salonForm.get('salonInformation')?.dirty &&
+                    salonForm.get('salonInformation')?.valid)
+              }"
+            >
+            </textarea>
+            <div
+              class="custom-input-alert"
+              *ngIf="
+                salonForm.get('salonInformation')?.dirty ||
+                salonForm.get('salonInformation')?.touched
+              "
+            >
+              <p *ngIf="salonForm.get('salonInformation')?.errors?.required">
+                Полето е задължително!
+              </p>
+              <p
+                *ngIf="
+                  salonForm.get('salonInformation')?.errors?.minlength ||
+                  salonForm.get('salonInformation')?.errors?.maxlength
+                "
+              >
+                Полето трябва да съдържа между 60 и 400 символа!
+              </p>
+            </div>
+            <small class="form-text text-muted mt-2" id="descriptionHelp"
+              >The bedding was hardly able to cover it and seemed ready to slide
               off any moment. His many legs, pitifully thin compared with the
               size of the rest of him, waved about helplessly as he looked.
               &quot;What's happened to me?&quot; he thought. It wasn't a dream.
             </small>
           </div>
           <div class="mb-5">
-            <label class="form-label" for="form_availability">Напишете вашия слоган /опционално/</label>
-            <textarea class="form-control" name="name" id="form_availability" rows="3"
-              aria-describedby="availabilityHelp"></textarea><small class="form-text text-muted mt-2"
-              id="availabilityHelp">His room, a proper human room although a little too small, lay
+            <label class="form-label" for="form_availability"
+              >Напишете вашия слоган /опционално/</label
+            >
+            <textarea
+              class="form-control"
+              name="name"
+              id="form_availability"
+              rows="3"
+              aria-describedby="availabilityHelp"
+              formControlName="slogan"
+              [ngClass]="{
+                invalid:
+                  salonForm.get('slogan')?.touched ||
+                  (salonForm.get('slogan')?.dirty &&
+                    salonForm.get('slogan')?.valid)
+              }"
+            >
+            </textarea>
+            <div
+              class="custom-input-alert"
+              *ngIf="
+                salonForm.get('slogan')?.dirty ||
+                salonForm.get('slogan')?.touched
+              "
+            >
+              <p
+                *ngIf="
+                  salonForm.get('slogan')?.errors?.minlength ||
+                  salonForm.get('slogan')?.errors?.maxlength
+                "
+              >
+                Полето трябва да съдържа между 10 и 80 символа!
+              </p>
+            </div>
+            <small class="form-text text-muted mt-2" id="availabilityHelp"
+              >His room, a proper human room although a little too small, lay
               peacefully between its four familiar walls. A collection of
               textile samples lay spread out on the table.
             </small>

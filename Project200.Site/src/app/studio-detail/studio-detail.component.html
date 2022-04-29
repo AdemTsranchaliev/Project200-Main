@@ -49,7 +49,7 @@
           <!-- Listing Location-->
           <h3 class="mb-4">Локация</h3>
           <div class="map-wrapper-300 mb-3">
-            <div class="h-100" id="detailMapStudio"></div>
+            <div class="h-100" id="detail-map-studio"></div>
           </div>
         </div>
         <div class="text-block">
@@ -210,7 +210,6 @@
                   <th class="ps-0">{{ workingTime.day }}</th>
                   <td class="pe-0 text-end" *ngIf="workingTime.isWorking">{{ workingTime.fromTo }}</td>
                   <td class="pe-0 text-end" *ngIf="!workingTime.isWorking">Затворено</td>
-
                 </tr>
               </table>
             </div>
@@ -232,46 +231,46 @@
             </div>
             <div class="card-body">
               <ul class="list-unstyled mb-4">
-                <li class="mb-2">
+                <li class="mb-2" *ngFor="let phone of studio?.contacts?.phones">
                   <a class="text-gray-00 text-sm text-decoration-none" href="#"
                     ><i class="fa fa-phone me-3"></i
-                    ><span class="text-muted">(020) 123 456 789</span></a
+                    ><span class="text-muted">{{ phone }}</span></a
                   >
                 </li>
-                <li class="mb-2">
+                <li class="mb-2" *ngFor="let email of studio?.contacts?.email">
                   <a class="text-sm text-decoration-none" href="#"
                     ><i class="fa fa-envelope me-3"></i
-                    ><span class="text-muted">info@example.com</span></a
+                    ><span class="text-muted">{{ email }}</span></a
                   >
                 </li>
                 <li class="mb-2">
                   <a class="text-sm text-decoration-none" href="#"
                     ><i class="fa fa-globe me-3"></i
-                    ><span class="text-muted">www.example.com</span></a
+                    ><span class="text-muted">{{ studio?.contacts?.site }}</span></a
                   >
                 </li>
                 <li class="mb-2">
                   <a class="text-blue text-sm text-decoration-none" href="#"
                     ><i class="fab fa-facebook me-3"></i
-                    ><span class="text-muted">Facebook</span></a
+                    ><span class="text-muted">{{ studio?.contacts?.facebook }}</span></a
                   >
                 </li>
                 <li class="mb-2">
                   <a class="text-sm text-decoration-none" href="#"
                     ><i class="fab fa-twitter me-3"></i
-                    ><span class="text-muted">Twitter</span></a
+                    ><span class="text-muted">{{ studio?.contacts?.twitter }}</span></a
                   >
                 </li>
                 <li class="mb-2">
                   <a class="text-sm text-decoration-none" href="#"
                     ><i class="fab fa-instagram me-3"></i
-                    ><span class="text-muted">Instagram</span></a
+                    ><span class="text-muted">{{ studio?.contacts?.instagram }}</span></a
                   >
                 </li>
                 <li class="mb-2">
                   <a class="text-sm text-decoration-none" href="#"
                     ><i class="fab fa-google-plus me-3"></i
-                    ><span class="text-muted">Google+</span></a
+                    ><span class="text-muted">{{ studio?.contacts?.googlePlus }}</span></a
                   >
                 </li>
               </ul>
@@ -332,13 +331,6 @@
                   <div class="badge badge-transparent badge-pill px-3 py-2">
                     Restaurants
                   </div>
-                  <a
-                    class="card-fav-icon position-relative z-index-40"
-                    href="javascript: void();"
-                  >
-                    <svg class="svg-icon text-white">
-                      <use xlink:href="#heart-1"></use></svg
-                  ></a>
                 </div>
               </div>
               <div class="card-body">
@@ -385,13 +377,6 @@
                   <div class="badge badge-transparent badge-pill px-3 py-2">
                     Restaurant
                   </div>
-                  <a
-                    class="card-fav-icon position-relative z-index-40"
-                    href="javascript: void();"
-                  >
-                    <svg class="svg-icon text-white">
-                      <use xlink:href="#heart-1"></use></svg
-                  ></a>
                 </div>
               </div>
               <div class="card-body">
@@ -438,13 +423,6 @@
                   <div class="badge badge-transparent badge-pill px-3 py-2">
                     Music club
                   </div>
-                  <a
-                    class="card-fav-icon position-relative z-index-40"
-                    href="javascript: void();"
-                  >
-                    <svg class="svg-icon text-white">
-                      <use xlink:href="#heart-1"></use></svg
-                  ></a>
                 </div>
               </div>
               <div class="card-body">
@@ -493,13 +471,6 @@
                   <div class="badge badge-transparent badge-pill px-3 py-2">
                     Music club
                   </div>
-                  <a
-                    class="card-fav-icon position-relative z-index-40"
-                    href="javascript: void();"
-                  >
-                    <svg class="svg-icon text-white">
-                      <use xlink:href="#heart-1"></use></svg
-                  ></a>
                 </div>
               </div>
               <div class="card-body">
@@ -547,13 +518,6 @@
                   <div class="badge badge-transparent badge-pill px-3 py-2">
                     Restaurant
                   </div>
-                  <a
-                    class="card-fav-icon position-relative z-index-40"
-                    href="javascript: void();"
-                  >
-                    <svg class="svg-icon text-white">
-                      <use xlink:href="#heart-1"></use></svg
-                  ></a>
                 </div>
               </div>
               <div class="card-body">
@@ -601,13 +565,6 @@
                   <div class="badge badge-transparent badge-pill px-3 py-2">
                     Café
                   </div>
-                  <a
-                    class="card-fav-icon position-relative z-index-40"
-                    href="javascript: void();"
-                  >
-                    <svg class="svg-icon text-white">
-                      <use xlink:href="#heart-1"></use></svg
-                  ></a>
                 </div>
               </div>
               <div class="card-body">

@@ -8,11 +8,14 @@
          "0892600221",
          "0213284239"
       ],
-      "email": "studio@abv.bg",
-      "site": "studio.com",
-      "facebook": "facebook.com",
-      "twiter": "twiter.com",
-      "instagram": "instagram.com"
+      "email": [
+         "studio@abv.bg"
+      ],
+      "site": "www.example-studio.com",
+      "facebook": "Facebook",
+      "twitter": "Twitter",
+      "instagram": "Instagram",
+      "googlePlus": "studio@gmail.com"
    },
    "backgroundImageSource": [
       "https://i.pinimg.com/564x/a6/dc/48/a6dc4830567c321e5a9448bb3e90df3f.jpg"

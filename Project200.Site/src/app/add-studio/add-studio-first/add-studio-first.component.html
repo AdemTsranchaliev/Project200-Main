@@ -1,6 +1,12 @@
 <div class="progress rounded-0 sticky-top" style="height: 8px; top: 71px">
-  <div class="progress-bar" role="progressbar" style="width: 20%" aria-valuenow="20" aria-valuemin="0"
-    aria-valuemax="100"></div>
+  <div
+    class="progress-bar"
+    role="progressbar"
+    style="width: 20%"
+    aria-valuenow="20"
+    aria-valuemin="0"
+    aria-valuemax="100"
+  ></div>
 </div>
 <section class="py-5">
   <div class="container">
@@ -21,42 +27,72 @@
         </div>
         <div class="col-lg-7 ms-auto">
           <div class="mb-4">
-            <label class="form-label" for="form_name">Име на студио</label>
-            <input class="form-control" name="name" id="form_name" formControlName="salonName" [ngClass]="{
+            <label class="form-label" for="form_name">Име на салон</label>
+            <input
+              class="form-control"
+              name="name"
+              id="form_name"
+              formControlName="salonName"
+              [ngClass]="{
                 invalid:
                   salonForm.get('salonName')?.touched ||
                   (salonForm.get('salonName')?.dirty &&
                     salonForm.get('salonName')?.valid)
-              }" />
-            <div class="custom-input-alert" *ngIf="
+              }"
+            />
+            <div
+              class="custom-input-alert"
+              *ngIf="
                 salonForm.get('salonName')?.dirty ||
                 salonForm.get('salonName')?.touched
-              ">
+              "
+            >
               <p *ngIf="salonForm.get('salonName')?.errors?.required">
                 Полето е задължително!
+              </p>
+              <p
+                *ngIf="
+                  salonForm.get('salonName')?.errors?.minlength ||
+                  salonForm.get('salonName')?.errors?.maxlength
+                "
+              >
+                Името трябва да бъде между 2 и 40 символа!
               </p>
             </div>
           </div>
           <div class="mb-4">
             <label class="form-label" for="form_type">Предлагани услуги</label>
             <div class="m-2">
-              <span class="badge bg-primary m-1" *ngFor='let item of temp'>{{item}} <button
-                  class="btn badge bg-secondary" (click)="removeTag(item)"><i class="fa fa-times m-1 p-0"
-                    aria-hidden="true"></i>
-                </button></span>
+              <span class="badge bg-primary m-1" *ngFor="let item of temp"
+                >{{ item }}
+                <button class="btn badge bg-secondary" (click)="test2(item)">
+                  <i class="fa fa-times m-1 p-0" aria-hidden="true"></i></button
+              ></span>
             </div>
-            <select class="selectpicker form-control" data-live-search="true"  data-size="5"  [ngModelOptions]="{standalone: true}"
-              [(ngModel)]='inp' (ngModelChange)='addServiceTag()'>
-              <option selected hidden value="-1">Изберете услуга</option>
-              <option *ngFor="let it of temp2" value="{{it}}">{{it}}</option>
+            <select
+              class="selectpicker form-control"
+              data-live-search="true"
+              [ngModelOptions]="{ standalone: true }"
+              [(ngModel)]="inp"
+              (ngModelChange)="test()"
+            >
+              <option selected hidden></option>
+              <option *ngFor="let it of temp2" value="{{ it }}">
+                {{ it }}
+              </option>
             </select>
-
           </div>
           <div class="mb-4">
             <div class="form-check form-switch">
-              <input class="form-check-input" id="formSwitch" type="checkbox" checked="" />
-              <label class="form-check-label form-label" for="formSwitch">Желаете ли вашите клиенти да запазват час
-                онлайн?</label>
+              <input
+                class="form-check-input"
+                id="formSwitch"
+                type="checkbox"
+                checked=""
+              />
+              <label class="form-check-label form-label" for="formSwitch"
+                >Желаете ли вашите клиенти да запазват часове онлайн?</label
+              >
             </div>
           </div>
         </div>
@@ -72,49 +108,130 @@
           </p>
         </div>
         <div class="col-lg-7 ms-auto">
-          <!-- This is new part & need testing -->
-          <div class="mb-4">
-            <label class="form-label" for="form_type">Област</label>
-          
-            <select class="selectpicker form-control" data-size="5" data-live-search="true" [ngModelOptions]="{standalone: true}"
-              [(ngModel)]='inp' (ngModelChange)='oblastAdded()' >
-              <option selected hidden value="-1">Изберете услуга</option>
-              <option *ngFor="let it of oblasti" value="{{it.name}}">{{it.name}}</option>
+          <!-- START Dropdown -->
+          <div class="dropdown bootstrap-select form-control">
+            <label class="form-label" for="form_country">Област</label>
+            <select
+              class="selectpicker form-control"
+              name="country"
+              id="form_country"
+              data-style="btn-selectpicker"
+              title=" "
+              data-live-search="true"
+              tabindex="null"
+            >
+              <option class="bs-title-option" value=""></option>
+              <option value="country_#{index}">Пазарджик1</option>
+              <option value="country_#{index}">Пазарджик2</option>
+              <option value="country_#{index}">Пазарджик3</option>
+              <option value="country_#{index}">Пазарджик4</option>
+              <option value="country_#{index}">Пазарджик5</option>
+              <option value="country_#{index}">Пазарджик6</option>
+              <option value="country_#{index}">Пазарджик7</option>
+              <option value="country_#{index}">Пазарджик8</option>
             </select>
           </div>
           <!-- END Dropdown -->
-
           <!-- City + ZIP Code-->
           <div class="row">
             <div class="col-md-6">
               <div class="mb-4">
-                <label class="form-label" for="form_type">Град</label>
-              
-                <select class="selectpicker form-control" data-size="5"  data-live-search="true" [ngModelOptions]="{standalone: true}"
-                  [(ngModel)]='oblast' (ngModelChange)='oblastAdded()'>
-                  <option selected hidden value="-1">Изберете услуга</option>
-                  <option *ngFor="let it of gradove" value="{{it.name}}">{{it.name}}</option>
-                </select>
+                <label class="form-label" for="form_city">Град</label>
+                <input
+                  class="form-control"
+                  name="name"
+                  id="form_city"
+                  formControlName="city"
+                  [ngClass]="{
+                    invalid:
+                      salonForm.get('city')?.touched ||
+                      (salonForm.get('city')?.dirty &&
+                        salonForm.get('city')?.valid)
+                  }"
+                />
+                <div
+                  class="custom-input-alert"
+                  *ngIf="
+                    salonForm.get('city')?.dirty ||
+                    salonForm.get('city')?.touched
+                  "
+                >
+                  <p *ngIf="salonForm.get('city')?.errors?.required">
+                    Полето е задължително!
+                  </p>
+                </div>
               </div>
             </div>
             <div class="col-md-6">
               <div class="mb-4">
                 <label class="form-label" for="form_zip">Пощенски код</label>
-                <input class="form-control" name="name" id="form_zip" />
+                <input
+                  class="form-control"
+                  name="name"
+                  id="form_zip"
+                  formControlName="postCode"
+                  [ngClass]="{
+                    invalid:
+                      salonForm.get('postCode')?.touched ||
+                      (salonForm.get('postCode')?.dirty &&
+                        salonForm.get('postCode')?.valid)
+                  }"
+                />
+                <div
+                  class="custom-input-alert"
+                  *ngIf="
+                    salonForm.get('postCode')?.dirty ||
+                    salonForm.get('postCode')?.touched
+                  "
+                >
+                  <p *ngIf="salonForm.get('postCode')?.errors?.required">
+                    Полето е задължително!
+                  </p>
+                  <p
+                    *ngIf="
+                      salonForm.get('postCode')?.errors?.minlength ||
+                      salonForm.get('postCode')?.errors?.maxlength ||
+                      salonForm.get('postCode')?.errors?.pattern
+                    "
+                  >
+                    Полето трабва да съдържа точно 4 числа!
+                  </p>
+                </div>
               </div>
             </div>
           </div>
           <!-- Street-->
           <div class="mb-4">
             <label class="form-label" for="form_street">Улица</label>
-            <input class="form-control" name="name" id="form_street" />
+            <input
+              class="form-control"
+              name="name"
+              id="form_street"
+              formControlName="street"
+              [ngClass]="{
+                invalid:
+                  salonForm.get('street')?.touched ||
+                  (salonForm.get('street')?.dirty &&
+                    salonForm.get('street')?.valid)
+              }"
+            />
+            <div
+              class="custom-input-alert"
+              *ngIf="
+                salonForm.get('street')?.dirty ||
+                salonForm.get('street')?.touched
+              "
+            >
+              <p *ngIf="salonForm.get('street')?.errors?.required">
+                Полето е задължително!
+              </p>
+            </div>
           </div>
         </div>
       </div>
       <section>
         <div class="map-wrapper-450">
-          <div class="h-100" id="map" leaflet
-          (leafletMapReady)="onMapReady()"></div>
+          <div class="h-100" id="add-studio-map"></div>
         </div>
       </section>
       <div class="row form-block flex-column flex-sm-row">
