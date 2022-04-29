@@ -27,7 +27,7 @@ export class AddStudioSecondComponent implements OnInit {
 
   generateTimes() {
     for (let i = 0; i <= 86400; i += 1800) {
-      this.availableTimes.push(this.secondsToHms(i));
+     // this.availableTimes.push(this.secondsToHms(i));
     }
   }
   secondsToHms(d: number) {

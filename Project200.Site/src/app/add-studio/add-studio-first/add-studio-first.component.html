@@ -65,7 +65,7 @@
             <div class="m-2">
               <span class="badge bg-primary m-1" *ngFor="let item of temp"
                 >{{ item }}
-                <button class="btn badge bg-secondary" (click)="test2(item)">
+                <button class="btn badge bg-secondary" >
                   <i class="fa fa-times m-1 p-0" aria-hidden="true"></i></button
               ></span>
             </div>
@@ -74,7 +74,7 @@
               data-live-search="true"
               [ngModelOptions]="{ standalone: true }"
               [(ngModel)]="inp"
-              (ngModelChange)="test()"
+              
             >
               <option selected hidden></option>
               <option *ngFor="let it of temp2" value="{{ it }}">
