@@ -4,7 +4,7 @@
 </div>
 <section class="py-5">
   <div class="container">
-    <p class="subtitle text-primary">Добавяне на салон</p>
+    <p class="subtitle text-primary">Добавяне на студио</p>
     <h1 class="h2 mb-5">
       Основна информация <span class="text-muted float-end">Първа стъпка</span>
     </h1>
@@ -21,7 +21,7 @@
         </div>
         <div class="col-lg-7 ms-auto">
           <div class="mb-4">
-            <label class="form-label" for="form_name">Име на салон</label>
+            <label class="form-label" for="form_name">Име на студио</label>
             <input class="form-control" name="name" id="form_name" formControlName="salonName" [ngClass]="{
                 invalid:
                   salonForm.get('salonName')?.touched ||
@@ -41,13 +41,13 @@
             <label class="form-label" for="form_type">Предлагани услуги</label>
             <div class="m-2">
               <span class="badge bg-primary m-1" *ngFor='let item of temp'>{{item}} <button
-                  class="btn badge bg-secondary" (click)="test2(item)"><i class="fa fa-times m-1 p-0"
+                  class="btn badge bg-secondary" (click)="removeTag(item)"><i class="fa fa-times m-1 p-0"
                     aria-hidden="true"></i>
                 </button></span>
             </div>
-            <select class="selectpicker form-control" data-live-search="true" [ngModelOptions]="{standalone: true}"
-              [(ngModel)]='inp' (ngModelChange)='test()'>
-              <option selected hidden></option>
+            <select class="selectpicker form-control" data-live-search="true"  data-size="5"  [ngModelOptions]="{standalone: true}"
+              [(ngModel)]='inp' (ngModelChange)='addServiceTag()'>
+              <option selected hidden value="-1">Изберете услуга</option>
               <option *ngFor="let it of temp2" value="{{it}}">{{it}}</option>
             </select>
 
@@ -72,101 +72,15 @@
           </p>
         </div>
         <div class="col-lg-7 ms-auto">
-          <!-- START Dropdown -->
-
-          <!-- This part works & it is older one -->
-          <!-- Country-->
-          <!-- <div class="mb-4">
-            <label class="form-label" for="form_country">Област</label>
-            <select
-              class="selectpicker form-control"
-              name="country"
-              id="form_country"
-              data-style="btn-selectpicker"
-              title=" "
-              data-live-search="true"
-            >
-              <option value="country_#{index}">Пазарджик</option>
-              <option value="country_#{index}">Afghanistan</option>
-              <option value="country_#{index}">Albania</option>
-              <option value="country_#{index}">Algeria</option>
-              <option value="country_#{index}">Andorra</option>
-              <option value="country_#{index}">Angola</option>
-              <option value="country_#{index}">Anguilla</option>
-              <option value="country_#{index}">Antigua &amp; Barbuda</option>
-            </select>
-          </div> -->
-
           <!-- This is new part & need testing -->
-          <div class="dropdown bootstrap-select form-control">
-            <label class="form-label" for="form_country">Област</label>
-            <select class="selectpicker form-control" name="country" id="form_country" data-style="btn-selectpicker"
-              title=" " data-live-search="true" tabindex="null">
-              <option class="bs-title-option" value=""></option>
-              <option value="country_#{index}">Пазарджик1</option>
-              <option value="country_#{index}">Пазарджик2</option>
-              <option value="country_#{index}">Пазарджик3</option>
-              <option value="country_#{index}">Пазарджик4</option>
-              <option value="country_#{index}">Пазарджик5</option>
-              <option value="country_#{index}">Пазарджик6</option>
-              <option value="country_#{index}">Пазарджик7</option>
-              <option value="country_#{index}">Пазарджик8</option>
+          <div class="mb-4">
+            <label class="form-label" for="form_type">Област</label>
+          
+            <select class="selectpicker form-control" data-size="5" data-live-search="true" [ngModelOptions]="{standalone: true}"
+              [(ngModel)]='inp' (ngModelChange)='oblastAdded()' >
+              <option selected hidden value="-1">Изберете услуга</option>
+              <option *ngFor="let it of oblasti" value="{{it.name}}">{{it.name}}</option>
             </select>
-            <button type="button" tabindex="-1" class="btn dropdown-toggle bs-placeholder btn-selectpicker"
-              data-bs-toggle="dropdown" role="combobox" aria-owns="bs-select-2" aria-haspopup="listbox"
-              aria-expanded="false" title="" data-id="form_country">
-              <div class="filter-option">
-                <div class="filter-option-inner">
-                  <div class="filter-option-inner-inner"></div>
-                </div>
-              </div>
-            </button>
-            <div class="dropdown-menu" style="max-height: 195.025px; overflow: hidden; min-height: 202px">
-              <div class="bs-searchbox">
-                <input type="search" class="form-control" autocomplete="off" role="combobox" aria-label="Search"
-                  aria-controls="bs-select-2" aria-autocomplete="list" aria-activedescendant="bs-select-2-0" />
-              </div>
-              <div class="inner show" role="listbox" id="bs-select-2" tabindex="-1" style="
-                  max-height: 131.025px;
-                  overflow-y: auto;
-                  min-height: 138px;
-                ">
-                <ul class="dropdown-menu inner show" role="presentation" style="margin-top: 0px; margin-bottom: 0px">
-                  <li class="">
-                    <a role="option" class="dropdown-item" id="bs-select-2-0" tabindex="0" aria-setsize="165"
-                      aria-posinset="1"><span class="text">Пазарджик1</span></a>
-                  </li>
-                  <li>
-                    <a role="option" class="dropdown-item" id="bs-select-2-1" tabindex="0"><span
-                        class="text">Пазарджик2</span></a>
-                  </li>
-                  <li>
-                    <a role="option" class="dropdown-item" id="bs-select-2-2" tabindex="0"><span
-                        class="text">Пазарджик3</span></a>
-                  </li>
-                  <li>
-                    <a role="option" class="dropdown-item" id="bs-select-2-3" tabindex="0" aria-setsize="205"
-                      aria-posinset="4"><span class="text">Пазарджик4</span></a>
-                  </li>
-                  <li>
-                    <a role="option" class="dropdown-item" id="bs-select-2-4" tabindex="0" aria-setsize="205"
-                      aria-posinset="5"><span class="text">Пазарджик5</span></a>
-                  </li>
-                  <li>
-                    <a role="option" class="dropdown-item" id="bs-select-2-5" tabindex="0" aria-setsize="205"
-                      aria-posinset="6"><span class="text">Пазарджик6</span></a>
-                  </li>
-                  <li>
-                    <a role="option" class="dropdown-item" id="bs-select-2-6" tabindex="0" aria-setsize="205"
-                      aria-posinset="7"><span class="text">Пазарджик7</span></a>
-                  </li>
-                  <li>
-                    <a role="option" class="dropdown-item" id="bs-select-2-7" tabindex="0" aria-setsize="205"
-                      aria-posinset="8"><span class="text">Пазарджик8</span></a>
-                  </li>
-                </ul>
-              </div>
-            </div>
           </div>
           <!-- END Dropdown -->
 
@@ -174,8 +88,13 @@
           <div class="row">
             <div class="col-md-6">
               <div class="mb-4">
-                <label class="form-label" for="form_city">Град</label>
-                <input class="form-control" name="name" id="form_city" />
+                <label class="form-label" for="form_type">Град</label>
+              
+                <select class="selectpicker form-control" data-size="5"  data-live-search="true" [ngModelOptions]="{standalone: true}"
+                  [(ngModel)]='oblast' (ngModelChange)='oblastAdded()'>
+                  <option selected hidden value="-1">Изберете услуга</option>
+                  <option *ngFor="let it of gradove" value="{{it.name}}">{{it.name}}</option>
+                </select>
               </div>
             </div>
             <div class="col-md-6">
@@ -194,7 +113,8 @@
       </div>
       <section>
         <div class="map-wrapper-450">
-          <div class="h-100" id="map"></div>
+          <div class="h-100" id="map" leaflet
+          (leafletMapReady)="onMapReady()"></div>
         </div>
       </section>
       <div class="row form-block flex-column flex-sm-row">

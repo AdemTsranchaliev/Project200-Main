@@ -1,3 +1,4 @@
+import { Time } from '@angular/common';
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 
 @Component({
@@ -9,13 +10,30 @@ export class AddStudioSecondComponent implements OnInit {
 
   @Output() nextPageEvent = new EventEmitter<string>();
   @Output() previousPageEvent = new EventEmitter<string>();
-
+  availableTimes: string[] = [];
+  days: string[] = ['Понеделник', 'Вторник', 'Сряда', 'Четвъртък', 'Петък', 'Събота', 'Неделя'];
   constructor() { }
 
   ngOnInit(): void {
+
+    this.generateTimes();
     window.scrollTo(0, 0);
   }
 
+  generateTimes() {
+    for (let i = 0; i <= 86400; i += 1800) {
+      this.availableTimes.push(this.secondsToHms(i));
+    }
+  }
+  secondsToHms(d: number) {
+    d = Number(d);
+    var h = Math.floor(d / 3600);
+    var m = Math.floor(d % 3600 / 60);
+
+    var hDisplay = h > 0 ? h + (h == 0 ? "0" : "") : "00";
+    var mDisplay = m > 0 ? m + (m == 0 ? "0" : "") : "00";
+    return hDisplay + ':' + mDisplay;
+  }
   nextPage() {
     this.nextPageEvent.next('test 1 2 3 4 5 6 7 ');
   }

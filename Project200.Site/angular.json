@@ -31,7 +31,8 @@
               "./node_modules/nouislider/dist/nouislider.css",
               "./node_modules/magnific-popup/dist/magnific-popup.css",
               "./src/assets/css/style.default.css",             
-              "./src/assets/css/custom.css"
+              "./src/assets/css/custom.css",
+              "./node_modules/leaflet/dist/leaflet.css"
             ],
             "scripts": [
               "./node_modules/jquery/dist/jquery.min.js",

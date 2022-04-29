@@ -1,12 +1,6 @@
 <div class="progress rounded-0 sticky-top" style="height: 8px; top: 71px">
-  <div
-    class="progress-bar"
-    role="progressbar"
-    style="width: 40%"
-    aria-valuenow="40"
-    aria-valuemin="0"
-    aria-valuemax="100"
-  ></div>
+  <div class="progress-bar" role="progressbar" style="width: 40%" aria-valuenow="40" aria-valuemin="0"
+    aria-valuemax="100"></div>
 </div>
 <section class="py-5">
   <div class="container">
@@ -27,52 +21,90 @@
         <div class="col-lg-7 ms-auto">
           <div class="mb-5">
             <label class="form-label" for="form_description">
-              Напишете информация за вашия салон</label
-            >
-            <textarea
-              class="form-control"
-              name="name"
-              id="form_description"
-              rows="5"
-              aria-describedby="descriptionHelp"
-            ></textarea
-            ><small class="form-text text-muted mt-2" id="descriptionHelp"
-              >The bedding was hardly able to cover it and seemed ready to slide
+              Напишете информация за вашия салон</label>
+            <textarea class="form-control" name="name" id="form_description" rows="5"
+              aria-describedby="descriptionHelp"></textarea><small class="form-text text-muted mt-2"
+              id="descriptionHelp">The bedding was hardly able to cover it and seemed ready to slide
               off any moment. His many legs, pitifully thin compared with the
               size of the rest of him, waved about helplessly as he looked.
               &quot;What's happened to me?&quot; he thought. It wasn't a dream.
             </small>
           </div>
           <div class="mb-5">
-            <label class="form-label" for="form_availability"
-              >Напишете вашия слоган /опционално/</label
-            >
-            <textarea
-              class="form-control"
-              name="name"
-              id="form_availability"
-              rows="3"
-              aria-describedby="availabilityHelp"
-            ></textarea
-            ><small class="form-text text-muted mt-2" id="availabilityHelp"
-              >His room, a proper human room although a little too small, lay
+            <label class="form-label" for="form_availability">Напишете вашия слоган /опционално/</label>
+            <textarea class="form-control" name="name" id="form_availability" rows="3"
+              aria-describedby="availabilityHelp"></textarea><small class="form-text text-muted mt-2"
+              id="availabilityHelp">His room, a proper human room although a little too small, lay
               peacefully between its four familiar walls. A collection of
               textile samples lay spread out on the table.
             </small>
           </div>
         </div>
       </div>
+      <div class="row form-block">
+
+        <div class="col-lg-4">
+          <h4>Работно време</h4>
+          <p class="text-muted text-sm">
+            В посочените полета трябва да попълните основната информация за
+            вашия обект. Можете да посочите добри практики които следвате, като
+            идентичност на вашия обект, както и опитът който притежавате.
+          </p>
+        </div>
+
+        <div class="col-lg-7 ms-auto">
+          <div class="mb-5">
+            <div class="row mt-3 mb-3" *ngFor='let day of days'>
+              <div class="col-sm-4 mt-3">
+                <div class="row">
+                  <div class="col-6">
+                    {{day}}
+                  </div>
+                  <div class="col-2">
+                    <div class="form-check form-switch">
+                      <input class="form-check-input" id="formSwitch" type="checkbox" />
+
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm-6">
+                <div class="row mt-3 ">
+                  <div class="col-1">
+                    от
+                  </div>
+                  <div class="col-4">
+                    <select class=" form-control" data-live-search="true" data-size="5">
+                      <option selected hidden value="-1">Час</option>
+                      <option *ngFor='let item of availableTimes'>{{item}}</option>
+                    </select>
+                  </div>
+                  <div class="col-1">
+                    до
+                  </div>
+                  <div class="col-4">
+                    <select class=" form-control" data-live-search="true" data-size="5">
+                      <option selected hidden value="-1">Час</option>
+                      <option *ngFor='let item of availableTimes'>{{item}}</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+
+              <div class="row d-flex justify-content-end mt-0">
+                <a href='#' class="d-flex justify-content-end">Добавете раб. време</a>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
       <div class="row form-block flex-column flex-sm-row">
-        <div class="col text-center text-sm-start">
-          <button class="btn btn-link text-muted" (click)="previousPage()">
-            <i class="fa-chevron-left fa me-2"></i>Назад
-          </button>
+        <div class="col text-center text-sm-start"><button class="btn btn-link text-muted" (click)='previousPage()'> <i
+              class="fa-chevron-left fa me-2"></i>Back</button>
         </div>
-        <div class="col text-center text-sm-end">
-          <button class="btn btn-primary px-3" (click)="nextPage()">
-            Напред<i class="fa-chevron-right fa ms-2"></i>
-          </button>
-        </div>
+        <div class="col text-center text-sm-end"><button class="btn btn-primary px-3" (click)='nextPage()'> Next
+            step<i class="fa-chevron-right fa ms-2"></i></button></div>
       </div>
     </form>
   </div>

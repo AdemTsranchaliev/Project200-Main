@@ -15,28 +15,69 @@
                 </div>
                 <div class="col-lg-7 ms-auto">
                     <div class="row">
-                        <div class="col-lg-4">
-                            <label class="form-label">Beds</label>
-                            <div class="d-flex align-items-center">
-                                <div class="btn btn-items btn-items-decrease">-</div>
-                                <input class="form-control input-items" type="text" value="1" disabled>
-                                <div class="btn btn-items btn-items-increase">+</div>
+                        <div class="accordion" id="accordionPanelsStayOpenExample">
+                            <div class="accordion-item" *ngFor='let item of services;let i=index'>
+                                <h2 class="accordion-header" id="panelsStayOpen-{{i}}">
+                                    <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                                        attr.data-bs-target="#panelsStayOpen-{i}}" aria-expanded="false"
+                                        attr.aria-controls="panelsStayOpen-{i}}">
+                                        Accordion Item #1
+                                    </button>
+                                </h2>
+
+                                <div id="panelsStayOpen-{i}}" class="accordion-collapse collapse show"
+                                    attr.aria-labelledby="panelsStayOpen-{i}}">
+                                    <div class="accordion-body">
+                                        <div class="m-1">
+                                            <label for="inputEmail4" class="form-label">Име на услуга</label>
+                                            <input type="email" class="form-control" id="inputEmail4">
+                                        </div>
+                                        <hr>
+
+                                        <div class="row">
+                                            <div class="col-md-8">
+                                                <label for="validationServer01" class="form-label">Услуга</label>
+                                                <input type="text" class="form-control" id="validationServer01"
+                                                    required>
+                                            </div>
+                                            <div class="col-md-2">
+                                                <label for="validationServer02" class="form-label">Цена</label>
+                                                <input type="text" class="form-control" id="validationServer02"
+                                                    value="Otto" required>
+                                            </div>
+                                            <div class="col-md-2">
+                                                <label for="validationServer04" class="form-label">Продъл.</label>
+                                                <select class="form-select" id="validationServer04" required>
+                                                    <option selected disabled value="">Продължителност...</option>
+                                                    <option>5 мин</option>
+                                                    <option>10 мин</option>
+                                                    <option>15 мин</option>
+                                                    <option>20 мин</option>
+                                                    <option>25 мин</option>
+                                                    <option>30 мин</option>
+                                                    <option>40 мин</option>
+                                                    <option>50 мин</option>
+                                                    <option>1 час</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <hr>
+                                        <div class="row mt-3 ">
+                                            <div class="col-sm-12 d-flex justify-content-center">
+                                                <div class="btn btn-items btn-items-decrease" style="margin-right:2%">-
+                                                </div>
+                                                <div class="btn btn-items btn-items-increase ">+</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
-                        </div>
-                        <div class="col-lg-4">
-                            <label class="form-label">Bedrooms</label>
-                            <div class="d-flex align-items-center">
-                                <div class="btn btn-items btn-items-decrease">-</div>
-                                <input class="form-control input-items" type="text" value="1" disabled>
-                                <div class="btn btn-items btn-items-increase">+</div>
-                            </div>
-                        </div>
-                        <div class="col-lg-4">
-                            <label class="form-label">Bathrooms</label>
-                            <div class="d-flex align-items-center">
-                                <div class="btn btn-items btn-items-decrease">-</div>
-                                <input class="form-control input-items" type="text" value="1" disabled>
-                                <div class="btn btn-items btn-items-increase">+</div>
+                            <hr>
+                            <div class="row mt-3 ">
+                                <div class="col-sm-12 d-flex justify-content-center">
+                                    <div class="btn btn-items btn-items-decrease" style="margin-right:2%">-</div>
+                                    <div class="btn btn-items btn-items-increase ">+</div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -157,8 +198,8 @@
                 </div>
             </div>
             <div class="row form-block flex-column flex-sm-row">
-                <div class="col text-center text-sm-start"><button class="btn btn-link text-muted" (click)='previousPage()'> <i
-                            class="fa-chevron-left fa me-2"></i>Back</button>
+                <div class="col text-center text-sm-start"><button class="btn btn-link text-muted"
+                        (click)='previousPage()'> <i class="fa-chevron-left fa me-2"></i>Back</button>
                 </div>
                 <div class="col text-center text-sm-end"><button class="btn btn-primary px-3" (click)='nextPage()'> Next
                         step<i class="fa-chevron-right fa ms-2"></i></button></div>

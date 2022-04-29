@@ -1,4 +1,5 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { ServiceCategory } from 'src/app/shared/models/StudioModels/service-category.model';
 
 @Component({
   selector: 'app-add-studio-third',
@@ -10,6 +11,8 @@ export class AddStudioThirdComponent implements OnInit {
   @Output() nextPageEvent = new EventEmitter<string>();
   @Output() previousPageEvent = new EventEmitter<string>();
 
+
+  services:ServiceCategory[]=[new ServiceCategory,new ServiceCategory];
   constructor() { }
 
   ngOnInit(): void {
