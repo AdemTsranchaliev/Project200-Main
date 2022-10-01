@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "Project200-Site": {
+    "Project200-Admin": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:application": {
@@ -17,36 +17,35 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/Project200-Site",
+            "outputPath": "dist/Project200-Admin",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.app.json",
             "assets": [
               "src/favicon.ico",
-              "src/assets",
-              "src/api"
+              "src/assets"
             ],
             "styles": [
-              "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
-              "./node_modules/nouislider/dist/nouislider.css",
-              "./node_modules/magnific-popup/dist/magnific-popup.css",
-              "./src/assets/css/style.default.css",
-              "./src/assets/css/custom.css"
+              "src/assets/vendors/bootstrap/dist/css/bootstrap.min.css",
+              "src/assets/vendors/font-awesome/css/font-awesome.min.css",
+              "src/assets/vendors/nprogress/nprogress.css",
+              "src/assets/vendors/fullcalendar/dist/fullcalendar.min.css",
+              "src/assets/vendors/fullcalendar/dist/fullcalendar.print.css",
+              "src/assets/build/css/custom.min.css"
             ],
             "scripts": [
-              "./node_modules/jquery/dist/jquery.min.js",
-              "./node_modules/bootstrap/dist/js/bootstrap.bundle.min.js",
-              "./node_modules/magnific-popup/dist/jquery.magnific-popup.min.js",
-              "./node_modules/smooth-scroll/dist/smooth-scroll.polyfills.min.js",
-              "./src/assets/vendor/bootstrap-select/js/bootstrap-select.min.js",
-              "./node_modules/object-fit-images/dist/ofi.min.js",
-              "./node_modules/nouislider/dist/nouislider.min.js",
-              "./src/assets/vendor/dropzone/dropzone-amd-module.js",
-              "./src/assets/js/theme.js",
-              "./src/assets/js/map-layers.js",
-              "./src/assets/js/map-detail.js",
-              "./src/assets/js/custom.js"
+
+              "src/assets/vendors/jquery/dist/jquery.min.js",
+              "src/assets/vendors/bootstrap/dist/js/bootstrap.min.js",
+              "src/assets/vendors/fastclick/lib/fastclick.js",
+              "src/assets/vendors/nprogress/nprogress.js",
+              "src/assets/vendors/bootstrap-wysiwyg/js/bootstrap-wysiwyg.min.js",
+              "src/assets/vendors/jquery.hotkeys/jquery.hotkeys.js",
+              "src/assets/vendors/google-code-prettify/src/prettify.js",
+              "src/assets/vendors/moment/min/moment.min.js",
+              "src/assets/vendors/fullcalendar/dist/fullcalendar.min.js",
+              "src/assets/build/js/custom.min.js"
             ]
           },
           "configurations": {
@@ -86,10 +85,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "Project200-Site:build:production"
+              "browserTarget": "Project200-Admin:build:production"
             },
             "development": {
-              "browserTarget": "Project200-Site:build:development"
+              "browserTarget": "Project200-Admin:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -97,7 +96,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "Project200-Site:build"
+            "browserTarget": "Project200-Admin:build"
           }
         },
         "test": {
@@ -112,7 +111,6 @@
               "src/assets"
             ],
             "styles": [
-              "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
               "src/styles.css"
             ],
             "scripts": []
@@ -121,5 +119,5 @@
       }
     }
   },
-  "defaultProject": "Project200-Site"
+  "defaultProject": "Project200-Admin"
 }

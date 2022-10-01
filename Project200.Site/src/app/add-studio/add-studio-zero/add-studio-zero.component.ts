@@ -5,21 +5,7 @@ import { Component, EventEmitter, OnInit, Output } from '@angular/core';
   templateUrl: './add-studio-zero.component.html',
   styleUrls: ['./add-studio-zero.component.css']
 })
-export class AddStudioZeroComponent implements OnInit {
+export class AddStudioZeroComponent {
 
-  @Output() nextPageEvent = new EventEmitter<string>();
-  @Output() previousPageEvent = new EventEmitter<string>();
 
-  constructor() { }
-
-  ngOnInit(): void {
-    window.scrollTo(0, 0);
-  }
-
-  nextPage() {
-    this.nextPageEvent.next('test 1 2 3 4 5 6 7 ');
-  }
-  previousPage(){
-    this.previousPageEvent.next('');
-  }
 }

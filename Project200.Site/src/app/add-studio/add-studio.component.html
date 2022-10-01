@@ -1,5 +1,18 @@
-<app-add-studio-zero (nextPageEvent)="nextStep($event)" (previousPageEvent)="previousStep($event)" [hidden]='show[0]'>   </app-add-studio-zero>
-<app-add-studio-first (nextPageEvent)="nextStep($event)" (previousPageEvent)="previousStep($event)" [hidden]='show[1]'>   </app-add-studio-first>
-<app-add-studio-second (nextPageEvent)="nextStep($event)" (previousPageEvent)="previousStep($event)" [hidden]='show[2]'>   </app-add-studio-second>
-<app-add-studio-third (nextPageEvent)="nextStep($event)" (previousPageEvent)="previousStep($event)" [hidden]='show[3]'>   </app-add-studio-third>
-<app-add-studio-fourth [hidden]='show[4]' (nextPageEvent)="nextStep($event)" (previousPageEvent)="previousStep($event)" >   </app-add-studio-fourth>
+<div class="container">
+    <div class="row">
+        <mat-stepper class="example-stepper" [orientation]="(stepperOrientation | async)!">
+            <mat-step [stepControl]="firstFormGroup" label="Начало">
+                <app-add-studio-zero> </app-add-studio-zero>
+            </mat-step>
+            <mat-step [stepControl]="secondFormGroup" label="Основна информация">
+                <app-add-studio-first></app-add-studio-first>
+            </mat-step>
+            <mat-step [stepControl]="thirdFormGroup" label="Fill out your phone number">
+                <app-add-studio-third> </app-add-studio-third>
+            </mat-step>
+            <mat-step>
+                <app-add-studio-fourth> </app-add-studio-fourth>
+            </mat-step>
+        </mat-stepper>
+    </div>
+</div>

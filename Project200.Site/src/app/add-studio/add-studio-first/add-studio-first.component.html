@@ -1,20 +1,11 @@
-<div class="progress rounded-0 sticky-top" style="height: 8px; top: 71px">
-  <div
-    class="progress-bar"
-    role="progressbar"
-    style="width: 20%"
-    aria-valuenow="20"
-    aria-valuemin="0"
-    aria-valuemax="100"
-  ></div>
-</div>
 <section class="py-5">
   <div class="container">
     <p class="subtitle text-primary">Добавяне на студио</p>
+
     <h1 class="h2 mb-5">
       Основна информация <span class="text-muted float-end">Първа стъпка</span>
     </h1>
-    <form [formGroup]="salonForm" (ngSubmit)="onSubmit()">
+    <form [formGroup]="mainInformationForm" (ngSubmit)="onSubmit()">
       <div class="row form-block">
         <div class="col-lg-4">
           <h4>Основна част</h4>
@@ -27,73 +18,19 @@
         </div>
         <div class="col-lg-7 ms-auto">
           <div class="mb-4">
-            <label class="form-label" for="form_name">Име на салон</label>
-            <input
-              class="form-control"
-              name="name"
-              id="form_name"
-              formControlName="salonName"
-              [ngClass]="{
-                invalid:
-                  salonForm.get('salonName')?.touched ||
-                  (salonForm.get('salonName')?.dirty &&
-                    salonForm.get('salonName')?.valid)
-              }"
-            />
-            <div
-              class="custom-input-alert"
-              *ngIf="
-                salonForm.get('salonName')?.dirty ||
-                salonForm.get('salonName')?.touched
-              "
-            >
-              <p *ngIf="salonForm.get('salonName')?.errors?.required">
-                Полето е задължително!
-              </p>
-              <p
-                *ngIf="
-                  salonForm.get('salonName')?.errors?.minlength ||
-                  salonForm.get('salonName')?.errors?.maxlength
-                "
-              >
+            <mat-form-field class="w-100" appearance="fill">
+              <mat-label>Име на салон *</mat-label>
+              <input type="text" matInput formControlName='salonName'>
+              <mat-error *ngIf="commonService.validateRequired(mainInformationForm,'salonName')">
+                Това поле е задължително
+              </mat-error>
+              <mat-error *ngIf="commonService.validateLength(mainInformationForm,'salonName')">
                 Името трябва да бъде между 2 и 40 символа!
-              </p>
-            </div>
+              </mat-error>
+            </mat-form-field>
           </div>
           <div class="mb-4">
-            <label class="form-label" for="form_type">Предлагани услуги</label>
-            <div class="m-2">
-              <span class="badge bg-primary m-1" *ngFor="let item of temp"
-                >{{ item }}
-                <button class="btn badge bg-secondary" >
-                  <i class="fa fa-times m-1 p-0" aria-hidden="true"></i></button
-              ></span>
-            </div>
-            <select
-              class="selectpicker form-control"
-              data-live-search="true"
-              [ngModelOptions]="{ standalone: true }"
-              [(ngModel)]="inp"
-              
-            >
-              <option selected hidden></option>
-              <option *ngFor="let it of temp2" value="{{ it }}">
-                {{ it }}
-              </option>
-            </select>
-          </div>
-          <div class="mb-4">
-            <div class="form-check form-switch">
-              <input
-                class="form-check-input"
-                id="formSwitch"
-                type="checkbox"
-                checked=""
-              />
-              <label class="form-check-label form-label" for="formSwitch"
-                >Желаете ли вашите клиенти да запазват часове онлайн?</label
-              >
-            </div>
+          <app-chips label='Предлагани услуги' addLabel='Изберете услуги...' (itemsChangeEvent)='addServiceHadnler($event)' [allItems]='offeredServices'></app-chips>
           </div>
         </div>
       </div>
@@ -110,26 +47,7 @@
         <div class="col-lg-7 ms-auto">
           <!-- START Dropdown -->
           <div class="dropdown bootstrap-select form-control">
-            <label class="form-label" for="form_country">Област</label>
-            <select
-              class="selectpicker form-control"
-              name="country"
-              id="form_country"
-              data-style="btn-selectpicker"
-              title=" "
-              data-live-search="true"
-              tabindex="null"
-            >
-              <option class="bs-title-option" value=""></option>
-              <option value="country_#{index}">Пазарджик1</option>
-              <option value="country_#{index}">Пазарджик2</option>
-              <option value="country_#{index}">Пазарджик3</option>
-              <option value="country_#{index}">Пазарджик4</option>
-              <option value="country_#{index}">Пазарджик5</option>
-              <option value="country_#{index}">Пазарджик6</option>
-              <option value="country_#{index}">Пазарджик7</option>
-              <option value="country_#{index}">Пазарджик8</option>
-            </select>
+            <app-autocomplete [options]='oblasti' label='Области' propertyShow='name' (inputChangeEvent)='addedAreaHandler($event)'></app-autocomplete>
           </div>
           <!-- END Dropdown -->
           <!-- City + ZIP Code-->
@@ -137,26 +55,17 @@
             <div class="col-md-6">
               <div class="mb-4">
                 <label class="form-label" for="form_city">Град</label>
-                <input
-                  class="form-control"
-                  name="name"
-                  id="form_city"
-                  formControlName="city"
-                  [ngClass]="{
+                <input class="form-control" name="name" id="form_city" formControlName="city" [ngClass]="{
                     invalid:
-                      salonForm.get('city')?.touched ||
-                      (salonForm.get('city')?.dirty &&
-                        salonForm.get('city')?.valid)
-                  }"
-                />
-                <div
-                  class="custom-input-alert"
-                  *ngIf="
-                    salonForm.get('city')?.dirty ||
-                    salonForm.get('city')?.touched
-                  "
-                >
-                  <p *ngIf="salonForm.get('city')?.errors?.required">
+                      mainInformationForm.get('city')?.touched ||
+                      (mainInformationForm.get('city')?.dirty &&
+                        mainInformationForm.get('city')?.valid)
+                  }" />
+                <div class="custom-input-alert" *ngIf="
+                    mainInformationForm.get('city')?.dirty ||
+                    mainInformationForm.get('city')?.touched
+                  ">
+                  <p *ngIf="mainInformationForm.get('city')?.errors?.required">
                     Полето е задължително!
                   </p>
                 </div>
@@ -165,35 +74,24 @@
             <div class="col-md-6">
               <div class="mb-4">
                 <label class="form-label" for="form_zip">Пощенски код</label>
-                <input
-                  class="form-control"
-                  name="name"
-                  id="form_zip"
-                  formControlName="postCode"
-                  [ngClass]="{
+                <input class="form-control" name="name" id="form_zip" formControlName="postCode" [ngClass]="{
                     invalid:
-                      salonForm.get('postCode')?.touched ||
-                      (salonForm.get('postCode')?.dirty &&
-                        salonForm.get('postCode')?.valid)
-                  }"
-                />
-                <div
-                  class="custom-input-alert"
-                  *ngIf="
-                    salonForm.get('postCode')?.dirty ||
-                    salonForm.get('postCode')?.touched
-                  "
-                >
-                  <p *ngIf="salonForm.get('postCode')?.errors?.required">
+                      mainInformationForm.get('postCode')?.touched ||
+                      (mainInformationForm.get('postCode')?.dirty &&
+                        mainInformationForm.get('postCode')?.valid)
+                  }" />
+                <div class="custom-input-alert" *ngIf="
+                    mainInformationForm.get('postCode')?.dirty ||
+                    mainInformationForm.get('postCode')?.touched
+                  ">
+                  <p *ngIf="mainInformationForm.get('postCode')?.errors?.required">
                     Полето е задължително!
                   </p>
-                  <p
-                    *ngIf="
-                      salonForm.get('postCode')?.errors?.minlength ||
-                      salonForm.get('postCode')?.errors?.maxlength ||
-                      salonForm.get('postCode')?.errors?.pattern
-                    "
-                  >
+                  <p *ngIf="
+                      mainInformationForm.get('postCode')?.errors?.minlength ||
+                      mainInformationForm.get('postCode')?.errors?.maxlength ||
+                      mainInformationForm.get('postCode')?.errors?.pattern
+                    ">
                     Полето трабва да съдържа точно 4 числа!
                   </p>
                 </div>
@@ -203,26 +101,17 @@
           <!-- Street-->
           <div class="mb-4">
             <label class="form-label" for="form_street">Улица</label>
-            <input
-              class="form-control"
-              name="name"
-              id="form_street"
-              formControlName="street"
-              [ngClass]="{
+            <input class="form-control" name="name" id="form_street" formControlName="street" [ngClass]="{
                 invalid:
-                  salonForm.get('street')?.touched ||
-                  (salonForm.get('street')?.dirty &&
-                    salonForm.get('street')?.valid)
-              }"
-            />
-            <div
-              class="custom-input-alert"
-              *ngIf="
-                salonForm.get('street')?.dirty ||
-                salonForm.get('street')?.touched
-              "
-            >
-              <p *ngIf="salonForm.get('street')?.errors?.required">
+                  mainInformationForm.get('street')?.touched ||
+                  (mainInformationForm.get('street')?.dirty &&
+                    mainInformationForm.get('street')?.valid)
+              }" />
+            <div class="custom-input-alert" *ngIf="
+                mainInformationForm.get('street')?.dirty ||
+                mainInformationForm.get('street')?.touched
+              ">
+              <p *ngIf="mainInformationForm.get('street')?.errors?.required">
                 Полето е задължително!
               </p>
             </div>
