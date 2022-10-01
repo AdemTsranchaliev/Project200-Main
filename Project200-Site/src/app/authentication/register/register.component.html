@@ -1,0 +1,144 @@
+<div class="container-fluid px-3">
+  <div class="row min-vh-100">
+    <div class="col-md-8 col-lg-6 col-xl-5 d-flex align-items-center">
+      <div class="w-100 py-5 px-md-5 px-xxl-6 position-relative">
+        <div class="mb-4">
+          <img class="img-fluid mb-4" src="assets/img/logo-square.svg" alt="..." style="max-width: 4rem" />
+          <h2>Регистрация</h2>
+          <p class="text-muted">
+            His room, a proper human room although a little too small, lay
+            peacefully between its four familiar walls. A collection of textile
+            samples lay spread out on the table.
+          </p>
+        </div>
+        <form class="form-validate" [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+          <div class="alert alert-danger" role="alert" *ngIf="status == 1">
+            Данните са невалидни
+          </div>
+
+          <div class="mb-4">
+            <label class="form-label" for="loginUsername">Име</label>
+            <input class="form-control" name="loginUsername" id="loginUsername" type="email" placeholder="Иван Иванов"
+              autocomplete="off" required data-msg="Please enter your email" formControlName="name" [ngClass]="{
+                invalid:
+                  registerForm.get('name')?.touched ||
+                  (registerForm.get('name')?.dirty &&
+                    registerForm.get('password')?.valid)
+              }" />
+            <div class="custom-input-alert" *ngIf="
+                registerForm.get('name')?.dirty ||
+                registerForm.get('name')?.touched
+              ">
+              <p *ngIf="registerForm.get('name')?.errors?.required">
+                Полето е задължително!
+              </p>
+              <p *ngIf="registerForm.get('name')?.errors?.minlength || registerForm.get('name')?.errors?.maxlength">
+                Името трябва да бъде между 2 и 40 символа!
+              </p>
+            </div>
+          </div>
+          <div class="mb-4">
+            <label class="form-label" for="loginUsername">Имейл</label>
+            <input class="form-control" name="loginUsername" id="loginUsername" type="email"
+              placeholder="name@address.com" autocomplete="off" required data-msg="Please enter your email"
+              formControlName="email" [ngClass]="{
+                invalid:
+                  registerForm.get('email')?.touched ||
+                  (registerForm.get('email')?.dirty &&
+                    registerForm.get('password')?.valid)
+              }" />
+            <div class="custom-input-alert" *ngIf="
+                registerForm.get('email')?.dirty ||
+                registerForm.get('email')?.touched
+              ">
+              <p *ngIf="registerForm.get('email')?.errors?.required">
+                Полето е задължително!
+              </p>
+            </div>
+          </div>
+          <div class="mb-4">
+            <label class="form-label" for="loginPassword"> Парола</label>
+            <input class="form-control" name="loginPassword" id="loginPassword" placeholder="********" type="password"
+              required data-msg="Please enter your password" formControlName="password" [ngClass]="{
+                invalid:
+                  (registerForm.get('password')?.touched ||
+                    registerForm.get('password')?.dirty) &&
+                  registerForm.get('password')?.valid
+              }" />
+            <div class="custom-input-alert" *ngIf="
+                registerForm.get('password')?.dirty ||
+                registerForm.get('password')?.touched
+              ">
+              <p *ngIf="registerForm.get('password')?.errors?.pattern">
+                Паролата трябва да съдържа поне 1 главна буква, 1 малка буква, 1
+                число и да е минимум 6 знака на латински!
+              </p>
+              <p *ngIf="registerForm.get('password')?.errors?.required">
+                Полето е задължително!
+              </p>
+              <p *ngIf="registerForm.get('password')?.errors?.maxlength">
+                Паролата не трябва да бъде повече от 30 символа!
+              </p>
+            </div>
+          </div>
+          <div class="mb-4">
+            <label class="form-label" for="loginPassword2">Повторете парола</label>
+            <input class="form-control" name="loginPassword2" id="loginPassword2" placeholder="********" type="password"
+              required data-msg="Please enter your password" formControlName="confirmPassword" [ngClass]="{
+                invalid:
+                  (registerForm.get('confirmPassword')?.touched ||
+                    registerForm.get('confirmPassword')?.dirty) &&
+                  registerForm.get('confirmPassword')?.valid
+              }" />
+            <div class="custom-input-alert" *ngIf="
+                registerForm.get('confirmPassword')?.dirty ||
+                registerForm.get('confirmPassword')?.touched
+              ">
+              <p *ngIf="registerForm.get('confirmPassword')?.errors?.required">
+                Полето е задължително!
+              </p>
+              <p *ngIf="registerForm.get('confirmPassword')?.errors?.matching">
+                Паролите трябва да са еднакви!
+              </p>
+            </div>
+          </div>
+          <div class="form-check custom-element-padding">
+            <input class="form-check-input" id="custom-check-1" type="checkbox" />
+            <label class="form-check-label text-muted" for="custom-check-1">Регистрирам се като студио</label>
+          </div>
+          <div class="d-grid gap-2">
+            <button class="btn btn-lg btn-primary" type="submit" [disabled]="!registerForm.valid">
+              Регистрация
+            </button>
+          </div>
+          <hr class="my-3 hr-text letter-spacing-2" data-content="или" />
+          <div class="d-grid gap-2">
+            <button class="btn btn btn-outline-primary btn-social">
+              <i class="fa-2x fa-facebook-f fab btn-social-icon"> </i>Регистрация <span class="d-none d-sm-inline">с
+                Facebook</span>
+            </button>
+            <button class="btn btn btn-outline-muted btn-social" (click)="loginWithGoogle()">
+              <i class="fa-2x fa-google fab btn-social-icon"> </i>Регистрация
+              <span class="d-none d-sm-inline">с Google</span>
+            </button>
+          </div>
+          <hr class="my-4" />
+          <p class="text-sm text-muted">
+            Съгласявам се с<a href="#"> Правила и Условия</a> и
+            <a href="#">Политика за Поверителност</a>.
+          </p>
+        </form>
+        <a class="close-absolute me-md-5 me-xl-6 pt-5" href="index.html">
+          <svg class="svg-icon w-3rem h-3rem">
+            <use xlink:href="#close-1"></use>
+          </svg></a>
+      </div>
+    </div>
+    <div class="col-md-4 col-lg-6 col-xl-7 d-none d-md-block">
+      <!-- Image-->
+      <div class="bg-cover h-100 me-n3" style="
+          background-image: url(assets/img/photo/photo-1497436072909-60f360e1d4b1.jpg);
+        "></div>
+    </div>
+  </div>
+</div>

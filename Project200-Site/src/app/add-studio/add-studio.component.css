@@ -1,0 +1,7 @@
+::ng-deep .mat-stepper-vertical-line::before {
+    display: none;
+  }
+  mat-step-header{
+    display: flex ;
+    justify-content: flex-end ;
+  }

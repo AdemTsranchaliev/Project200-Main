@@ -1,0 +1,108 @@
+<section class="py-5">
+  <div class="container">
+    <p class="subtitle text-primary">Добавяне на студио</p>
+
+    <h1 class="h2 mb-5">
+      Основна информация <span class="text-muted float-end">Първа стъпка</span>
+    </h1>
+    <form [formGroup]="mainInformationForm" (ngSubmit)="onSubmit()">
+      <div class="row form-block">
+        <div class="col-lg-4">
+          <h4>Основна част</h4>
+          <p class="text-muted text-sm">
+            В основната част трябва да добавите името на салона, услугите които
+            предлагате, също така дали желаете клиентите посещаващи сайта да
+            имат възможност да си запазват часове онлайн чрез предадената от вас
+            информация.
+          </p>
+        </div>
+        <div class="col-lg-7 ms-auto">
+          <div class="mb-4">
+            <mat-form-field class="w-100" appearance="fill">
+              <mat-label>Име на салон *</mat-label>
+              <input type="text" matInput formControlName='salonName'>
+              <mat-error *ngIf="commonService.validateRequired(mainInformationForm,'salonName')">
+                Това поле е задължително
+              </mat-error>
+              <mat-error *ngIf="commonService.validateLength(mainInformationForm,'salonName')">
+                Името трябва да бъде между 2 и 40 символа!
+              </mat-error>
+            </mat-form-field>
+          </div>
+          <div class="mb-4">
+            <app-chips label='Предлагани услуги' addLabel='Изберете услуги...'
+              (itemsChangeEvent)='addServiceHadnler($event)' [allItems]='offeredServices'></app-chips>
+          </div>
+        </div>
+      </div>
+      <div class="row form-block">
+        <div class="col-lg-4">
+          <h4>Локация</h4>
+          <p class="text-muted text-sm">
+            На този етап апликацията предоставя достъп към обекти в област
+            Пазарджик. В полетата трябва да посочите: Община, Град, Пощенски код
+            и Улица. На картата отбележете локацията на обекта с цел по-добър
+            ориентир към бъдещите Ви клиенти.
+          </p>
+        </div>
+        <div class="col-lg-7 ms-auto">
+          <!-- START Dropdown -->
+          <div class="dropdown bootstrap-select form-control">
+            <app-autocomplete [options]='oblasti' label='Област' propertyShow='name'
+              (inputChangeEvent)='addedAreaHandler($event)'></app-autocomplete>
+          </div>
+          <!-- END Dropdown -->
+          <!-- City + ZIP Code-->
+          <div class="row">
+            <div class="col-md-6">
+              <div class="mb-4">
+                <div class="dropdown bootstrap-select form-control">
+                  <app-autocomplete [options]='oblasti' label='Град' propertyShow='name'
+                    (inputChangeEvent)='addedAreaHandler($event)'></app-autocomplete>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="mb-4">
+                <mat-form-field class="w-100" appearance="fill">
+                  <mat-label>Пощенски код *</mat-label>
+                  <input type="text" matInput formControlName='postCode' placeholder="Пример: 1000">
+                  <mat-error *ngIf="commonService.validateRequired(mainInformationForm,'postCode')">
+                    Това поле е задължително
+                  </mat-error>
+                  <mat-error *ngIf="commonService.validatePattern(mainInformationForm,'postCode')||commonService.validateLength(mainInformationForm,'postCode')">
+                    Полето трабва да съдържа точно 4 числа!
+                  </mat-error>
+                </mat-form-field>
+              </div>
+            </div>
+          </div>
+          <!-- Street-->
+          <div class="mb-4">
+            <mat-form-field class="w-100" appearance="fill">
+              <mat-label>Улица *</mat-label>
+              <input type="text" matInput formControlName='street'>
+              <mat-error *ngIf="commonService.validateRequired(mainInformationForm,'street')">
+                Това поле е задължително
+              </mat-error>
+              <mat-error *ngIf="commonService.validateLength(mainInformationForm,'street')">
+                Полето трабва да съдържа точно 4 символа и най-много 60 символа!
+              </mat-error>
+            </mat-form-field>
+          </div>
+        </div>
+      </div>
+      <section>
+        <app-map></app-map>
+      </section>
+      <div class="row form-block flex-column flex-sm-row">
+        <div class="col text-center text-sm-start"></div>
+        <div class="col text-center text-sm-end">
+          <button class="btn btn-primary px-3" (click)="nextPage()">
+            Напред<i class="fa-chevron-right fa ms-2"></i>
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>
+</section>
