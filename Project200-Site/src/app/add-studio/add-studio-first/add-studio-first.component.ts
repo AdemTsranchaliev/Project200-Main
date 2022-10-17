@@ -5,8 +5,6 @@ import { FormBuilder, FormControl, Validators } from '@angular/forms';
 import { OblastModel } from 'src/app/shared/models/EkkateModels/oblast.model';
 import { CommonService } from 'src/app/shared/services/common.service';
 
-declare var $: any;
-
 @Component({
   selector: 'app-add-studio-first',
   templateUrl: './add-studio-first.component.html',
