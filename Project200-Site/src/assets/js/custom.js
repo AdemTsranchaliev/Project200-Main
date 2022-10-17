@@ -1,15 +1,18 @@
 var snapSlider = document.getElementById('slider-snap');
 
-noUiSlider.create(snapSlider, {
-    start: [40, 110],
-    snap: false,
-    connect: true,
-    step: 1,
-    range: {
-        'min': 40,
-        'max': 110
-    }
-});
+if(snapSlider?.noUiSlider){
+    snapSlider?.noUiSlider.create(snapSlider, {
+        start: [40, 110],
+        snap: false,
+        connect: true,
+        step: 1,
+        range: {
+            'min': 40,
+            'max': 110
+        }
+    });
+}
+
 var snapValues = [
     document.getElementById('slider-snap-value-from'),
     document.getElementById('slider-snap-value-to')
@@ -18,11 +21,13 @@ var inputValues = [
     document.getElementById('slider-snap-input-from'),
     document.getElementById('slider-snap-input-to')
 ];
+
+if(snapSlider?.noUiSlider){
 snapSlider.noUiSlider.on('update', function (values, handle) {
     snapValues[handle].innerHTML = values[handle];
     inputValues[handle].value = values[handle];
 });
-
+}
 function injectSvgSprite(path) {
     var ajax = new XMLHttpRequest();
     ajax.open("GET", path, true);

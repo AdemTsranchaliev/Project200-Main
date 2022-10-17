@@ -28,22 +28,20 @@
               "src/api"
             ],
             "styles": [
-              "node_modules/bootstrap/dist/css/bootstrap.min.css",
-              "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
-              "./node_modules/nouislider/dist/nouislider.css",
-              "./node_modules/magnific-popup/dist/magnific-popup.css",
+              "./src/assets/vendor/nouislider/nouislider.css",
+              "./src/assets/vendor/magnific-popup/magnific-popup.css",
               "./src/assets/css/style.default.css",
-              "./src/assets/css/custom.css"
+              "./src/assets/css/custom.css",
+              "node_modules/bootstrap/dist/css/bootstrap.min.css",
+              "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css"
             ],
             "scripts": [
-              "./node_modules/jquery/dist/jquery.min.js",
-              "./node_modules/bootstrap/dist/js/bootstrap.bundle.min.js",
-              "./node_modules/magnific-popup/dist/jquery.magnific-popup.min.js",
-              "./node_modules/smooth-scroll/dist/smooth-scroll.polyfills.min.js",
+              "./src/assets/vendor/jquery/jquery.min.js",
+              "./src/assets/vendor/bootstrap/js/bootstrap.bundle.min.js",
+              "./src/assets/vendor/magnific-popup/jquery.magnific-popup.min.js",
+              "./src/assets/vendor/smooth-scroll/smooth-scroll.polyfills.min.js",
               "./src/assets/vendor/bootstrap-select/js/bootstrap-select.min.js",
-              "./node_modules/object-fit-images/dist/ofi.min.js",
-              "./node_modules/nouislider/dist/nouislider.min.js",
-              "./src/assets/vendor/dropzone/dropzone-amd-module.js",
+              "./src/assets/vendor/object-fit-images/ofi.min.js",
               "./src/assets/js/theme.js",
               "./src/assets/js/map-layers.js",
               "./src/assets/js/map-detail.js",

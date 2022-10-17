@@ -7,7 +7,6 @@ import { CommingSoonComponent } from './shared/components/comming-soon/comming-s
 import { HomeComponent } from './home/home.component';
 import { StudioDetailComponent } from './studio-detail/studio-detail.component';
 import { StudioListMainComponent } from './studio-list-main/studio-list-main.component';
-import { RegisterStudioComponent } from './register-studio/register-studio.component';
 
 const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: '/home' },
@@ -17,7 +16,6 @@ const routes: Routes = [
   { path: 'studio-list-main', component: StudioListMainComponent },
   { path: 'studio-details/:id', component: StudioDetailComponent },
   { path: 'add-studio', component: AddStudioComponent },
-  { path: 'add-studioo', component: RegisterStudioComponent },
   { path: '**', component: CommingSoonComponent },
 ];
 

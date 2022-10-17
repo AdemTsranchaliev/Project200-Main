@@ -22,7 +22,6 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { GoogleLoginProvider, SocialAuthService } from 'angularx-social-login';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatSliderModule } from '@angular/material/slider';
-import { RegisterStudioComponent } from './register-studio/register-studio.component';
 import {MatStepperModule} from '@angular/material/stepper';
 import {MatAutocompleteModule} from '@angular/material/autocomplete';
 import {MatBadgeModule} from '@angular/material/badge';
@@ -78,7 +77,6 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     AddStudioFourthComponent,
     AddStudioFinalComponent,
     CommingSoonComponent,
-    RegisterStudioComponent,
     AutocompleteComponent,
     ChipsComponent,
     MapComponent
