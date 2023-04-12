@@ -1,1 +1,17 @@
-/* your styles go here */
+.custom-btn-outline:focus,
+.custom-btn-outline:active {
+    outline: none !important;
+    box-shadow: none;
+}
+
+hr.custom-hr-color-login {
+    width: 50%;
+    height: 4px;
+    background: blue;
+}
+
+hr.custom-hr-color-register {
+    width: 50%;
+    height: 4px;
+    background: blue;
+}
