@@ -70,32 +70,50 @@
               <div class="mb-4">
                 <input
                   class="form-control shadow-none border-0 border-bottom border-primary"
-                  name="loginEmail"
-                  id="loginEmail"
+                  name="registerUsername"
+                  id="registerUsername"
                   type="email"
-                  placeholder="Имейл /=======/ чак на фреймуърка функционалните неща ще се добавят!"
+                  placeholder="Име /=======/ чак на фреймуърка функционалните неща ще се добавят!"
                   autocomplete="off"
                   required
-                  data-msg="Моля въведете имейл"
+                  data-msg="Моля въведете вашето име"
                 />
               </div>
               <div class="mb-4">
                 <input
+                  class="form-control shadow-none border-0 border-bottom border-primary"
+                  name="registerEmail"
+                  id="registerEmail"
+                  type="email"
+                  placeholder="Имейл"
+                  autocomplete="off"
+                  required
+                  data-msg="Моля въведете Имейл"
+                />
+              </div>
+              <div class="mb-4">
+                <div class="row"></div>
+                <input
                   class="form-control shadow-none border-0 border-bottom"
-                  name="loginPassword"
-                  id="loginPassword"
+                  name="registerPassword"
+                  id="registerPassword"
                   placeholder="Парола"
                   type="password"
                   required
-                  data-msg="Моля въведете парола"
+                  data-msg="Моля въведете вашата парола"
                 />
               </div>
-              <div class="position-relative pb-5 mt-n3">
-                <a
-                  href="#"
-                  class="position-absolute top-0 start-0 text-muted text-decoration-underline"
-                  >Забравена парола?</a
-                >
+              <div class="mb-4">
+                <div class="row"></div>
+                <input
+                  class="form-control shadow-none border-0 border-bottom"
+                  name="registerPassword"
+                  id="registerPassword"
+                  placeholder="Потвърдете Парола"
+                  type="password"
+                  required
+                  data-msg="Моля потвърдете вашата парола"
+                />
               </div>
               <!-- Submit-->
               <div class="d-grid">

@@ -1,9 +1,4 @@
-.custom-btn-outline:focus,
-.custom-btn-outline:active {
-    outline: none !important;
-    box-shadow: none;
-}
-
+/* Login Page */
 hr.custom-hr-color-login {
     width: 50%;
     height: 4px;
