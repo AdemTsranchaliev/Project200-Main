@@ -52,10 +52,12 @@
   --bs-white-rgb: 255, 255, 255;
   --bs-black-rgb: 0, 0, 0;
   --bs-body-rgb: 33, 37, 41;
-  --bs-font-sans-serif: "Poppins", sans-serif;
+  /* --bs-font-sans-serif: "Poppins", sans-serif; */
+  --bs-font-sans-serif: "Comfortaa", cursive;
   --bs-font-monospace: Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
   --bs-gradient: linear-gradient(180deg, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0));
-  --bs-body-font-family: Poppins, sans-serif;
+  /* --bs-body-font-family: Poppins, sans-serif; */
+  --bs-body-font-family: Comfortaa, cursive;
   --bs-body-font-size: 1rem;
   --bs-body-font-weight: 400;
   --bs-body-line-height: 1.6;
@@ -103,7 +105,8 @@ hr:not([size]) {
 h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6 {
   margin-top: 0;
   margin-bottom: 0.5rem;
-  font-family: "Poppins", sans-serif;
+  /* font-family: "Poppins", sans-serif; */
+  font-family: "Comfortaa", cursive;
   font-weight: 700;
   line-height: 1.3;
 }
@@ -6107,7 +6110,8 @@ fieldset:disabled .btn {
   z-index: 1080;
   display: block;
   margin: 0;
-  font-family: "Poppins", sans-serif;
+  /* font-family: "Poppins", sans-serif; */
+  font-family: "Comfortaa", cursive;
   font-style: normal;
   font-weight: 400;
   line-height: 1.6;
@@ -6220,7 +6224,8 @@ fieldset:disabled .btn {
   z-index: 1070;
   display: block;
   max-width: 276px;
-  font-family: "Poppins", sans-serif;
+  /* font-family: "Poppins", sans-serif; */
+  font-family: "Comfortaa", cursive;
   font-style: normal;
   font-weight: 400;
   line-height: 1.6;
@@ -14099,7 +14104,8 @@ fieldset:disabled .btn {
   border-radius: 0;
   background: transparent;
   box-shadow: none;
-  font-family: "Poppins", sans-serif;
+  /* font-family: "Poppins", sans-serif; */
+  font-family: "Comfortaa", cursive;
   font-size: 0.8rem;
   line-height: 1.5;
 }
@@ -14168,7 +14174,8 @@ fieldset:disabled .btn {
   border: 1px solid #fff;
   border-radius: 3px;
   background-color: #fff;
-  font-family: "Poppins", sans-serif;
+  /* font-family: "Poppins", sans-serif; */
+  font-family: "Comfortaa", cursive;
   font-weight: bold;
 }
 
@@ -14394,7 +14401,8 @@ fieldset:disabled .btn {
   left: -11px;
   z-index: 999;
   display: inline-block;
-  font-family: "Poppins", sans-serif;
+  /* font-family: "Poppins", sans-serif; */
+  font-family: "Comfortaa", cursive;
   font-size: .8rem;
   text-transform: uppercase;
   letter-spacing: .3em;
@@ -16273,7 +16281,8 @@ button.mfp-close {
 }
 
 .text-serif {
-  font-family: "Playfair Display", serif !important;
+  /* font-family: "Playfair Display", serif !important; */
+  font-family: "Comfortaa", cursive !important;
 }
 
 .text-shadow {
