@@ -9,16 +9,10 @@
     <meta name="robots" content="all,follow" />
     <!-- Price Slider Stylesheets -->
     <link rel="stylesheet" href="vendor/nouislider/nouislider.css" />
-    <!-- Google fonts - Playfair Display-->
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css?family=Playfair+Display:400,400i,700"
-    />
-    <!-- Google fonts - Poppins-->
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css?family=Poppins:300,400,400i,700"
-    />
+    <!-- Google fonts - Comfortaa-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <!-- swiper-->
     <link
       rel="stylesheet"
@@ -57,7 +51,7 @@
         <div
           class="d-flex align-items-center justify-content-center min-vh-100"
         >
-          <div class="w-auto py-5 px-4 bg-white rounded">
+          <div class="w-75 py-5 px-4 bg-white rounded">
             <div class="row mt-n4 mb-1">
               <button class="col-6 btn shadow-none">Вход</button>
               <button class="col-6 btn shadow-none">Регистрация</button>
@@ -73,7 +67,7 @@
                   name="registerUsername"
                   id="registerUsername"
                   type="email"
-                  placeholder="Име /=======/ чак на фреймуърка функционалните неща ще се добавят!"
+                  placeholder="Име"
                   autocomplete="off"
                   required
                   data-msg="Моля въведете вашето име"
@@ -85,7 +79,7 @@
                   name="registerEmail"
                   id="registerEmail"
                   type="email"
-                  placeholder="Имейл"
+                  placeholder="Имейл адрес"
                   autocomplete="off"
                   required
                   data-msg="Моля въведете Имейл"
@@ -120,23 +114,22 @@
                 <button class="btn btn-md btn-primary">Вход</button>
               </div>
               <hr class="my-3 hr-text letter-spacing-2" />
-              <div class="row justify-content-center">
+              <div class="row justify-content-evenly">
                 <button
-                  class="col-5 btn btn btn-outline-primary btn-social mb-2 me-2"
+                  class="col-3 btn btn btn-outline-primary btn-social"
                 >
-                  <i class="fa-2x fa-facebook-f fab btn-social-icon"> </i
-                  >Продължи
-                  <span class="d-none d-sm-inline">с Facebook</span>
+                  <i class="fa-2x fa-facebook-f fab btn-social-icon"></i
+                  >
+                  <span class="d-none d-sm-inline">Facebook</span>
                 </button>
-                <button class="col-5 btn btn btn-outline-muted btn-social mb-2">
-                  <i class="fa-2x fa-google fab btn-social-icon"> </i>Продължи
-                  <span class="d-none d-sm-inline">с Google</span>
+                <button class="col-3 btn btn btn-outline-muted btn-social">
+                  <i class="fa-2x fa-google fab btn-social-icon"></i>
+                  <span class="d-none d-sm-inline">Google</span>
                 </button>
-                <button class="col-5 btn btn btn-outline-dark btn-social me-2">
-                  <i class="fa-2x fa-apple fab btn-social-icon"> </i>Продължи
-                  <span class="d-none d-sm-inline">с Apple</span>
+                <button class="col-3 btn btn btn-outline-dark btn-social">
+                  <i class="fa-2x fa-apple fab btn-social-icon"></i>
+                  <span class="d-none d-sm-inline">Apple</span>
                 </button>
-                <div class="col-5"></div>
               </div>
             </form>
           </div>
