@@ -1,0 +1,53 @@
+/* Login/Register Page */
+hr.custom-hr-color-login {
+    width: 50%;
+    height: 4px;
+    background: blue;
+}
+
+hr.custom-hr-color-register {
+    width: 50%;
+    height: 4px;
+    background: blue;
+}
+
+/* Navigation User Profile Image */
+.custom-user-profile-image {
+    width: 45px;
+}
+
+/* Home Page */
+.hero-landing-image-sofia {
+    background: center;
+    background-image: url("..//img/photo/sofia.jpeg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.hero-landing-image-plovdiv {
+    background: center;
+    background-image: url("..//img/photo/plovdiv.jpeg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.hero-landing-image-varna {
+    background: center;
+    background-image: url("..//img/photo/varna.jpeg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.hero-landing-image-pazardjik {
+    background: center;
+    background-image: url("..//img/photo/pazardjik.jpeg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.hero-landing-image-burgas {
+    background: center;
+    background-image: url("..//img/photo/burgas.jpeg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}

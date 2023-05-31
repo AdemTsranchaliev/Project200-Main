@@ -1,13 +1,79 @@
 <!doctype html>
 <html lang="en">
+
 <head>
-  <meta charset="utf-8">
-  <title>ProjectSite</title>
   <base href="/">
+
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Directory Theme by Bootstrapious</title>
+  <meta name="description" content="">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <meta name="robots" content="all,follow">
+  <!-- Price Slider Stylesheets -->
+  <link rel="stylesheet" href="vendor/nouislider/nouislider.css">
+  <!-- Google fonts - Comfortaa-->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet">
+  <!-- swiper-->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.4.1/css/swiper.min.css">
+  <!-- Magnigic Popup-->
+  <link rel="stylesheet" href="assets/vendor/magnific-popup/magnific-popup.css">
+  <!-- theme stylesheet-->
+  <link rel="stylesheet" href="assets/css/style.default.css" id="theme-stylesheet">
+  <!-- Custom stylesheet - for your changes-->
+  <link rel="stylesheet" href="assets/css/custom.css">
+  <!-- Favicon-->
+  <link rel="shortcut icon" href="assets/img/favicon.png">
+  <!-- Tweaks for older IEs-->
+  <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+        <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script><![endif]-->
+  <!-- Font Awesome CSS-->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+    integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
 </head>
+
 <body>
   <app-root></app-root>
 </body>
+<!-- JavaScript files-->
+<script>
+
+  function injectSvgSprite(path) {
+
+    var ajax = new XMLHttpRequest();
+    ajax.open("GET", path, true);
+    ajax.send();
+    ajax.onload = function (e) {
+      var div = document.createElement("div");
+      div.className = 'd-none';
+      div.innerHTML = ajax.responseText;
+      document.body.insertBefore(div, document.body.childNodes[0]);
+    }
+  }
+
+  injectSvgSprite('https://demo.bootstrapious.com/directory/1-4/icons/orion-svg-sprite.svg');
+
+</script>
+<!-- jQuery-->
+<script src="assets/vendor/jquery/jquery.min.js"></script>
+<!-- Bootstrap JS bundle - Bootstrap + PopperJS-->
+<script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+<!-- Magnific Popup - Lightbox for the gallery-->
+<script src="assets/vendor/magnific-popup/jquery.magnific-popup.min.js"></script>
+<!-- Smooth scroll-->
+<script src="assets/vendor/smooth-scroll/smooth-scroll.polyfills.min.js"></script>
+<!-- Bootstrap Select-->
+<script src="assets/vendor/bootstrap-select/js/bootstrap-select.min.js"></script>
+<!-- Object Fit Images - Fallback for browsers that don't support object-fit-->
+<script src="assets/vendor/object-fit-images/ofi.min.js"></script>
+<!-- Swiper Carousel                       -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.4.1/js/swiper.min.js"></script>
+<script>var basePath = ''</script>
+
+<script src="assets/js/theme.js"></script>
+
 </html>
