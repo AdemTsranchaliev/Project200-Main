@@ -11,6 +11,9 @@ import { UserAccountGridComponent } from './user/user-account-grid/user-account-
 import { LoginComponent } from './authentication/login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { StudioListMainComponent } from './studio/studio-list-main/studio-list-main.component';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatInputModule} from '@angular/material/input';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -24,15 +27,20 @@ import { StudioListMainComponent } from './studio/studio-list-main/studio-list-m
     UserPersonalInformationComponent,
     UserSecurityComponent,
     UserAccountGridComponent,
-    LoginComponent,
-    RegisterComponent,
-    StudioListMainComponent
 
     
+    LoginComponent,
+    RegisterComponent,
+    StudioListMainComponent,
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    BrowserAnimationsModule,
+    
+    //Angular material
+    MatFormFieldModule,
+    MatInputModule
   ],
   providers: [],
   bootstrap: [AppComponent]
