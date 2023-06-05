@@ -3,12 +3,12 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { InputValidator } from 'src/app/shared/utils/input-validators';
 
 @Component({
-  selector: 'app-login',
-  templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css']
+  selector: 'app-register',
+  templateUrl: './register.component.html',
+  styleUrls: ['./register.component.css']
 })
-export class LoginComponent implements OnInit {
-  loginForm!: FormGroup;
+export class RegisterComponent implements OnInit {
+  registerForm!: FormGroup;
   inputValidator: InputValidator;
 
   constructor(
@@ -22,13 +22,15 @@ export class LoginComponent implements OnInit {
   }
 
   createForm() {
-    this.loginForm = this.formBuilder.group({
+    this.registerForm = this.formBuilder.group({
       email: ['', [Validators.required, Validators.email]],
-      password: ['', [Validators.required, Validators.minLength(3)]]
+      password: ['', [Validators.required]],
+      confirmPassword: ['', [Validators.required]],
+      checkbox: [''],
     });
   }
 
   onSubmit() {
-    console.log('>>>');
+    console.log('>>>', 'Data to be here');
   }
 }

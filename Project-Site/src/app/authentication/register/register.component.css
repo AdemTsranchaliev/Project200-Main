@@ -1,8 +1,8 @@
-.custom-login-layout {
+.custom-register-layout {
     padding-top: 150px;
 }
 
-.bg-image-login {
+.bg-image-register {
     background-image: url('/assets/img/photo/login-bg.jpg');
     height: 300px;
 }
