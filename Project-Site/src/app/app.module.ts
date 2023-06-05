@@ -18,6 +18,7 @@ import { UserAccountGridComponent } from './user/user-account-grid/user-account-
 import { LoginComponent } from './authentication/login/login.component';
 import { RegisterComponent } from './authentication/register/register.component';
 import { StudioListMainComponent } from './studio/studio-list-main/studio-list-main.component';
+import { CatalogComponent } from './catalog/catalog.component';
 
 
 @NgModule({
@@ -31,6 +32,7 @@ import { StudioListMainComponent } from './studio/studio-list-main/studio-list-m
     UserPersonalInformationComponent,
     UserSecurityComponent,
     UserAccountGridComponent,
+    CatalogComponent,
 
     // Auth
     LoginComponent,
