@@ -14,172 +14,139 @@
   <div class="container-fluid py-5 px-lg-5">
     <div class="row">
       <div class="col-lg-3 pt-3">
-        <form class="pe-xl-3" action="#" autocomplete="off">
+        <form class="pe-xl-3">
+          <!-- Salon Services -->
           <div class="mb-4">
-            <label class="form-label" for="form_neighbourhood"
-              >Избери Услуга</label
-            >
-            <select
-              class="selectpicker form-control"
-              name="neighbourhood"
-              id="form_neighbourhood"
-              multiple
-              data-style="btn-selectpicker"
-              data-live-search="true"
-              data-selected-text-format="count &gt; 1"
-              title=""
-            >
-              <option value="neighbourhood_0">Battery Park City</option>
-              <option value="neighbourhood_1">Bowery</option>
-              <option value="neighbourhood_2">Carnegie Hill</option>
-              <option value="neighbourhood_3">Central Park</option>
-              <option value="neighbourhood_4">Chelsea</option>
-              <option value="neighbourhood_5">Chinatown</option>
-              <option value="neighbourhood_6">Civic Center</option>
-              <option value="neighbourhood_7">East Harlem</option>
-              <option value="neighbourhood_8">Financial District</option>
-              <option value="neighbourhood_9">Flatiron</option>
-              <option value="neighbourhood_10">Garment District</option>
-              <option value="neighbourhood_11">Gramercy Park</option>
-              <option value="neighbourhood_12">Greenwich Village</option>
-              <option value="neighbourhood_13">East Village</option>
-              <option value="neighbourhood_14">West Village</option>
-              <option value="neighbourhood_15">Hamilton Heights</option>
-              <option value="neighbourhood_16">Harlem</option>
-              <option value="neighbourhood_17">Hell's Kitchen / Clinton</option>
-              <option value="neighbourhood_18">Inwood</option>
-              <option value="neighbourhood_19">Kips Bay</option>
-              <option value="neighbourhood_20">Lenox Hill</option>
-              <option value="neighbourhood_21">Little Italy</option>
-              <option value="neighbourhood_22">Lower Eastside</option>
-              <option value="neighbourhood_23">Madison Square</option>
-              <option value="neighbourhood_24">Manhattan Valley</option>
-              <option value="neighbourhood_25">Meatpacking District</option>
-              <option value="neighbourhood_26">Midtown</option>
-              <option value="neighbourhood_27">Morningside Heights</option>
-              <option value="neighbourhood_28">Murray Hill</option>
-              <option value="neighbourhood_29">NoHo</option>
-              <option value="neighbourhood_30">NoLita</option>
-              <option value="neighbourhood_31">Roosevelt Island</option>
-              <option value="neighbourhood_32">SoHo</option>
-              <option value="neighbourhood_33">
-                Stuyvesant Town (Stuyvesant Square)
-              </option>
-              <option value="neighbourhood_34">Sutton Place</option>
-              <option value="neighbourhood_35">Times Square</option>
-              <option value="neighbourhood_36">Tribeca</option>
-              <option value="neighbourhood_37">Turtle Bay</option>
-              <option value="neighbourhood_38">Upper Eastside</option>
-              <option value="neighbourhood_39">Upper Westside</option>
-              <option value="neighbourhood_40">Washington Heights</option>
-              <option value="neighbourhood_41">Yorkville</option>
-            </select>
+            <mat-form-field class="w-100">
+              <mat-label>Изберете услуга</mat-label>
+              <mat-select formControlName="service" multiple>
+                <mat-select-trigger>
+                  {{service.value?.[0] || ''}}
+                  <span *ngIf="(service.value?.length || 0) > 1">
+                    (+ {{ (service.value?.length || 0) - 1 }}
+                    {{ service.value?.length === 2 ? "услуга" : "услуги" }})
+                  </span>
+                </mat-select-trigger>
+                <mat-option
+                  *ngFor="let service of serviceList"
+                  [value]="service"
+                  >{{ service }}</mat-option
+                >
+              </mat-select>
+            </mat-form-field>
           </div>
+
+          <!-- Datepicker -->
           <div class="mb-4">
-            <label class="form-label" for="form_dates">Свободни Дати</label>
-            <div class="datepicker-container datepicker-container-left">
+            <mat-form-field class="w-100">
+              <mat-label>Изберете диапазон от дати</mat-label>
+              <mat-date-range-input
+                [formGroup]="catalogForm"
+                [rangePicker]="picker"
+              >
+                <input
+                  matStartDate
+                  formControlName="start"
+                  placeholder="Начална дата"
+                />
+                <input
+                  matEndDate
+                  formControlName="end"
+                  placeholder="Крайна дата"
+                />
+              </mat-date-range-input>
+              <mat-hint>Формат: Месец/Ден/Година</mat-hint>
+              <mat-datepicker-toggle
+                matIconSuffix
+                [for]="picker"
+              ></mat-datepicker-toggle>
+              <mat-date-range-picker #picker></mat-date-range-picker>
+              <mat-error
+                *ngIf="
+                  catalogForm.controls.start.hasError('matStartDateInvalid')
+                "
+                >Невалидна начална дата!</mat-error
+              >
+              <mat-error
+                *ngIf="catalogForm.controls.end.hasError('matEndDateInvalid')"
+                >Невалидна крайна дата!</mat-error
+              >
+            </mat-form-field>
+          </div>
+
+          <!-- Price Range -->
+          <div class="mb-4">
+            <div class="example-label-container">
+              <label class="float-start">50 лв</label>
+              <label class="float-end">200 лв</label>
+            </div>
+            <mat-slider
+              class="w-100"
+              min="50"
+              max="200"
+              showTickMarks
+              discrete
+              [displayWith]="formatLabel"
+            >
               <input
-                class="form-control"
-                type="text"
-                name="bookingDate"
-                id="form_dates"
-                placeholder="Избери дати"
+                matSliderThumb
+                [(ngModel)]="value"
+                [ngModelOptions]="{ standalone: true }"
               />
-            </div>
+            </mat-slider>
           </div>
+
+          <!-- Locations -->
           <div class="mb-4">
-            <label class="form-label">Ценови Диапазон</label>
-            <div class="text-primary" id="slider-snap"></div>
-            <div class="nouislider-values">
-              <div class="min">
-                От <span id="slider-snap-value-from"></span> лв.
-              </div>
-              <div class="max">
-                До <span id="slider-snap-value-to"></span> лв.
-              </div>
-            </div>
-            <input
-              type="hidden"
-              name="pricefrom"
-              id="slider-snap-input-from"
-              value="40"
-            />
-            <input
-              type="hidden"
-              name="priceto"
-              id="slider-snap-input-to"
-              value="110"
-            />
+            <mat-form-field class="w-100">
+              <mat-label>Изберете локация</mat-label>
+              <mat-select>
+                <mat-option
+                  *ngFor="let location of locationsList"
+                  [value]="location"
+                  >{{ location }}</mat-option
+                >
+              </mat-select>
+            </mat-form-field>
           </div>
+
+          <!-- Rating -->
           <div class="mb-4">
-            <label class="form-label" for="form_neighbourhood12"
-              >Локации по Области</label
-            >
-            <select
-              class="selectpicker form-control"
-              name="neighbourhood"
-              id="form_neighbourhood12"
-              multiple
-              data-style="btn-selectpicker"
-              data-live-search="true"
-              data-selected-text-format="count &gt; 1"
-              title=""
-            >
-              <option value="neighbourhood_0">Battery Park City</option>
-              <option value="neighbourhood_1">Bowery</option>
-              <option value="neighbourhood_2">Carnegie Hill</option>
-              <option value="neighbourhood_3">Central Park</option>
-              <option value="neighbourhood_4">Chelsea</option>
-              <option value="neighbourhood_5">Chinatown</option>
-              <option value="neighbourhood_6">Civic Center</option>
-              <option value="neighbourhood_7">East Harlem</option>
-              <option value="neighbourhood_8">Financial District</option>
-              <option value="neighbourhood_9">Flatiron</option>
-              <option value="neighbourhood_10">Garment District</option>
-              <option value="neighbourhood_11">Gramercy Park</option>
-              <option value="neighbourhood_12">Greenwich Village</option>
-              <option value="neighbourhood_13">East Village</option>
-              <option value="neighbourhood_14">West Village</option>
-              <option value="neighbourhood_15">Hamilton Heights</option>
-              <option value="neighbourhood_16">Harlem</option>
-              <option value="neighbourhood_17">Hell's Kitchen / Clinton</option>
-              <option value="neighbourhood_18">Inwood</option>
-              <option value="neighbourhood_19">Kips Bay</option>
-              <option value="neighbourhood_20">Lenox Hill</option>
-              <option value="neighbourhood_21">Little Italy</option>
-              <option value="neighbourhood_22">Lower Eastside</option>
-              <option value="neighbourhood_23">Madison Square</option>
-              <option value="neighbourhood_24">Manhattan Valley</option>
-              <option value="neighbourhood_25">Meatpacking District</option>
-              <option value="neighbourhood_26">Midtown</option>
-              <option value="neighbourhood_27">Morningside Heights</option>
-              <option value="neighbourhood_28">Murray Hill</option>
-              <option value="neighbourhood_29">NoHo</option>
-              <option value="neighbourhood_30">NoLita</option>
-              <option value="neighbourhood_31">Roosevelt Island</option>
-              <option value="neighbourhood_32">SoHo</option>
-              <option value="neighbourhood_33">
-                Stuyvesant Town (Stuyvesant Square)
-              </option>
-              <option value="neighbourhood_34">Sutton Place</option>
-              <option value="neighbourhood_35">Times Square</option>
-              <option value="neighbourhood_36">Tribeca</option>
-              <option value="neighbourhood_37">Turtle Bay</option>
-              <option value="neighbourhood_38">Upper Eastside</option>
-              <option value="neighbourhood_39">Upper Westside</option>
-              <option value="neighbourhood_40">Washington Heights</option>
-              <option value="neighbourhood_41">Yorkville</option>
-            </select>
-          </div>
-          <div class="mb-4">
-            <label class="form-label">Избери Рейтинг</label>
-            <p class="flex-shrink-1 mb-0 card-stars text-xs text-start">
-              <i class="fa fa-star text-warning h3"></i
-              ><i class="fa fa-star text-warning h3"></i
-              ><i class="fa fa-star text-warning h3"></i
-              ><i class="fa fa-star text-warning h3"></i
-              ><i class="fa fa-star text-warning h3"></i>
-            </p>
+            <mat-form-field class="w-100">
+              <mat-label>Изберете рейтинг</mat-label>
+              <mat-select>
+                <mat-option value="star-one">
+                  <i class="fa fa-star text-warning h3"></i>
+                  <span class="float-end"> 1/5 </span>
+                </mat-option>
+                <mat-option value="star-two">
+                  <i class="fa fa-star text-warning h3"></i>
+                  <i class="fa fa-star text-warning h3"></i>
+                  <span class="float-end"> 2/5 </span>
+                </mat-option>
+                <mat-option value="star-three">
+                  <i class="fa fa-star text-warning h3"></i>
+                  <i class="fa fa-star text-warning h3"></i>
+                  <i class="fa fa-star text-warning h3"></i>
+                  <span class="float-end"> 3/5 </span>
+                </mat-option>
+                <mat-option value="star-four">
+                  <i class="fa fa-star text-warning h3"></i>
+                  <i class="fa fa-star text-warning h3"></i>
+                  <i class="fa fa-star text-warning h3"></i>
+                  <i class="fa fa-star text-warning h3"></i>
+                  <span class="float-end"> 4/5 </span>
+                </mat-option>
+                <mat-option value="star-five">
+                  <i class="fa fa-star text-warning h3"></i>
+                  <i class="fa fa-star text-warning h3"></i>
+                  <i class="fa fa-star text-warning h3"></i>
+                  <i class="fa fa-star text-warning h3"></i>
+                  <i class="fa fa-star text-warning h3"></i>
+                  <span class="float-end"> 5/5 </span>
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
           </div>
         </form>
       </div>
@@ -191,20 +158,17 @@
             <p class="mb-3 mb-md-0"><strong>12</strong> намерени резултата</p>
           </div>
           <div>
-            <label class="form-label me-2" for="form_sort">Сортирай по:</label>
-            <select
-              class="selectpicker"
-              name="sort"
-              id="form_sort"
-              data-style="btn-selectpicker"
-              title=""
-            >
-              <option value="sortBy_0">Най-популярни</option>
-              <option value="sortBy_1">Предпочитани</option>
-              <option value="sortBy_2">Нови</option>
-              <option value="sortBy_3">Стари</option>
-              <option value="sortBy_4">В Близост</option>
-            </select>
+            <mat-form-field>
+              <mat-label>Сортирай по:</mat-label>
+              <mat-select>
+                <mat-option
+                  *ngFor="let filter of filterList"
+                  [value]="filter.value"
+                >
+                  {{ filter.viewValue }}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
           </div>
         </div>
         <div class="row">
@@ -249,7 +213,7 @@
                     </p>
                   </div>
                   <p class="card-text text-muted">
-                    <span class="h4 text-primary">30 лв</span>
+                    <span class="h4 text-primary">30.00 лв</span>
                   </p>
                 </div>
               </div>
@@ -296,7 +260,7 @@
                     </p>
                   </div>
                   <p class="card-text text-muted">
-                    <span class="h4 text-primary">60 лв</span>
+                    <span class="h4 text-primary">60.00 лв</span>
                   </p>
                 </div>
               </div>
@@ -343,7 +307,7 @@
                     </p>
                   </div>
                   <p class="card-text text-muted">
-                    <span class="h4 text-primary">75 лв</span>
+                    <span class="h4 text-primary">75.00 лв</span>
                   </p>
                 </div>
               </div>
