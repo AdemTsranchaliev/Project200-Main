@@ -1,0 +1,107 @@
+[
+    {
+        "name": "Салон за красота 'Ашли' 1",
+        "AvgGrade": 5,
+        "photo": "assets/img/salon-images/salon-1.jpg",
+        "Category": [
+            "Подстрижка",
+            "Подстрижка",
+            "Подстрижка",
+            "Маникюр"
+        ],
+        "LowestPrice": 30.00
+    },
+    {
+        "name": "Масажно студио 'Монтана' 2",
+        "AvgGrade": 4,
+        "photo": "assets/img/salon-images/salon-2.jpg",
+        "Category": [
+            "Подстрижка",
+            "Подстрижка",
+            "Подстрижка",
+            "Маникюр"
+        ],
+        "LowestPrice": 60.00
+    },
+    {
+        "name": "Фризьорки салон 'Алтенатив' 3",
+        "AvgGrade": 2,
+        "photo": "assets/img/salon-images/salon-3.jpg",
+        "Category": [
+            "Подстрижка",
+            "Подстрижка",
+            "Подстрижка"
+        ],
+        "LowestPrice": 75.00
+    },
+    {
+        "name": "Салон за красота 'Ашли' 4",
+        "AvgGrade": 5,
+        "photo": "assets/img/salon-images/salon-1.jpg",
+        "Category": [
+            "Подстрижка",
+            "Подстрижка",
+            "Подстрижка",
+            "Маникюр"
+        ],
+        "LowestPrice": 30.00
+    },
+    {
+        "name": "Масажно студио 'Монтана' 5",
+        "AvgGrade": 4,
+        "photo": "assets/img/salon-images/salon-2.jpg",
+        "Category": [
+            "Подстрижка",
+            "Подстрижка",
+            "Подстрижка",
+            "Маникюр"
+        ],
+        "LowestPrice": 60.00
+    },
+    {
+        "name": "Фризьорки салон 'Алтенатив' 6",
+        "AvgGrade": 2,
+        "photo": "assets/img/salon-images/salon-3.jpg",
+        "Category": [
+            "Подстрижка",
+            "Подстрижка",
+            "Подстрижка"
+        ],
+        "LowestPrice": 75.00
+    },
+    {
+        "name": "Салон за красота 'Ашли' 7",
+        "AvgGrade": 5,
+        "photo": "assets/img/salon-images/salon-1.jpg",
+        "Category": [
+            "Подстрижка",
+            "Подстрижка",
+            "Подстрижка",
+            "Маникюр"
+        ],
+        "LowestPrice": 30.00
+    },
+    {
+        "name": "Масажно студио 'Монтана' 8",
+        "AvgGrade": 4,
+        "photo": "assets/img/salon-images/salon-2.jpg",
+        "Category": [
+            "Подстрижка",
+            "Подстрижка",
+            "Подстрижка",
+            "Маникюр"
+        ],
+        "LowestPrice": 60.00
+    },
+    {
+        "name": "Фризьорки салон 'Алтенатив' 9",
+        "AvgGrade": 2,
+        "photo": "assets/img/salon-images/salon-3.jpg",
+        "Category": [
+            "Подстрижка",
+            "Подстрижка",
+            "Подстрижка"
+        ],
+        "LowestPrice": 75.00
+    }
+]

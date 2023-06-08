@@ -3,32 +3,27 @@
     <div class="row">
       <div class="col-xl-8">
         <h1>Всички салони</h1>
-        <p class="lead text-muted">
-          Текст свързан със салоните. За отделните Области/Градове може да има
-          специфична информация. Отделно може да имам и определени
-          слогани/мото... Интересни новини, както и за празниците цитати.
-        </p>
       </div>
     </div>
   </div>
   <div class="container-fluid py-5 px-lg-5">
     <div class="row">
       <div class="col-lg-3 pt-3">
-        <form class="pe-xl-3">
+        <form class="pe-xl-3" [formGroup]="catalogForm">
           <!-- Salon Services -->
           <div class="mb-4">
             <mat-form-field class="w-100">
               <mat-label>Изберете услуга</mat-label>
-              <mat-select formControlName="service" multiple>
+              <mat-select [formControl]="services" multiple>
                 <mat-select-trigger>
-                  {{service.value?.[0] || ''}}
-                  <span *ngIf="(service.value?.length || 0) > 1">
-                    (+ {{ (service.value?.length || 0) - 1 }}
-                    {{ service.value?.length === 2 ? "услуга" : "услуги" }})
+                  {{services.value?.[0] || ''}}
+                  <span *ngIf="(services.value?.length || 0) > 1">
+                    (+ {{ (services.value?.length || 0) - 1 }}
+                    {{ services.value?.length === 2 ? "услуга" : "услуги" }})
                   </span>
                 </mat-select-trigger>
                 <mat-option
-                  *ngFor="let service of serviceList"
+                  *ngFor="let service of catalogOptionsData?.serviceList"
                   [value]="service"
                   >{{ service }}</mat-option
                 >
@@ -102,7 +97,7 @@
               <mat-label>Изберете локация</mat-label>
               <mat-select>
                 <mat-option
-                  *ngFor="let location of locationsList"
+                  *ngFor="let location of catalogOptionsData?.locationsList"
                   [value]="location"
                   >{{ location }}</mat-option
                 >
@@ -154,15 +149,17 @@
         <div
           class="d-flex justify-content-between align-items-center flex-column flex-md-row mb-4"
         >
+          <!-- Results found -->
           <div class="me-3">
             <p class="mb-3 mb-md-0"><strong>12</strong> намерени резултата</p>
           </div>
+          <!-- Filter Salons -->
           <div>
             <mat-form-field>
               <mat-label>Сортирай по:</mat-label>
               <mat-select>
                 <mat-option
-                  *ngFor="let filter of filterList"
+                  *ngFor="let filter of catalogOptionsData?.filterList"
                   [value]="filter.value"
                 >
                   {{ filter.viewValue }}
@@ -176,12 +173,13 @@
           <div
             class="col-sm-6 col-xl-4 mb-5 hover-animate"
             data-marker-id="59c0c8e33b1527bfe2abaf92"
+            *ngFor="let element of catalogData"
           >
             <div class="card h-100 border-0 shadow">
               <div class="card-img-top overflow-hidden gradient-overlay">
                 <img
                   class="img-fluid"
-                  src="assets/img/salon-images/salon-1.jpg"
+                  src="{{ element.photo }}"
                   alt="Салон за красота 'Ашли'"
                 /><a class="tile-link" href="detail-rooms.html"></a>
                 <div class="card-img-overlay-top text-end">
@@ -200,122 +198,50 @@
                     <a
                       class="text-decoration-none text-dark"
                       href="detail-rooms.html"
-                      >Салон за красота 'Ашли'</a
+                      >{{ element.name }}</a
                     >
                   </h6>
                   <div class="d-flex card-subtitle mb-3">
                     <p class="flex-shrink-1 mb-0 card-stars text-xs text-end">
-                      <i class="fa fa-star text-warning"></i
-                      ><i class="fa fa-star text-warning"></i
-                      ><i class="fa fa-star text-warning"></i
-                      ><i class="fa fa-star text-warning"></i
-                      ><i class="fa fa-star text-warning"></i>
+                      <i
+                        class="fa fa-star text-warning"
+                        *ngFor="let item of salonRating; index as i"
+                      ></i>
                     </p>
                   </div>
-                  <p class="card-text text-muted">
-                    <span class="h4 text-primary">30.00 лв</span>
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-          <!-- place item-->
-          <div
-            class="col-sm-6 col-xl-4 mb-5 hover-animate"
-            data-marker-id="59c0c8e322f3375db4d89128"
-          >
-            <div class="card h-100 border-0 shadow">
-              <div class="card-img-top overflow-hidden gradient-overlay">
-                <img
-                  class="img-fluid"
-                  src="assets/img/salon-images/salon-2.jpg"
-                  alt="Масажно студио 'Монтана'"
-                /><a class="tile-link" href="detail-rooms.html"></a>
-                <div class="card-img-overlay-top text-end">
-                  <a
-                    class="card-fav-icon position-relative z-index-40"
-                    href="javascript:void();"
-                  >
-                    <svg class="svg-icon text-white">
-                      <use xlink:href="#heart-1"></use></svg
-                  ></a>
-                </div>
-              </div>
-              <div class="card-body d-flex align-items-center">
-                <div class="w-100">
-                  <h6 class="card-title">
-                    <a
-                      class="text-decoration-none text-dark"
-                      href="detail-rooms.html"
-                      >Масажно студио 'Монтана'</a
+                  <div class="mb-3">
+                    <span
+                      class="badge bg-primary me-2"
+                      *ngFor="let category of element.Category"
+                      >{{ category }}</span
                     >
-                  </h6>
-                  <div class="d-flex card-subtitle mb-3">
-                    <p class="flex-shrink-1 mb-0 card-stars text-xs text-end">
-                      <i class="fa fa-star text-warning"></i
-                      ><i class="fa fa-star text-warning"></i
-                      ><i class="fa fa-star text-warning"></i
-                      ><i class="fa fa-star text-warning"></i
-                      ><i class="fa fa-star text-gray-300"> </i>
-                    </p>
                   </div>
                   <p class="card-text text-muted">
-                    <span class="h4 text-primary">60.00 лв</span>
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-          <!-- place item -->
-          <div
-            class="col-sm-6 col-xl-4 mb-5 hover-animate"
-            data-marker-id="59c0c8e3a31e62979bf147c9"
-          >
-            <div class="card h-100 border-0 shadow">
-              <div class="card-img-top overflow-hidden gradient-overlay">
-                <img
-                  class="img-fluid"
-                  src="assets/img/salon-images/salon-3.jpg"
-                  alt="Фризьорки салон 'Алтенатив'"
-                /><a class="tile-link" href="detail-rooms.html"></a>
-                <div class="card-img-overlay-top text-end">
-                  <a
-                    class="card-fav-icon position-relative z-index-40"
-                    href="javascript:void();"
-                  >
-                    <svg class="svg-icon text-white">
-                      <use xlink:href="#heart-1"></use></svg
-                  ></a>
-                </div>
-              </div>
-              <div class="card-body d-flex align-items-center">
-                <div class="w-100">
-                  <h6 class="card-title">
-                    <a
-                      class="text-decoration-none text-dark"
-                      href="detail-rooms.html"
-                      >Фризьорки салон 'Алтенатив'</a
+                    <span class="h4 text-primary"
+                      >{{ element.LowestPrice | number : "1.2-2" }} лв</span
                     >
-                  </h6>
-                  <div class="d-flex card-subtitle mb-3">
-                    <p class="flex-shrink-1 mb-0 card-stars text-xs text-end">
-                      <i class="fa fa-star text-warning"></i
-                      ><i class="fa fa-star text-warning"></i
-                      ><i class="fa fa-star text-warning"></i
-                      ><i class="fa fa-star text-gray-300"> </i
-                      ><i class="fa fa-star text-gray-300"> </i>
-                    </p>
-                  </div>
-                  <p class="card-text text-muted">
-                    <span class="h4 text-primary">75.00 лв</span>
                   </p>
                 </div>
               </div>
             </div>
           </div>
         </div>
+
         <!-- Pagination -->
-        <nav aria-label="Page navigation example">
+
+        <mat-paginator
+          #paginator
+          (page)="handlePageEvent($event)"
+          [length]="length"
+          [pageSize]="pageSize"
+          [showFirstLastButtons]="showFirstLastButtons"
+          [pageSizeOptions]="showPageSizeOptions ? pageSizeOptions : []"
+          [pageIndex]="pageIndex"
+          aria-label="Изберете страница"
+        >
+        </mat-paginator>
+
+        <!-- <nav aria-label="Page navigation example">
           <ul
             class="pagination pagination-template d-flex justify-content-center"
           >
@@ -335,7 +261,7 @@
               ></a>
             </li>
           </ul>
-        </nav>
+        </nav> -->
       </div>
     </div>
   </div>
