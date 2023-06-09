@@ -54,19 +54,12 @@ export class CatalogComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    // Init Form
     this.createForm();
-
-    const catalogSubscription = this.catalogService.getCatalog().subscribe((response: any) => {
-      this.catalogData = response;
-      this.totalItems = this.catalogData.length;
-      this.manageRating(this.catalogData);
-    });
-    this.subscriptions.push(catalogSubscription);
-
-    const catalogOptionsSubscription = this.catalogService.getCatalogOptions().subscribe((response: any) => {
-      this.catalogOptionsData = response;
-    });
-    this.subscriptions.push(catalogOptionsSubscription);
+    // Get All Salons
+    this.getSalonData();
+    // Get All Filter Options
+    this.getSalonFilterOptionsData();
   }
 
   ngOnDestroy() {
@@ -78,8 +71,30 @@ export class CatalogComponent implements OnInit {
    */
   createForm(): void {
     this.catalogForm = this.formBuilder.group({
-
+      // TODO: Need to put all Form Controls at the main Form /this.catalogForm/
     });
+  }
+
+  /**
+   * This method create request to get all Salons for Catalog Page
+   */
+  getSalonData() {
+    const catalogSubscription = this.catalogService.getCatalog().subscribe((response: any) => {
+      this.catalogData = response;
+      this.totalItems = this.catalogData.length;
+      this.manageRating(this.catalogData);
+    });
+    this.subscriptions.push(catalogSubscription);
+  }
+
+  /**
+   * This method create request to get all Filter Options For Catalog Page
+   */
+  getSalonFilterOptionsData() {
+    const catalogOptionsSubscription = this.catalogService.getCatalogOptions().subscribe((response: any) => {
+      this.catalogOptionsData = response;
+    });
+    this.subscriptions.push(catalogOptionsSubscription);
   }
 
   /**
@@ -110,6 +125,10 @@ export class CatalogComponent implements OnInit {
     // this.salonRating = Array(5).fill(0).map((x, i) => i);
   }
 
+  /**
+   * Handle page changes
+   * @param event PageEvent
+   */
   onPageChange(event: PageEvent): void {
     this.currentPage = event.pageIndex;
     this.pageSize = event.pageSize;
