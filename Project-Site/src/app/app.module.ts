@@ -15,6 +15,7 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatSliderModule } from '@angular/material/slider';
 import { MatChipsModule } from '@angular/material/chips';
+import { MatIconModule } from '@angular/material/icon';
 // Components
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
@@ -26,6 +27,7 @@ import { LoginComponent } from './authentication/login/login.component';
 import { RegisterComponent } from './authentication/register/register.component';
 import { StudioListMainComponent } from './studio/studio-list-main/studio-list-main.component';
 import { CatalogComponent } from './catalog/catalog.component';
+import { PaginatorComponent } from './paginator/paginator.component';
 
 
 @NgModule({
@@ -45,6 +47,7 @@ import { CatalogComponent } from './catalog/catalog.component';
     LoginComponent,
     RegisterComponent,
     StudioListMainComponent,
+    PaginatorComponent,
   ],
   imports: [
     // Angular
@@ -63,7 +66,8 @@ import { CatalogComponent } from './catalog/catalog.component';
     MatDatepickerModule,
     MatNativeDateModule,
     MatSliderModule,
-    MatChipsModule
+    MatChipsModule,
+    MatIconModule
   ],
   providers: [],
   bootstrap: [AppComponent]

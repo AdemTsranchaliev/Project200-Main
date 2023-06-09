@@ -31,44 +31,6 @@
             </mat-form-field>
           </div>
 
-          <!-- Datepicker -->
-          <div class="mb-4">
-            <mat-form-field class="w-100">
-              <mat-label>Изберете диапазон от дати</mat-label>
-              <mat-date-range-input
-                [formGroup]="catalogForm"
-                [rangePicker]="picker"
-              >
-                <input
-                  matStartDate
-                  formControlName="start"
-                  placeholder="Начална дата"
-                />
-                <input
-                  matEndDate
-                  formControlName="end"
-                  placeholder="Крайна дата"
-                />
-              </mat-date-range-input>
-              <mat-hint>Формат: Месец/Ден/Година</mat-hint>
-              <mat-datepicker-toggle
-                matIconSuffix
-                [for]="picker"
-              ></mat-datepicker-toggle>
-              <mat-date-range-picker #picker></mat-date-range-picker>
-              <mat-error
-                *ngIf="
-                  catalogForm.controls.start.hasError('matStartDateInvalid')
-                "
-                >Невалидна начална дата!</mat-error
-              >
-              <mat-error
-                *ngIf="catalogForm.controls.end.hasError('matEndDateInvalid')"
-                >Невалидна крайна дата!</mat-error
-              >
-            </mat-form-field>
-          </div>
-
           <!-- Price Range -->
           <div class="mb-4">
             <div class="example-label-container">
@@ -95,7 +57,14 @@
           <div class="mb-4">
             <mat-form-field class="w-100">
               <mat-label>Изберете локация</mat-label>
-              <mat-select>
+              <mat-select [formControl]="locations" multiple>
+                <mat-select-trigger>
+                  {{locations.value?.[0] || ''}}
+                  <span *ngIf="(locations.value?.length || 0) > 1">
+                    (+ {{ (locations.value?.length || 0) - 1 }}
+                    {{ locations.value?.length === 2 ? "локация" : "локации" }})
+                  </span>
+                </mat-select-trigger>
                 <mat-option
                   *ngFor="let location of catalogOptionsData?.locationsList"
                   [value]="location"
@@ -109,36 +78,19 @@
           <div class="mb-4">
             <mat-form-field class="w-100">
               <mat-label>Изберете рейтинг</mat-label>
-              <mat-select>
-                <mat-option value="star-one">
-                  <i class="fa fa-star text-warning h3"></i>
-                  <span class="float-end"> 1/5 </span>
-                </mat-option>
-                <mat-option value="star-two">
-                  <i class="fa fa-star text-warning h3"></i>
-                  <i class="fa fa-star text-warning h3"></i>
-                  <span class="float-end"> 2/5 </span>
-                </mat-option>
-                <mat-option value="star-three">
-                  <i class="fa fa-star text-warning h3"></i>
-                  <i class="fa fa-star text-warning h3"></i>
-                  <i class="fa fa-star text-warning h3"></i>
-                  <span class="float-end"> 3/5 </span>
-                </mat-option>
-                <mat-option value="star-four">
-                  <i class="fa fa-star text-warning h3"></i>
-                  <i class="fa fa-star text-warning h3"></i>
-                  <i class="fa fa-star text-warning h3"></i>
-                  <i class="fa fa-star text-warning h3"></i>
-                  <span class="float-end"> 4/5 </span>
-                </mat-option>
-                <mat-option value="star-five">
-                  <i class="fa fa-star text-warning h3"></i>
-                  <i class="fa fa-star text-warning h3"></i>
-                  <i class="fa fa-star text-warning h3"></i>
-                  <i class="fa fa-star text-warning h3"></i>
-                  <i class="fa fa-star text-warning h3"></i>
-                  <span class="float-end"> 5/5 </span>
+              <mat-select [formControl]="ratings" multiple>
+                <mat-select-trigger>
+                  {{ratings.value?.[0] || ''}}
+                  <span *ngIf="(ratings.value?.length || 0) > 1">
+                    (+ {{ (ratings.value?.length || 0) - 1 }}
+                    {{ ratings.value?.length === 2 ? "рейтинг" : "рейтинга" }})
+                  </span>
+                </mat-select-trigger>
+                <mat-option
+                  *ngFor="let rating of catalogOptionsData?.ratingList"
+                  [value]="rating"
+                >
+                  <span class="float-end">{{ rating }}</span>
                 </mat-option>
               </mat-select>
             </mat-form-field>
@@ -151,7 +103,15 @@
         >
           <!-- Results found -->
           <div class="me-3">
-            <p class="mb-3 mb-md-0"><strong>12</strong> намерени резултата</p>
+            <p class="mb-3 mb-md-0">
+              <strong>{{
+                catalogData.slice(
+                  currentPage * pageSize,
+                  (currentPage + 1) * pageSize
+                ).length
+              }}</strong>
+              намерени резултата
+            </p>
           </div>
           <!-- Filter Salons -->
           <div>
@@ -173,7 +133,12 @@
           <div
             class="col-sm-6 col-xl-4 mb-5 hover-animate"
             data-marker-id="59c0c8e33b1527bfe2abaf92"
-            *ngFor="let element of catalogData"
+            *ngFor="
+              let element of catalogData.slice(
+                currentPage * pageSize,
+                (currentPage + 1) * pageSize
+              )
+            "
           >
             <div class="card h-100 border-0 shadow">
               <div class="card-img-top overflow-hidden gradient-overlay">
@@ -188,8 +153,9 @@
                     href="javascript:void();"
                   >
                     <svg class="svg-icon text-white">
-                      <use xlink:href="#heart-1"></use></svg
-                  ></a>
+                      <use xlink:href="#heart-1"></use>
+                    </svg>
+                  </a>
                 </div>
               </div>
               <div class="card-body d-flex align-items-center">
@@ -218,7 +184,7 @@
                   </div>
                   <p class="card-text text-muted">
                     <span class="h4 text-primary"
-                      >{{ element.LowestPrice | number : "1.2-2" }} лв</span
+                      >От {{ element.LowestPrice | number : "1.2-2" }} лв.</span
                     >
                   </p>
                 </div>
@@ -228,40 +194,13 @@
         </div>
 
         <!-- Pagination -->
-
-        <mat-paginator
-          #paginator
-          (page)="handlePageEvent($event)"
-          [length]="length"
+        <app-paginator
+          [totalItems]="totalItems"
           [pageSize]="pageSize"
-          [showFirstLastButtons]="showFirstLastButtons"
-          [pageSizeOptions]="showPageSizeOptions ? pageSizeOptions : []"
-          [pageIndex]="pageIndex"
-          aria-label="Изберете страница"
-        >
-        </mat-paginator>
-
-        <!-- <nav aria-label="Page navigation example">
-          <ul
-            class="pagination pagination-template d-flex justify-content-center"
-          >
-            <li class="page-item">
-              <a class="page-link" href="#">
-                <i class="fa fa-angle-left"></i
-              ></a>
-            </li>
-            <li class="page-item active">
-              <a class="page-link" href="#">1</a>
-            </li>
-            <li class="page-item"><a class="page-link" href="#">2</a></li>
-            <li class="page-item"><a class="page-link" href="#">3</a></li>
-            <li class="page-item">
-              <a class="page-link" href="#">
-                <i class="fa fa-angle-right"></i
-              ></a>
-            </li>
-          </ul>
-        </nav> -->
+          [currentPage]="currentPage"
+          [pageSizeOptions]="[5, 10, 25, 100]"
+          (pageChange)="onPageChange($event)"
+        ></app-paginator>
       </div>
     </div>
   </div>

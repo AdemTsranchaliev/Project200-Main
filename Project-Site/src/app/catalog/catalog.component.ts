@@ -1,11 +1,14 @@
 // Angular
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 import { PageEvent } from '@angular/material/paginator';
 // RXJS
 import { Subscription } from 'rxjs';
 // Services
 import { CatalogService } from './catalog.service';
+// Components
+import { PaginatorComponent } from '../paginator/paginator.component';
+
 
 @Component({
   selector: 'app-catalog',
@@ -16,9 +19,15 @@ export class CatalogComponent implements OnInit {
   // Subscriptions
   private subscriptions: Subscription[] = [];
 
+  // Paginator
+  @ViewChild(PaginatorComponent) paginatorComponent!: PaginatorComponent;
+  pageSize = 5; // Number of items to display per page
+  currentPage = 0; // Current page index
+  totalItems = 0; // Total number of items
+
   // Catalog Data
-  catalogData: any;
-  catalogOptionsData: any;
+  catalogData: any; // Salons Data
+  catalogOptionsData: any; // All Filters & ect. Data
 
   // Main Form
   catalogForm!: FormGroup;
@@ -26,20 +35,17 @@ export class CatalogComponent implements OnInit {
   // Salon Services
   services = new FormControl('');
 
+  // Location Services
+  locations = new FormControl('');
+
   // Default Price Range
   value = 50;
 
   // Rating Array
   salonRating: number[] = [];
 
-  // Pagination
-  length = 10;
-  pageSize = 5;
-  pageIndex = 0;
-  pageSizeOptions = [5, 10, 25];
-  showPageSizeOptions = true;
-  showFirstLastButtons = true;
-  pageEvent!: PageEvent;
+  // Rating Services
+  ratings = new FormControl('');
 
 
   constructor(
@@ -52,7 +58,8 @@ export class CatalogComponent implements OnInit {
 
     const catalogSubscription = this.catalogService.getCatalog().subscribe((response: any) => {
       this.catalogData = response;
-      this.manageRating(this.catalogData[0].AvgGrade);
+      this.totalItems = this.catalogData.length;
+      this.manageRating(this.catalogData);
     });
     this.subscriptions.push(catalogSubscription);
 
@@ -71,8 +78,7 @@ export class CatalogComponent implements OnInit {
    */
   createForm(): void {
     this.catalogForm = this.formBuilder.group({
-      start: [null],
-      end: [null],
+
     });
   }
 
@@ -90,22 +96,23 @@ export class CatalogComponent implements OnInit {
   }
 
   /**
-   * By getting salon rating, creates new array to be able to render in the HTML
-   * @param rating Number
+   * By getting salon Response, creates new array to be able to render in the HTML
+   * @param res Array
    */
-  manageRating(rating: number) {
+  manageRating(res: any) {
     // TODO: Make it able to work with the whole RESPONSE
-    this.salonRating = Array(rating).fill(0).map((x, i) => i);
+
+    res.forEach((x: any) => {
+      this.salonRating.push(x.AvgGrade);
+    });
+
+
+    // this.salonRating = Array(5).fill(0).map((x, i) => i);
   }
 
-  /**
-   * Handler which manages pages /Current page and ect./
-   * @param e 
-   */
-  handlePageEvent(e: PageEvent) {
-    this.pageEvent = e;
-    this.length = e.length;
-    this.pageSize = e.pageSize;
-    this.pageIndex = e.pageIndex;
+  onPageChange(event: PageEvent): void {
+    this.currentPage = event.pageIndex;
+    this.pageSize = event.pageSize;
+    // Perform any additional logic or data retrieval here
   }
 }
