@@ -32,20 +32,10 @@ export class CatalogComponent implements OnInit {
   // Main Form
   catalogForm!: FormGroup;
 
-  // Salon Services
-  services = new FormControl('');
-
-  // Location Services
-  locations = new FormControl('');
-
-  // Default Price Range
-  value = 50;
-
-  // Rating Array
-  salonRating: number[] = [];
-
-  // Rating Services
-  ratings = new FormControl('');
+  // Load More - Button
+  visibleItemsCountServices: number = 5; // Display 5 items initially
+  visibleItemsCountLocations: number = 5; // Display 5 items initially
+  totalItemsCount: any;
 
 
   constructor(
@@ -70,8 +60,25 @@ export class CatalogComponent implements OnInit {
    * Create Form for Catalog
    */
   createForm(): void {
+    // TODO: Need to put all Form Controls at the main Form /this.catalogForm/
     this.catalogForm = this.formBuilder.group({
-      // TODO: Need to put all Form Controls at the main Form /this.catalogForm/
+      // services: this.formBuilder.group({
+      //   haircut1: [false],
+      //   haircut2: [false],
+      //   haircut3: [false],
+      // }),
+      // locations: this.formBuilder.group({
+      //   sofia: [false],
+      //   plovdiv: [false],
+      //   pazarjik: [false],
+      // }),
+      // ratings: this.formBuilder.group({
+      //   oneStar: [false],
+      //   twoStars: [false],
+      //   threeStars: [false],
+      //   fourStars: [false],
+      //   fiveStars: [false],
+      // }),
     });
   }
 
@@ -82,7 +89,6 @@ export class CatalogComponent implements OnInit {
     const catalogSubscription = this.catalogService.getCatalog().subscribe((response: any) => {
       this.catalogData = response;
       this.totalItems = this.catalogData.length;
-      this.manageRating(this.catalogData);
     });
     this.subscriptions.push(catalogSubscription);
   }
@@ -93,36 +99,10 @@ export class CatalogComponent implements OnInit {
   getSalonFilterOptionsData() {
     const catalogOptionsSubscription = this.catalogService.getCatalogOptions().subscribe((response: any) => {
       this.catalogOptionsData = response;
+      this.totalItemsCount = this.catalogOptionsData?.serviceList?.length;
+
     });
     this.subscriptions.push(catalogOptionsSubscription);
-  }
-
-  /**
-   * Price Range Slider
-   * @param value Number
-   * @returns Current selected value
-   */
-  formatLabel(value: number): string {
-    if (value >= 5) {
-      return Math.round(value / 5) + 'k';
-    }
-
-    return `${value}`;
-  }
-
-  /**
-   * By getting salon Response, creates new array to be able to render in the HTML
-   * @param res Array
-   */
-  manageRating(res: any) {
-    // TODO: Make it able to work with the whole RESPONSE
-
-    res.forEach((x: any) => {
-      this.salonRating.push(x.AvgGrade);
-    });
-
-
-    // this.salonRating = Array(5).fill(0).map((x, i) => i);
   }
 
   /**
@@ -133,5 +113,24 @@ export class CatalogComponent implements OnInit {
     this.currentPage = event.pageIndex;
     this.pageSize = event.pageSize;
     // Perform any additional logic or data retrieval here
+  }
+
+  /**
+   * Handle Click Functionality, while load more/less filters
+   */
+  handleLoadMoreClicked(filter: string): void {
+    if (filter === 'services') {
+      this.visibleItemsCountServices += 5;
+    } else if (filter === 'locations') {
+      this.visibleItemsCountLocations += 5;
+    }
+  }
+
+  handleLoadLessClicked(filter: string): void {
+    if (filter === 'services') {
+      this.visibleItemsCountServices = 5;
+    } else if (filter === 'locations') {
+      this.visibleItemsCountLocations = 5;
+    }
   }
 }

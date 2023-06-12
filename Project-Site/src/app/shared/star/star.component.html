@@ -1,0 +1,9 @@
+<span>
+  <span *ngFor="let star of setStarsArray(avrGrade)">
+    <i class="fa fa-star text-warning"></i>
+  </span>
+  <span *ngFor="let star of setNegativeStarArray(avrGrade)">
+    <i class="far fa-star text-warning"></i>
+  </span>
+  <span *ngIf="isVisible" class="text-primary"> ({{ avrGrade }} отзива) </span>
+</span>

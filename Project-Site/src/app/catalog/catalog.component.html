@@ -10,90 +10,76 @@
     <div class="row">
       <div class="col-lg-3 pt-3">
         <form class="pe-xl-3" [formGroup]="catalogForm">
-          <!-- Salon Services -->
-          <div class="mb-4">
-            <mat-form-field class="w-100">
-              <mat-label>Изберете услуга</mat-label>
-              <mat-select [formControl]="services" multiple>
-                <mat-select-trigger>
-                  {{services.value?.[0] || ''}}
-                  <span *ngIf="(services.value?.length || 0) > 1">
-                    (+ {{ (services.value?.length || 0) - 1 }}
-                    {{ services.value?.length === 2 ? "услуга" : "услуги" }})
-                  </span>
-                </mat-select-trigger>
-                <mat-option
-                  *ngFor="let service of catalogOptionsData?.serviceList"
-                  [value]="service"
-                  >{{ service }}</mat-option
-                >
-              </mat-select>
-            </mat-form-field>
-          </div>
-
           <!-- Price Range -->
           <div class="mb-4">
-            <div class="example-label-container">
-              <label class="float-start">50 лв</label>
-              <label class="float-end">200 лв</label>
-            </div>
-            <mat-slider
-              class="w-100"
-              min="50"
-              max="200"
-              showTickMarks
-              discrete
-              [displayWith]="formatLabel"
-            >
-              <input
-                matSliderThumb
-                [(ngModel)]="value"
-                [ngModelOptions]="{ standalone: true }"
-              />
-            </mat-slider>
+            <h4>Изберете цена:</h4>
+            <!-- <p class="d-flex flex-wrap"> -->
+            <p class="custom-checkbox-container">
+              <mat-checkbox
+                class="custom-checkbox-label w-100"
+                *ngFor="let price of catalogOptionsData?.priceList"
+                >{{ price }}
+              </mat-checkbox>
+            </p>
+          </div>
+
+          <!-- Salon Services -->
+          <div class="mb-4">
+            <h4>Изберете услуга:</h4>
+            <p>
+              <mat-checkbox
+                class="w-100 mb-2"
+                *ngFor="
+                  let service of catalogOptionsData?.serviceList
+                    | slice : 0 : visibleItemsCountServices
+                "
+                >{{ service }}
+              </mat-checkbox>
+            </p>
+            <app-load-more-button
+              [visibleItemsCount]="visibleItemsCountServices"
+              [totalItemsCount]="catalogOptionsData?.serviceList?.length"
+              (loadMoreClicked)="handleLoadMoreClicked('services')"
+              (loadLessClicked)="handleLoadLessClicked('services')"
+            ></app-load-more-button>
           </div>
 
           <!-- Locations -->
           <div class="mb-4">
-            <mat-form-field class="w-100">
-              <mat-label>Изберете локация</mat-label>
-              <mat-select [formControl]="locations" multiple>
-                <mat-select-trigger>
-                  {{locations.value?.[0] || ''}}
-                  <span *ngIf="(locations.value?.length || 0) > 1">
-                    (+ {{ (locations.value?.length || 0) - 1 }}
-                    {{ locations.value?.length === 2 ? "локация" : "локации" }})
-                  </span>
-                </mat-select-trigger>
-                <mat-option
-                  *ngFor="let location of catalogOptionsData?.locationsList"
-                  [value]="location"
-                  >{{ location }}</mat-option
-                >
-              </mat-select>
-            </mat-form-field>
+            <h4>Изберете локация:</h4>
+            <p>
+              <mat-checkbox
+                class="w-100 mb-2"
+                *ngFor="
+                  let location of catalogOptionsData?.locationsList
+                    | slice : 0 : visibleItemsCountLocations
+                "
+                >{{ location }}</mat-checkbox
+              >
+            </p>
+            <app-load-more-button
+              [visibleItemsCount]="visibleItemsCountLocations"
+              [totalItemsCount]="catalogOptionsData?.locationsList?.length"
+              (loadMoreClicked)="handleLoadMoreClicked('locations')"
+              (loadLessClicked)="handleLoadLessClicked('locations')"
+            ></app-load-more-button>
           </div>
 
           <!-- Rating -->
           <div class="mb-4">
-            <mat-form-field class="w-100">
-              <mat-label>Изберете рейтинг</mat-label>
-              <mat-select [formControl]="ratings" multiple>
-                <mat-select-trigger>
-                  {{ratings.value?.[0] || ''}}
-                  <span *ngIf="(ratings.value?.length || 0) > 1">
-                    (+ {{ (ratings.value?.length || 0) - 1 }}
-                    {{ ratings.value?.length === 2 ? "рейтинг" : "рейтинга" }})
-                  </span>
-                </mat-select-trigger>
-                <mat-option
-                  *ngFor="let rating of catalogOptionsData?.ratingList"
-                  [value]="rating"
-                >
-                  <span class="float-end">{{ rating }}</span>
-                </mat-option>
-              </mat-select>
-            </mat-form-field>
+            <h4>Изберете рейтинг:</h4>
+            <p
+              *ngFor="let rating of catalogOptionsData?.ratingList; index as i"
+            >
+              <mat-checkbox>
+                <app-star
+                  class="ps-2"
+                  [avrGrade]="i + 1"
+                  [isVisible]="false"
+                ></app-star>
+              </mat-checkbox>
+              <span class="float-end">{{ rating }}</span>
+            </p>
           </div>
         </form>
       </div>
@@ -105,7 +91,7 @@
           <div class="me-3">
             <p class="mb-3 mb-md-0">
               <strong>{{
-                catalogData.slice(
+                catalogData?.slice(
                   currentPage * pageSize,
                   (currentPage + 1) * pageSize
                 ).length
@@ -132,9 +118,8 @@
           <!-- place item-->
           <div
             class="col-sm-6 col-xl-4 mb-5 hover-animate"
-            data-marker-id="59c0c8e33b1527bfe2abaf92"
             *ngFor="
-              let element of catalogData.slice(
+              let element of catalogData?.slice(
                 currentPage * pageSize,
                 (currentPage + 1) * pageSize
               )
@@ -143,7 +128,7 @@
             <div class="card h-100 border-0 shadow">
               <div class="card-img-top overflow-hidden gradient-overlay">
                 <img
-                  class="img-fluid"
+                  class="img-fluid fixed-img-height"
                   src="{{ element.photo }}"
                   alt="Салон за красота 'Ашли'"
                 /><a class="tile-link" href="detail-rooms.html"></a>
@@ -167,13 +152,12 @@
                       >{{ element.name }}</a
                     >
                   </h6>
-                  <div class="d-flex card-subtitle mb-3">
-                    <p class="flex-shrink-1 mb-0 card-stars text-xs text-end">
-                      <i
-                        class="fa fa-star text-warning"
-                        *ngFor="let item of salonRating; index as i"
-                      ></i>
-                    </p>
+                  <div class="mb-3">
+                    <app-star
+                      class="text-xs"
+                      [avrGrade]="element.AvgGrade"
+                      [isVisible]="element.isVisible"
+                    ></app-star>
                   </div>
                   <div class="mb-3">
                     <span

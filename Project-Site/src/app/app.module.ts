@@ -11,6 +11,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
+import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatSliderModule } from '@angular/material/slider';
@@ -28,6 +29,9 @@ import { RegisterComponent } from './authentication/register/register.component'
 import { StudioListMainComponent } from './studio/studio-list-main/studio-list-main.component';
 import { CatalogComponent } from './catalog/catalog.component';
 import { PaginatorComponent } from './paginator/paginator.component';
+// Shared Components
+import { StarComponent } from './shared/star/star.component';
+import { LoadMoreButtonComponent } from './shared/load-more-button/load-more-button.component';
 
 
 @NgModule({
@@ -48,6 +52,10 @@ import { PaginatorComponent } from './paginator/paginator.component';
     RegisterComponent,
     StudioListMainComponent,
     PaginatorComponent,
+
+    // Shared
+    StarComponent,
+    LoadMoreButtonComponent,
   ],
   imports: [
     // Angular
@@ -63,6 +71,7 @@ import { PaginatorComponent } from './paginator/paginator.component';
     MatFormFieldModule,
     MatInputModule,
     MatSelectModule,
+    MatCheckboxModule,
     MatDatepickerModule,
     MatNativeDateModule,
     MatSliderModule,
