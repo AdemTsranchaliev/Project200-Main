@@ -1,0 +1,361 @@
+<section class="custom-booking-table-layout">
+  <div class="container">
+    <div class="row">
+      <!-- User Card -->
+      <div class="col-lg-3 mb-5 me-lg-auto">
+        <div class="card border-0 shadow mb-6 mb-lg-0">
+          <div class="card-header bg-gray-100 py-4 border-0 text-center">
+            <a class="d-inline-block" href="#"
+              ><img
+                class="d-block avatar avatar-xxl p-2 mb-2"
+                src="/assets/img/avatar/avatar-10.jpg"
+                alt=""
+            /></a>
+            <h5>Jack London</h5>
+            <p class="text-muted text-sm mb-0">Los Angeles, CA</p>
+          </div>
+          <div class="card-body p-4">
+            <div class="d-flex align-items-center mb-3">
+              <div
+                class="icon-rounded icon-rounded-sm bg-primary-light flex-shrink-0 me-2"
+              >
+                <svg class="svg-icon text-primary svg-icon-md">
+                  <use xlink:href="#diploma-1"></use>
+                </svg>
+              </div>
+              <div>
+                <p class="mb-0">2877 reviews</p>
+              </div>
+            </div>
+            <div class="d-flex align-items-center mb-3">
+              <div
+                class="icon-rounded icon-rounded-sm bg-primary-light flex-shrink-0 me-2"
+              >
+                <svg class="svg-icon text-primary svg-icon-md">
+                  <use xlink:href="#checkmark-1"></use>
+                </svg>
+              </div>
+              <div>
+                <p class="mb-0">Verified</p>
+              </div>
+            </div>
+            <hr />
+            <h6>Jack provided</h6>
+            <ul class="card-text text-muted">
+              <li>Government ID</li>
+              <li>Email address</li>
+              <li>Phone number</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Booking Table Data -->
+      <div class="col-lg-9 ps-lg-5">
+        <h1 class="hero-heading mb-0">Таблица със запазени часове</h1>
+        <hr />
+        <div class="text-block">
+          <!-- <mat-tab-group> -->
+          <mat-tab-group
+            #tabGroup
+            (selectedIndexChange)="_setDataSource($event)"
+          >
+            <!-- Tab: ALL Reservations -->
+            <mat-tab label="Всички резервации">
+              <table mat-table [dataSource]="dataSource">
+                <ng-container matColumnDef="id">
+                  <th mat-header-cell *matHeaderCellDef>№</th>
+                  <td mat-cell *matCellDef="let element">
+                    {{ element.id }}
+                  </td>
+                </ng-container>
+
+                <ng-container matColumnDef="customerName">
+                  <th mat-header-cell *matHeaderCellDef>Име на клиент</th>
+                  <td mat-cell *matCellDef="let element">
+                    {{ element.customerName }}
+                  </td>
+                </ng-container>
+
+                <ng-container matColumnDef="reservationDate">
+                  <th mat-header-cell *matHeaderCellDef>
+                    Дата на резервацията
+                  </th>
+                  <td mat-cell *matCellDef="let element">
+                    {{ element.reservationDate }}
+                  </td>
+                </ng-container>
+
+                <ng-container matColumnDef="reservationStatus">
+                  <th mat-header-cell *matHeaderCellDef>Статус</th>
+                  <td mat-cell *matCellDef="let element">
+                    {{ element.reservationStatus }}
+                  </td>
+                </ng-container>
+
+                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                <tr
+                  mat-row
+                  *matRowDef="let row; columns: displayedColumns"
+                ></tr>
+              </table>
+
+              <mat-paginator
+                #paginator1
+                [pageSizeOptions]="[5, 10, 20]"
+                showFirstLastButtons
+                aria-label="Select page of periodic elements"
+              >
+              </mat-paginator>
+            </mat-tab>
+
+            <!-- Tab: New Reservations -->
+            <mat-tab label="Нови">
+              <table mat-table [dataSource]="newReservations">
+                <ng-container matColumnDef="id">
+                  <th mat-header-cell *matHeaderCellDef>№</th>
+                  <td mat-cell *matCellDef="let element">
+                    {{ element.id }}
+                  </td>
+                </ng-container>
+
+                <ng-container matColumnDef="customerName">
+                  <th mat-header-cell *matHeaderCellDef>Име на клиент</th>
+                  <td mat-cell *matCellDef="let element">
+                    {{ element.customerName }}
+                  </td>
+                </ng-container>
+
+                <ng-container matColumnDef="reservationDate">
+                  <th mat-header-cell *matHeaderCellDef>
+                    Дата на резервацията
+                  </th>
+                  <td mat-cell *matCellDef="let element">
+                    {{ element.reservationDate }}
+                  </td>
+                </ng-container>
+
+                <ng-container matColumnDef="reservationStatus">
+                  <th mat-header-cell *matHeaderCellDef>Статус</th>
+                  <td mat-cell *matCellDef="let element">
+                    {{ element.reservationStatus }}
+                  </td>
+                </ng-container>
+
+                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                <tr
+                  mat-row
+                  *matRowDef="let row; columns: displayedColumns"
+                ></tr>
+              </table>
+
+              <mat-paginator
+                #paginator2
+                [pageSizeOptions]="[5, 10, 20]"
+                showFirstLastButtons
+                aria-label="Select page of periodic elements"
+              >
+              </mat-paginator>
+            </mat-tab>
+
+            <!-- Tab: Confirmed Reservations -->
+            <mat-tab label="Потвърдени">
+              <table mat-table [dataSource]="confirmedReservations">
+                <ng-container matColumnDef="id">
+                  <th mat-header-cell *matHeaderCellDef>№</th>
+                  <td mat-cell *matCellDef="let element">
+                    {{ element.id }}
+                  </td>
+                </ng-container>
+
+                <ng-container matColumnDef="customerName">
+                  <th mat-header-cell *matHeaderCellDef>Име на клиент</th>
+                  <td mat-cell *matCellDef="let element">
+                    {{ element.customerName }}
+                  </td>
+                </ng-container>
+
+                <ng-container matColumnDef="reservationDate">
+                  <th mat-header-cell *matHeaderCellDef>
+                    Дата на резервацията
+                  </th>
+                  <td mat-cell *matCellDef="let element">
+                    {{ element.reservationDate }}
+                  </td>
+                </ng-container>
+
+                <ng-container matColumnDef="reservationStatus">
+                  <th mat-header-cell *matHeaderCellDef>Статус</th>
+                  <td mat-cell *matCellDef="let element">
+                    {{ element.reservationStatus }}
+                  </td>
+                </ng-container>
+
+                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                <tr
+                  mat-row
+                  *matRowDef="let row; columns: displayedColumns"
+                ></tr>
+              </table>
+
+              <mat-paginator
+                #paginator3
+                [pageSizeOptions]="[5, 10, 20]"
+                showFirstLastButtons
+                aria-label="Select page of periodic elements"
+              >
+              </mat-paginator>
+            </mat-tab>
+
+            <!-- Tab: In Proggress Reservations -->
+            <mat-tab label="В процес на изпълнение">
+              <table mat-table [dataSource]="inProgressReservations">
+                <ng-container matColumnDef="id">
+                  <th mat-header-cell *matHeaderCellDef>№</th>
+                  <td mat-cell *matCellDef="let element">
+                    {{ element.id }}
+                  </td>
+                </ng-container>
+
+                <ng-container matColumnDef="customerName">
+                  <th mat-header-cell *matHeaderCellDef>Име на клиент</th>
+                  <td mat-cell *matCellDef="let element">
+                    {{ element.customerName }}
+                  </td>
+                </ng-container>
+
+                <ng-container matColumnDef="reservationDate">
+                  <th mat-header-cell *matHeaderCellDef>
+                    Дата на резервацията
+                  </th>
+                  <td mat-cell *matCellDef="let element">
+                    {{ element.reservationDate }}
+                  </td>
+                </ng-container>
+
+                <ng-container matColumnDef="reservationStatus">
+                  <th mat-header-cell *matHeaderCellDef>Статус</th>
+                  <td mat-cell *matCellDef="let element">
+                    {{ element.reservationStatus }}
+                  </td>
+                </ng-container>
+
+                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                <tr
+                  mat-row
+                  *matRowDef="let row; columns: displayedColumns"
+                ></tr>
+              </table>
+
+              <mat-paginator
+                #paginator4
+                [pageSizeOptions]="[5, 10, 20]"
+                showFirstLastButtons
+                aria-label="Select page of periodic elements"
+              >
+              </mat-paginator>
+            </mat-tab>
+
+            <!-- Tab: Completed Reservations -->
+            <mat-tab label="Приключени">
+              <table mat-table [dataSource]="completedReservations">
+                <ng-container matColumnDef="id">
+                  <th mat-header-cell *matHeaderCellDef>№</th>
+                  <td mat-cell *matCellDef="let element">
+                    {{ element.id }}
+                  </td>
+                </ng-container>
+
+                <ng-container matColumnDef="customerName">
+                  <th mat-header-cell *matHeaderCellDef>Име на клиент</th>
+                  <td mat-cell *matCellDef="let element">
+                    {{ element.customerName }}
+                  </td>
+                </ng-container>
+
+                <ng-container matColumnDef="reservationDate">
+                  <th mat-header-cell *matHeaderCellDef>
+                    Дата на резервацията
+                  </th>
+                  <td mat-cell *matCellDef="let element">
+                    {{ element.reservationDate }}
+                  </td>
+                </ng-container>
+
+                <ng-container matColumnDef="reservationStatus">
+                  <th mat-header-cell *matHeaderCellDef>Статус</th>
+                  <td mat-cell *matCellDef="let element">
+                    {{ element.reservationStatus }}
+                  </td>
+                </ng-container>
+
+                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                <tr
+                  mat-row
+                  *matRowDef="let row; columns: displayedColumns"
+                ></tr>
+              </table>
+
+              <mat-paginator
+                #paginator5
+                [pageSizeOptions]="[5, 10, 20]"
+                showFirstLastButtons
+                aria-label="Select page of periodic elements"
+              >
+              </mat-paginator>
+            </mat-tab>
+
+            <!-- Tab: Canceled Reservations -->
+            <mat-tab label="Отказани">
+              <table mat-table [dataSource]="canceledReservations">
+                <ng-container matColumnDef="id">
+                  <th mat-header-cell *matHeaderCellDef>№</th>
+                  <td mat-cell *matCellDef="let element">
+                    {{ element.id }}
+                  </td>
+                </ng-container>
+
+                <ng-container matColumnDef="customerName">
+                  <th mat-header-cell *matHeaderCellDef>Име на клиент</th>
+                  <td mat-cell *matCellDef="let element">
+                    {{ element.customerName }}
+                  </td>
+                </ng-container>
+
+                <ng-container matColumnDef="reservationDate">
+                  <th mat-header-cell *matHeaderCellDef>
+                    Дата на резервацията
+                  </th>
+                  <td mat-cell *matCellDef="let element">
+                    {{ element.reservationDate }}
+                  </td>
+                </ng-container>
+
+                <ng-container matColumnDef="reservationStatus">
+                  <th mat-header-cell *matHeaderCellDef>Статус</th>
+                  <td mat-cell *matCellDef="let element">
+                    {{ element.reservationStatus }}
+                  </td>
+                </ng-container>
+
+                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                <tr
+                  mat-row
+                  *matRowDef="let row; columns: displayedColumns"
+                ></tr>
+              </table>
+
+              <mat-paginator
+                #paginator6
+                [pageSizeOptions]="[5, 10, 20]"
+                showFirstLastButtons
+                aria-label="Select page of periodic elements"
+              >
+              </mat-paginator>
+            </mat-tab>
+          </mat-tab-group>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

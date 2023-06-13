@@ -1,6 +1,6 @@
 <button
   type="button"
-  class="btn btn-outline-primary"
+  class="btn btn-outline-primary btn-sm"
   (click)="loadMore()"
   *ngIf="visibleItemsCount < totalItemsCount"
 >
@@ -8,7 +8,7 @@
 </button>
 <button
   type="button"
-  class="btn btn-outline-primary"
+  class="btn btn-outline-primary btn-sm"
   (click)="loadLess()"
   *ngIf="visibleItemsCount > totalItemsCount"
 >

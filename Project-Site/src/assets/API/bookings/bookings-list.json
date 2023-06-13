@@ -1,0 +1,224 @@
+[
+    {
+        "id": 1,
+        "customerName": "John Doe",
+        "reservationDate": "2023-06-01",
+        "reservationStatus": "new"
+    },
+    {
+        "id": 2,
+        "customerName": "Jane Smith",
+        "reservationDate": "2023-06-02",
+        "reservationStatus": "confirmed"
+    },
+    {
+        "id": 3,
+        "customerName": "Michael Johnson",
+        "reservationDate": "2023-06-03",
+        "reservationStatus": "in progress"
+    },
+    {
+        "id": 4,
+        "customerName": "Emily Williams",
+        "reservationDate": "2023-06-04",
+        "reservationStatus": "canceled"
+    },
+    {
+        "id": 5,
+        "customerName": "David Brown",
+        "reservationDate": "2023-06-05",
+        "reservationStatus": "new"
+    },
+    {
+        "id": 6,
+        "customerName": "Sarah Davis",
+        "reservationDate": "2023-06-06",
+        "reservationStatus": "confirmed"
+    },
+    {
+        "id": 7,
+        "customerName": "Daniel Wilson",
+        "reservationDate": "2023-06-07",
+        "reservationStatus": "in progress"
+    },
+    {
+        "id": 8,
+        "customerName": "Olivia Taylor",
+        "reservationDate": "2023-06-08",
+        "reservationStatus": "canceled"
+    },
+    {
+        "id": 9,
+        "customerName": "James Martinez",
+        "reservationDate": "2023-06-09",
+        "reservationStatus": "new"
+    },
+    {
+        "id": 10,
+        "customerName": "Emma Anderson",
+        "reservationDate": "2023-06-10",
+        "reservationStatus": "confirmed"
+    },
+    {
+        "id": 11,
+        "customerName": "Alexander Thomas",
+        "reservationDate": "2023-06-11",
+        "reservationStatus": "in progress"
+    },
+    {
+        "id": 12,
+        "customerName": "Sophia Garcia",
+        "reservationDate": "2023-06-12",
+        "reservationStatus": "canceled"
+    },
+    {
+        "id": 13,
+        "customerName": "William Wilson",
+        "reservationDate": "2023-06-13",
+        "reservationStatus": "new"
+    },
+    {
+        "id": 14,
+        "customerName": "Ava Lee",
+        "reservationDate": "2023-06-14",
+        "reservationStatus": "confirmed"
+    },
+    {
+        "id": 15,
+        "customerName": "Charlotte Jackson",
+        "reservationDate": "2023-06-15",
+        "reservationStatus": "in progress"
+    },
+    {
+        "id": 16,
+        "customerName": "Mason White",
+        "reservationDate": "2023-06-16",
+        "reservationStatus": "canceled"
+    },
+    {
+        "id": 17,
+        "customerName": "Sophia Harris",
+        "reservationDate": "2023-06-17",
+        "reservationStatus": "new"
+    },
+    {
+        "id": 18,
+        "customerName": "Jacob",
+        "reservationDate": "2023-06-17",
+        "reservationStatus": "new"
+    },
+    {
+        "id": 19,
+        "customerName": "Jacob",
+        "reservationDate": "2023-06-17",
+        "reservationStatus": "completed"
+    },
+    {
+        "id": 20,
+        "customerName": "Jacob",
+        "reservationDate": "2023-06-17",
+        "reservationStatus": "completed"
+    },
+    {
+        "id": 21,
+        "customerName": "Jacob",
+        "reservationDate": "2023-06-17",
+        "reservationStatus": "completed"
+    },
+    {
+        "id": 22,
+        "customerName": "Jacob",
+        "reservationDate": "2023-06-17",
+        "reservationStatus": "completed"
+    },
+    {
+        "id": 23,
+        "customerName": "Jacob",
+        "reservationDate": "2023-06-17",
+        "reservationStatus": "inProgress"
+    },
+    {
+        "id": 24,
+        "customerName": "Jacob",
+        "reservationDate": "2023-06-17",
+        "reservationStatus": "inProgress"
+    },
+    {
+        "id": 25,
+        "customerName": "Jacob",
+        "reservationDate": "2023-06-17",
+        "reservationStatus": "inProgress"
+    },
+    {
+        "id": 26,
+        "customerName": "Jacob",
+        "reservationDate": "2023-06-17",
+        "reservationStatus": "inProgress"
+    },
+    {
+        "id": 27,
+        "customerName": "Jacob",
+        "reservationDate": "2023-06-17",
+        "reservationStatus": "new"
+    },
+    {
+        "id": 28,
+        "customerName": "Jacob",
+        "reservationDate": "2023-06-17",
+        "reservationStatus": "new"
+    },
+    {
+        "id": 29,
+        "customerName": "Jacob",
+        "reservationDate": "2023-06-17",
+        "reservationStatus": "new"
+    },
+    {
+        "id": 30,
+        "customerName": "Jacob",
+        "reservationDate": "2023-06-17",
+        "reservationStatus": "new"
+    },
+    {
+        "id": 31,
+        "customerName": "Jacob",
+        "reservationDate": "2023-06-17",
+        "reservationStatus": "completed"
+    },
+    {
+        "id": 32,
+        "customerName": "Jacob",
+        "reservationDate": "2023-06-17",
+        "reservationStatus": "completed"
+    },
+    {
+        "id": 33,
+        "customerName": "Jacob",
+        "reservationDate": "2023-06-17",
+        "reservationStatus": "canceled"
+    },
+    {
+        "id": 34,
+        "customerName": "Jacob",
+        "reservationDate": "2023-06-17",
+        "reservationStatus": "canceled"
+    },
+    {
+        "id": 35,
+        "customerName": "Jacob",
+        "reservationDate": "2023-06-17",
+        "reservationStatus": "canceled"
+    },
+    {
+        "id": 36,
+        "customerName": "Jacob",
+        "reservationDate": "2023-06-17",
+        "reservationStatus": "confirmed"
+    },
+    {
+        "id": 37,
+        "customerName": "Jacob",
+        "reservationDate": "2023-06-17",
+        "reservationStatus": "confirmed"
+    }
+]

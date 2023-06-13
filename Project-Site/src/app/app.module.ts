@@ -17,6 +17,8 @@ import { MatNativeDateModule } from '@angular/material/core';
 import { MatSliderModule } from '@angular/material/slider';
 import { MatChipsModule } from '@angular/material/chips';
 import { MatIconModule } from '@angular/material/icon';
+import { MatTabsModule } from '@angular/material/tabs';
+import { MatTableModule } from '@angular/material/table';
 // Components
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
@@ -28,6 +30,7 @@ import { LoginComponent } from './authentication/login/login.component';
 import { RegisterComponent } from './authentication/register/register.component';
 import { StudioListMainComponent } from './studio/studio-list-main/studio-list-main.component';
 import { CatalogComponent } from './catalog/catalog.component';
+import { BookingsTableComponent } from './bookings-table/bookings-table.component';
 import { PaginatorComponent } from './paginator/paginator.component';
 // Shared Components
 import { StarComponent } from './shared/star/star.component';
@@ -46,6 +49,7 @@ import { LoadMoreButtonComponent } from './shared/load-more-button/load-more-but
     UserSecurityComponent,
     UserAccountGridComponent,
     CatalogComponent,
+    BookingsTableComponent,
 
     // Auth
     LoginComponent,
@@ -76,7 +80,9 @@ import { LoadMoreButtonComponent } from './shared/load-more-button/load-more-but
     MatNativeDateModule,
     MatSliderModule,
     MatChipsModule,
-    MatIconModule
+    MatIconModule,
+    MatTabsModule,
+    MatTableModule
   ],
   providers: [],
   bootstrap: [AppComponent]

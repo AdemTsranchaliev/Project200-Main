@@ -57,14 +57,3 @@ hr.custom-hr-color-register {
     min-height: 225px;
     max-height: 225px;
 }
-
-.custom-checkbox-container {
-    display: flex;
-    flex-wrap: wrap;
-}
-
-.custom-checkbox-label {
-    flex-basis: 10%;
-    margin: 5px;
-    text-align: center;
-}
