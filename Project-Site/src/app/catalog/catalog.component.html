@@ -1,0 +1,191 @@
+<section class="custom-register-layout">
+  <div class="container-fluid pt-5 pb-3 border-bottom px-lg-5">
+    <div class="row">
+      <div class="col-xl-8">
+        <h1>Всички салони</h1>
+      </div>
+    </div>
+  </div>
+  <div class="container-fluid py-5 px-lg-5">
+    <div class="row">
+      <div class="col-lg-3 pt-3">
+        <form class="pe-xl-3" [formGroup]="catalogForm">
+          <!-- Price Range -->
+          <div class="mb-4">
+            <h4>Изберете цена:</h4>
+            <!-- <p class="d-flex flex-wrap"> -->
+            <p class="custom-checkbox-container">
+              <mat-checkbox
+                class="custom-checkbox-label w-100"
+                *ngFor="let price of catalogOptionsData?.priceList"
+                >{{ price }}
+              </mat-checkbox>
+            </p>
+          </div>
+
+          <!-- Salon Services -->
+          <div class="mb-4">
+            <h4>Изберете услуга:</h4>
+            <p>
+              <mat-checkbox
+                class="w-100 mb-2"
+                *ngFor="
+                  let service of catalogOptionsData?.serviceList
+                    | slice : 0 : visibleItemsCountServices
+                "
+                >{{ service }}
+              </mat-checkbox>
+            </p>
+            <app-load-more-button
+              [visibleItemsCount]="visibleItemsCountServices"
+              [totalItemsCount]="catalogOptionsData?.serviceList?.length"
+              (loadMoreClicked)="handleLoadMoreClicked('services')"
+              (loadLessClicked)="handleLoadLessClicked('services')"
+            ></app-load-more-button>
+          </div>
+
+          <!-- Locations -->
+          <div class="mb-4">
+            <h4>Изберете локация:</h4>
+            <p>
+              <mat-checkbox
+                class="w-100 mb-2"
+                *ngFor="
+                  let location of catalogOptionsData?.locationsList
+                    | slice : 0 : visibleItemsCountLocations
+                "
+                >{{ location }}</mat-checkbox
+              >
+            </p>
+            <app-load-more-button
+              [visibleItemsCount]="visibleItemsCountLocations"
+              [totalItemsCount]="catalogOptionsData?.locationsList?.length"
+              (loadMoreClicked)="handleLoadMoreClicked('locations')"
+              (loadLessClicked)="handleLoadLessClicked('locations')"
+            ></app-load-more-button>
+          </div>
+
+          <!-- Rating -->
+          <div class="mb-4">
+            <h4>Изберете рейтинг:</h4>
+            <p
+              *ngFor="let rating of catalogOptionsData?.ratingList; index as i"
+            >
+              <mat-checkbox>
+                <app-star
+                  class="ps-2"
+                  [avrGrade]="i + 1"
+                  [isVisible]="false"
+                ></app-star>
+              </mat-checkbox>
+              <span class="float-end">{{ rating }}</span>
+            </p>
+          </div>
+        </form>
+      </div>
+      <div class="col-lg-9">
+        <div
+          class="d-flex justify-content-between align-items-center flex-column flex-md-row mb-4"
+        >
+          <!-- Results found -->
+          <div class="me-3">
+            <p class="mb-3 mb-md-0">
+              <strong>{{
+                catalogData?.slice(
+                  currentPage * pageSize,
+                  (currentPage + 1) * pageSize
+                ).length
+              }}</strong>
+              намерени резултата
+            </p>
+          </div>
+          <!-- Filter Salons -->
+          <div>
+            <mat-form-field>
+              <mat-label>Сортирай по:</mat-label>
+              <mat-select>
+                <mat-option
+                  *ngFor="let filter of catalogOptionsData?.filterList"
+                  [value]="filter.value"
+                >
+                  {{ filter.viewValue }}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+        </div>
+        <div class="row">
+          <!-- place item-->
+          <div
+            class="col-sm-6 col-xl-4 mb-5 hover-animate"
+            *ngFor="
+              let element of catalogData?.slice(
+                currentPage * pageSize,
+                (currentPage + 1) * pageSize
+              )
+            "
+          >
+            <div class="card h-100 border-0 shadow">
+              <div class="card-img-top overflow-hidden gradient-overlay">
+                <img
+                  class="img-fluid fixed-img-height"
+                  src="{{ element.photo }}"
+                  alt="Салон за красота 'Ашли'"
+                /><a class="tile-link" href="detail-rooms.html"></a>
+                <div class="card-img-overlay-top text-end">
+                  <a
+                    class="card-fav-icon position-relative z-index-40"
+                    href="javascript:void();"
+                  >
+                    <svg class="svg-icon text-white">
+                      <use xlink:href="#heart-1"></use>
+                    </svg>
+                  </a>
+                </div>
+              </div>
+              <div class="card-body d-flex align-items-center">
+                <div class="w-100">
+                  <h6 class="card-title">
+                    <a
+                      class="text-decoration-none text-dark"
+                      href="detail-rooms.html"
+                      >{{ element.name }}</a
+                    >
+                  </h6>
+                  <div class="mb-3">
+                    <app-star
+                      class="text-xs"
+                      [avrGrade]="element.AvgGrade"
+                      [isVisible]="element.isVisible"
+                    ></app-star>
+                  </div>
+                  <div class="mb-3">
+                    <span
+                      class="badge bg-primary me-2"
+                      *ngFor="let category of element.Category"
+                      >{{ category }}</span
+                    >
+                  </div>
+                  <p class="card-text text-muted">
+                    <span class="h4 text-primary"
+                      >От {{ element.LowestPrice | number : "1.2-2" }} лв.</span
+                    >
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Pagination -->
+        <app-paginator
+          [totalItems]="totalItems"
+          [pageSize]="pageSize"
+          [currentPage]="currentPage"
+          [pageSizeOptions]="[5, 10, 25, 100]"
+          (pageChange)="onPageChange($event)"
+        ></app-paginator>
+      </div>
+    </div>
+  </div>
+</section>

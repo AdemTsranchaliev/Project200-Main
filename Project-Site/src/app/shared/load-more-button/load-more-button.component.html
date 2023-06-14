@@ -1,0 +1,16 @@
+<button
+  type="button"
+  class="btn btn-outline-primary"
+  (click)="loadMore()"
+  *ngIf="visibleItemsCount < totalItemsCount"
+>
+  Зареждане на още
+</button>
+<button
+  type="button"
+  class="btn btn-outline-primary"
+  (click)="loadLess()"
+  *ngIf="visibleItemsCount > totalItemsCount"
+>
+  Скриване на всички
+</button>

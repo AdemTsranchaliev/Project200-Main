@@ -1,5 +1,7 @@
+// Angular
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+// Services
 import { InputValidator } from 'src/app/shared/utils/input-validators';
 
 @Component({
