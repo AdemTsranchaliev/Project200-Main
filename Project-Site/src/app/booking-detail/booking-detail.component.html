@@ -1,0 +1,186 @@
+<section class="custom-booking-detail-table-layout">
+  <div class="container">
+    <!-- Breadcrumbs -->
+    <ol class="breadcrumb ps-0 justify-content-start">
+      <li class="breadcrumb-item"><a routerLink="/">Начало</a></li>
+      <li class="breadcrumb-item">
+        <a routerLink="/bookings-table">Таблица със запазени часове</a>
+      </li>
+      <li class="breadcrumb-item"><a routerLink="/">Детайли</a></li>
+    </ol>
+    <div class="d-flex justify-content-between align-items-end mb-5">
+      <h1 class="hero-heading mb-0">Детайлна информация</h1>
+    </div>
+    <div class="list-group shadow mb-5">
+      <div class="row p-4">
+        <div class="col-lg-4 align-self-center mb-4 mb-lg-0">
+          <div class="d-flex align-items-center mb-3">
+            <h2 class="h5 mb-0">Джон Доу</h2>
+          </div>
+          <div class="d-flex align-items-center">
+            <span class="text-sm text-muted me-2">Статус:</span>
+            <span
+              *ngIf="initStatus"
+              class="badge rounded-pill p-2 badge-primary-light"
+            >
+              нов
+            </span>
+            <span
+              *ngIf="!isStatusConfirmed"
+              class="badge rounded-pill p-2 badge-success-light"
+            >
+              потвърден
+            </span>
+            <span
+              *ngIf="isServiceHourStart"
+              class="badge rounded-pill p-2 badge-warning-light"
+            >
+              в ход
+            </span>
+            <span
+              *ngIf="isServiceHourStart"
+              class="badge rounded-pill p-2 badge-info-light"
+            >
+              завършен
+            </span>
+            <span
+              *ngIf="isStatusConfirmed && initStatusFallBack"
+              class="badge rounded-pill p-2 badge-danger-light"
+            >
+              отказан
+            </span>
+          </div>
+        </div>
+        <div class="col-lg-8">
+          <div class="row">
+            <div class="col-6 col-md-4 col-lg-3 py-3 mb-3 mb-lg-0">
+              <h6 class="label-heading">Телефон</h6>
+              <p class="text-sm fw-bold">0899 999 999</p>
+              <h6 class="label-heading">Имейл</h6>
+              <p class="text-sm fw-bold mb-0">john.doe@gmail.com</p>
+            </div>
+            <div class="col-6 col-md-4 col-lg-3 py-3">
+              <h6 class="label-heading">Цена</h6>
+              <p class="text-sm fw-bold">20.00 лв</p>
+              <h6 class="label-heading">Услуга</h6>
+              <p class="text-sm fw-bold mb-0">Подстрижка</p>
+            </div>
+            <div class="col-6 col-md-4 col-lg-3 py-3">
+              <h6 class="label-heading">Дата</h6>
+              <p class="text-sm fw-bold">Март 14, 2023</p>
+              <h6 class="label-heading">Час</h6>
+              <p class="text-sm fw-bold mb-0">16:30 - 17:00</p>
+            </div>
+            <div class="col-12 col-lg-3 align-self-center">
+              <button
+                (click)="toggleStatusConfirmed()"
+                *ngIf="isStatusConfirmed"
+                type="button"
+                class="btn btn-outline-primary"
+              >
+                <i class="fa fa-check fa-fw"></i>
+                Одобряване
+              </button>
+              <button
+                (click)="toggleStatusConfirmed()"
+                *ngIf="!isStatusConfirmed"
+                type="button"
+                class="btn btn-outline-danger"
+              >
+                <i class="fa fa-times fa-fw"></i>
+                Отказване
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <hr />
+
+    <div class="list-group shadow my-5">
+      <div class="row p-4">
+        <div class="col-lg-4 align-self-center mb-4 mb-lg-0">
+          <div class="d-flex align-items-center mb-3">
+            <h2 class="h5 mb-0">Джон Доу</h2>
+          </div>
+          <div class="d-flex align-items-center">
+            <span class="text-sm text-muted me-2">Статус:</span>
+            <span
+              *ngIf="initStatus"
+              class="badge rounded-pill p-2 badge-primary-light"
+            >
+              нов
+            </span>
+            <span
+              *ngIf="!isStatusConfirmed"
+              class="badge rounded-pill p-2 badge-success-light"
+            >
+              потвърден
+            </span>
+            <span
+              *ngIf="isServiceHourStart"
+              class="badge rounded-pill p-2 badge-warning-light"
+            >
+              в ход
+            </span>
+            <span
+              *ngIf="isServiceHourStart"
+              class="badge rounded-pill p-2 badge-info-light"
+            >
+              завършен
+            </span>
+            <span
+              *ngIf="isStatusConfirmed && initStatusFallBack"
+              class="badge rounded-pill p-2 badge-danger-light"
+            >
+              отказан
+            </span>
+          </div>
+        </div>
+        <div class="col-lg-8">
+          <div class="row">
+            <div class="col-6 col-md-4 col-lg-3 py-3 mb-3 mb-lg-0">
+              <h6 class="label-heading">Телефон</h6>
+              <p class="text-sm fw-bold">0899 999 999</p>
+              <h6 class="label-heading">Имейл</h6>
+              <p class="text-sm fw-bold mb-0">john.doe@gmail.com</p>
+            </div>
+            <div class="col-6 col-md-4 col-lg-3 py-3">
+              <h6 class="label-heading">Цена</h6>
+              <p class="text-sm fw-bold">60.00 лв</p>
+              <h6 class="label-heading">Услуга</h6>
+              <p class="text-sm fw-bold mb-0">Коламаска</p>
+            </div>
+            <div class="col-6 col-md-4 col-lg-3 py-3">
+              <h6 class="label-heading">Дата</h6>
+              <p class="text-sm fw-bold">Март 14, 2023</p>
+              <h6 class="label-heading">Час</h6>
+              <p class="text-sm fw-bold mb-0">17:00 - 18:00</p>
+            </div>
+            <div class="col-12 col-lg-3 align-self-center">
+              <button
+                (click)="toggleStatusConfirmed()"
+                *ngIf="isStatusConfirmed"
+                type="button"
+                class="btn btn-outline-primary"
+              >
+                <i class="fa fa-check fa-fw"></i>
+                Одобряване
+              </button>
+              <button
+                (click)="toggleStatusConfirmed()"
+                *ngIf="!isStatusConfirmed"
+                type="button"
+                class="btn btn-outline-danger"
+              >
+                <i class="fa fa-times fa-fw"></i>
+                Отказване
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
