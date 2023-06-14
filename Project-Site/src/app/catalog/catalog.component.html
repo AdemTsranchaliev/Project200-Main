@@ -1,4 +1,4 @@
-<section class="custom-register-layout">
+<section class="custom-catalog-layout">
   <div class="container-fluid pt-5 pb-3 border-bottom px-lg-5">
     <div class="row">
       <div class="col-xl-8">
@@ -13,14 +13,9 @@
           <!-- Price Range -->
           <div class="mb-4">
             <h4>Изберете цена:</h4>
-            <!-- <p class="d-flex flex-wrap"> -->
-            <p class="custom-checkbox-container">
-              <mat-checkbox
-                class="custom-checkbox-label w-100"
-                *ngFor="let price of catalogOptionsData?.priceList"
-                >{{ price }}
-              </mat-checkbox>
-            </p>
+            <mat-slider class="w-100">
+              <input matSliderThumb />
+            </mat-slider>
           </div>
 
           <!-- Salon Services -->

@@ -10,8 +10,9 @@ import { UserPersonalInformationComponent } from './user/user-personal-informati
 import { UserReservationsComponent } from './user/user-reservations/user-reservations.component';
 import { UserSecurityComponent } from './user/user-security/user-security.component';
 import { CatalogComponent } from './catalog/catalog.component';
+import { BookingsTableComponent } from './bookings-table/bookings-table.component';
 
-const routes: Routes = [  
+const routes: Routes = [
   //Home paths
   { path: '', component: HomeComponent },
   //User profile paths
@@ -20,6 +21,7 @@ const routes: Routes = [
   { path: 'my-reservations', component: UserReservationsComponent },
   { path: 'my-account-security', component: UserSecurityComponent },
   { path: 'catalog', component: CatalogComponent },
+  { path: 'bookings-table', component: BookingsTableComponent },
 
   //Authentication
   { path: 'login', component: LoginComponent },
