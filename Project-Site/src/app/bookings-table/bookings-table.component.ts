@@ -50,6 +50,7 @@ export class BookingsTableComponent implements OnInit, AfterViewInit {
   }
 
   ngAfterViewInit() {
+    // Pagination
     this.dataSource.paginator = this.paginator1;
     this.newReservations.paginator = this.paginator2;
     this.confirmedReservations.paginator = this.paginator3;
@@ -74,11 +75,11 @@ export class BookingsTableComponent implements OnInit, AfterViewInit {
   }
 
   setTabs() {
-    this.newReservations.data = this.filterReservations('new');
-    this.confirmedReservations.data = this.filterReservations('confirmed');
-    this.inProgressReservations.data = this.filterReservations('inProgress');
-    this.completedReservations.data = this.filterReservations('completed');
-    this.canceledReservations.data = this.filterReservations('canceled');
+    this.newReservations.data = this.filterReservations('нов');
+    this.confirmedReservations.data = this.filterReservations('потвърден');
+    this.inProgressReservations.data = this.filterReservations('в ход');
+    this.completedReservations.data = this.filterReservations('завършен');
+    this.canceledReservations.data = this.filterReservations('отказан');
   }
 
   filterReservations(status: string) {
@@ -109,5 +110,22 @@ export class BookingsTableComponent implements OnInit, AfterViewInit {
           break;
       }
     });
+  }
+
+  getStatusColor(status: string): string {
+    switch (status) {
+      case 'нов':
+        return 'blue';
+      case 'потвърден':
+        return 'green';
+      case 'в ход':
+        return 'orange';
+      case 'отказан':
+        return 'red';
+      case 'завършен':
+        return 'purple';
+      default:
+        return '';
+    }
   }
 }

@@ -11,8 +11,8 @@
                 src="/assets/img/avatar/avatar-10.jpg"
                 alt=""
             /></a>
-            <h5>Jack London</h5>
-            <p class="text-muted text-sm mb-0">Los Angeles, CA</p>
+            <h5>Джон До</h5>
+            <p class="text-muted text-sm mb-0">Студио "Beauty"</p>
           </div>
           <div class="card-body p-4">
             <div class="d-flex align-items-center mb-3">
@@ -24,27 +24,15 @@
                 </svg>
               </div>
               <div>
-                <p class="mb-0">2877 reviews</p>
-              </div>
-            </div>
-            <div class="d-flex align-items-center mb-3">
-              <div
-                class="icon-rounded icon-rounded-sm bg-primary-light flex-shrink-0 me-2"
-              >
-                <svg class="svg-icon text-primary svg-icon-md">
-                  <use xlink:href="#checkmark-1"></use>
-                </svg>
-              </div>
-              <div>
-                <p class="mb-0">Verified</p>
+                <p class="mb-0">74 ревюта</p>
               </div>
             </div>
             <hr />
-            <h6>Jack provided</h6>
+            <h6>Публична информация</h6>
             <ul class="card-text text-muted">
-              <li>Government ID</li>
-              <li>Email address</li>
-              <li>Phone number</li>
+              <li>Длюжност: Бръснар</li>
+              <li>Имейл: john@doe.com</li>
+              <li>Телефон: 0899 999 999</li>
             </ul>
           </div>
         </div>
@@ -89,7 +77,9 @@
                 <ng-container matColumnDef="reservationStatus">
                   <th mat-header-cell *matHeaderCellDef>Статус</th>
                   <td mat-cell *matCellDef="let element">
-                    {{ element.reservationStatus }}
+                    <span [ngClass]="getStatusColor(element.reservationStatus)">
+                      {{ element.reservationStatus }}
+                    </span>
                   </td>
                 </ng-container>
 
@@ -138,7 +128,9 @@
                 <ng-container matColumnDef="reservationStatus">
                   <th mat-header-cell *matHeaderCellDef>Статус</th>
                   <td mat-cell *matCellDef="let element">
-                    {{ element.reservationStatus }}
+                    <span [ngClass]="getStatusColor(element.reservationStatus)">
+                      {{ element.reservationStatus }}
+                    </span>
                   </td>
                 </ng-container>
 
@@ -187,7 +179,9 @@
                 <ng-container matColumnDef="reservationStatus">
                   <th mat-header-cell *matHeaderCellDef>Статус</th>
                   <td mat-cell *matCellDef="let element">
-                    {{ element.reservationStatus }}
+                    <span [ngClass]="getStatusColor(element.reservationStatus)">
+                      {{ element.reservationStatus }}
+                    </span>
                   </td>
                 </ng-container>
 
@@ -207,7 +201,7 @@
               </mat-paginator>
             </mat-tab>
 
-            <!-- Tab: In Proggress Reservations -->
+            <!-- Tab: In Progress Reservations -->
             <mat-tab label="В процес на изпълнение">
               <table mat-table [dataSource]="inProgressReservations">
                 <ng-container matColumnDef="id">
@@ -236,7 +230,9 @@
                 <ng-container matColumnDef="reservationStatus">
                   <th mat-header-cell *matHeaderCellDef>Статус</th>
                   <td mat-cell *matCellDef="let element">
-                    {{ element.reservationStatus }}
+                    <span [ngClass]="getStatusColor(element.reservationStatus)">
+                      {{ element.reservationStatus }}
+                    </span>
                   </td>
                 </ng-container>
 
@@ -285,7 +281,9 @@
                 <ng-container matColumnDef="reservationStatus">
                   <th mat-header-cell *matHeaderCellDef>Статус</th>
                   <td mat-cell *matCellDef="let element">
-                    {{ element.reservationStatus }}
+                    <span [ngClass]="getStatusColor(element.reservationStatus)">
+                      {{ element.reservationStatus }}
+                    </span>
                   </td>
                 </ng-container>
 
@@ -334,7 +332,9 @@
                 <ng-container matColumnDef="reservationStatus">
                   <th mat-header-cell *matHeaderCellDef>Статус</th>
                   <td mat-cell *matCellDef="let element">
-                    {{ element.reservationStatus }}
+                    <span [ngClass]="getStatusColor(element.reservationStatus)">
+                      {{ element.reservationStatus }}
+                    </span>
                   </td>
                 </ng-container>
 

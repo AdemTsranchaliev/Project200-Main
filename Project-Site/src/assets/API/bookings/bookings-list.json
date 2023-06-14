@@ -1,224 +1,224 @@
 [
     {
         "id": 1,
-        "customerName": "John Doe",
-        "reservationDate": "2023-06-01",
-        "reservationStatus": "new"
+        "customerName": "Джон Доу",
+        "reservationDate": "2023-06-14",
+        "reservationStatus": "нов"
     },
     {
         "id": 2,
-        "customerName": "Jane Smith",
-        "reservationDate": "2023-06-02",
-        "reservationStatus": "confirmed"
+        "customerName": "Джейн Смит",
+        "reservationDate": "2023-06-13",
+        "reservationStatus": "потвърден"
     },
     {
         "id": 3,
-        "customerName": "Michael Johnson",
-        "reservationDate": "2023-06-03",
-        "reservationStatus": "in progress"
+        "customerName": "Майкъл Джонсън",
+        "reservationDate": "2023-06-12",
+        "reservationStatus": "в ход"
     },
     {
         "id": 4,
-        "customerName": "Emily Williams",
-        "reservationDate": "2023-06-04",
-        "reservationStatus": "canceled"
+        "customerName": "Емили Уилямс",
+        "reservationDate": "2023-06-11",
+        "reservationStatus": "отказан"
     },
     {
         "id": 5,
-        "customerName": "David Brown",
-        "reservationDate": "2023-06-05",
-        "reservationStatus": "new"
+        "customerName": "Дейвид Браун",
+        "reservationDate": "2023-06-10",
+        "reservationStatus": "нов"
     },
     {
         "id": 6,
-        "customerName": "Sarah Davis",
-        "reservationDate": "2023-06-06",
-        "reservationStatus": "confirmed"
+        "customerName": "Сара Дейвис",
+        "reservationDate": "2023-06-09",
+        "reservationStatus": "потвърден"
     },
     {
         "id": 7,
-        "customerName": "Daniel Wilson",
-        "reservationDate": "2023-06-07",
-        "reservationStatus": "in progress"
+        "customerName": "Даниел Уилсън",
+        "reservationDate": "2023-06-08",
+        "reservationStatus": "в ход"
     },
     {
         "id": 8,
-        "customerName": "Olivia Taylor",
-        "reservationDate": "2023-06-08",
-        "reservationStatus": "canceled"
+        "customerName": "Оливия Тейлър",
+        "reservationDate": "2023-06-07",
+        "reservationStatus": "отказан"
     },
     {
         "id": 9,
-        "customerName": "James Martinez",
-        "reservationDate": "2023-06-09",
-        "reservationStatus": "new"
+        "customerName": "Джеймс Мартинез",
+        "reservationDate": "2023-06-06",
+        "reservationStatus": "нов"
     },
     {
         "id": 10,
-        "customerName": "Emma Anderson",
-        "reservationDate": "2023-06-10",
-        "reservationStatus": "confirmed"
+        "customerName": "Ема Андерсън",
+        "reservationDate": "2023-06-05",
+        "reservationStatus": "потвърден"
     },
     {
         "id": 11,
-        "customerName": "Alexander Thomas",
-        "reservationDate": "2023-06-11",
-        "reservationStatus": "in progress"
+        "customerName": "Александър Томас",
+        "reservationDate": "2023-06-04",
+        "reservationStatus": "в ход"
     },
     {
         "id": 12,
-        "customerName": "Sophia Garcia",
-        "reservationDate": "2023-06-12",
-        "reservationStatus": "canceled"
+        "customerName": "София Гарсия",
+        "reservationDate": "2023-06-03",
+        "reservationStatus": "отказан"
     },
     {
         "id": 13,
-        "customerName": "William Wilson",
-        "reservationDate": "2023-06-13",
-        "reservationStatus": "new"
+        "customerName": "Уилям Уилсън",
+        "reservationDate": "2023-06-02",
+        "reservationStatus": "нов"
     },
     {
         "id": 14,
-        "customerName": "Ava Lee",
-        "reservationDate": "2023-06-14",
-        "reservationStatus": "confirmed"
+        "customerName": "Ава Лий",
+        "reservationDate": "2023-06-01",
+        "reservationStatus": "потвърден"
     },
     {
         "id": 15,
-        "customerName": "Charlotte Jackson",
-        "reservationDate": "2023-06-15",
-        "reservationStatus": "in progress"
+        "customerName": "Шарлот Джаксън",
+        "reservationDate": "2023-05-31",
+        "reservationStatus": "в ход"
     },
     {
         "id": 16,
-        "customerName": "Mason White",
-        "reservationDate": "2023-06-16",
-        "reservationStatus": "canceled"
+        "customerName": "Мейсън Уайт",
+        "reservationDate": "2023-05-30",
+        "reservationStatus": "отказан"
     },
     {
         "id": 17,
-        "customerName": "Sophia Harris",
-        "reservationDate": "2023-06-17",
-        "reservationStatus": "new"
+        "customerName": "София Харис",
+        "reservationDate": "2023-05-29",
+        "reservationStatus": "нов"
     },
     {
         "id": 18,
-        "customerName": "Jacob",
-        "reservationDate": "2023-06-17",
-        "reservationStatus": "new"
+        "customerName": "Якоб",
+        "reservationDate": "2023-05-28",
+        "reservationStatus": "нов"
     },
     {
         "id": 19,
-        "customerName": "Jacob",
-        "reservationDate": "2023-06-17",
-        "reservationStatus": "completed"
+        "customerName": "Якоб",
+        "reservationDate": "2023-05-27",
+        "reservationStatus": "завършен"
     },
     {
         "id": 20,
-        "customerName": "Jacob",
-        "reservationDate": "2023-06-17",
-        "reservationStatus": "completed"
+        "customerName": "Якоб",
+        "reservationDate": "2023-05-26",
+        "reservationStatus": "завършен"
     },
     {
         "id": 21,
-        "customerName": "Jacob",
-        "reservationDate": "2023-06-17",
-        "reservationStatus": "completed"
+        "customerName": "Якоб",
+        "reservationDate": "2023-05-25",
+        "reservationStatus": "завършен"
     },
     {
         "id": 22,
-        "customerName": "Jacob",
-        "reservationDate": "2023-06-17",
-        "reservationStatus": "completed"
+        "customerName": "Якоб",
+        "reservationDate": "2023-05-24",
+        "reservationStatus": "завършен"
     },
     {
         "id": 23,
-        "customerName": "Jacob",
-        "reservationDate": "2023-06-17",
-        "reservationStatus": "inProgress"
+        "customerName": "Якоб",
+        "reservationDate": "2023-05-23",
+        "reservationStatus": "в ход"
     },
     {
         "id": 24,
-        "customerName": "Jacob",
-        "reservationDate": "2023-06-17",
-        "reservationStatus": "inProgress"
+        "customerName": "Якоб",
+        "reservationDate": "2023-05-22",
+        "reservationStatus": "в ход"
     },
     {
         "id": 25,
-        "customerName": "Jacob",
-        "reservationDate": "2023-06-17",
-        "reservationStatus": "inProgress"
+        "customerName": "Якоб",
+        "reservationDate": "2023-05-21",
+        "reservationStatus": "в ход"
     },
     {
         "id": 26,
-        "customerName": "Jacob",
-        "reservationDate": "2023-06-17",
-        "reservationStatus": "inProgress"
+        "customerName": "Якоб",
+        "reservationDate": "2023-05-20",
+        "reservationStatus": "в ход"
     },
     {
         "id": 27,
-        "customerName": "Jacob",
-        "reservationDate": "2023-06-17",
-        "reservationStatus": "new"
+        "customerName": "Якоб",
+        "reservationDate": "2023-05-19",
+        "reservationStatus": "нов"
     },
     {
         "id": 28,
-        "customerName": "Jacob",
-        "reservationDate": "2023-06-17",
-        "reservationStatus": "new"
+        "customerName": "Якоб",
+        "reservationDate": "2023-05-18",
+        "reservationStatus": "нов"
     },
     {
         "id": 29,
-        "customerName": "Jacob",
-        "reservationDate": "2023-06-17",
-        "reservationStatus": "new"
+        "customerName": "Якоб",
+        "reservationDate": "2023-05-17",
+        "reservationStatus": "нов"
     },
     {
         "id": 30,
-        "customerName": "Jacob",
-        "reservationDate": "2023-06-17",
-        "reservationStatus": "new"
+        "customerName": "Якоб",
+        "reservationDate": "2023-05-16",
+        "reservationStatus": "нов"
     },
     {
         "id": 31,
-        "customerName": "Jacob",
-        "reservationDate": "2023-06-17",
-        "reservationStatus": "completed"
+        "customerName": "Якоб",
+        "reservationDate": "2023-05-15",
+        "reservationStatus": "завършен"
     },
     {
         "id": 32,
-        "customerName": "Jacob",
-        "reservationDate": "2023-06-17",
-        "reservationStatus": "completed"
+        "customerName": "Якоб",
+        "reservationDate": "2023-05-14",
+        "reservationStatus": "завършен"
     },
     {
         "id": 33,
-        "customerName": "Jacob",
-        "reservationDate": "2023-06-17",
-        "reservationStatus": "canceled"
+        "customerName": "Якоб",
+        "reservationDate": "2023-05-13",
+        "reservationStatus": "отказан"
     },
     {
         "id": 34,
-        "customerName": "Jacob",
-        "reservationDate": "2023-06-17",
-        "reservationStatus": "canceled"
+        "customerName": "Якоб",
+        "reservationDate": "2023-05-12",
+        "reservationStatus": "отказан"
     },
     {
         "id": 35,
-        "customerName": "Jacob",
-        "reservationDate": "2023-06-17",
-        "reservationStatus": "canceled"
+        "customerName": "Якоб",
+        "reservationDate": "2023-05-11",
+        "reservationStatus": "отказан"
     },
     {
         "id": 36,
-        "customerName": "Jacob",
-        "reservationDate": "2023-06-17",
-        "reservationStatus": "confirmed"
+        "customerName": "Якоб",
+        "reservationDate": "2023-05-10",
+        "reservationStatus": "потвърден"
     },
     {
         "id": 37,
-        "customerName": "Jacob",
-        "reservationDate": "2023-06-17",
-        "reservationStatus": "confirmed"
+        "customerName": "Якоб",
+        "reservationDate": "2023-05-09",
+        "reservationStatus": "потвърден"
     }
 ]

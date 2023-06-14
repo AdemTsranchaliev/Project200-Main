@@ -5,3 +5,38 @@
 table {
     width: 100%;
 }
+
+.blue {
+    padding: 2px 16px;
+    border-radius: 7px;
+    color: white;
+    background-color: blue;
+}
+
+.green {
+    padding: 2px 16px;
+    border-radius: 7px;
+    color: white;
+    background-color: green;
+}
+
+.orange {
+    padding: 2px 16px;
+    border-radius: 7px;
+    color: white;
+    background-color: orange;
+}
+
+.red {
+    padding: 2px 16px;
+    border-radius: 7px;
+    color: white;
+    background-color: red;
+}
+
+.purple {
+    padding: 2px 16px;
+    border-radius: 7px;
+    color: white;
+    background-color: purple;
+}
