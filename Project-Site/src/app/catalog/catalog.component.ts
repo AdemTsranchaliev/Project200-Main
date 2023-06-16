@@ -37,6 +37,10 @@ export class CatalogComponent implements OnInit {
   visibleItemsCountLocations: number = 5; // Display 5 items initially
   totalItemsCount: any;
 
+  // Price Range
+  minPrice = 0;
+  maxPrice = 200;
+  priceStep = 5;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -50,6 +54,8 @@ export class CatalogComponent implements OnInit {
     this.getSalonData();
     // Get All Filter Options
     this.getSalonFilterOptionsData();
+    // Get Price Values
+    this.getPriceInputFields();
   }
 
   ngOnDestroy() {
@@ -62,6 +68,9 @@ export class CatalogComponent implements OnInit {
   createForm(): void {
     // TODO: Need to put all Form Controls at the main Form /this.catalogForm/
     this.catalogForm = this.formBuilder.group({
+      minPrice: [0],
+      maxPrice: [200]
+
       // services: this.formBuilder.group({
       //   haircut1: [false],
       //   haircut2: [false],
@@ -132,5 +141,22 @@ export class CatalogComponent implements OnInit {
     } else if (filter === 'locations') {
       this.visibleItemsCountLocations = 5;
     }
+  }
+
+  /**
+   * This method gets price from Slider, so we can put the values in the Input
+   */
+  getPriceInputFields() {
+    const minPriceSubscription = this.catalogForm.controls.minPrice.valueChanges.subscribe((value) => {
+      const minPriceInput = document.getElementById('minPriceInput') as HTMLInputElement;
+      minPriceInput.value = `${value} лв.`;
+    });
+    this.subscriptions.push(minPriceSubscription);
+
+    const maxPriceSubscription = this.catalogForm.controls.maxPrice.valueChanges.subscribe((value) => {
+      const maxPriceInput = document.getElementById('maxPriceInput') as HTMLInputElement;
+      maxPriceInput.value = `${value} лв.`;
+    });
+    this.subscriptions.push(maxPriceSubscription);
   }
 }

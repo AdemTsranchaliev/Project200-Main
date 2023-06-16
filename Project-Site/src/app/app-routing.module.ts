@@ -11,6 +11,7 @@ import { UserReservationsComponent } from './user/user-reservations/user-reserva
 import { UserSecurityComponent } from './user/user-security/user-security.component';
 import { CatalogComponent } from './catalog/catalog.component';
 import { BookingsTableComponent } from './bookings-table/bookings-table.component';
+import { BookingDetailComponent } from './booking-detail/booking-detail.component';
 
 const routes: Routes = [
   //Home paths
@@ -22,6 +23,7 @@ const routes: Routes = [
   { path: 'my-account-security', component: UserSecurityComponent },
   { path: 'catalog', component: CatalogComponent },
   { path: 'bookings-table', component: BookingsTableComponent },
+  { path: 'booking-detail/:id', component: BookingDetailComponent },
 
   //Authentication
   { path: 'login', component: LoginComponent },

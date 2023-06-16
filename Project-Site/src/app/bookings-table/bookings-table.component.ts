@@ -23,7 +23,7 @@ export class BookingsTableComponent implements OnInit, AfterViewInit {
   // Subscriptions
   private subscriptions: Subscription[] = [];
 
-  displayedColumns: string[] = ['id', 'customerName', 'reservationDate', 'reservationStatus'];
+  displayedColumns: string[] = ['id', 'customerName', 'reservationDate', 'reservationStatus', 'details'];
   // Tab Data Sources
   dataSource = new MatTableDataSource<Bookings>();
   newReservations = new MatTableDataSource<Bookings>();

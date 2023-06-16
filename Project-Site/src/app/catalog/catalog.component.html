@@ -11,15 +11,49 @@
       <div class="col-lg-3 pt-3">
         <form class="pe-xl-3" [formGroup]="catalogForm">
           <!-- Price Range -->
-          <div class="mb-4">
+          <div class="row mb-4">
             <h4>Изберете цена:</h4>
-            <mat-slider class="w-100">
-              <input matSliderThumb />
-            </mat-slider>
+            <div class="col-6">
+              <mat-slider
+                class="w-100"
+                thumbLabel
+                [min]="minPrice"
+                [max]="maxPrice"
+                formControlName="minPrice"
+                [step]="priceStep"
+              ></mat-slider>
+              <input
+                class="text-center border rounded w-50"
+                matInput
+                id="minPriceInput"
+                type="number"
+                [value]="catalogForm.value.minPrice"
+                readonly
+              />
+            </div>
+            <div class="col-6">
+              <mat-slider
+                class="w-100"
+                thumbLabel
+                [min]="minPrice"
+                [max]="maxPrice"
+                formControlName="maxPrice"
+                [step]="priceStep"
+              ></mat-slider>
+
+              <input
+                class="text-center border rounded w-50"
+                matInput
+                id="maxPriceInput"
+                type="number"
+                [value]="catalogForm.value.maxPrice"
+                readonly
+              />
+            </div>
           </div>
 
           <!-- Salon Services -->
-          <div class="mb-4">
+          <div class="mb-4 p-3 custom-catalog-filter-scroll-set">
             <h4>Изберете услуга:</h4>
             <p>
               <mat-checkbox
@@ -40,7 +74,7 @@
           </div>
 
           <!-- Locations -->
-          <div class="mb-4">
+          <div class="mb-4 p-3 custom-catalog-filter-scroll-set">
             <h4>Изберете локация:</h4>
             <p>
               <mat-checkbox
@@ -156,7 +190,7 @@
                   </div>
                   <div class="mb-3">
                     <span
-                      class="badge bg-primary me-2"
+                      class="badge rounded-pill me-2 mb-2 p-2 badge-primary-light"
                       *ngFor="let category of element.Category"
                       >{{ category }}</span
                     >
