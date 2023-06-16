@@ -31,7 +31,7 @@ import { LoginComponent } from './authentication/login/login.component';
 import { RegisterComponent } from './authentication/register/register.component';
 import { StudioListMainComponent } from './studio/studio-list-main/studio-list-main.component';
 import { CatalogComponent } from './catalog/catalog.component';
-import { BookingsTableComponent } from './bookings-table/bookings-table.component';
+import { BookingTableComponent } from './booking-table/booking-table.component';
 import { BookingDetailComponent } from './booking-detail/booking-detail.component';
 import { PaginatorComponent } from './paginator/paginator.component';
 // Shared Components
@@ -51,7 +51,7 @@ import { LoadMoreButtonComponent } from './shared/load-more-button/load-more-but
     UserSecurityComponent,
     UserAccountGridComponent,
     CatalogComponent,
-    BookingsTableComponent,
+    BookingTableComponent,
     BookingDetailComponent,
 
     // Auth
