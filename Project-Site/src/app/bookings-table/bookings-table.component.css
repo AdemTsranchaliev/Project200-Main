@@ -6,6 +6,10 @@ table {
     width: 100%;
 }
 
+.mat-table {
+    font-family: Comfortaa, cursive;
+}
+
 .blue {
     color: #4E66F8;
     background-color: #e4e8fe;

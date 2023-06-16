@@ -9,9 +9,7 @@ export class BookingDetailComponent implements OnInit {
   // Status Configurations
   statusList: string[] = ['нов', 'потвърден', 'в ход', 'отказан', 'завършен'];
   isStatusConfirmed: boolean = true;
-  initStatus: boolean = true;
-  initStatusFallBack: boolean = false;
-  isServiceHourStart = false;
+  isTheHourCome: boolean = false;
 
   constructor() { }
 
@@ -20,7 +18,5 @@ export class BookingDetailComponent implements OnInit {
 
   toggleStatusConfirmed(): void {
     this.isStatusConfirmed = !this.isStatusConfirmed;
-    this.initStatus = false;
-    this.initStatusFallBack = this.isStatusConfirmed;
   }
 }
