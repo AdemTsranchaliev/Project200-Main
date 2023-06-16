@@ -6,13 +6,9 @@ import { MatTableDataSource } from '@angular/material/table';
 import { Subscription } from 'rxjs';
 // Services
 import { BookingService } from './booking.service';
+// Models
+import { Booking } from '../shared/Models/booking.model';
 
-export interface Bookings {
-  id: number;
-  customerName: string;
-  reservationDate: string;
-  reservationStatus: string;
-}
 
 @Component({
   selector: 'app-booking-table',
@@ -25,12 +21,12 @@ export class BookingTableComponent implements OnInit, AfterViewInit {
 
   displayedColumns: string[] = ['id', 'customerName', 'reservationDate', 'reservationStatus', 'details'];
   // Tab Data Sources
-  dataSource = new MatTableDataSource<Bookings>();
-  newReservations = new MatTableDataSource<Bookings>();
-  confirmedReservations = new MatTableDataSource<Bookings>();
-  inProgressReservations = new MatTableDataSource<Bookings>();
-  completedReservations = new MatTableDataSource<Bookings>();
-  canceledReservations = new MatTableDataSource<Bookings>();
+  dataSource = new MatTableDataSource<Booking>();
+  newReservations = new MatTableDataSource<Booking>();
+  confirmedReservations = new MatTableDataSource<Booking>();
+  inProgressReservations = new MatTableDataSource<Booking>();
+  completedReservations = new MatTableDataSource<Booking>();
+  canceledReservations = new MatTableDataSource<Booking>();
 
   // Paginator
   @ViewChild('paginator1') paginator1!: MatPaginator;
