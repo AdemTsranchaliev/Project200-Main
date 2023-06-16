@@ -5,7 +5,7 @@ import { MatTableDataSource } from '@angular/material/table';
 // RXJS
 import { Subscription } from 'rxjs';
 // Services
-import { BookingsService } from './bookings.service';
+import { BookingService } from './booking.service';
 
 export interface Bookings {
   id: number;
@@ -15,11 +15,11 @@ export interface Bookings {
 }
 
 @Component({
-  selector: 'app-bookings-table',
-  templateUrl: './bookings-table.component.html',
-  styleUrls: ['./bookings-table.component.css']
+  selector: 'app-booking-table',
+  templateUrl: './booking-table.component.html',
+  styleUrls: ['./booking-table.component.css']
 })
-export class BookingsTableComponent implements OnInit, AfterViewInit {
+export class BookingTableComponent implements OnInit, AfterViewInit {
   // Subscriptions
   private subscriptions: Subscription[] = [];
 
@@ -41,7 +41,7 @@ export class BookingsTableComponent implements OnInit, AfterViewInit {
   @ViewChild('paginator6') paginator6!: MatPaginator;
 
   constructor(
-    private bookingsService: BookingsService
+    private bookingsService: BookingService
   ) { }
 
   ngOnInit(): void {
