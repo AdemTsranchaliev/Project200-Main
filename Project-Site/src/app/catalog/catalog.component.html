@@ -14,41 +14,17 @@
           <div class="row mb-4">
             <h4>Изберете цена:</h4>
             <div class="col-6">
-              <mat-slider
-                class="w-100"
-                thumbLabel
-                [min]="minPrice"
-                [max]="maxPrice"
-                formControlName="minPrice"
-                [step]="priceStep"
-              ></mat-slider>
-              <input
-                class="text-center border rounded w-50"
-                matInput
-                id="minPriceInput"
-                type="number"
-                [value]="catalogForm.value.minPrice"
-                readonly
-              />
+              <mat-slider class="w-100" thumbLabel [min]="minPrice" [max]="maxPrice" formControlName="minPrice"
+                [step]="priceStep"></mat-slider>
+              <input class="text-center border rounded w-50" matInput id="minPriceInput" type="number"
+                [value]="catalogForm.value.minPrice" readonly />
             </div>
             <div class="col-6">
-              <mat-slider
-                class="w-100"
-                thumbLabel
-                [min]="minPrice"
-                [max]="maxPrice"
-                formControlName="maxPrice"
-                [step]="priceStep"
-              ></mat-slider>
+              <mat-slider class="w-100" thumbLabel [min]="minPrice" [max]="maxPrice" formControlName="maxPrice"
+                [step]="priceStep"></mat-slider>
 
-              <input
-                class="text-center border rounded w-50"
-                matInput
-                id="maxPriceInput"
-                type="number"
-                [value]="catalogForm.value.maxPrice"
-                readonly
-              />
+              <input class="text-center border rounded w-50" matInput id="maxPriceInput" type="number"
+                [value]="catalogForm.value.maxPrice" readonly />
             </div>
           </div>
 

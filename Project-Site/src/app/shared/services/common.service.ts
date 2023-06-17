@@ -1,8 +1,8 @@
-import { Injectable } from "@angular/core";
-import { FormGroup } from "@angular/forms";
+import { Injectable } from '@angular/core';
+import { FormGroup } from '@angular/forms';
 
 @Injectable({
-  providedIn: "root",
+  providedIn: 'root',
 })
 export class CommonService {
   public validateFormTouched(form: FormGroup, propertyName: string) {
@@ -13,23 +13,23 @@ export class CommonService {
   }
   public validateLength(form: FormGroup, propertyName: string) {
     if (this.validateFormTouched(form, propertyName)) {
-      return (       
-        (form.get(propertyName)?.errors?.minlength ||
-          form.get(propertyName)?.errors?.maxlength)
+      return (
+        form.get(propertyName)?.errors?.minlength ||
+        form.get(propertyName)?.errors?.maxlength
       );
     }
     return false;
   }
   public validateRequired(form: FormGroup, propertyName: string) {
     if (this.validateFormTouched(form, propertyName)) {
-      return form.get(propertyName)?.errors?.["required"];
+      return form.get(propertyName)?.errors?.['required'];
     }
 
     return false;
   }
   public validatePattern(form: FormGroup, propertyName: string) {
     if (this.validateFormTouched(form, propertyName)) {
-      return form.get(propertyName)?.errors?.["pattern"];
+      return form.get(propertyName)?.errors?.['pattern'];
     }
 
     return false;

@@ -35,8 +35,8 @@ import { CatalogComponent } from './catalog/catalog.component';
 import { BookingTableComponent } from './booking-table/booking-table.component';
 import { BookingDetailComponent } from './booking-detail/booking-detail.component';
 // Shared Components
-import { StarComponent } from './shared/star/star.component';
-import { LoadMoreButtonComponent } from './shared/load-more-button/load-more-button.component';
+import { StarComponent } from './shared/components/star/star.component';
+import { LoadMoreButtonComponent } from './shared/components/load-more-button/load-more-button.component';
 import { AddStudioComponent } from './studio/add-studio/add-studio.component';
 import { IntroductionComponent } from './studio/add-studio/introduction/introduction.component';
 import { BasicInformationComponent } from './studio/add-studio/basic-information/basic-information.component';

@@ -68,7 +68,7 @@ export class CatalogComponent implements OnInit {
     // TODO: Need to put all Form Controls at the main Form /this.catalogForm/
     this.catalogForm = this.formBuilder.group({
       minPrice: [0],
-      maxPrice: [200]
+      maxPrice: [200],
 
       // services: this.formBuilder.group({
       //   haircut1: [false],
@@ -149,16 +149,22 @@ export class CatalogComponent implements OnInit {
    * This method gets price from Slider, so we can put the values in the Input
    */
   getPriceInputFields() {
-    const minPriceSubscription = this.catalogForm.controls.minPrice.valueChanges.subscribe((value) => {
-      const minPriceInput = document.getElementById('minPriceInput') as HTMLInputElement;
-      minPriceInput.value = `${value} лв.`;
-    });
+    const minPriceSubscription =
+      this.catalogForm.controls.minPrice.valueChanges.subscribe((value) => {
+        const minPriceInput = document.getElementById(
+          'minPriceInput'
+        ) as HTMLInputElement;
+        minPriceInput.value = `${value} лв.`;
+      });
     this.subscriptions.push(minPriceSubscription);
 
-    const maxPriceSubscription = this.catalogForm.controls.maxPrice.valueChanges.subscribe((value) => {
-      const maxPriceInput = document.getElementById('maxPriceInput') as HTMLInputElement;
-      maxPriceInput.value = `${value} лв.`;
-    });
+    const maxPriceSubscription =
+      this.catalogForm.controls.maxPrice.valueChanges.subscribe((value) => {
+        const maxPriceInput = document.getElementById(
+          'maxPriceInput'
+        ) as HTMLInputElement;
+        maxPriceInput.value = `${value} лв.`;
+      });
     this.subscriptions.push(maxPriceSubscription);
   }
 }

@@ -4,18 +4,13 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 @Component({
   selector: 'app-load-more-button',
   templateUrl: './load-more-button.component.html',
-  styleUrls: ['./load-more-button.component.css']
+  styleUrls: ['./load-more-button.component.css'],
 })
-export class LoadMoreButtonComponent implements OnInit {
+export class LoadMoreButtonComponent {
   @Input() visibleItemsCount!: number;
   @Input() totalItemsCount!: number;
   @Output() loadMoreClicked = new EventEmitter<void>();
   @Output() loadLessClicked = new EventEmitter<void>();
-
-  constructor() { }
-
-  ngOnInit(): void {
-  }
 
   loadMore(): void {
     this.loadMoreClicked.emit();
