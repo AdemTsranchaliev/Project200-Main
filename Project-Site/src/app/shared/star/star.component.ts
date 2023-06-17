@@ -1,21 +1,16 @@
-import { Component, OnInit, Input, Output } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-star',
   templateUrl: './star.component.html',
   styleUrls: ['./star.component.css']
 })
-export class StarComponent implements OnInit {
+export class StarComponent {
   @Input() avrGrade: number = 0;
   @Input() isVisible: boolean = true;
 
   starArray: number[] = [];
   negativeStarArray: number[] = [];
-
-  constructor() { }
-
-  ngOnInit(): void {
-  }
 
   setStarsArray(stars: number): Array<number> {
     this.starArray = Array(stars).fill(0).map((x, i) => i);

@@ -37,6 +37,7 @@ import { PaginatorComponent } from './paginator/paginator.component';
 // Shared Components
 import { StarComponent } from './shared/star/star.component';
 import { LoadMoreButtonComponent } from './shared/load-more-button/load-more-button.component';
+import { StudioCardComponent } from './shared/studio-card/studio-card.component';
 
 
 @NgModule({
@@ -63,6 +64,7 @@ import { LoadMoreButtonComponent } from './shared/load-more-button/load-more-but
     // Shared
     StarComponent,
     LoadMoreButtonComponent,
+    StudioCardComponent,
   ],
   imports: [
     // Angular
