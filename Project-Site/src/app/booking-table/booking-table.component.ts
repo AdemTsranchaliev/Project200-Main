@@ -5,32 +5,28 @@ import { MatTableDataSource } from '@angular/material/table';
 // RXJS
 import { Subscription } from 'rxjs';
 // Services
-import { BookingsService } from './bookings.service';
+import { BookingService } from './booking.service';
+// Models
+import { Booking } from '../shared/Models/booking.model';
 
-export interface Bookings {
-  id: number;
-  customerName: string;
-  reservationDate: string;
-  reservationStatus: string;
-}
 
 @Component({
-  selector: 'app-bookings-table',
-  templateUrl: './bookings-table.component.html',
-  styleUrls: ['./bookings-table.component.css']
+  selector: 'app-booking-table',
+  templateUrl: './booking-table.component.html',
+  styleUrls: ['./booking-table.component.css']
 })
-export class BookingsTableComponent implements OnInit, AfterViewInit {
+export class BookingTableComponent implements OnInit, AfterViewInit {
   // Subscriptions
   private subscriptions: Subscription[] = [];
 
-  displayedColumns: string[] = ['id', 'customerName', 'reservationDate', 'reservationStatus'];
+  displayedColumns: string[] = ['id', 'customerName', 'reservationDate', 'reservationStatus', 'details'];
   // Tab Data Sources
-  dataSource = new MatTableDataSource<Bookings>();
-  newReservations = new MatTableDataSource<Bookings>();
-  confirmedReservations = new MatTableDataSource<Bookings>();
-  inProgressReservations = new MatTableDataSource<Bookings>();
-  completedReservations = new MatTableDataSource<Bookings>();
-  canceledReservations = new MatTableDataSource<Bookings>();
+  dataSource = new MatTableDataSource<Booking>();
+  newReservations = new MatTableDataSource<Booking>();
+  confirmedReservations = new MatTableDataSource<Booking>();
+  inProgressReservations = new MatTableDataSource<Booking>();
+  completedReservations = new MatTableDataSource<Booking>();
+  canceledReservations = new MatTableDataSource<Booking>();
 
   // Paginator
   @ViewChild('paginator1') paginator1!: MatPaginator;
@@ -41,7 +37,7 @@ export class BookingsTableComponent implements OnInit, AfterViewInit {
   @ViewChild('paginator6') paginator6!: MatPaginator;
 
   constructor(
-    private bookingsService: BookingsService
+    private bookingsService: BookingService
   ) { }
 
   ngOnInit(): void {

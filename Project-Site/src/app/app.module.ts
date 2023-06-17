@@ -32,8 +32,8 @@ import { LoginComponent } from './authentication/login/login.component';
 import { RegisterComponent } from './authentication/register/register.component';
 import { StudioListMainComponent } from './studio/studio-list-main/studio-list-main.component';
 import { CatalogComponent } from './catalog/catalog.component';
-import { BookingsTableComponent } from './bookings-table/bookings-table.component';
-import { PaginatorComponent } from './shared/components/paginator/paginator.component';
+import { BookingTableComponent } from './booking-table/booking-table.component';
+import { BookingDetailComponent } from './booking-detail/booking-detail.component';
 // Shared Components
 import { StarComponent } from './shared/star/star.component';
 import { LoadMoreButtonComponent } from './shared/load-more-button/load-more-button.component';
@@ -48,6 +48,7 @@ import { MapComponent } from './shared/components/map/map.component';
 import { DetailedInformationComponent } from './studio/add-studio/detailed-information/detailed-information.component';
 import { ServicesComponent } from './studio/add-studio/services/services.component';
 import { ImagesComponent } from './studio/add-studio/images/images.component';
+import { PaginatorComponent } from './shared/components/paginator/paginator.component';
 
 
 @NgModule({
@@ -62,7 +63,8 @@ import { ImagesComponent } from './studio/add-studio/images/images.component';
     UserSecurityComponent,
     UserAccountGridComponent,
     CatalogComponent,
-    BookingsTableComponent,
+    BookingTableComponent,
+    BookingDetailComponent,
 
     // Auth
     LoginComponent,
