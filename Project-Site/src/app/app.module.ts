@@ -20,6 +20,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatTableModule } from '@angular/material/table';
 import { MatSortModule } from '@angular/material/sort';
+import {MatStepperModule} from '@angular/material/stepper';
 // Components
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
@@ -32,10 +33,21 @@ import { RegisterComponent } from './authentication/register/register.component'
 import { StudioListMainComponent } from './studio/studio-list-main/studio-list-main.component';
 import { CatalogComponent } from './catalog/catalog.component';
 import { BookingsTableComponent } from './bookings-table/bookings-table.component';
-import { PaginatorComponent } from './paginator/paginator.component';
+import { PaginatorComponent } from './shared/components/paginator/paginator.component';
 // Shared Components
 import { StarComponent } from './shared/star/star.component';
 import { LoadMoreButtonComponent } from './shared/load-more-button/load-more-button.component';
+import { AddStudioComponent } from './studio/add-studio/add-studio.component';
+import { IntroductionComponent } from './studio/add-studio/introduction/introduction.component';
+import { BasicInformationComponent } from './studio/add-studio/basic-information/basic-information.component';
+import { CommonService } from './shared/services/common.service';
+import { AutocompleteComponent } from './shared/components/autocomplete/autocomplete.component';
+import { ChipsComponent } from './shared/components/chips/chips.component';
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
+import { MapComponent } from './shared/components/map/map.component';
+import { DetailedInformationComponent } from './studio/add-studio/detailed-information/detailed-information.component';
+import { ServicesComponent } from './studio/add-studio/services/services.component';
+import { ImagesComponent } from './studio/add-studio/images/images.component';
 
 
 @NgModule({
@@ -61,6 +73,15 @@ import { LoadMoreButtonComponent } from './shared/load-more-button/load-more-but
     // Shared
     StarComponent,
     LoadMoreButtonComponent,
+    AddStudioComponent,
+    IntroductionComponent,
+    BasicInformationComponent,
+    AutocompleteComponent,
+    ChipsComponent,
+    MapComponent,
+    DetailedInformationComponent,
+    ServicesComponent,
+    ImagesComponent
   ],
   imports: [
     // Angular
@@ -84,9 +105,11 @@ import { LoadMoreButtonComponent } from './shared/load-more-button/load-more-but
     MatIconModule,
     MatTabsModule,
     MatTableModule,
-    MatSortModule
+    MatSortModule,
+    MatStepperModule,
+    MatAutocompleteModule
   ],
-  providers: [],
+  providers: [CommonService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

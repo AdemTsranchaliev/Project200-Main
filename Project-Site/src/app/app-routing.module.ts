@@ -11,6 +11,7 @@ import { UserReservationsComponent } from './user/user-reservations/user-reserva
 import { UserSecurityComponent } from './user/user-security/user-security.component';
 import { CatalogComponent } from './catalog/catalog.component';
 import { BookingsTableComponent } from './bookings-table/bookings-table.component';
+import { AddStudioComponent } from './studio/add-studio/add-studio.component';
 
 const routes: Routes = [
   //Home paths
@@ -28,6 +29,9 @@ const routes: Routes = [
 
   //Registration
   { path: 'register', component: RegisterComponent },
+
+  //Studio
+  { path: 'add-studio', component: AddStudioComponent },
 
   //Default paths
   { path: '**', redirectTo: '' },

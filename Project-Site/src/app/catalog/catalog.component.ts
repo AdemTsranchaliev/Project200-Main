@@ -7,13 +7,12 @@ import { Subscription } from 'rxjs';
 // Services
 import { CatalogService } from './catalog.service';
 // Components
-import { PaginatorComponent } from '../paginator/paginator.component';
-
+import { PaginatorComponent } from '../shared/components/paginator/paginator.component';
 
 @Component({
   selector: 'app-catalog',
   templateUrl: './catalog.component.html',
-  styleUrls: ['./catalog.component.css']
+  styleUrls: ['./catalog.component.css'],
 })
 export class CatalogComponent implements OnInit {
   // Subscriptions
@@ -37,11 +36,10 @@ export class CatalogComponent implements OnInit {
   visibleItemsCountLocations: number = 5; // Display 5 items initially
   totalItemsCount: any;
 
-
   constructor(
     private formBuilder: FormBuilder,
     private catalogService: CatalogService
-  ) { }
+  ) {}
 
   ngOnInit(): void {
     // Init Form
@@ -53,7 +51,7 @@ export class CatalogComponent implements OnInit {
   }
 
   ngOnDestroy() {
-    this.subscriptions.forEach(el => el.unsubscribe());
+    this.subscriptions.forEach((el) => el.unsubscribe());
   }
 
   /**
@@ -86,10 +84,12 @@ export class CatalogComponent implements OnInit {
    * This method create request to get all Salons for Catalog Page
    */
   getSalonData() {
-    const catalogSubscription = this.catalogService.getCatalog().subscribe((response: any) => {
-      this.catalogData = response;
-      this.totalItems = this.catalogData.length;
-    });
+    const catalogSubscription = this.catalogService
+      .getCatalog()
+      .subscribe((response: any) => {
+        this.catalogData = response;
+        this.totalItems = this.catalogData.length;
+      });
     this.subscriptions.push(catalogSubscription);
   }
 
@@ -97,11 +97,12 @@ export class CatalogComponent implements OnInit {
    * This method create request to get all Filter Options For Catalog Page
    */
   getSalonFilterOptionsData() {
-    const catalogOptionsSubscription = this.catalogService.getCatalogOptions().subscribe((response: any) => {
-      this.catalogOptionsData = response;
-      this.totalItemsCount = this.catalogOptionsData?.serviceList?.length;
-
-    });
+    const catalogOptionsSubscription = this.catalogService
+      .getCatalogOptions()
+      .subscribe((response: any) => {
+        this.catalogOptionsData = response;
+        this.totalItemsCount = this.catalogOptionsData?.serviceList?.length;
+      });
     this.subscriptions.push(catalogOptionsSubscription);
   }
 

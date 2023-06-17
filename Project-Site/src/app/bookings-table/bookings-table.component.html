@@ -5,20 +5,14 @@
       <div class="col-lg-3 mb-5 me-lg-auto">
         <div class="card border-0 shadow mb-6 mb-lg-0">
           <div class="card-header bg-gray-100 py-4 border-0 text-center">
-            <a class="d-inline-block" href="#"
-              ><img
-                class="d-block avatar avatar-xxl p-2 mb-2"
-                src="/assets/img/avatar/avatar-10.jpg"
-                alt=""
-            /></a>
+            <a class="d-inline-block" href="#"><img class="d-block avatar avatar-xxl p-2 mb-2"
+                src="/assets/img/avatar/avatar-10.jpg" alt="" /></a>
             <h5>Джон До</h5>
             <p class="text-muted text-sm mb-0">Студио "Beauty"</p>
           </div>
           <div class="card-body p-4">
             <div class="d-flex align-items-center mb-3">
-              <div
-                class="icon-rounded icon-rounded-sm bg-primary-light flex-shrink-0 me-2"
-              >
+              <div class="icon-rounded icon-rounded-sm bg-primary-light flex-shrink-0 me-2">
                 <svg class="svg-icon text-primary svg-icon-md">
                   <use xlink:href="#diploma-1"></use>
                 </svg>
@@ -44,10 +38,7 @@
         <hr />
         <div class="text-block">
           <!-- <mat-tab-group> -->
-          <mat-tab-group
-            #tabGroup
-            (selectedIndexChange)="_setDataSource($event)"
-          >
+          <mat-tab-group #tabGroup (selectedIndexChange)="_setDataSource($event)">
             <!-- Tab: ALL Reservations -->
             <mat-tab label="Всички резервации">
               <table mat-table [dataSource]="dataSource">
@@ -84,18 +75,11 @@
                 </ng-container>
 
                 <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-                <tr
-                  mat-row
-                  *matRowDef="let row; columns: displayedColumns"
-                ></tr>
+                <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
               </table>
 
-              <mat-paginator
-                #paginator1
-                [pageSizeOptions]="[5, 10, 20]"
-                showFirstLastButtons
-                aria-label="Select page of periodic elements"
-              >
+              <mat-paginator #paginator1 [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons
+                aria-label="Select page of periodic elements">
               </mat-paginator>
             </mat-tab>
 
@@ -135,18 +119,11 @@
                 </ng-container>
 
                 <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-                <tr
-                  mat-row
-                  *matRowDef="let row; columns: displayedColumns"
-                ></tr>
+                <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
               </table>
 
-              <mat-paginator
-                #paginator2
-                [pageSizeOptions]="[5, 10, 20]"
-                showFirstLastButtons
-                aria-label="Select page of periodic elements"
-              >
+              <mat-paginator #paginator2 [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons
+                aria-label="Select page of periodic elements">
               </mat-paginator>
             </mat-tab>
 
@@ -186,18 +163,11 @@
                 </ng-container>
 
                 <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-                <tr
-                  mat-row
-                  *matRowDef="let row; columns: displayedColumns"
-                ></tr>
+                <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
               </table>
 
-              <mat-paginator
-                #paginator3
-                [pageSizeOptions]="[5, 10, 20]"
-                showFirstLastButtons
-                aria-label="Select page of periodic elements"
-              >
+              <mat-paginator #paginator3 [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons
+                aria-label="Select page of periodic elements">
               </mat-paginator>
             </mat-tab>
 
@@ -237,18 +207,11 @@
                 </ng-container>
 
                 <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-                <tr
-                  mat-row
-                  *matRowDef="let row; columns: displayedColumns"
-                ></tr>
+                <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
               </table>
 
-              <mat-paginator
-                #paginator4
-                [pageSizeOptions]="[5, 10, 20]"
-                showFirstLastButtons
-                aria-label="Select page of periodic elements"
-              >
+              <mat-paginator #paginator4 [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons
+                aria-label="Select page of periodic elements">
               </mat-paginator>
             </mat-tab>
 
@@ -288,18 +251,11 @@
                 </ng-container>
 
                 <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-                <tr
-                  mat-row
-                  *matRowDef="let row; columns: displayedColumns"
-                ></tr>
+                <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
               </table>
 
-              <mat-paginator
-                #paginator5
-                [pageSizeOptions]="[5, 10, 20]"
-                showFirstLastButtons
-                aria-label="Select page of periodic elements"
-              >
+              <mat-paginator #paginator5 [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons
+                aria-label="Select page of periodic elements">
               </mat-paginator>
             </mat-tab>
 
@@ -339,18 +295,11 @@
                 </ng-container>
 
                 <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-                <tr
-                  mat-row
-                  *matRowDef="let row; columns: displayedColumns"
-                ></tr>
+                <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
               </table>
 
-              <mat-paginator
-                #paginator6
-                [pageSizeOptions]="[5, 10, 20]"
-                showFirstLastButtons
-                aria-label="Select page of periodic elements"
-              >
+              <mat-paginator #paginator6 [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons
+                aria-label="Select page of periodic elements">
               </mat-paginator>
             </mat-tab>
           </mat-tab-group>
