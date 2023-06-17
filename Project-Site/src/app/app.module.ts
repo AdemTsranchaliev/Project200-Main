@@ -20,7 +20,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatTableModule } from '@angular/material/table';
 import { MatSortModule } from '@angular/material/sort';
-import {MatStepperModule} from '@angular/material/stepper';
+import { MatStepperModule } from '@angular/material/stepper';
 // Components
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
@@ -32,6 +32,7 @@ import { LoginComponent } from './authentication/login/login.component';
 import { RegisterComponent } from './authentication/register/register.component';
 import { StudioListMainComponent } from './studio/studio-list-main/studio-list-main.component';
 import { CatalogComponent } from './catalog/catalog.component';
+import { CatalogLeftMapComponent } from './catalog-left-map/catalog-left-map.component';
 import { BookingTableComponent } from './booking-table/booking-table.component';
 import { BookingDetailComponent } from './booking-detail/booking-detail.component';
 // Shared Components
@@ -63,6 +64,7 @@ import { PaginatorComponent } from './shared/components/paginator/paginator.comp
     UserSecurityComponent,
     UserAccountGridComponent,
     CatalogComponent,
+    CatalogLeftMapComponent,
     BookingTableComponent,
     BookingDetailComponent,
 
@@ -83,7 +85,7 @@ import { PaginatorComponent } from './shared/components/paginator/paginator.comp
     MapComponent,
     DetailedInformationComponent,
     ServicesComponent,
-    ImagesComponent
+    ImagesComponent,
   ],
   imports: [
     // Angular
