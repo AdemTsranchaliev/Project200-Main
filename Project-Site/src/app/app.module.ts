@@ -50,6 +50,7 @@ import { DetailedInformationComponent } from './studio/add-studio/detailed-infor
 import { ServicesComponent } from './studio/add-studio/services/services.component';
 import { ImagesComponent } from './studio/add-studio/images/images.component';
 import { PaginatorComponent } from './shared/components/paginator/paginator.component';
+import { StudioCardComponent } from './shared/studio-card/studio-card.component';
 
 
 @NgModule({
@@ -86,6 +87,7 @@ import { PaginatorComponent } from './shared/components/paginator/paginator.comp
     DetailedInformationComponent,
     ServicesComponent,
     ImagesComponent,
+    StudioCardComponent
   ],
   imports: [
     // Angular
