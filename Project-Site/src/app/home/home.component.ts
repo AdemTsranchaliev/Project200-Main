@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 // RXJS
 import { Subscription } from 'rxjs';
 // Services
-import { CatalogService } from '../catalog/catalog.service';
+import { CatalogService } from '../shared/services/catalog.service';
 
 @Component({
   selector: 'app-home',

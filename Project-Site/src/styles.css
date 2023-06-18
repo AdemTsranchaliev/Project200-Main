@@ -10,3 +10,50 @@ body {
     font-family: Comfortaa, cursive;
     padding-top: 72px;
 }
+
+
+/* ============ For Chrome, Safari, and Opera ============ */
+
+/* Style the scrollbar width */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+/* Style the scrollbar track (background) */
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+/* Style the scrollbar thumb (scrolling handle) */
+::-webkit-scrollbar-thumb {
+    background: #4e66f8;
+    border-radius: 4px;
+}
+
+/* Style the scrollbar thumb on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #2b42d2;
+}
+
+/* ============ For Firefox ============ */
+
+/* Style the scrollbar width */
+::-moz-scrollbar {
+    width: 8px;
+}
+
+/* Style the scrollbar track (background) */
+::-moz-scrollbar-track {
+    background: #f1f1f1;
+}
+
+/* Style the scrollbar thumb (scrolling handle) */
+::-moz-scrollbar-thumb {
+    background: #4e66f8;
+    border-radius: 4px;
+}
+
+/* Style the scrollbar thumb on hover */
+::-moz-scrollbar-thumb:hover {
+    background: #2b42d2;
+}

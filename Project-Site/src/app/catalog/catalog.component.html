@@ -11,45 +11,9 @@
       <div class="col-lg-3 pt-3">
         <form class="pe-xl-3" [formGroup]="catalogForm">
           <!-- Price Range -->
-          <div class="row mb-4">
+          <div class="mb-4">
             <h4>Изберете цена:</h4>
-            <div class="col-6">
-              <mat-slider
-                class="w-100"
-                thumbLabel
-                [min]="minPrice"
-                [max]="maxPrice"
-                formControlName="minPrice"
-                [step]="priceStep"
-              ></mat-slider>
-              <input
-                class="text-center border rounded w-50"
-                matInput
-                id="minPriceInput"
-                type="number"
-                [value]="catalogForm.value.minPrice"
-                readonly
-              />
-            </div>
-            <div class="col-6">
-              <mat-slider
-                class="w-100"
-                thumbLabel
-                [min]="minPrice"
-                [max]="maxPrice"
-                formControlName="maxPrice"
-                [step]="priceStep"
-              ></mat-slider>
-
-              <input
-                class="text-center border rounded w-50"
-                matInput
-                id="maxPriceInput"
-                type="number"
-                [value]="catalogForm.value.maxPrice"
-                readonly
-              />
-            </div>
+            <app-range-slider></app-range-slider>
           </div>
 
           <!-- Salon Services -->
@@ -156,8 +120,13 @@
                 currentPage * pageSize,
                 (currentPage + 1) * pageSize
               )
-            ">
-            <app-studio-card [element]="element" [currentPage]="currentPage" [pageSize]="pageSize"></app-studio-card>
+            "
+          >
+            <app-studio-card
+              [element]="element"
+              [currentPage]="currentPage"
+              [pageSize]="pageSize"
+            ></app-studio-card>
           </div>
         </div>
         <!-- Pagination -->

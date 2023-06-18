@@ -1,0 +1,71 @@
+<h2 mat-dialog-title>Филтри</h2>
+<mat-dialog-content class="mat-typography">
+  <form class="pe-xl-3">
+    <!-- Price Range -->
+    <div class="mb-4">
+      <h1>Изберете цена:</h1>
+      <app-range-slider></app-range-slider>
+    </div>
+
+    <!-- Salon Services -->
+    <div class="mb-4">
+      <h1>Изберете услуга:</h1>
+      <div class="container">
+        <div class="row mb-4">
+          <div class="col-md-6">
+            <mat-checkbox
+              class="w-100 mb-3"
+              *ngFor="
+                let service of servicesLeftCol
+                  | slice : 0 : visibleItemsCountServices
+              "
+            >
+              {{ service }}
+            </mat-checkbox>
+          </div>
+          <div class="col-md-6">
+            <mat-checkbox
+              class="w-100 mb-3"
+              *ngFor="
+                let service of servicesRightCol
+                  | slice : 0 : visibleItemsCountServices
+              "
+            >
+              {{ service }}
+            </mat-checkbox>
+          </div>
+          <app-load-more-button
+            class="mt-1"
+            [visibleItemsCount]="visibleItemsCountServices"
+            [totalItemsCount]="servicesLeftCol?.length"
+            (loadMoreClicked)="handleLoadMoreClicked('services')"
+            (loadLessClicked)="handleLoadLessClicked('services')"
+          ></app-load-more-button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Rating -->
+    <div class="mb-4">
+      <h1>Изберете рейтинг:</h1>
+      <p *ngFor="let rating of data?.ratingList; index as i">
+        <mat-checkbox>
+          <app-star
+            class="ps-2"
+            [avrGrade]="i + 1"
+            [isVisible]="false"
+          ></app-star>
+        </mat-checkbox>
+        <span class="ms-4">{{ rating }}</span>
+      </p>
+    </div>
+  </form>
+</mat-dialog-content>
+<mat-dialog-actions class="float-end">
+  <button type="button" class="btn btn-link text-danger m-2" mat-dialog-close>
+    Затвори
+  </button>
+  <button type="button" class="btn btn-link text-primary m-2">
+    Филтриране
+  </button>
+</mat-dialog-actions>

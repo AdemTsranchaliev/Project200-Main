@@ -4,7 +4,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
-import { MatPaginatorModule } from '@angular/material/paginator';
+import { NgxSliderModule } from '@angular-slider/ngx-slider';
 // Modules
 import { AppRoutingModule } from './app-routing.module';
 // Angular Material
@@ -21,6 +21,8 @@ import { MatTabsModule } from '@angular/material/tabs';
 import { MatTableModule } from '@angular/material/table';
 import { MatSortModule } from '@angular/material/sort';
 import { MatStepperModule } from '@angular/material/stepper';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatPaginatorModule } from '@angular/material/paginator';
 // Components
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
@@ -50,7 +52,9 @@ import { DetailedInformationComponent } from './studio/add-studio/detailed-infor
 import { ServicesComponent } from './studio/add-studio/services/services.component';
 import { ImagesComponent } from './studio/add-studio/images/images.component';
 import { PaginatorComponent } from './shared/components/paginator/paginator.component';
-import { StudioCardComponent } from './shared/studio-card/studio-card.component';
+import { StudioCardComponent } from './shared/components/studio-card/studio-card.component';
+import { RangeSliderComponent } from './shared/components/range-slider/range-slider.component';
+import { CatalogFilterModalComponent } from './shared/components/modals/catalog-filter-modal/catalog-filter-modal.component';
 
 
 @NgModule({
@@ -87,7 +91,9 @@ import { StudioCardComponent } from './shared/studio-card/studio-card.component'
     DetailedInformationComponent,
     ServicesComponent,
     ImagesComponent,
-    StudioCardComponent
+    StudioCardComponent,
+    RangeSliderComponent,
+    CatalogFilterModalComponent
   ],
   imports: [
     // Angular
@@ -98,6 +104,7 @@ import { StudioCardComponent } from './shared/studio-card/studio-card.component'
     ReactiveFormsModule,
     HttpClientModule,
     MatPaginatorModule,
+    NgxSliderModule,
 
     //Angular Material
     MatFormFieldModule,
@@ -113,7 +120,8 @@ import { StudioCardComponent } from './shared/studio-card/studio-card.component'
     MatTableModule,
     MatSortModule,
     MatStepperModule,
-    MatAutocompleteModule
+    MatAutocompleteModule,
+    MatDialogModule
   ],
   providers: [CommonService],
   bootstrap: [AppComponent]

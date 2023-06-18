@@ -1,8 +1,8 @@
-<button type="button" class="btn btn-outline-primary btn-sm" (click)="loadMore()"
+<button type="button" class="btn btn-link btn-collapse btn-sm" (click)="loadMore()"
   *ngIf="visibleItemsCount < totalItemsCount">
   Зареждане на още
 </button>
-<button type="button" class="btn btn-outline-primary btn-sm" (click)="loadLess()"
-  *ngIf="visibleItemsCount > totalItemsCount">
+<button type="button" class="btn btn-link btn-collapse btn-sm" (click)="loadLess()"
+  *ngIf="visibleItemsCount >= totalItemsCount">
   Скриване на всички
 </button>
