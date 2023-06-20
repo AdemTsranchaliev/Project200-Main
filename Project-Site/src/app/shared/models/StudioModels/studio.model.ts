@@ -1,8 +1,6 @@
 import { ServiceCategory } from "./service-category.model";
 import { WorkingTime } from "./working-time.model";
 import { Map } from "./map.model";
-import { Review } from "./review.model";
-import { Contacts } from "./contacts.model";
 import { Service } from "./service.model";
 
 export class Studio {
@@ -22,5 +20,4 @@ export class Studio {
     public services: Service[] = [];
     public imageSources: string[] = [];
     public map: Map;
-    public reviews: Review[] = [];
 }

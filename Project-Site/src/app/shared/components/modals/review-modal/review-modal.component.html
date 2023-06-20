@@ -1,0 +1,27 @@
+<h2 mat-dialog-title>Отзиви</h2>
+<mat-dialog-content class="mat-typography">
+    <div class="text-block">
+        <mat-form-field class="d-flex justify-content-end">
+            <mat-label>Сортирай по:</mat-label>
+            <mat-select [formControl]='sortValue'>
+                <mat-option [value]="option" *ngFor="let option of sortOptions; let i = index">{{ option }}</mat-option>
+            </mat-select>
+        </mat-form-field>
+        <div class="d-flex d-block d-sm-flex review" *ngFor='let review of reviews'>
+            <div class="text-md-center flex-shrink-0 me-4 me-xl-5"><img class="d-block avatar avatar-xl p-2 mb-2"
+                    src="{{review.image}}" alt="Padmé Amidala"><span class="text-uppercase text-muted text-sm">{{
+                    review.createdOn | date:'dd MMMM YYYY':'':'bg-BG'}}</span></div>
+            <div>
+                <h6 class="mt-2 mb-1">{{review.userName}}</h6>
+                <div class="mb-2">
+                    <app-star [avrGrade]='review.rating'></app-star>
+                </div>
+                <p class="text-muted text-sm">{{review.comment}}</p>
+            </div>
+        </div>
+    </div>
+
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+    <button mat-button mat-dialog-close>Затвори</button>
+</mat-dialog-actions>

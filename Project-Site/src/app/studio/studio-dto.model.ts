@@ -17,5 +17,4 @@ export class StudioDto {
     public map:string = '';
     public reviews:string = '';
     public userId:number;
-
 }

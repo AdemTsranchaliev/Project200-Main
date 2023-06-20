@@ -1,0 +1,251 @@
+<section>
+  <!-- Slider main container-->
+  <div class="swiper-container detail-slider slider-gallery">
+    <!-- Additional required wrapper-->
+    <div class="swiper-wrapper">
+      <!-- Slides-->
+      <div class="swiper-slide" *ngFor='let image of studio?.images'><a href="assets/img/photo/{{image}}"
+          data-toggle="gallery-top" title="Our street"><img class="resizable-image"
+            src="assets/img/photo/photo-1426122402199-be02db90eb90.jpg" alt="Our street"></a></div>
+    </div>
+    <div class="swiper-pagination swiper-pagination-white"></div>
+    <div class="swiper-button-prev swiper-button-white"></div>
+    <div class="swiper-button-next swiper-button-white"></div>
+  </div>
+</section>
+<div class="container py-5">
+  <div class="row">
+    <div class="col-lg-8">
+      <div class="text-block">
+        <p class="text-primary"><i class="fa-map-marker-alt fa me-1"></i> {{studio.address.area}},
+          {{studio.address.town}}</p>
+        <h1>{{studio.name}}</h1>
+        <p class="text-muted text-uppercase mb-4">{{studio.motto}}</p>
+        <!-- <ul class="list-inline text-sm mb-4">
+          <li class="list-inline-item me-3"><i class="fa fa-users me-1 text-secondary"></i> 4 guests</li>
+          <li class="list-inline-item me-3"><i class="fa fa-door-open me-1 text-secondary"></i> 1 bedroom</li>
+          <li class="list-inline-item me-3"><i class="fa fa-bed me-1 text-secondary"></i> 3 beds</li>
+          <li class="list-inline-item me-3"><i class="fa fa-bath me-1 text-secondary"></i> 1 bath</li>
+        </ul> -->
+        <h6 class="mb-3">За нас</h6>
+        <p class="text-muted fw-light">{{studio.description}}</p>
+      </div>
+      <div class="text-block">
+        <h4>Услуги, които предлагаме</h4>
+
+        <mat-tab-group mat-stretch-tabs="false" mat-align-tabs="Мъже">
+          <mat-tab class="mb-5" label="Мъже">
+            <mat-accordion>
+              <mat-expansion-panel *ngFor='let service of studio.services'>
+                <mat-expansion-panel-header>
+                  <mat-panel-title>
+                    {{service.name}}
+                  </mat-panel-title>
+                </mat-expansion-panel-header>
+                <mat-list>
+                  <div *ngFor='let service of studio.services'>
+                    <mat-list-item>
+                      <h2 matLine>{{service.name}}</h2>
+                      <p matLine>{{service.duration | number:'1.2-2'}} мин.</p>
+                      <div class="right-section">
+                        <p matLine class="pt-3">{{ service.price | number:'1.2-2' }} лв.</p>
+                        <button mat-button color="primary">Добави</button>
+                      </div>
+                    </mat-list-item>
+                    <mat-divider></mat-divider>
+                  </div>
+                </mat-list>
+              </mat-expansion-panel>
+            </mat-accordion>
+          </mat-tab>
+        </mat-tab-group>
+      </div>
+
+      <div class="text-block">
+        <div class="d-flex">
+          <img class="avatar avatar-lg p-1 flex-shrink-0 me-4" src="assets/img/avatar/avatar-10.jpg" alt="Jack London">
+          <div>
+            <p> <span class="text-muted text-uppercase text-sm">Организирано от </span><br><strong>Джак Лондон</strong>
+            </p>
+            <p class="text-muted text-sm mb-2">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+              tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
+              ullamco
+              laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit
+              esse
+              cillum dolore.</p>
+            <p class="text-muted text-sm">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+              tempor
+              incididunt ut labore et dolore magna aliqua. </p>
+            <p class="text-sm"><a href="user-profile.html">Вижте другите 3 обяви на Джак <i
+                  class="fa fa-long-arrow-alt-right ms-2"></i></a></p>
+          </div>
+        </div>
+      </div>
+      <div class="text-block">
+        <h5 class="mb-4">Listing location</h5>
+        <div class="map-wrapper-300 mb-3 h-50">
+          <app-map [coordinates]='studio.coordinates'></app-map>
+        </div>
+      </div>
+      <div class="text-block">
+        <h5 class="mb-4">Gallery</h5>
+        <div class="row gallery mb-3 ms-n1 me-n1">
+          <div class="col-lg-4 col-6 px-1 mb-2"><a href="assets/img/photo/photo-1426122402199-be02db90eb90.jpg"
+              data-fancybox="gallery" title="Our street"><img class="img-fluid"
+                src="assets/img/photo/photo-1426122402199-be02db90eb90.jpg" alt="..."></a></div>
+          <div class="col-lg-4 col-6 px-1 mb-2"><a href="assets/img/photo/photo-1512917774080-9991f1c4c750.jpg"
+              data-fancybox="gallery" title="Outside"><img class="img-fluid"
+                src="assets/img/photo/photo-1512917774080-9991f1c4c750.jpg" alt="..."></a></div>
+          <div class="col-lg-4 col-6 px-1 mb-2"><a href="assets/img/photo/photo-1494526585095-c41746248156.jpg"
+              data-fancybox="gallery" title="Rear entrance"><img class="img-fluid"
+                src="assets/img/photo/photo-1494526585095-c41746248156.jpg" alt="..."></a></div>
+          <div class="col-lg-4 col-6 px-1 mb-2"><a href="assets/img/photo/photo-1484154218962-a197022b5858.jpg"
+              data-fancybox="gallery" title="Kitchen"><img class="img-fluid"
+                src="assets/img/photo/photo-1484154218962-a197022b5858.jpg" alt="..."></a></div>
+          <div class="col-lg-4 col-6 px-1 mb-2"><a href="assets/img/photo/photo-1522771739844-6a9f6d5f14af.jpg"
+              data-fancybox="gallery" title="Bedroom"><img class="img-fluid"
+                src="assets/img/photo/photo-1522771739844-6a9f6d5f14af.jpg" alt="..."></a></div>
+          <div class="col-lg-4 col-6 px-1 mb-2"><a href="assets/img/photo/photo-1488805990569-3c9e1d76d51c.jpg"
+              data-fancybox="gallery" title="Bedroom"><img class="img-fluid"
+                src="assets/img/photo/photo-1488805990569-3c9e1d76d51c.jpg" alt="..."></a></div>
+        </div>
+      </div>
+      <div class="text-block">
+        <p class="subtitle text-sm text-primary">Отзиви </p>
+        <h5 class="mb-4">Всички отзиви </h5>
+        <div class="d-flex d-block d-sm-flex review" *ngFor='let review of studio.reviews | slice:0:4'>
+          <div class="text-md-center flex-shrink-0 me-4 me-xl-5"><img class="d-block avatar avatar-xl p-2 mb-2"
+              src="{{review.image}}" alt="Padmé Amidala"><span class="text-uppercase text-muted text-sm">{{
+              review.createdOn | date:'dd MMMM YYYY':'':'bg-BG'}}</span></div>
+          <div>
+            <h6 class="mt-2 mb-1">{{review.userName}}</h6>
+            <div class="mb-2">
+              <app-star [avrGrade]='review.rating'></app-star>
+            </div>
+            <p class="text-muted text-sm">{{review.comment}}</p>
+          </div>
+        </div>
+        <div class="btn" (click)='openDialog()' *ngIf='studio.reviews.length>4'>ВИЖ ВСИЧКИ</div>
+        <div class="py-5">
+          <button class="btn btn-outline-primary" type="button" data-bs-toggle="collapse" data-bs-target="#leaveReview"
+            aria-expanded="false" aria-controls="leaveReview">Напиши отзив</button>
+          <div class="collapse mt-4" id="leaveReview">
+            <h5 class="mb-4">Напиши отзив</h5>
+            <form class="form" id="contact-form" method="get" action="#">
+              <div class="row">
+                <div class="col-sm-6">
+                  <div class="mb-4">
+                    <label class="form-label" for="name">Вашето име *</label>
+                    <input class="form-control" type="text" name="name" id="name"
+                      placeholder="Моля, въведете вашето име" required="required">
+                  </div>
+                </div>
+                <div class="col-sm-6">
+                  <div class="mb-4">
+                    <label class="form-label" for="rating">Вашата оценка *</label>
+                    <select class="form-select focus-shadow-0" name="rating" id="rating">
+                      <option value="5">&#9733;&#9733;&#9733;&#9733;&#9733; (5/5)</option>
+                      <option value="4">&#9733;&#9733;&#9733;&#9733;&#9734; (4/5)</option>
+                      <option value="3">&#9733;&#9733;&#9733;&#9734;&#9734; (3/5)</option>
+                      <option value="2">&#9733;&#9733;&#9734;&#9734;&#9734; (2/5)</option>
+                      <option value="1">&#9733;&#9734;&#9734;&#9734;&#9734; (1/5)</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+              <div class="mb-4">
+                <label class="form-label" for="email">Вашият имейл *</label>
+                <input class="form-control" type="email" name="email" id="email" placeholder="Вашият имейл"
+                  required="required">
+              </div>
+              <div class="mb-4">
+                <label class="form-label" for="review">Коментар *</label>
+                <textarea class="form-control" rows="4" name="review" id="review" placeholder="Вашият коментар"
+                  required="required"></textarea>
+              </div>
+              <button class="btn btn-primary" type="submit">Изпрати отзив</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-4">
+      <div class="ps-xl-4">
+        <!-- Opening Hours      -->
+        <div class="card border-0 shadow mb-5">
+          <div class="card-header bg-gray-100 py-4 border-0">
+            <div class="d-flex align-items-center justify-content-between">
+              <div>
+                <!-- <p class="subtitle text-sm text-primary" *ngIf='isCurrentTimeInRangeAndDayOfWeek()'>Opening in 5 minutes</p> -->
+                <h4 class="mb-0">Работно време </h4>
+              </div>
+              <svg class="svg-icon svg-icon svg-icon-light w-3rem h-3rem ms-3 text-muted flex-shrink-0">
+                <use xlink:href="#wall-clock-1"> </use>
+              </svg>
+            </div>
+          </div>
+          <div class="card-body">
+            <table class="table text-sm mb-0">
+              <tr *ngFor="let day of daysOfWeek; let i=index">
+                <th class="ps-0 border-0">{{day}}</th>
+                <td class="pe-0 text-end border-0" *ngFor='let hour of getWorkingHourByDay(i+1)'>
+                  {{getWorkingTimePresentation(hour.startTime)}} - {{getWorkingTimePresentation(hour.endTime)}} </td>
+              </tr>
+            </table>
+          </div>
+        </div>
+        <!-- Contact-->
+        <div class="card border-0 shadow mb-5">
+          <div class="card-header bg-gray-100 py-4 border-0">
+            <div class="d-flex align-items-center justify-content-between">
+              <div>
+                <p class="subtitle text-sm text-primary">Пишете ни</p>
+                <h4 class="mb-0">Контакти</h4>
+              </div>
+              <svg class="svg-icon svg-icon svg-icon-light w-3rem h-3rem ms-3 text-muted flex-shrink-0">
+                <use xlink:href="#fountain-pen-1"> </use>
+              </svg>
+            </div>
+          </div>
+          <div class="card-body">
+            <ul class="list-unstyled mb-4">
+              <li class="mb-2"> <a class="text-gray-00 text-sm text-decoration-none" href="#"><i
+                    class="fa fa-phone me-3"></i><span class="text-muted">{{studio.phone}}</span></a></li>
+              <li class="mb-2"> <a class=" text-sm text-decoration-none" href="#"><i
+                    class="fa fa-envelope me-3"></i><span class="text-muted">{{studio.email}}</span></a></li>
+              <li class="mb-2"> <a class="text-blue text-sm text-decoration-none" href="{{studio.facebookUrl}}"><i
+                    class="fab fa-facebook me-3"></i><span class="text-muted">Facebook</span></a></li>
+              <li class="mb-2"> <a class=" text-sm text-decoration-none" href="{{studio.instagramUrl}}"><i
+                    class="fab fa-instagram me-3"></i><span class="text-muted">Instagram</span></a></li>
+            </ul>
+            <div class="d-grid text-center"><a class="btn btn-outline-primary" href="#"> <i
+                  class="far fa-paper-plane me-2"></i>Изпрати ни съобщение</a></div>
+          </div>
+        </div>
+        <div class="text-center">
+          <p><a class="text-secondary" href="#"> <i class="fa fa-heart"></i> Запази в любими</a></p><span>79
+            човека запазиха това студио</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="py-6 bg-gray-100">
+  <div class="container">
+    <h5 class="mb-0">Подобни места</h5>
+    <p class="subtitle text-sm text-primary mb-4">Места, които може да харесате</p>
+    <!-- Slider main container-->
+    <div class="swiper-container swiper-container-mx-negative swiper-init pt-3"
+      data-swiper="{&quot;slidesPerView&quot;:4,&quot;spaceBetween&quot;:20,&quot;loop&quot;:true,&quot;roundLengths&quot;:true,&quot;breakpoints&quot;:{&quot;1200&quot;:{&quot;slidesPerView&quot;:3},&quot;991&quot;:{&quot;slidesPerView&quot;:2},&quot;565&quot;:{&quot;slidesPerView&quot;:1}},&quot;pagination&quot;:{&quot;el&quot;:&quot;.swiper-pagination&quot;,&quot;clickable&quot;:true,&quot;dynamicBullets&quot;:true}}">
+      <!-- Additional required wrapper-->
+      <div class="swiper-wrapper pb-5">
+        <!-- Slides-->
+        <div class="swiper-slide h-auto px-2" *ngFor="let element of similar">
+          <app-studio-card [element]="element"></app-studio-card>
+        </div>
+      </div>
+      <!-- If we need pagination-->
+      <div class="swiper-pagination"></div>
+    </div>
+  </div>
+</div>

@@ -1,4 +1,11 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import {
+  Component,
+  EventEmitter,
+  Input,
+  OnChanges,
+  OnInit,
+  Output,
+} from '@angular/core';
 import * as L from 'leaflet';
 import { Coordinates } from '../../models/studio/coordinates.model';
 
@@ -7,7 +14,7 @@ import { Coordinates } from '../../models/studio/coordinates.model';
   templateUrl: './map.component.html',
   styleUrls: ['./map.component.css'],
 })
-export class MapComponent implements OnInit {
+export class MapComponent implements OnInit, OnChanges {
   @Input() coordinates: Coordinates;
   @Output() getLocationEvent = new EventEmitter<Coordinates>();
 
@@ -35,10 +42,13 @@ export class MapComponent implements OnInit {
       if (this.marker) {
         this.map.removeLayer(this.marker);
       }
-      this.marker = L.marker([x.latlng.lat, x.latlng.lng]);
+      this.marker = L.marker([x.latitude, x.latlng.lng]);
       this.marker.addTo(this.map);
 
-      var map: Coordinates = { latitude: x.latlng.lat, longitude: x.latlng.lng };
+      var map: Coordinates = {
+        latitude: x.latlng.lat,
+        longitude: x.latlng.lng,
+      };
       this.getLocationEvent.next(map);
     });
   }
@@ -47,10 +57,14 @@ export class MapComponent implements OnInit {
     if (this.marker) {
       this.map.removeLayer(this.marker);
     }
-    this.marker = L.marker([coordinates.lat, coordinates.lng]);
+    this.marker = L.marker([coordinates.latitude, coordinates.longitude]);
     this.marker.addTo(this.map);
 
-    var map: Coordinates = { latitude: coordinates.lat, longitude: coordinates.lng };
+    var map: Coordinates = {
+      latitude: coordinates.latitude,
+      longitude: coordinates.longitude,
+    };
+    this.map.setView(new L.LatLng(map.latitude, map.longitude), 12);
     this.getLocationEvent.next(map);
   }
 
@@ -59,9 +73,10 @@ export class MapComponent implements OnInit {
 
     this.addMarker();
 
-    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-      maxZoom: 19,
-      attribution: '© OpenStreetMap',
+    L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png', {
+      maxZoom: 18,
+      attribution:
+        'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors',
     }).addTo(this.map);
 
     if (this.coordinates) {

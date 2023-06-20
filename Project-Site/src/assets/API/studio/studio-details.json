@@ -1,0 +1,131 @@
+{
+  "id": "1",
+  "tags": ["beauty", "spa"],
+  "phone": "0888-123-456",
+  "facebookUrl": "https://www.facebook.com/examplestudio",
+  "instagramUrl": "https://www.instagram.com/examplestudio",
+  "email": "info@examplestudio.com",
+  "name": "Примерен Салон",
+  "description": "Добре дошли в Примерен Салон! Ние се грижим за вашата красота и добро самочувствие. Открийте нашите уникални процедури и насладете се на специално разработени терапии, които ще ви освежат и ще ви помогнат да се почувствате невероятно. Нашите професионални терапевти ще се погрижат за вас с най-високо качество и внимание.",
+  "motto": "За вашата красота и релаксация",
+  "address": {
+    "address": "ул. Главна 123",
+    "area": "Примерен квартал",
+    "town": "Примерен град",
+    "postalCode": "12345"
+  },
+  "coordinates": {
+    "latitude": 42.697242,
+    "longitude": 23.322343
+  },
+  "workingTime": [
+    {
+      "startTime": "1970-01-01T09:00:00.000Z",
+      "endTime": "1970-01-01T18:30:00.000Z",
+      "dayOfWeek": 1,
+      "isOpen": true
+    },
+    {
+      "startTime": "1970-01-01T09:00:00.000Z",
+      "endTime": "1970-01-01T17:00:00.000Z",
+      "dayOfWeek": 2,
+      "isOpen": true
+    },
+    {
+      "startTime": "1970-01-01T10:00:00.000Z",
+      "endTime": "1970-01-01T20:00:00.000Z",
+      "dayOfWeek": 3,
+      "isOpen": true
+    },
+    {
+      "startTime": "1970-01-01T09:30:00.000Z",
+      "endTime": "1970-01-01T16:30:00.000Z",
+      "dayOfWeek": 4,
+      "isOpen": true
+    },
+    {
+      "startTime": "1970-01-01T09:00:00.000Z",
+      "endTime": "1970-01-01T19:00:00.000Z",
+      "dayOfWeek": 5,
+      "isOpen": true
+    },
+    {
+      "startTime": "1970-01-01T10:00:00.000Z",
+      "endTime": "1970-01-01T14:00:00.000Z",
+      "dayOfWeek": 6,
+      "isOpen": false
+    },
+    {
+      "startTime": "1970-01-01T00:00:00.000Z",
+      "endTime": "1970-01-01T00:00:00.000Z",
+      "dayOfWeek": 7,
+      "isOpen": false
+    }
+  ],  
+  "images": ["salon-1.jpg", "salon-2.jpg", "salon-3.jpg"],
+  "services": [
+    {
+      "name": "Масаж на гръб",
+      "description": "Релаксиращ масаж на гръб за освобождаване от напрежение и стрес.",
+      "price": 60,
+      "duration": 45
+    },
+    {
+      "name": "Фризьорство",
+      "description": "Стилизиране на коса, прически за специални поводи, боядисване и поддръжка.",
+      "price": 80,
+      "duration": 60
+    },
+    {
+      "name": "Маникюр и педикюр",
+      "description": "Професионален маникюр и педикюр с висококачествени продукти и грижа за вашите нокти.",
+      "price": 40,
+      "duration": 60
+    }
+  ],
+  "reviews": [
+    {
+      "userName": "Иван Иванов",
+      "rating": 4,
+      "comment": "Страхотен продукт",
+      "createdOn": "2023-06-15T09:30:00.000Z",
+      "image": "https://cdn-icons-png.flaticon.com/512/126/126486.png"
+    },
+    {
+      "userName": "Мария Петрова",
+      "rating": 3,
+      "comment": "Можешеше да бъде по-добър",
+      "createdOn": "2023-06-16T14:45:00.000Z",
+      "image": "https://cdn-icons-png.flaticon.com/512/126/126486.png"
+    },
+    {
+      "userName": "Георги Николов",
+      "rating": 5,
+      "comment": "Отлично обслужване!",
+      "createdOn": "2023-06-17T18:20:00.000Z",
+      "image": "https://cdn-icons-png.flaticon.com/512/126/126486.png"
+    },
+    {
+      "userName": "Анна Смирнова",
+      "rating": 4,
+      "comment": "Много удобен и практичен продукт",
+      "createdOn": "2023-06-18T11:15:00.000Z",
+      "image": "https://cdn-icons-png.flaticon.com/512/126/126486.png"
+    },
+    {
+      "userName": "Джон Смит",
+      "rating": 2,
+      "comment": "Можеше да бъде подобрен",
+      "createdOn": "2023-06-19T16:50:00.000Z",
+      "image": "https://cdn-icons-png.flaticon.com/512/126/126486.png"
+    },
+    {
+      "userName": "София Мартин",
+      "rating": 5,
+      "comment": "Отлично обслужване!",
+      "createdOn": "2023-06-19T18:30:00.000Z",
+      "image": "https://cdn-icons-png.flaticon.com/512/126/126486.png"
+    }
+    
+  ]
+}

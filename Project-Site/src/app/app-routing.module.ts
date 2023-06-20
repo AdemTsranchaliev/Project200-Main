@@ -13,6 +13,7 @@ import { CatalogComponent } from './catalog/catalog.component';
 import { AddStudioComponent } from './studio/add-studio/add-studio.component';
 import { BookingTableComponent } from './booking-table/booking-table.component';
 import { BookingDetailComponent } from './booking-detail/booking-detail.component';
+import { StudioDetailsComponent } from './studio/studio-details/studio-details.component';
 
 const routes: Routes = [
   //Home paths
@@ -33,6 +34,7 @@ const routes: Routes = [
   { path: 'register', component: RegisterComponent },
 
   //Studio
+  { path: 'studio-details', component: StudioDetailsComponent },
   { path: 'add-studio', component: AddStudioComponent },
 
   //Default paths

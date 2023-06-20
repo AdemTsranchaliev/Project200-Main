@@ -1,5 +1,5 @@
 // Angular
-import { NgModule } from '@angular/core';
+import { LOCALE_ID, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -20,7 +20,12 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatTableModule } from '@angular/material/table';
 import { MatSortModule } from '@angular/material/sort';
-import {MatStepperModule} from '@angular/material/stepper';
+import { MatStepperModule } from '@angular/material/stepper';
+import { MatExpansionModule } from '@angular/material/expansion';
+import { MatDividerModule } from '@angular/material/divider';
+import { MatListModule } from '@angular/material/list';
+import { MatDialogModule } from '@angular/material/dialog';
+
 // Components
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
@@ -50,7 +55,15 @@ import { ServicesComponent } from './studio/add-studio/services/services.compone
 import { ImagesComponent } from './studio/add-studio/images/images.component';
 import { PaginatorComponent } from './shared/components/paginator/paginator.component';
 import { StudioCardComponent } from './shared/studio-card/studio-card.component';
+import { StudioDetailsComponent } from './studio/studio-details/studio-details.component';
+import { MatButtonModule } from '@angular/material/button';
+import { ReviewModalComponent } from './shared/components/modals/review-modal/review-modal.component';
 
+//Language
+import { registerLocaleData } from '@angular/common';
+import localeBg from '@angular/common/locales/bg';
+
+registerLocaleData(localeBg);
 
 @NgModule({
   declarations: [
@@ -73,6 +86,9 @@ import { StudioCardComponent } from './shared/studio-card/studio-card.component'
     StudioListMainComponent,
     PaginatorComponent,
 
+    //Studio
+    StudioDetailsComponent,
+
     // Shared
     StarComponent,
     LoadMoreButtonComponent,
@@ -85,7 +101,8 @@ import { StudioCardComponent } from './shared/studio-card/studio-card.component'
     DetailedInformationComponent,
     ServicesComponent,
     ImagesComponent,
-    StudioCardComponent
+    StudioCardComponent,
+    ReviewModalComponent,
   ],
   imports: [
     // Angular
@@ -111,9 +128,14 @@ import { StudioCardComponent } from './shared/studio-card/studio-card.component'
     MatTableModule,
     MatSortModule,
     MatStepperModule,
-    MatAutocompleteModule
+    MatAutocompleteModule,
+    MatExpansionModule,
+    MatDividerModule,
+    MatListModule,
+    MatButtonModule,
+    MatDialogModule,
   ],
-  providers: [CommonService],
-  bootstrap: [AppComponent]
+  providers: [CommonService, { provide: LOCALE_ID, useValue: 'bg' }],
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

@@ -1,15 +1,9 @@
 <div class="card h-100 border-0 shadow">
   <div class="card-img-top overflow-hidden gradient-overlay">
-    <img
-      class="img-fluid fixed-img-height"
-      src="{{ element.photo }}"
-      alt="Салон за красота 'Ашли'"
-    /><a class="tile-link" href="detail-rooms.html"></a>
+    <img class="img-fluid fixed-img-height" src="{{ element.photo }}" alt="Салон за красота 'Ашли'" /><a
+      class="tile-link" href="detail-rooms.html"></a>
     <div class="card-img-overlay-top text-end">
-      <a
-        class="card-fav-icon position-relative z-index-40"
-        href="javascript:void();"
-      >
+      <a class="card-fav-icon position-relative z-index-40" href="javascript:void();">
         <svg class="svg-icon text-white">
           <use xlink:href="#heart-1"></use>
         </svg>
@@ -21,26 +15,17 @@
       <h6 class="card-title">
         <a class="text-decoration-none text-dark" href="detail-rooms.html">{{
           element.name
-        }}</a>
+          }}</a>
       </h6>
       <div class="mb-3">
-        <app-star
-          class="text-xs"
-          [avrGrade]="element.AvgGrade"
-          [isVisible]="element.isVisible"
-        ></app-star>
+        <app-star class="text-xs" [avrGrade]="element.AvgGrade" [isVisible]="element.isVisible"></app-star>
       </div>
       <div class="mb-3">
-        <span
-          class="badge rounded-pill me-2 mb-2 p-2 badge-primary-light"
-          *ngFor="let category of element.Category"
-          >{{ category }}</span
-        >
+        <span class="badge rounded-pill me-2 mb-2 p-2 badge-primary-light" *ngFor="let category of element.Category">{{
+          category }}</span>
       </div>
       <p class="card-text text-muted">
-        <span class="h4 text-primary"
-          >От {{ element.LowestPrice | number : "1.2-2" }} лв.</span
-        >
+        <span class="h4 text-primary">От {{ element.LowestPrice | number : "1.2-2" }} лв.</span>
       </p>
     </div>
   </div>
