@@ -5,6 +5,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { NgxSliderModule } from '@angular-slider/ngx-slider';
+import { SwiperModule } from 'swiper/angular';
 // Modules
 import { AppRoutingModule } from './app-routing.module';
 // Angular Material
@@ -105,6 +106,7 @@ import { CatalogFilterModalComponent } from './shared/components/modals/catalog-
     HttpClientModule,
     MatPaginatorModule,
     NgxSliderModule,
+    SwiperModule,
 
     //Angular Material
     MatFormFieldModule,

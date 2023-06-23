@@ -177,26 +177,41 @@
         ></a>
       </div>
     </div>
-    <!-- Slider main container-->
-    <div
+    <swiper
       class="swiper-container swiper-container-mx-negative swiper-init pt-3"
-      data-swiper='{"slidesPerView":4,"spaceBetween":20,"loop":true,"roundLengths":true,"breakpoints":{"1200":{"slidesPerView":3},"991":{"slidesPerView":2},"565":{"slidesPerView":1}},"pagination":{"el":".swiper-pagination","clickable":true,"dynamicBullets":true}}'
+      [slidesPerView]="4"
+      [spaceBetween]="20"
+      [pagination]="{ clickable: true, dynamicBullets: true }"
+      [breakpoints]="{
+        '1400': {
+          slidesPerView: 4
+        },
+        '1200': {
+          slidesPerView: 4
+        },
+        '991': {
+          slidesPerView: 3
+        },
+        '770': {
+          slidesPerView: 2
+        },
+        '576': {
+          slidesPerView: 1
+        },
+        '280': {
+          slidesPerView: 1
+        }
+      }"
     >
-      <!-- Additional required wrapper-->
-      <div class="swiper-wrapper pb-5">
-        <!-- Slides-->
-        <div class="swiper-slide h-auto px-2" *ngFor="let element of salonData">
-          <!-- place item-->
-          <div
-            class="w-100 h-100 hover-animate"
-            data-marker-id="59c0c8e33b1527bfe2abaf92"
-          >
-            <app-studio-card [element]="element"></app-studio-card>
-          </div>
+      <ng-template
+        swiperSlide
+        class="swiper-slide h-auto px-2 pb-5"
+        *ngFor="let element of salonData"
+      >
+        <div class="w-100 h-100 hover-animate">
+          <app-studio-card [element]="element"></app-studio-card>
         </div>
-      </div>
-      <!-- If we need pagination-->
-      <div class="swiper-pagination"></div>
-    </div>
+      </ng-template>
+    </swiper>
   </div>
 </section>
