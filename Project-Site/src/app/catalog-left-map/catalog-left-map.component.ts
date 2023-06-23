@@ -2,8 +2,9 @@
 import { Component, OnInit, ViewChild, EventEmitter, Input, Output } from '@angular/core';
 import { PageEvent } from '@angular/material/paginator';
 import { MatDialog } from '@angular/material/dialog';
+import { BreakpointObserver, Breakpoints, BreakpointState } from '@angular/cdk/layout';
 // RXJS
-import { Subscription } from 'rxjs';
+import { Subscription, Observable } from 'rxjs';
 // Services
 import { CatalogService } from '../shared/services/catalog.service';
 // Components
@@ -23,6 +24,9 @@ import { Coordinates } from '../shared/models/studio/coordinates.model';
 export class CatalogLeftMapComponent implements OnInit {
   // Subscriptions
   private subscriptions: Subscription[] = [];
+
+  // Modal Size Variable
+  isExtraSmall: Observable<BreakpointState> = this.breakpointObserver.observe(Breakpoints.XSmall);
 
   // Paginator
   @ViewChild(PaginatorComponent) paginatorComponent!: PaginatorComponent;
@@ -48,7 +52,8 @@ export class CatalogLeftMapComponent implements OnInit {
 
   constructor(
     private catalogService: CatalogService,
-    public dialog: MatDialog
+    public dialog: MatDialog,
+    private breakpointObserver: BreakpointObserver
   ) { }
 
   ngOnInit(): void {
@@ -109,9 +114,17 @@ export class CatalogLeftMapComponent implements OnInit {
       width: '50%'
     });
 
-    // ============== Check what this do ==============
-    const dialogSubscription = dialogRef.afterClosed().subscribe();
-    this.subscriptions.push(dialogSubscription);
+    const smallDialogSubscription = this.isExtraSmall.subscribe(size => {
+      if (size.matches) {
+        dialogRef.updateSize('90%');
+      } else {
+        dialogRef.updateSize('50%');
+      }
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      smallDialogSubscription.unsubscribe();
+    });
   }
 
 

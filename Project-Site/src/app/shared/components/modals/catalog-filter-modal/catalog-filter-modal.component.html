@@ -51,7 +51,7 @@
       <p *ngFor="let rating of data?.ratingList; index as i">
         <mat-checkbox>
           <app-star
-            class="ps-2"
+            class="ps-2 stars-size"
             [avrGrade]="i + 1"
             [isVisible]="false"
           ></app-star>
@@ -62,10 +62,10 @@
   </form>
 </mat-dialog-content>
 <mat-dialog-actions class="float-end">
-  <button type="button" class="btn btn-link text-danger m-2" mat-dialog-close>
+  <button type="button" class="btn btn-link text-danger me-2" mat-dialog-close>
     Затвори
   </button>
-  <button type="button" class="btn btn-link text-primary m-2">
+  <button type="button" class="btn btn-link text-primary me-2">
     Филтриране
   </button>
 </mat-dialog-actions>
