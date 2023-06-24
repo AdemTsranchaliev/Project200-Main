@@ -34,6 +34,7 @@ import { CatalogComponent } from './catalog/catalog.component';
 import { BookingTableComponent } from './booking-table/booking-table.component';
 import { BookingDetailComponent } from './booking-detail/booking-detail.component';
 import { PaginatorComponent } from './paginator/paginator.component';
+import { StudioEmployeeComponent } from './studio/studio-employee/studio-employee.component';
 // Shared Components
 import { StarComponent } from './shared/star/star.component';
 import { LoadMoreButtonComponent } from './shared/load-more-button/load-more-button.component';
@@ -53,6 +54,7 @@ import { LoadMoreButtonComponent } from './shared/load-more-button/load-more-but
     CatalogComponent,
     BookingTableComponent,
     BookingDetailComponent,
+    StudioEmployeeComponent,
 
     // Auth
     LoginComponent,

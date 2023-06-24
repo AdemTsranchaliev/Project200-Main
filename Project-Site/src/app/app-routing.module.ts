@@ -12,10 +12,12 @@ import { UserSecurityComponent } from './user/user-security/user-security.compon
 import { CatalogComponent } from './catalog/catalog.component';
 import { BookingTableComponent } from './booking-table/booking-table.component';
 import { BookingDetailComponent } from './booking-detail/booking-detail.component';
+import { StudioEmployeeComponent } from './studio/studio-employee/studio-employee.component';
 
 const routes: Routes = [
   //Home paths
   { path: '', component: HomeComponent },
+
   //User profile paths
   { path: 'my-account-grid', component: UserAccountGridComponent },
   { path: 'my-personal-information', component: UserPersonalInformationComponent },
@@ -24,6 +26,7 @@ const routes: Routes = [
   { path: 'catalog', component: CatalogComponent },
   { path: 'bookings-table', component: BookingTableComponent },
   { path: 'booking-detail/:id', component: BookingDetailComponent },
+  { path: 'studio-employees', component: StudioEmployeeComponent },
 
   //Authentication
   { path: 'login', component: LoginComponent },
