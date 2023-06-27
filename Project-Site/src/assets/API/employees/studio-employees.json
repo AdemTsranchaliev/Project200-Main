@@ -2,101 +2,65 @@
     {
         "id": 1,
         "name": "Ивана Иванова",
-        "role": "Маникюрист"
+        "position": "Маникюрист",
+        "role": "Собственик",
+        "email": "petur.petrov@gmail.com",
+        "img": "assets/img/avatar/avatar-1.jpg"
     },
     {
         "id": 2,
         "name": "Мария Георгиева",
-        "role": "Фризьор"
+        "position": "Фризьор",
+        "role": "Собственик",
+        "email": "petur.petrov@gmail.com",
+        "img": "assets/img/avatar/avatar-5.jpg"
     },
     {
         "id": 3,
         "name": "Петър Петров",
-        "role": "Козметик"
+        "position": "Козметик",
+        "role": "Собственик",
+        "email": "petur.petrov@gmail.com",
+        "img": "assets/img/avatar/avatar-0.jpg"
     },
     {
         "id": 4,
         "name": "Елена Илиева",
-        "role": "Масажист"
+        "position": "Масажист",
+        "role": "Служител",
+        "email": "petur.petrov@gmail.com",
+        "img": "assets/img/avatar/avatar-9.jpg"
     },
     {
         "id": 5,
         "name": "Николай Костов",
-        "role": "Татуировчик"
+        "position": "Татуировчик",
+        "role": "Служител",
+        "email": "petur.petrov@gmail.com",
+        "img": "assets/img/avatar/avatar-1.jpg"
     },
     {
         "id": 6,
         "name": "Светлана Димитрова",
-        "role": "Маникюрист"
+        "position": "Маникюрист",
+        "role": "Служител",
+        "email": "petur.petrov@gmail.com",
+        "img": "assets/img/avatar/avatar-1.jpg"
     },
     {
         "id": 7,
         "name": "Георги Стоянов",
-        "role": "Парфюмерист"
+        "position": "Парфюмерист",
+        "role": "Служител",
+        "email": "petur.petrov@gmail.com",
+        "img": "assets/img/avatar/avatar-1.jpg"
     },
     {
         "id": 8,
         "name": "Марина Маринова",
-        "role": "Фризьор"
-    },
-    {
-        "id": 9,
-        "name": "Стефан Лазаров",
-        "role": "Специалист по красота"
-    },
-    {
-        "id": 10,
-        "name": "Анна Иванова",
-        "role": "Маникюрист"
-    },
-    {
-        "id": 11,
-        "name": "Димитър Попов",
-        "role": "Трихолог"
-    },
-    {
-        "id": 12,
-        "name": "Стефания Христова",
-        "role": "Перманентен грим"
-    },
-    {
-        "id": 13,
-        "name": "Иван Янев",
-        "role": "Масажист"
-    },
-    {
-        "id": 14,
-        "name": "Елена Димитрова",
-        "role": "Спа терапевт"
-    },
-    {
-        "id": 15,
-        "name": "Никола Георгиев",
-        "role": "Ноктопластика"
-    },
-    {
-        "id": 16,
-        "name": "Антония Петрова",
-        "role": "Козметик"
-    },
-    {
-        "id": 17,
-        "name": "Кирил Маринов",
-        "role": "Фризьор"
-    },
-    {
-        "id": 18,
-        "name": "Христина Андреева",
-        "role": "Гримьор"
-    },
-    {
-        "id": 19,
-        "name": "Пламен Петров",
-        "role": "Специалист по усъвършенстване на кожата"
-    },
-    {
-        "id": 20,
-        "name": "Десислава Стоянова",
-        "role": "Маникюрист"
+        "position": "Фризьор",
+        "role": "Служител",
+        "email": "petur.petrov@gmail.com",
+        "img": "assets/img/avatar/avatar-1.jpg"
     }
 ]

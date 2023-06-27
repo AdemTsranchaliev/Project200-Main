@@ -1,0 +1,47 @@
+<section class="custom-employee-detail-table-layout pb-5">
+  <div class="container">
+    <!-- Breadcrumbs -->
+    <ol class="breadcrumb ps-0 justify-content-start">
+      <li class="breadcrumb-item"><a routerLink="/">Начало</a></li>
+      <li class="breadcrumb-item">
+        <a routerLink="/studio-employees">Таблица с всички служители</a>
+      </li>
+      <li class="breadcrumb-item active">Детайли</li>
+    </ol>
+    <div class="d-flex justify-content-between align-items-end mb-5">
+      <h1 class="hero-heading mb-0">Детайлна информация</h1>
+    </div>
+    <div class="list-group shadow mb-5">
+      <div class="row p-4">
+        <div class="col-lg-4 align-self-center mb-4 mb-lg-0">
+          <div class="d-flex align-items-center">
+            <img
+              src="{{ employeeData?.img }}"
+              class="employee-profile-picture-md"
+              alt="Снимка.."
+            />
+          </div>
+          <div class="d-flex align-items-center my-3">
+            <h2 class="h5 mb-0">{{ employeeData?.name }}</h2>
+          </div>
+        </div>
+        <div class="col-lg-8">
+          <div class="row">
+            <div class="col-6 col-md-4 col-lg-4 py-3 mb-3 mb-lg-0">
+              <h6 class="label-heading">Роля</h6>
+              <p class="text-sm fw-bold">{{ employeeData?.role }}</p>
+              <h6 class="label-heading">Позиция</h6>
+              <p class="text-sm fw-bold mb-0">{{ employeeData?.position }}</p>
+            </div>
+            <div class="col-6 col-md-4 col-lg-4 py-3">
+              <h6 class="label-heading">Телефон</h6>
+              <p class="text-sm fw-bold">{{ employeeData?.phoneNumber }}</p>
+              <h6 class="label-heading">Имейл</h6>
+              <p class="text-sm fw-bold mb-0">{{ employeeData?.email }}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

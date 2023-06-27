@@ -5,3 +5,17 @@
 table {
     width: 100%;
 }
+
+.employee-profile-picture-sm {
+    border-radius: 50%;
+    max-width: 60%;
+    padding: 6px 0;
+}
+
+.image-cell {
+    width: 10%;
+}
+
+.cursor-pointer {
+    cursor: pointer;
+}

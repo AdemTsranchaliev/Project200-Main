@@ -17,7 +17,7 @@ export class StudioEmployeeComponent implements OnInit, AfterViewInit {
   private subscriptions: Subscription[] = [];
 
   // Displayed Columns
-  displayedColumns: string[] = ['id', 'name', 'role'];
+  displayedColumns: string[] = ['id', 'img', 'name', 'position', 'role', 'email'];
 
   // Employees Data
   employeesDataSource = new MatTableDataSource();

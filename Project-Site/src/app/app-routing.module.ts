@@ -13,6 +13,7 @@ import { CatalogComponent } from './catalog/catalog.component';
 import { BookingTableComponent } from './booking-table/booking-table.component';
 import { BookingDetailComponent } from './booking-detail/booking-detail.component';
 import { StudioEmployeeComponent } from './studio/studio-employee/studio-employee.component';
+import { StudioEmployeeDetailsComponent } from './studio/studio-employee-details/studio-employee-details.component';
 
 const routes: Routes = [
   //Home paths
@@ -27,6 +28,7 @@ const routes: Routes = [
   { path: 'bookings-table', component: BookingTableComponent },
   { path: 'booking-detail/:id', component: BookingDetailComponent },
   { path: 'studio-employees', component: StudioEmployeeComponent },
+  { path: 'studio-employee-detail/:id', component: StudioEmployeeDetailsComponent },
 
   //Authentication
   { path: 'login', component: LoginComponent },

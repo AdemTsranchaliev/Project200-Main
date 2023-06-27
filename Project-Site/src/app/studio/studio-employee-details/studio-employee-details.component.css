@@ -1,0 +1,9 @@
+.custom-employee-detail-table-layout {
+    padding-top: 160px;
+}
+
+.employee-profile-picture-md {
+    border-radius: 50%;
+    max-width: 40%;
+    padding: 6px 0;
+}

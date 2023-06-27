@@ -35,6 +35,7 @@ import { BookingTableComponent } from './booking-table/booking-table.component';
 import { BookingDetailComponent } from './booking-detail/booking-detail.component';
 import { PaginatorComponent } from './paginator/paginator.component';
 import { StudioEmployeeComponent } from './studio/studio-employee/studio-employee.component';
+import { StudioEmployeeDetailsComponent } from './studio/studio-employee-details/studio-employee-details.component';
 // Shared Components
 import { StarComponent } from './shared/star/star.component';
 import { LoadMoreButtonComponent } from './shared/load-more-button/load-more-button.component';
@@ -55,6 +56,7 @@ import { LoadMoreButtonComponent } from './shared/load-more-button/load-more-but
     BookingTableComponent,
     BookingDetailComponent,
     StudioEmployeeComponent,
+    StudioEmployeeDetailsComponent,
 
     // Auth
     LoginComponent,
@@ -64,7 +66,7 @@ import { LoadMoreButtonComponent } from './shared/load-more-button/load-more-but
 
     // Shared
     StarComponent,
-    LoadMoreButtonComponent,
+    LoadMoreButtonComponent
   ],
   imports: [
     // Angular

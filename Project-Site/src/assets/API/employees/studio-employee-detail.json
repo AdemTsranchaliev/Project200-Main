@@ -1,0 +1,10 @@
+{
+    "id": 1,
+    "name": "Ивана Иванова",
+    "position": "Маникюрист",
+    "role": "Собственик",
+    "img": "assets/img/avatar/avatar-1.jpg",
+    "email": "petur.petrov@gmail.com",
+    "phoneNumber": "0899 999 999",
+    "heired": "20.02.2022"
+}
