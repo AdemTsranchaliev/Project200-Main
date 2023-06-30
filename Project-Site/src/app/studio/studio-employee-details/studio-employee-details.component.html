@@ -1,45 +1,124 @@
 <section class="custom-employee-detail-table-layout pb-5">
   <div class="container">
-    <!-- Breadcrumbs -->
-    <ol class="breadcrumb ps-0 justify-content-start">
-      <li class="breadcrumb-item"><a routerLink="/">Начало</a></li>
-      <li class="breadcrumb-item">
-        <a routerLink="/studio-employees">Таблица с всички служители</a>
-      </li>
-      <li class="breadcrumb-item active">Детайли</li>
-    </ol>
-    <div class="d-flex justify-content-between align-items-end mb-5">
-      <h1 class="hero-heading mb-0">Детайлна информация</h1>
-    </div>
-    <div class="list-group shadow mb-5">
-      <div class="row p-4">
-        <div class="col-lg-4 align-self-center mb-4 mb-lg-0">
-          <div class="d-flex align-items-center">
-            <img
-              src="{{ employeeData?.img }}"
-              class="employee-profile-picture-md"
-              alt="Снимка.."
-            />
+    <div class="row">
+      <!-- User Card -->
+      <div class="col-lg-3 mb-5 me-lg-auto">
+        <div class="card border-0 shadow mb-6 mb-lg-0">
+          <div class="card-header bg-gray-100 py-4 border-0 text-center">
+            <a class="d-inline-block"
+              ><img
+                class="d-block avatar avatar-xxl p-2 mb-2"
+                src="/assets/img/avatar/avatar-1.jpg"
+                alt=""
+            /></a>
+            <h5>{{ employeeDataSource?.name }}</h5>
+            <p class="text-muted text-sm mb-0">
+              {{ employeeDataSource?.studio }}
+            </p>
           </div>
-          <div class="d-flex align-items-center my-3">
-            <h2 class="h5 mb-0">{{ employeeData?.name }}</h2>
+          <div class="card-body p-4">
+            <div class="d-flex align-items-center mb-3">
+              <div
+                class="icon-rounded icon-rounded-sm bg-primary-light flex-shrink-0 me-2"
+              >
+                <svg class="svg-icon text-primary svg-icon-md">
+                  <use xlink:href="#diploma-1"></use>
+                </svg>
+              </div>
+              <div>
+                <p class="mb-0">
+                  Ревюта: {{ employeeDataSource?.reviews?.length || 0 }}
+                </p>
+              </div>
+            </div>
+            <hr />
+            <h6>Информация</h6>
+            <ul class="card-text text-muted">
+              <li>Имейл: {{ employeeDataSource?.email }}</li>
+              <li>Телефон: {{ employeeDataSource?.phoneNumber }}</li>
+              <li>Роля: {{ employeeDataSource?.role }}</li>
+              <li>Позиция: {{ employeeDataSource?.position }}</li>
+              <li>Назначен/а на: {{ employeeDataSource?.heired }}</li>
+            </ul>
           </div>
         </div>
-        <div class="col-lg-8">
-          <div class="row">
-            <div class="col-6 col-md-4 col-lg-4 py-3 mb-3 mb-lg-0">
-              <h6 class="label-heading">Роля</h6>
-              <p class="text-sm fw-bold">{{ employeeData?.role }}</p>
-              <h6 class="label-heading">Позиция</h6>
-              <p class="text-sm fw-bold mb-0">{{ employeeData?.position }}</p>
-            </div>
-            <div class="col-6 col-md-4 col-lg-4 py-3">
-              <h6 class="label-heading">Телефон</h6>
-              <p class="text-sm fw-bold">{{ employeeData?.phoneNumber }}</p>
-              <h6 class="label-heading">Имейл</h6>
-              <p class="text-sm fw-bold mb-0">{{ employeeData?.email }}</p>
-            </div>
-          </div>
+      </div>
+
+      <!-- Employees Table Data -->
+      <div class="col-lg-9 ps-lg-5">
+        <!-- Breadcrumbs -->
+        <ol class="breadcrumb ps-0 pb-3 justify-content-start">
+          <li class="breadcrumb-item">
+            <a class="text-primary cursor-pointer" routerLink="/">Начало</a>
+          </li>
+          <li class="breadcrumb-item">
+            <a
+              class="text-primary cursor-pointer"
+              routerLink="/studio-employees"
+              >Таблица с всички служители</a
+            >
+          </li>
+          <li class="breadcrumb-item active">Детайли</li>
+        </ol>
+        <h1 class="hero-heading mb-0">Детайлна информация</h1>
+        <hr />
+
+        <div class="text-block">
+          <mat-tab-group #tabGroup>
+            <mat-tab label="Календар">
+              <iframe
+                src="https://calendar.google.com/calendar/embed?height=600&wkst=1&bgcolor=%23ffffff&ctz=Europe%2FSofia&src=NzBhMjhlNGJmZmJjYzYzMTE4NjM3ZTNjNTA2YTMwMjAyNjljYjJmNmMwNDg5YWE3YzI3ZTAwNzZhMDlhNzBhYUBncm91cC5jYWxlbmRhci5nb29nbGUuY29t&src=YmcuYnVsZ2FyaWFuI2hvbGlkYXlAZ3JvdXAudi5jYWxlbmRhci5nb29nbGUuY29t&color=%23A79B8E&color=%230B8043"
+                style="border: solid 1px #777"
+                class="mt-3 border-0"
+                width="100%"
+                height="600"
+                scrolling="no"
+              ></iframe>
+            </mat-tab>
+
+            <mat-tab label="Ревюта">
+              <table
+                mat-table
+                class="w-100"
+                [dataSource]="employeeReviewsDataSource"
+              >
+                <ng-container matColumnDef="id">
+                  <th mat-header-cell *matHeaderCellDef>№</th>
+                  <td mat-cell *matCellDef="let element">
+                    {{ element.id }}
+                  </td>
+                </ng-container>
+
+                <ng-container matColumnDef="from">
+                  <th mat-header-cell *matHeaderCellDef>Ревю от</th>
+                  <td mat-cell *matCellDef="let element">
+                    {{ element.name }}
+                  </td>
+                </ng-container>
+
+                <ng-container matColumnDef="rating">
+                  <th mat-header-cell *matHeaderCellDef>Рейтинг</th>
+                  <td mat-cell *matCellDef="let element">
+                    {{ element.stars }}
+                  </td>
+                </ng-container>
+
+                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                <tr
+                  mat-row
+                  *matRowDef="let row; columns: displayedColumns"
+                ></tr>
+              </table>
+
+              <mat-paginator
+                #paginator
+                [pageSizeOptions]="[5, 10, 20]"
+                showFirstLastButtons
+                aria-label="Select page of periodic elements"
+              >
+              </mat-paginator>
+            </mat-tab>
+          </mat-tab-group>
         </div>
       </div>
     </div>
