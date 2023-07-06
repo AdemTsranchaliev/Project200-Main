@@ -1,0 +1,78 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-lg-6 py-4 p-xl-5">
+      <div class="d-flex justify-content-between align-items-center">
+        <h2>Всички салони</h2>
+        <button
+          (click)="openDialog()"
+          type="button"
+          class="btn btn-link btn-collapse text-secondary"
+        >
+          Филтри
+        </button>
+      </div>
+      <hr class="my-4" />
+      <!-- Studio Data -->
+      <div
+        class="d-flex justify-content-between align-items-center flex-column flex-md-row mb-4"
+      >
+        <div class="me-3">
+          <!-- Results found -->
+          <p class="mb-3 mb-md-0">
+            <strong>{{
+              catalogData?.slice(
+                currentPage * pageSize,
+                (currentPage + 1) * pageSize
+              ).length
+            }}</strong>
+            намерени резултата
+          </p>
+        </div>
+        <!-- Filter Salons -->
+        <div>
+          <mat-form-field>
+            <mat-label>Сортирай по:</mat-label>
+            <mat-select>
+              <mat-option
+                *ngFor="let filter of catalogOptionsData?.filterList"
+                [value]="filter.value"
+              >
+                {{ filter.viewValue }}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="row">
+        <!-- place item-->
+        <div
+          class="col-sm-6 col-xl-6 mb-5 hover-animate"
+          *ngFor="
+            let element of catalogData?.slice(
+              currentPage * pageSize,
+              (currentPage + 1) * pageSize
+            )
+          "
+        >
+          <app-studio-card
+            [element]="element"
+            [currentPage]="currentPage"
+            [pageSize]="pageSize"
+          ></app-studio-card>
+        </div>
+      </div>
+      <!-- Pagination -->
+      <app-paginator
+        [totalItems]="totalItems"
+        [pageSize]="pageSize"
+        [currentPage]="currentPage"
+        [pageSizeOptions]="[5, 10, 25, 100]"
+        (pageChange)="onPageChange($event)"
+      ></app-paginator>
+    </div>
+    <div class="col-lg-6 map-side-lg pe-lg-0">
+      <!-- ======== Map ======== -->
+      <div id="map"></div>
+    </div>
+  </div>
+</div>

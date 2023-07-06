@@ -13,51 +13,53 @@
           <!-- Price Range -->
           <div class="mb-4">
             <h4>Изберете цена:</h4>
-            <mat-slider class="w-100">
-              <input matSliderThumb />
-            </mat-slider>
+            <app-range-slider></app-range-slider>
           </div>
 
           <!-- Salon Services -->
           <div class="mb-4">
             <h4>Изберете услуга:</h4>
-            <p>
-              <mat-checkbox
-                class="w-100 mb-2"
-                *ngFor="
-                  let service of catalogOptionsData?.serviceList
-                    | slice : 0 : visibleItemsCountServices
-                "
-                >{{ service }}
-              </mat-checkbox>
-            </p>
-            <app-load-more-button
-              [visibleItemsCount]="visibleItemsCountServices"
-              [totalItemsCount]="catalogOptionsData?.serviceList?.length"
-              (loadMoreClicked)="handleLoadMoreClicked('services')"
-              (loadLessClicked)="handleLoadLessClicked('services')"
-            ></app-load-more-button>
+            <div class="p-3 custom-catalog-filter-scroll-set">
+              <p>
+                <mat-checkbox
+                  class="w-100 mb-2"
+                  *ngFor="
+                    let service of catalogOptionsData?.serviceList
+                      | slice : 0 : visibleItemsCountServices
+                  "
+                  >{{ service }}
+                </mat-checkbox>
+              </p>
+              <app-load-more-button
+                [visibleItemsCount]="visibleItemsCountServices"
+                [totalItemsCount]="catalogOptionsData?.serviceList?.length"
+                (loadMoreClicked)="handleLoadMoreClicked('services')"
+                (loadLessClicked)="handleLoadLessClicked('services')"
+              ></app-load-more-button>
+            </div>
           </div>
 
           <!-- Locations -->
           <div class="mb-4">
             <h4>Изберете локация:</h4>
-            <p>
-              <mat-checkbox
-                class="w-100 mb-2"
-                *ngFor="
-                  let location of catalogOptionsData?.locationsList
-                    | slice : 0 : visibleItemsCountLocations
-                "
-                >{{ location }}</mat-checkbox
-              >
-            </p>
-            <app-load-more-button
-              [visibleItemsCount]="visibleItemsCountLocations"
-              [totalItemsCount]="catalogOptionsData?.locationsList?.length"
-              (loadMoreClicked)="handleLoadMoreClicked('locations')"
-              (loadLessClicked)="handleLoadLessClicked('locations')"
-            ></app-load-more-button>
+            <div class="p-3 custom-catalog-filter-scroll-set">
+              <p>
+                <mat-checkbox
+                  class="w-100 mb-2"
+                  *ngFor="
+                    let location of catalogOptionsData?.locationsList
+                      | slice : 0 : visibleItemsCountLocations
+                  "
+                  >{{ location }}</mat-checkbox
+                >
+              </p>
+              <app-load-more-button
+                [visibleItemsCount]="visibleItemsCountLocations"
+                [totalItemsCount]="catalogOptionsData?.locationsList?.length"
+                (loadMoreClicked)="handleLoadMoreClicked('locations')"
+                (loadLessClicked)="handleLoadLessClicked('locations')"
+              ></app-load-more-button>
+            </div>
           </div>
 
           <!-- Rating -->
@@ -120,58 +122,13 @@
               )
             "
           >
-            <div class="card h-100 border-0 shadow">
-              <div class="card-img-top overflow-hidden gradient-overlay">
-                <img
-                  class="img-fluid fixed-img-height"
-                  src="{{ element.photo }}"
-                  alt="Салон за красота 'Ашли'"
-                /><a class="tile-link" href="detail-rooms.html"></a>
-                <div class="card-img-overlay-top text-end">
-                  <a
-                    class="card-fav-icon position-relative z-index-40"
-                    href="javascript:void();"
-                  >
-                    <svg class="svg-icon text-white">
-                      <use xlink:href="#heart-1"></use>
-                    </svg>
-                  </a>
-                </div>
-              </div>
-              <div class="card-body d-flex align-items-center">
-                <div class="w-100">
-                  <h6 class="card-title">
-                    <a
-                      class="text-decoration-none text-dark"
-                      href="detail-rooms.html"
-                      >{{ element.name }}</a
-                    >
-                  </h6>
-                  <div class="mb-3">
-                    <app-star
-                      class="text-xs"
-                      [avrGrade]="element.AvgGrade"
-                      [isVisible]="element.isVisible"
-                    ></app-star>
-                  </div>
-                  <div class="mb-3">
-                    <span
-                      class="badge bg-primary me-2"
-                      *ngFor="let category of element.Category"
-                      >{{ category }}</span
-                    >
-                  </div>
-                  <p class="card-text text-muted">
-                    <span class="h4 text-primary"
-                      >От {{ element.LowestPrice | number : "1.2-2" }} лв.</span
-                    >
-                  </p>
-                </div>
-              </div>
-            </div>
+            <app-studio-card
+              [element]="element"
+              [currentPage]="currentPage"
+              [pageSize]="pageSize"
+            ></app-studio-card>
           </div>
         </div>
-
         <!-- Pagination -->
         <app-paginator
           [totalItems]="totalItems"

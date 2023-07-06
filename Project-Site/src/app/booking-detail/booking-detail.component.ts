@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 @Component({
   selector: 'app-booking-detail',
   templateUrl: './booking-detail.component.html',
-  styleUrls: ['./booking-detail.component.css']
+  styleUrls: ['./booking-detail.component.css'],
 })
 export class BookingDetailComponent implements OnInit {
   // Status Configurations
@@ -11,10 +11,9 @@ export class BookingDetailComponent implements OnInit {
   isStatusConfirmed: boolean = true;
   isTheHourCome: boolean = false;
 
-  constructor() { }
+  constructor() {}
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
   toggleStatusConfirmed(): void {
     this.isStatusConfirmed = !this.isStatusConfirmed;

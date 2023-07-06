@@ -1,0 +1,19 @@
+<div class="d-flex d-row align-items-center">
+    <div class="mr-2">
+        <input type="file" #file placeholder="Изберете файл" (change)="uploadFile(file.files)" style="display:none;"
+            multiple>
+        <button appPreventDoubleClick (throttledClick)='file.click()' type="button"
+            class="btn btn-success">Качване</button>
+    </div>
+    <div class="mr-2">
+        <span class="upload mr-3 ml-3" *ngIf="progress > 0">
+            {{progress}}%
+        </span>
+        <span class="upload" *ngIf="message">
+            {{message}}
+        </span>
+        <span class="upload text-danger" *ngIf="errorMessage">
+            {{errorMessage}}
+        </span>
+    </div>
+</div>

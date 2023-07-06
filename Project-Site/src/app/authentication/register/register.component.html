@@ -5,14 +5,11 @@
     <div class="p-5 bg-image bg-image-register"></div>
     <!-- Background image -->
 
-    <div
-      class="card mx-4 mx-md-5 shadow-5-strong"
-      style="
+    <div class="card mx-4 mx-md-5 shadow-5-strong" style="
         margin-top: -100px;
         background: hsla(0, 0%, 100%, 0.8);
         backdrop-filter: blur(30px);
-      "
-    >
+      ">
       <div class="card-body py-5 px-md-5">
         <div class="row d-flex justify-content-center">
           <div class="mb-4 text-start">
@@ -25,23 +22,14 @@
               <div class="mb-4">
                 <mat-form-field appearance="outline" class="w-100">
                   <mat-label>Имейл адрес</mat-label>
-                  <input
-                    matInput
-                    formControlName="email"
-                    placeholder="ivan.ivanov@gmail.com"
-                  />
-                  <mat-error
-                    class="mb-2"
-                    *ngIf="
+                  <input matInput formControlName="email" placeholder="ivan.ivanov@gmail.com" />
+                  <mat-error class="mb-2" *ngIf="
                       inputValidator.validateControl('email', registerForm)
-                    "
-                  >
+                    ">
                     Имейлът е
                     <strong>задължителен!</strong>
                   </mat-error>
-                  <mat-error
-                    *ngIf="inputValidator.validateEmail('email', registerForm)"
-                  >
+                  <mat-error *ngIf="inputValidator.validateEmail('email', registerForm)">
                     Имейлът е
                     <strong>неправилен!</strong>
                   </mat-error>
@@ -52,20 +40,12 @@
               <div class="mb-4">
                 <mat-form-field appearance="outline" class="w-100">
                   <mat-label>Парола</mat-label>
-                  <input
-                    matInput
-                    formControlName="password"
-                    placeholder="********"
-                  />
-                  <mat-hint
-                    >Паролата трябва да съдържа поне 1 главна буква и 1
-                    специален символ!</mat-hint
-                  >
-                  <mat-error
-                    *ngIf="
+                  <input matInput formControlName="password" placeholder="********" />
+                  <mat-hint>Паролата трябва да съдържа поне 1 главна буква и 1
+                    специален символ!</mat-hint>
+                  <mat-error *ngIf="
                       inputValidator.validateControl('password', registerForm)
-                    "
-                  >
+                    ">
                     Паролата е
                     <strong>задължителна!</strong>
                   </mat-error>
@@ -76,22 +56,14 @@
               <div class="mb-4">
                 <mat-form-field appearance="outline" class="w-100">
                   <mat-label>Потвърдете паролата</mat-label>
-                  <input
-                    matInput
-                    formControlName="confirmPassword"
-                    placeholder="********"
-                  />
-                  <mat-hint
-                    >Паролата трябва да е същата като в горното поле!</mat-hint
-                  >
-                  <mat-error
-                    *ngIf="
+                  <input matInput formControlName="confirmPassword" placeholder="********" />
+                  <mat-hint>Паролата трябва да е същата като в горното поле!</mat-hint>
+                  <mat-error *ngIf="
                       inputValidator.validateControl(
                         'confirmPassword',
                         registerForm
                       )
-                    "
-                  >
+                    ">
                     Паролата е
                     <strong>задължителна!</strong>
                   </mat-error>
@@ -101,14 +73,8 @@
               <!-- Checkbox -->
               <div class="form-check text-start mb-4">
                 <div>
-                  <input
-                    formControlName="checkbox"
-                    class="form-check-input me-2"
-                    type="checkbox"
-                    value=""
-                    id="remember-me"
-                    checked
-                  />
+                  <input formControlName="checkbox" class="form-check-input me-2" type="checkbox" value=""
+                    id="remember-me" checked />
                   <label class="form-check-label" for="remember-me">
                     Регистрация като салон
                   </label>
@@ -116,11 +82,7 @@
               </div>
 
               <!-- Submit button -->
-              <button
-                type="submit"
-                class="btn btn-primary btn-block mb-4 w-100"
-                [disabled]="!registerForm.valid"
-              >
+              <button type="submit" class="btn btn-primary btn-block mb-4 w-100" [disabled]="!registerForm.valid">
                 Регистрация
               </button>
 
@@ -140,10 +102,7 @@
                     <span> facebook </span>
                   </button> -->
 
-                  <button
-                    type="button"
-                    class="col-12 btn btn-outline-primary mt-3"
-                  >
+                  <button type="button" class="col-12 btn btn-outline-primary mt-3">
                     <img src="assets/img/brand/google.svg" alt="Image" />
                     <span> google </span>
                   </button>

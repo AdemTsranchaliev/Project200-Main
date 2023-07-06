@@ -4,7 +4,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
-import { MatPaginatorModule } from '@angular/material/paginator';
+import { NgxSliderModule } from '@angular-slider/ngx-slider';
 // Modules
 import { AppRoutingModule } from './app-routing.module';
 // Angular Material
@@ -20,6 +20,9 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatTableModule } from '@angular/material/table';
 import { MatSortModule } from '@angular/material/sort';
+import { MatStepperModule } from '@angular/material/stepper';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatPaginatorModule } from '@angular/material/paginator';
 // Components
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
@@ -31,14 +34,29 @@ import { LoginComponent } from './authentication/login/login.component';
 import { RegisterComponent } from './authentication/register/register.component';
 import { StudioListMainComponent } from './studio/studio-list-main/studio-list-main.component';
 import { CatalogComponent } from './catalog/catalog.component';
+import { CatalogLeftMapComponent } from './catalog-left-map/catalog-left-map.component';
 import { BookingTableComponent } from './booking-table/booking-table.component';
 import { BookingDetailComponent } from './booking-detail/booking-detail.component';
-import { PaginatorComponent } from './paginator/paginator.component';
 import { StudioEmployeeComponent } from './studio/studio-employee/studio-employee.component';
 import { StudioEmployeeDetailsComponent } from './studio/studio-employee-details/studio-employee-details.component';
 // Shared Components
-import { StarComponent } from './shared/star/star.component';
-import { LoadMoreButtonComponent } from './shared/load-more-button/load-more-button.component';
+import { StarComponent } from './shared/components/star/star.component';
+import { LoadMoreButtonComponent } from './shared/components/load-more-button/load-more-button.component';
+import { AddStudioComponent } from './studio/add-studio/add-studio.component';
+import { IntroductionComponent } from './studio/add-studio/introduction/introduction.component';
+import { BasicInformationComponent } from './studio/add-studio/basic-information/basic-information.component';
+import { CommonService } from './shared/services/common.service';
+import { AutocompleteComponent } from './shared/components/autocomplete/autocomplete.component';
+import { ChipsComponent } from './shared/components/chips/chips.component';
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
+import { MapComponent } from './shared/components/map/map.component';
+import { DetailedInformationComponent } from './studio/add-studio/detailed-information/detailed-information.component';
+import { ServicesComponent } from './studio/add-studio/services/services.component';
+import { ImagesComponent } from './studio/add-studio/images/images.component';
+import { PaginatorComponent } from './shared/components/paginator/paginator.component';
+import { StudioCardComponent } from './shared/components/studio-card/studio-card.component';
+import { RangeSliderComponent } from './shared/components/range-slider/range-slider.component';
+import { CatalogFilterModalComponent } from './shared/components/modals/catalog-filter-modal/catalog-filter-modal.component';
 
 
 @NgModule({
@@ -53,6 +71,7 @@ import { LoadMoreButtonComponent } from './shared/load-more-button/load-more-but
     UserSecurityComponent,
     UserAccountGridComponent,
     CatalogComponent,
+    CatalogLeftMapComponent,
     BookingTableComponent,
     BookingDetailComponent,
     StudioEmployeeComponent,
@@ -66,7 +85,19 @@ import { LoadMoreButtonComponent } from './shared/load-more-button/load-more-but
 
     // Shared
     StarComponent,
-    LoadMoreButtonComponent
+    LoadMoreButtonComponent,
+    AddStudioComponent,
+    IntroductionComponent,
+    BasicInformationComponent,
+    AutocompleteComponent,
+    ChipsComponent,
+    MapComponent,
+    DetailedInformationComponent,
+    ServicesComponent,
+    ImagesComponent,
+    StudioCardComponent,
+    RangeSliderComponent,
+    CatalogFilterModalComponent
   ],
   imports: [
     // Angular
@@ -77,6 +108,7 @@ import { LoadMoreButtonComponent } from './shared/load-more-button/load-more-but
     ReactiveFormsModule,
     HttpClientModule,
     MatPaginatorModule,
+    NgxSliderModule,
 
     //Angular Material
     MatFormFieldModule,
@@ -90,9 +122,12 @@ import { LoadMoreButtonComponent } from './shared/load-more-button/load-more-but
     MatIconModule,
     MatTabsModule,
     MatTableModule,
-    MatSortModule
+    MatSortModule,
+    MatStepperModule,
+    MatAutocompleteModule,
+    MatDialogModule
   ],
-  providers: [],
+  providers: [CommonService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

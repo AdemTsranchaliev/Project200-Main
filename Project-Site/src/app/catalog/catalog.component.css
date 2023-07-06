@@ -1,3 +1,4 @@
-.custom-catalog-layout {
-    padding-top: 66px;
+.custom-catalog-filter-scroll-set {
+    max-height: 300px;
+    overflow-y: auto;
 }

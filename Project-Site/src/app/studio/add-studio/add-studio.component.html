@@ -1,0 +1,25 @@
+<div class="container-fluid">
+    <div class="row">
+        <mat-stepper class="example-stepper" [orientation]="(stepperOrientation | async)!">
+            <mat-step label="Начало">
+                <app-introduction (nextPageEvent)='nextStep($event)'> </app-introduction>
+            </mat-step>
+            <mat-step label="Основна информация">
+                <app-basic-information (nextPageEvent)='nextStep($event)' (previousPage)='previousStep($event)'
+                    [model]="studio"></app-basic-information>
+            </mat-step>
+            <mat-step label="Текстова част">
+                <app-detailed-information (nextPageEvent)='nextStep($event)' (previousPage)='previousStep($event)'
+                    [model]="studio"> </app-detailed-information>
+            </mat-step>
+            <mat-step label="Услуги">
+                <app-services (nextPageEvent)='nextStep($event)' (previousPage)='previousStep($event)' [model]="studio">
+                </app-services>
+            </mat-step>
+            <mat-step>
+                <app-images [model]="studio" (finishEvent)="sendModel()" (previousPageEvent)='nextStep($event)'>
+                </app-images>
+            </mat-step>
+        </mat-stepper>
+    </div>
+</div>

@@ -1,285 +1,285 @@
 <div class="container-fluid pt-5 pb-3 border-bottom px-lg-5">
-    <div class="row">
-      <div class="col-xl-8">
-        <h1>Всички салони</h1>
-        <p class="lead text-muted">
-          Текст свързан със салоните. За отделните Области/Градове може да има
-          специфична информация. Отделно може да имам и определени слогани/мото... Интересни
-          новини, както и за празниците цитати.
-        </p>
-      </div>
+  <div class="row">
+    <div class="col-xl-8">
+      <h1>Всички салони</h1>
+      <p class="lead text-muted">
+        Текст свързан със салоните. За отделните Области/Градове може да има
+        специфична информация. Отделно може да имам и определени слогани/мото... Интересни
+        новини, както и за празниците цитати.
+      </p>
     </div>
   </div>
-  <div class="container-fluid py-5 px-lg-5">
-    <div class="row">
-      <div class="col-lg-3 pt-3">
-        <form class="pe-xl-3" action="#" autocomplete="off">
-          <div class="mb-4">
-            <label class="form-label" for="form_neighbourhood">Избери Услуга</label>
-            <select class="selectpicker form-control" name="neighbourhood" id="form_neighbourhood" multiple
-              data-style="btn-selectpicker" data-live-search="true" data-selected-text-format="count &gt; 1" title="">
-              <option value="neighbourhood_0">Battery Park City</option>
-              <option value="neighbourhood_1">Bowery</option>
-              <option value="neighbourhood_2">Carnegie Hill</option>
-              <option value="neighbourhood_3">Central Park</option>
-              <option value="neighbourhood_4">Chelsea</option>
-              <option value="neighbourhood_5">Chinatown</option>
-              <option value="neighbourhood_6">Civic Center</option>
-              <option value="neighbourhood_7">East Harlem</option>
-              <option value="neighbourhood_8">Financial District</option>
-              <option value="neighbourhood_9">Flatiron</option>
-              <option value="neighbourhood_10">Garment District</option>
-              <option value="neighbourhood_11">Gramercy Park</option>
-              <option value="neighbourhood_12">Greenwich Village</option>
-              <option value="neighbourhood_13">East Village</option>
-              <option value="neighbourhood_14">West Village</option>
-              <option value="neighbourhood_15">Hamilton Heights</option>
-              <option value="neighbourhood_16">Harlem</option>
-              <option value="neighbourhood_17">
-                Hell's Kitchen / Clinton
-              </option>
-              <option value="neighbourhood_18">Inwood</option>
-              <option value="neighbourhood_19">Kips Bay</option>
-              <option value="neighbourhood_20">Lenox Hill</option>
-              <option value="neighbourhood_21">Little Italy</option>
-              <option value="neighbourhood_22">Lower Eastside</option>
-              <option value="neighbourhood_23">Madison Square</option>
-              <option value="neighbourhood_24">Manhattan Valley</option>
-              <option value="neighbourhood_25">Meatpacking District</option>
-              <option value="neighbourhood_26">Midtown</option>
-              <option value="neighbourhood_27">Morningside Heights</option>
-              <option value="neighbourhood_28">Murray Hill</option>
-              <option value="neighbourhood_29">NoHo</option>
-              <option value="neighbourhood_30">NoLita</option>
-              <option value="neighbourhood_31">Roosevelt Island</option>
-              <option value="neighbourhood_32">SoHo</option>
-              <option value="neighbourhood_33">
-                Stuyvesant Town (Stuyvesant Square)
-              </option>
-              <option value="neighbourhood_34">Sutton Place</option>
-              <option value="neighbourhood_35">Times Square</option>
-              <option value="neighbourhood_36">Tribeca</option>
-              <option value="neighbourhood_37">Turtle Bay</option>
-              <option value="neighbourhood_38">Upper Eastside</option>
-              <option value="neighbourhood_39">Upper Westside</option>
-              <option value="neighbourhood_40">Washington Heights</option>
-              <option value="neighbourhood_41">Yorkville</option>
-            </select>
-          </div>
-          <div class="mb-4">
-            <label class="form-label" for="form_dates">Свободни Дати</label>
-            <div class="datepicker-container datepicker-container-left">
-              <input class="form-control" type="text" name="bookingDate" id="form_dates" placeholder="Избери дати" />
-            </div>
-          </div>
-          <div class="mb-4">
-            <label class="form-label">Ценови Диапазон</label>
-            <div class="text-primary" id="slider-snap"></div>
-            <div class="nouislider-values">
-              <div class="min">
-                От <span id="slider-snap-value-from"></span> лв.
-              </div>
-              <div class="max">
-                До <span id="slider-snap-value-to"></span> лв.
-              </div>
-            </div>
-            <input type="hidden" name="pricefrom" id="slider-snap-input-from" value="40" />
-            <input type="hidden" name="priceto" id="slider-snap-input-to" value="110" />
-          </div>
-          <div class="mb-4">
-            <label class="form-label" for="form_neighbourhood12">Локации по Области</label>
-            <select class="selectpicker form-control" name="neighbourhood" id="form_neighbourhood12" multiple
-              data-style="btn-selectpicker" data-live-search="true" data-selected-text-format="count &gt; 1" title="">
-              <option value="neighbourhood_0">Battery Park City</option>
-              <option value="neighbourhood_1">Bowery</option>
-              <option value="neighbourhood_2">Carnegie Hill</option>
-              <option value="neighbourhood_3">Central Park</option>
-              <option value="neighbourhood_4">Chelsea</option>
-              <option value="neighbourhood_5">Chinatown</option>
-              <option value="neighbourhood_6">Civic Center</option>
-              <option value="neighbourhood_7">East Harlem</option>
-              <option value="neighbourhood_8">Financial District</option>
-              <option value="neighbourhood_9">Flatiron</option>
-              <option value="neighbourhood_10">Garment District</option>
-              <option value="neighbourhood_11">Gramercy Park</option>
-              <option value="neighbourhood_12">Greenwich Village</option>
-              <option value="neighbourhood_13">East Village</option>
-              <option value="neighbourhood_14">West Village</option>
-              <option value="neighbourhood_15">Hamilton Heights</option>
-              <option value="neighbourhood_16">Harlem</option>
-              <option value="neighbourhood_17">
-                Hell's Kitchen / Clinton
-              </option>
-              <option value="neighbourhood_18">Inwood</option>
-              <option value="neighbourhood_19">Kips Bay</option>
-              <option value="neighbourhood_20">Lenox Hill</option>
-              <option value="neighbourhood_21">Little Italy</option>
-              <option value="neighbourhood_22">Lower Eastside</option>
-              <option value="neighbourhood_23">Madison Square</option>
-              <option value="neighbourhood_24">Manhattan Valley</option>
-              <option value="neighbourhood_25">Meatpacking District</option>
-              <option value="neighbourhood_26">Midtown</option>
-              <option value="neighbourhood_27">Morningside Heights</option>
-              <option value="neighbourhood_28">Murray Hill</option>
-              <option value="neighbourhood_29">NoHo</option>
-              <option value="neighbourhood_30">NoLita</option>
-              <option value="neighbourhood_31">Roosevelt Island</option>
-              <option value="neighbourhood_32">SoHo</option>
-              <option value="neighbourhood_33">
-                Stuyvesant Town (Stuyvesant Square)
-              </option>
-              <option value="neighbourhood_34">Sutton Place</option>
-              <option value="neighbourhood_35">Times Square</option>
-              <option value="neighbourhood_36">Tribeca</option>
-              <option value="neighbourhood_37">Turtle Bay</option>
-              <option value="neighbourhood_38">Upper Eastside</option>
-              <option value="neighbourhood_39">Upper Westside</option>
-              <option value="neighbourhood_40">Washington Heights</option>
-              <option value="neighbourhood_41">Yorkville</option>
-            </select>
-          </div>
-          <div class="mb-4">
-            <label class="form-label">Избери Рейтинг</label>
-            <p class="flex-shrink-1 mb-0 card-stars text-xs text-start">
-              <i class="fa fa-star text-warning h3"></i><i class="fa fa-star text-warning h3"></i><i
-                class="fa fa-star text-warning h3"></i><i class="fa fa-star text-warning h3"></i><i
-                class="fa fa-star text-warning h3"></i>
-            </p>
-          </div>
-        </form>
-      </div>
-      <div class="col-lg-9">
-        <div class="d-flex justify-content-between align-items-center flex-column flex-md-row mb-4">
-          <div class="me-3">
-            <p class="mb-3 mb-md-0"><strong>12</strong> намерени резултата</p>
-          </div>
-          <div>
-            <label class="form-label me-2" for="form_sort">Сортирай по:</label>
-            <select class="selectpicker" name="sort" id="form_sort" data-style="btn-selectpicker" title="">
-              <option value="sortBy_0">Най-популярни</option>
-              <option value="sortBy_1">Предпочитани</option>
-              <option value="sortBy_2">Нови</option>
-              <option value="sortBy_3">Стари</option>
-              <option value="sortBy_4">В Близост</option>
-            </select>
+</div>
+<div class="container-fluid py-5 px-lg-5">
+  <div class="row">
+    <div class="col-lg-3 pt-3">
+      <form class="pe-xl-3" action="#" autocomplete="off">
+        <div class="mb-4">
+          <label class="form-label" for="form_neighbourhood">Избери Услуга</label>
+          <select class="selectpicker form-control" name="neighbourhood" id="form_neighbourhood" multiple
+            data-style="btn-selectpicker" data-live-search="true" data-selected-text-format="count &gt; 1" title="">
+            <option value="neighbourhood_0">Battery Park City</option>
+            <option value="neighbourhood_1">Bowery</option>
+            <option value="neighbourhood_2">Carnegie Hill</option>
+            <option value="neighbourhood_3">Central Park</option>
+            <option value="neighbourhood_4">Chelsea</option>
+            <option value="neighbourhood_5">Chinatown</option>
+            <option value="neighbourhood_6">Civic Center</option>
+            <option value="neighbourhood_7">East Harlem</option>
+            <option value="neighbourhood_8">Financial District</option>
+            <option value="neighbourhood_9">Flatiron</option>
+            <option value="neighbourhood_10">Garment District</option>
+            <option value="neighbourhood_11">Gramercy Park</option>
+            <option value="neighbourhood_12">Greenwich Village</option>
+            <option value="neighbourhood_13">East Village</option>
+            <option value="neighbourhood_14">West Village</option>
+            <option value="neighbourhood_15">Hamilton Heights</option>
+            <option value="neighbourhood_16">Harlem</option>
+            <option value="neighbourhood_17">
+              Hell's Kitchen / Clinton
+            </option>
+            <option value="neighbourhood_18">Inwood</option>
+            <option value="neighbourhood_19">Kips Bay</option>
+            <option value="neighbourhood_20">Lenox Hill</option>
+            <option value="neighbourhood_21">Little Italy</option>
+            <option value="neighbourhood_22">Lower Eastside</option>
+            <option value="neighbourhood_23">Madison Square</option>
+            <option value="neighbourhood_24">Manhattan Valley</option>
+            <option value="neighbourhood_25">Meatpacking District</option>
+            <option value="neighbourhood_26">Midtown</option>
+            <option value="neighbourhood_27">Morningside Heights</option>
+            <option value="neighbourhood_28">Murray Hill</option>
+            <option value="neighbourhood_29">NoHo</option>
+            <option value="neighbourhood_30">NoLita</option>
+            <option value="neighbourhood_31">Roosevelt Island</option>
+            <option value="neighbourhood_32">SoHo</option>
+            <option value="neighbourhood_33">
+              Stuyvesant Town (Stuyvesant Square)
+            </option>
+            <option value="neighbourhood_34">Sutton Place</option>
+            <option value="neighbourhood_35">Times Square</option>
+            <option value="neighbourhood_36">Tribeca</option>
+            <option value="neighbourhood_37">Turtle Bay</option>
+            <option value="neighbourhood_38">Upper Eastside</option>
+            <option value="neighbourhood_39">Upper Westside</option>
+            <option value="neighbourhood_40">Washington Heights</option>
+            <option value="neighbourhood_41">Yorkville</option>
+          </select>
+        </div>
+        <div class="mb-4">
+          <label class="form-label" for="form_dates">Свободни Дати</label>
+          <div class="datepicker-container datepicker-container-left">
+            <input class="form-control" type="text" name="bookingDate" id="form_dates" placeholder="Избери дати" />
           </div>
         </div>
-        <div class="row">
-          <!-- place item-->
-          <div class="col-sm-6 col-xl-4 mb-5 hover-animate" data-marker-id="59c0c8e33b1527bfe2abaf92">
-            <div class="card h-100 border-0 shadow">
-              <div class="card-img-top overflow-hidden gradient-overlay">
-                <img class="img-fluid" src="img/salon-images/salon-1.jpg" alt="Салон за красота 'Ашли'" /><a
-                  class="tile-link" href="detail-rooms.html"></a>
-                <div class="card-img-overlay-top text-end">
-                  <a class="card-fav-icon position-relative z-index-40" href="javascript: void();">
-                    <svg class="svg-icon text-white">
-                      <use xlink:href="#heart-1"></use>
-                    </svg></a>
-                </div>
-              </div>
-              <div class="card-body d-flex align-items-center">
-                <div class="w-100">
-                  <h6 class="card-title">
-                    <a class="text-decoration-none text-dark" href="detail-rooms.html">Салон за красота 'Ашли'</a>
-                  </h6>
-                  <div class="d-flex card-subtitle mb-3">
-                    <p class="flex-shrink-1 mb-0 card-stars text-xs text-end">
-                      <i class="fa fa-star text-warning"></i><i class="fa fa-star text-warning"></i><i
-                        class="fa fa-star text-warning"></i><i class="fa fa-star text-warning"></i><i
-                        class="fa fa-star text-warning"></i>
-                    </p>
-                  </div>
-                  <p class="card-text text-muted">
-                    <span class="h4 text-primary">30 лв</span>
-                  </p>
-                </div>
-              </div>
+        <div class="mb-4">
+          <label class="form-label">Ценови Диапазон</label>
+          <div class="text-primary" id="slider-snap"></div>
+          <div class="nouislider-values">
+            <div class="min">
+              От <span id="slider-snap-value-from"></span> лв.
+            </div>
+            <div class="max">
+              До <span id="slider-snap-value-to"></span> лв.
             </div>
           </div>
-          <!-- place item-->
-          <div class="col-sm-6 col-xl-4 mb-5 hover-animate" data-marker-id="59c0c8e322f3375db4d89128">
-            <div class="card h-100 border-0 shadow">
-              <div class="card-img-top overflow-hidden gradient-overlay">
-                <img class="img-fluid" src="img/salon-images/salon-2.jpg" alt="Масажно студио 'Монтана'" /><a
-                  class="tile-link" href="detail-rooms.html"></a>
-                <div class="card-img-overlay-top text-end">
-                  <a class="card-fav-icon position-relative z-index-40" href="javascript: void();">
-                    <svg class="svg-icon text-white">
-                      <use xlink:href="#heart-1"></use>
-                    </svg></a>
-                </div>
-              </div>
-              <div class="card-body d-flex align-items-center">
-                <div class="w-100">
-                  <h6 class="card-title">
-                    <a class="text-decoration-none text-dark" href="detail-rooms.html">Масажно студио 'Монтана'</a>
-                  </h6>
-                  <div class="d-flex card-subtitle mb-3">
-                    <p class="flex-shrink-1 mb-0 card-stars text-xs text-end">
-                      <i class="fa fa-star text-warning"></i><i class="fa fa-star text-warning"></i><i
-                        class="fa fa-star text-warning"></i><i class="fa fa-star text-warning"></i><i
-                        class="fa fa-star text-gray-300"> </i>
-                    </p>
-                  </div>
-                  <p class="card-text text-muted">
-                    <span class="h4 text-primary">60 лв</span>
-                  </p>
-                </div>
+          <input type="hidden" name="pricefrom" id="slider-snap-input-from" value="40" />
+          <input type="hidden" name="priceto" id="slider-snap-input-to" value="110" />
+        </div>
+        <div class="mb-4">
+          <label class="form-label" for="form_neighbourhood12">Локации по Области</label>
+          <select class="selectpicker form-control" name="neighbourhood" id="form_neighbourhood12" multiple
+            data-style="btn-selectpicker" data-live-search="true" data-selected-text-format="count &gt; 1" title="">
+            <option value="neighbourhood_0">Battery Park City</option>
+            <option value="neighbourhood_1">Bowery</option>
+            <option value="neighbourhood_2">Carnegie Hill</option>
+            <option value="neighbourhood_3">Central Park</option>
+            <option value="neighbourhood_4">Chelsea</option>
+            <option value="neighbourhood_5">Chinatown</option>
+            <option value="neighbourhood_6">Civic Center</option>
+            <option value="neighbourhood_7">East Harlem</option>
+            <option value="neighbourhood_8">Financial District</option>
+            <option value="neighbourhood_9">Flatiron</option>
+            <option value="neighbourhood_10">Garment District</option>
+            <option value="neighbourhood_11">Gramercy Park</option>
+            <option value="neighbourhood_12">Greenwich Village</option>
+            <option value="neighbourhood_13">East Village</option>
+            <option value="neighbourhood_14">West Village</option>
+            <option value="neighbourhood_15">Hamilton Heights</option>
+            <option value="neighbourhood_16">Harlem</option>
+            <option value="neighbourhood_17">
+              Hell's Kitchen / Clinton
+            </option>
+            <option value="neighbourhood_18">Inwood</option>
+            <option value="neighbourhood_19">Kips Bay</option>
+            <option value="neighbourhood_20">Lenox Hill</option>
+            <option value="neighbourhood_21">Little Italy</option>
+            <option value="neighbourhood_22">Lower Eastside</option>
+            <option value="neighbourhood_23">Madison Square</option>
+            <option value="neighbourhood_24">Manhattan Valley</option>
+            <option value="neighbourhood_25">Meatpacking District</option>
+            <option value="neighbourhood_26">Midtown</option>
+            <option value="neighbourhood_27">Morningside Heights</option>
+            <option value="neighbourhood_28">Murray Hill</option>
+            <option value="neighbourhood_29">NoHo</option>
+            <option value="neighbourhood_30">NoLita</option>
+            <option value="neighbourhood_31">Roosevelt Island</option>
+            <option value="neighbourhood_32">SoHo</option>
+            <option value="neighbourhood_33">
+              Stuyvesant Town (Stuyvesant Square)
+            </option>
+            <option value="neighbourhood_34">Sutton Place</option>
+            <option value="neighbourhood_35">Times Square</option>
+            <option value="neighbourhood_36">Tribeca</option>
+            <option value="neighbourhood_37">Turtle Bay</option>
+            <option value="neighbourhood_38">Upper Eastside</option>
+            <option value="neighbourhood_39">Upper Westside</option>
+            <option value="neighbourhood_40">Washington Heights</option>
+            <option value="neighbourhood_41">Yorkville</option>
+          </select>
+        </div>
+        <div class="mb-4">
+          <label class="form-label">Избери Рейтинг</label>
+          <p class="flex-shrink-1 mb-0 card-stars text-xs text-start">
+            <i class="fa fa-star text-warning h3"></i><i class="fa fa-star text-warning h3"></i><i
+              class="fa fa-star text-warning h3"></i><i class="fa fa-star text-warning h3"></i><i
+              class="fa fa-star text-warning h3"></i>
+          </p>
+        </div>
+      </form>
+    </div>
+    <div class="col-lg-9">
+      <div class="d-flex justify-content-between align-items-center flex-column flex-md-row mb-4">
+        <div class="me-3">
+          <p class="mb-3 mb-md-0"><strong>12</strong> намерени резултата</p>
+        </div>
+        <div>
+          <label class="form-label me-2" for="form_sort">Сортирай по:</label>
+          <select class="selectpicker" name="sort" id="form_sort" data-style="btn-selectpicker" title="">
+            <option value="sortBy_0">Най-популярни</option>
+            <option value="sortBy_1">Предпочитани</option>
+            <option value="sortBy_2">Нови</option>
+            <option value="sortBy_3">Стари</option>
+            <option value="sortBy_4">В Близост</option>
+          </select>
+        </div>
+      </div>
+      <div class="row">
+        <!-- place item-->
+        <div class="col-sm-6 col-xl-4 mb-5 hover-animate" data-marker-id="59c0c8e33b1527bfe2abaf92">
+          <div class="card h-100 border-0 shadow">
+            <div class="card-img-top overflow-hidden gradient-overlay">
+              <img class="img-fluid" src="img/salon-images/salon-1.jpg" alt="Салон за красота 'Ашли'" /><a
+                class="tile-link" href="detail-rooms.html"></a>
+              <div class="card-img-overlay-top text-end">
+                <a class="card-fav-icon position-relative z-index-40" href="javascript: void();">
+                  <svg class="svg-icon text-white">
+                    <use xlink:href="#heart-1"></use>
+                  </svg></a>
               </div>
             </div>
-          </div>
-          <!-- place item-->
-          <div class="col-sm-6 col-xl-4 mb-5 hover-animate" data-marker-id="59c0c8e3a31e62979bf147c9">
-            <div class="card h-100 border-0 shadow">
-              <div class="card-img-top overflow-hidden gradient-overlay">
-                <img class="img-fluid" src="img/salon-images/salon-3.jpg" alt="Фризьорки салон 'Алтенатив'" /><a
-                  class="tile-link" href="detail-rooms.html"></a>
-                <div class="card-img-overlay-top text-end">
-                  <a class="card-fav-icon position-relative z-index-40" href="javascript: void();">
-                    <svg class="svg-icon text-white">
-                      <use xlink:href="#heart-1"></use>
-                    </svg></a>
-                </div>
-              </div>
-              <div class="card-body d-flex align-items-center">
-                <div class="w-100">
-                  <h6 class="card-title">
-                    <a class="text-decoration-none text-dark" href="detail-rooms.html">Фризьорки салон 'Алтенатив'</a>
-                  </h6>
-                  <div class="d-flex card-subtitle mb-3">
-                    <p class="flex-shrink-1 mb-0 card-stars text-xs text-end">
-                      <i class="fa fa-star text-warning"></i><i class="fa fa-star text-warning"></i><i
-                        class="fa fa-star text-warning"></i><i class="fa fa-star text-gray-300"> </i><i
-                        class="fa fa-star text-gray-300"> </i>
-                    </p>
-                  </div>
-                  <p class="card-text text-muted">
-                    <span class="h4 text-primary">75 лв</span>
+            <div class="card-body d-flex align-items-center">
+              <div class="w-100">
+                <h6 class="card-title">
+                  <a class="text-decoration-none text-dark" href="detail-rooms.html">Салон за красота 'Ашли'</a>
+                </h6>
+                <div class="d-flex card-subtitle mb-3">
+                  <p class="flex-shrink-1 mb-0 card-stars text-xs text-end">
+                    <i class="fa fa-star text-warning"></i><i class="fa fa-star text-warning"></i><i
+                      class="fa fa-star text-warning"></i><i class="fa fa-star text-warning"></i><i
+                      class="fa fa-star text-warning"></i>
                   </p>
                 </div>
+                <p class="card-text text-muted">
+                  <span class="h4 text-primary">30 лв</span>
+                </p>
               </div>
             </div>
           </div>
         </div>
-        <!-- Pagination -->
-        <nav aria-label="Page navigation example">
-          <ul class="pagination pagination-template d-flex justify-content-center">
-            <li class="page-item">
-              <a class="page-link" href="#">
-                <i class="fa fa-angle-left"></i></a>
-            </li>
-            <li class="page-item active">
-              <a class="page-link" href="#">1</a>
-            </li>
-            <li class="page-item"><a class="page-link" href="#">2</a></li>
-            <li class="page-item"><a class="page-link" href="#">3</a></li>
-            <li class="page-item">
-              <a class="page-link" href="#">
-                <i class="fa fa-angle-right"></i></a>
-            </li>
-          </ul>
-        </nav>
+        <!-- place item-->
+        <div class="col-sm-6 col-xl-4 mb-5 hover-animate" data-marker-id="59c0c8e322f3375db4d89128">
+          <div class="card h-100 border-0 shadow">
+            <div class="card-img-top overflow-hidden gradient-overlay">
+              <img class="img-fluid" src="img/salon-images/salon-2.jpg" alt="Масажно студио 'Монтана'" /><a
+                class="tile-link" href="detail-rooms.html"></a>
+              <div class="card-img-overlay-top text-end">
+                <a class="card-fav-icon position-relative z-index-40" href="javascript: void();">
+                  <svg class="svg-icon text-white">
+                    <use xlink:href="#heart-1"></use>
+                  </svg></a>
+              </div>
+            </div>
+            <div class="card-body d-flex align-items-center">
+              <div class="w-100">
+                <h6 class="card-title">
+                  <a class="text-decoration-none text-dark" href="detail-rooms.html">Масажно студио 'Монтана'</a>
+                </h6>
+                <div class="d-flex card-subtitle mb-3">
+                  <p class="flex-shrink-1 mb-0 card-stars text-xs text-end">
+                    <i class="fa fa-star text-warning"></i><i class="fa fa-star text-warning"></i><i
+                      class="fa fa-star text-warning"></i><i class="fa fa-star text-warning"></i><i
+                      class="fa fa-star text-gray-300"> </i>
+                  </p>
+                </div>
+                <p class="card-text text-muted">
+                  <span class="h4 text-primary">60 лв</span>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- place item-->
+        <div class="col-sm-6 col-xl-4 mb-5 hover-animate" data-marker-id="59c0c8e3a31e62979bf147c9">
+          <div class="card h-100 border-0 shadow">
+            <div class="card-img-top overflow-hidden gradient-overlay">
+              <img class="img-fluid" src="img/salon-images/salon-3.jpg" alt="Фризьорки салон 'Алтенатив'" /><a
+                class="tile-link" href="detail-rooms.html"></a>
+              <div class="card-img-overlay-top text-end">
+                <a class="card-fav-icon position-relative z-index-40" href="javascript: void();">
+                  <svg class="svg-icon text-white">
+                    <use xlink:href="#heart-1"></use>
+                  </svg></a>
+              </div>
+            </div>
+            <div class="card-body d-flex align-items-center">
+              <div class="w-100">
+                <h6 class="card-title">
+                  <a class="text-decoration-none text-dark" href="detail-rooms.html">Фризьорки салон 'Алтенатив'</a>
+                </h6>
+                <div class="d-flex card-subtitle mb-3">
+                  <p class="flex-shrink-1 mb-0 card-stars text-xs text-end">
+                    <i class="fa fa-star text-warning"></i><i class="fa fa-star text-warning"></i><i
+                      class="fa fa-star text-warning"></i><i class="fa fa-star text-gray-300"> </i><i
+                      class="fa fa-star text-gray-300"> </i>
+                  </p>
+                </div>
+                <p class="card-text text-muted">
+                  <span class="h4 text-primary">75 лв</span>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
+      <!-- Pagination -->
+      <nav aria-label="Page navigation example">
+        <ul class="pagination pagination-template d-flex justify-content-center">
+          <li class="page-item">
+            <a class="page-link" href="#">
+              <i class="fa fa-angle-left"></i></a>
+          </li>
+          <li class="page-item active">
+            <a class="page-link" href="#">1</a>
+          </li>
+          <li class="page-item"><a class="page-link" href="#">2</a></li>
+          <li class="page-item"><a class="page-link" href="#">3</a></li>
+          <li class="page-item">
+            <a class="page-link" href="#">
+              <i class="fa fa-angle-right"></i></a>
+          </li>
+        </ul>
+      </nav>
     </div>
   </div>
+</div>

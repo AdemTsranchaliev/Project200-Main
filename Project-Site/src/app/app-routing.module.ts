@@ -10,6 +10,8 @@ import { UserPersonalInformationComponent } from './user/user-personal-informati
 import { UserReservationsComponent } from './user/user-reservations/user-reservations.component';
 import { UserSecurityComponent } from './user/user-security/user-security.component';
 import { CatalogComponent } from './catalog/catalog.component';
+import { CatalogLeftMapComponent } from './catalog-left-map/catalog-left-map.component';
+import { AddStudioComponent } from './studio/add-studio/add-studio.component';
 import { BookingTableComponent } from './booking-table/booking-table.component';
 import { BookingDetailComponent } from './booking-detail/booking-detail.component';
 import { StudioEmployeeComponent } from './studio/studio-employee/studio-employee.component';
@@ -25,6 +27,7 @@ const routes: Routes = [
   { path: 'my-reservations', component: UserReservationsComponent },
   { path: 'my-account-security', component: UserSecurityComponent },
   { path: 'catalog', component: CatalogComponent },
+  { path: 'catalog-map', component: CatalogLeftMapComponent },
   { path: 'bookings-table', component: BookingTableComponent },
   { path: 'booking-detail/:id', component: BookingDetailComponent },
   { path: 'studio-employees', component: StudioEmployeeComponent },
@@ -35,6 +38,9 @@ const routes: Routes = [
 
   //Registration
   { path: 'register', component: RegisterComponent },
+
+  //Studio
+  { path: 'add-studio', component: AddStudioComponent },
 
   //Default paths
   { path: '**', redirectTo: '' },

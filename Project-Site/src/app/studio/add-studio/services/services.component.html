@@ -1,0 +1,93 @@
+<section class="py-5">
+    <div class="container">
+        <p class="subtitle text-primary">Добавяне на услуги, които предлагате</p>
+        <h1 class="h2 mb-5">Услуги</h1>
+        <form>
+            <div class="row form-block">
+                <div class="col-lg-4">
+                    <h4>Добавете услугите, които предлагате</h4>
+                </div>
+                <div class="col-lg-7 ms-auto">
+                    <div class="row">
+                        <div class="accordion" id="accordionPanelsStayOpenExample">
+                            <div class="accordion-item">
+                                <h2 class="accordion-header">
+                                    <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                                        aria-expanded="false">
+                                        Услуги
+                                    </button>
+                                </h2>
+
+                                <div *ngFor='let item of model.services;let i=index' id="panelsStayOpen-{i}}"
+                                    class="accordion-collapse collapse show" attr.aria-labelledby="panelsStayOpen-{i}}">
+                                    <div class="accordion-body">
+                                        <div class="row">
+                                            <div class="col-md-8">
+                                                <label for="validationServer01" class="form-label">Услуга</label>
+                                                <input type="text" [(ngModel)]='item.name'
+                                                    [ngModelOptions]="{standalone: true}" class="form-control"
+                                                    id="validationServer01" required>
+                                            </div>
+                                            <div class="col-md-2">
+                                                <label for="validationServer02" class="form-label">Цена</label>
+                                                <input type="text" [(ngModel)]='item.price'
+                                                    [ngModelOptions]="{standalone: true}" class="form-control"
+                                                    id="validationServer02" value="00.00лв" required>
+                                            </div>
+                                            <div class="col-md-2">
+                                                <label for="validationServer04" class="form-label">Продъл.</label>
+                                                <select class="form-select" [(ngModel)]='item.duration'
+                                                    [ngModelOptions]="{standalone: true}" required>
+                                                    <option selected disabled value="">Продължителност...</option>
+                                                    <option>5 мин</option>
+                                                    <option>10 мин</option>
+                                                    <option>15 мин</option>
+                                                    <option>20 мин</option>
+                                                    <option>25 мин</option>
+                                                    <option>30 мин</option>
+                                                    <option>40 мин</option>
+                                                    <option>50 мин</option>
+                                                    <option>1 час</option>
+                                                    <option>1+ час</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-sm-12">
+                                                <div class="form-group">
+                                                    <label for="exampleFormControlTextarea1" class="form-label">Описание
+                                                        на услуга</label>
+                                                    <textarea class="form-control" [(ngModel)]='item.description'
+                                                        [ngModelOptions]="{standalone: true}" rows="2"></textarea>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <hr>
+                                    </div>
+
+                                </div>
+                                <div class="row mb-3">
+                                    <div class="col-sm-12 d-flex justify-content-center">
+                                        <div class="btn btn-items btn-items-decrease"
+                                            (click)='removeService(model.services.length-1)' style="margin-right:2%">-
+                                        </div>
+                                        <div class="btn btn-items btn-items-increase" (click)='addService()'>+</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row form-block flex-column flex-sm-row">
+                <div class="col text-center text-sm-start"><button class="btn btn-link text-muted"
+                        (click)='previousPage()'> <i class="fa-chevron-left fa me-2"></i>Назад</button>
+                </div>
+                <div class="col text-center text-sm-end"><button class="btn btn-primary px-3" (click)='nextPage()'>
+                        Напред
+                        <i class="fa-chevron-right fa ms-2"></i></button></div>
+            </div>
+        </form>
+    </div>
+</section>

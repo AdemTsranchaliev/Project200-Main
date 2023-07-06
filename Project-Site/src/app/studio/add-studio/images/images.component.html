@@ -1,0 +1,60 @@
+<section class="py-5">
+  <div class="container">
+    <p class="subtitle text-primary">Добавте снимки на вашия салон</p>
+    <h1 class="h2 mb-5">
+      Добавете снимки на вашия салон и услуги
+    </h1>
+    <div class="row form-block">
+      <div class="col-lg-4">
+        <h4>Photos</h4>
+        <p class="text-muted text-sm">
+          Снимките са много важни за клиента. По снимките един клиент може да си направи много изводи.
+        </p>
+      </div>
+      <div class="col-lg-7 ms-auto">
+        <div class="mb-4">
+          <div class="mb-3">
+            <label for="formFileMultiple" class="form-label">Тук качете вашите снимки</label>
+            <input #file class="form-control" type="file" (change)="uploadFile(file.files)" id="formFileMultiple"
+              multiple>
+          </div>
+        </div>
+        <div class="d-none" id="dropzoneTemplate">
+          <div class="dz-preview dz-file-preview">
+            <div class="dz-image">
+              <img data-dz-thumbnail="" alt="" src="../../../assets/img/logo-square.svg" />
+            </div>
+            <div class="dz-details">
+              <div class="dz-filename"><span data-dz-name=""></span></div>
+              <div class="dz-size" data-dz-size=""></div>
+            </div>
+            <div class="dz-progress">
+              <span class="dz-upload" data-dz-uploadprogress=""></span>
+            </div>
+            <div class="dz-success-mark">
+              <span class="dz-icon"><i class="fa-check fa"></i></span>
+            </div>
+            <div class="dz-error-mark">
+              <span class="dz-icon"><i class="fa-times fa"></i></span>
+            </div>
+            <div class="dz-error-message">
+              <span data-dz-errormessage=""></span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row form-block flex-column flex-sm-row">
+      <div class="col text-center text-sm-start">
+        <button class="btn btn-link text-muted" (click)="previousPage()">
+          <i class="fa-chevron-left fa me-2"></i>Назад
+        </button>
+      </div>
+      <div class="col text-center text-sm-end">
+        <button class="btn btn-primary px-3" (click)="send()">
+          Завърши регистрация<i class="fa-chevron-right fa ms-2"></i>
+        </button>
+      </div>
+    </div>
+  </div>
+</section>

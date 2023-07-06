@@ -1,0 +1,90 @@
+<section class="py-5">
+    <div class="container">
+        <p class="subtitle text-primary">Добавяне на салон</p>
+        <h1 class="h2 mb-5">
+            Текстова част <span class="text-muted float-end">Втора стъпка</span>
+        </h1>
+        <form [formGroup]="mainInformationForm" (ngSubmit)="onSubmit()">
+            <div class="row form-block">
+                <div class="col-lg-4">
+                    <h4>Описание</h4>
+                    <p class="text-muted text-sm">
+                        В посочените полета трябва да попълните основната информация за
+                        вашия обект. Можете да посочите добри практики които следвате, като
+                        идентичност на вашия обект, както и опитът който притежавате.
+                    </p>
+                </div>
+                <div class="col-lg-7 ms-auto">
+                    <div class="mb-5">
+                        <mat-form-field class="w-100" appearance="fill">
+                            <mat-label>Напишете информация за вашия салон</mat-label>
+                            <textarea matInput [(ngModel)]='model.description' [ngModelOptions]="{standalone: true}"
+                                rows="5"></textarea>
+
+                        </mat-form-field>
+
+                    </div>
+                    <div class="mb-5">
+                        <mat-form-field class="w-100" appearance="fill">
+                            <mat-label>Напишете вашия слоган /опционално/</mat-label>
+                            <textarea matInput [(ngModel)]='model.motto' [ngModelOptions]="{standalone: true}"
+                                rows="3"></textarea>
+
+                        </mat-form-field>
+                    </div>
+                </div>
+            </div>
+            <div class="row form-block">
+
+                <div class="col-lg-4">
+                    <h4>Работно време</h4>
+                    <p class="text-muted text-sm">
+                        В посочените полета трябва да попълните основната информация за
+                        вашия обект. Можете да посочите добри практики които следвате, като
+                        идентичност на вашия обект, както и опитът който притежавате.
+                    </p>
+                </div>
+
+                <!-- <div class="col-sm-7">
+                    <div class="row" *ngFor='let day of model.workingTime'>
+                        <div class="col-sm-2">
+                            {{day.dayOfWeek}}
+                        </div>
+                        <div class="col-sm-1">
+                            <div class="form-check">
+                                <input class="form-check-input" [(ngModel)]='day.isOpen'
+                                    [ngModelOptions]="{standalone: true}" type="checkbox" name="checkbox">
+                                <label class="form-check-label" for="flexCheckDefault">
+                                </label>
+                            </div>
+                        </div>
+                        <div class="col-sm-2">
+                            <select class="form-select" [(ngModel)]='day.openAt' [ngModelOptions]="{standalone: true}"
+                                [attr.disabled]='day.isOpen ? null : true' name="openAt">
+                                <option value="{{item}}" *ngFor='let item of workingTime'>{{item}}</option>
+                            </select>
+                        </div>
+                        <div class="col-sm-2 d-flex justify-content-center">
+                            <p>ДО</p>
+                        </div>
+                        <div class="col-sm-2">
+                            <select class="form-select" [(ngModel)]='day.getEndTimeHour()' [ngModelOptions]="{standalone: true}"
+                                [attr.disabled]='day.isOpen ? null : true' name="closeAt">
+                                <option value="{{item}}" *ngFor='let item of workingTime'>{{item}}</option>
+                            </select>
+                        </div>
+                    </div>
+                </div> -->
+                <div class="row form-block flex-column flex-sm-row">
+                    <div class="col text-center text-sm-start"><button class="btn btn-link text-muted"
+                            (click)='previousPage()'>
+                            <i class="fa-chevron-left fa me-2"></i>Назад</button>
+                    </div>
+                    <div class="col text-center text-sm-end"><button class="btn btn-primary px-3" (click)='nextPage()'>
+                            Напред
+                            <i class="fa-chevron-right fa ms-2"></i></button></div>
+                </div>
+            </div>
+        </form>
+    </div>
+</section>

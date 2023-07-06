@@ -1,4 +1,4 @@
-<section class="custom-booking-detail-table-layout">
+<section class="mt-5">
   <div class="container">
     <!-- Breadcrumbs -->
     <ol class="breadcrumb ps-0 justify-content-start">
@@ -19,28 +19,16 @@
           </div>
           <div class="d-flex align-items-center">
             <span class="text-sm text-muted me-2">Статус:</span>
-            <span
-              *ngIf="isStatusConfirmed"
-              class="badge rounded-pill p-2 badge-success-light"
-            >
+            <span *ngIf="isStatusConfirmed" class="badge rounded-pill p-2 badge-success-light">
               потвърден
             </span>
-            <span
-              *ngIf="isTheHourCome"
-              class="badge rounded-pill p-2 badge-warning-light"
-            >
+            <span *ngIf="isTheHourCome" class="badge rounded-pill p-2 badge-warning-light">
               в ход
             </span>
-            <span
-              *ngIf="isTheHourCome"
-              class="badge rounded-pill p-2 badge-info-light"
-            >
+            <span *ngIf="isTheHourCome" class="badge rounded-pill p-2 badge-info-light">
               завършен
             </span>
-            <span
-              *ngIf="!isStatusConfirmed"
-              class="badge rounded-pill p-2 badge-danger-light"
-            >
+            <span *ngIf="!isStatusConfirmed" class="badge rounded-pill p-2 badge-danger-light">
               отказан
             </span>
           </div>
@@ -66,21 +54,13 @@
               <p class="text-sm fw-bold mb-0">16:30 - 17:00</p>
             </div>
             <div class="col-12 col-lg-3 align-self-center">
-              <button
-                (click)="toggleStatusConfirmed()"
-                *ngIf="!isStatusConfirmed"
-                type="button"
-                class="btn btn-outline-primary"
-              >
+              <button (click)="toggleStatusConfirmed()" *ngIf="!isStatusConfirmed" type="button"
+                class="btn btn-outline-primary">
                 <i class="fa fa-check fa-fw"></i>
                 Одобряване
               </button>
-              <button
-                (click)="toggleStatusConfirmed()"
-                *ngIf="isStatusConfirmed"
-                type="button"
-                class="btn btn-outline-danger"
-              >
+              <button (click)="toggleStatusConfirmed()" *ngIf="isStatusConfirmed" type="button"
+                class="btn btn-outline-danger">
                 <i class="fa fa-times fa-fw"></i>
                 Отказване
               </button>

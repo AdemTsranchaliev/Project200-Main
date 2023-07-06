@@ -7,15 +7,13 @@ import { InputValidator } from 'src/app/shared/utils/input-validators';
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
-  styleUrls: ['./register.component.css']
+  styleUrls: ['./register.component.css'],
 })
 export class RegisterComponent implements OnInit {
   registerForm!: FormGroup;
   inputValidator: InputValidator;
 
-  constructor(
-    private formBuilder: FormBuilder
-  ) {
+  constructor(private formBuilder: FormBuilder) {
     this.inputValidator = new InputValidator();
   }
 
