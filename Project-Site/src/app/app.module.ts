@@ -5,6 +5,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { NgxSliderModule } from '@angular-slider/ngx-slider';
+import { DragDropModule } from '@angular/cdk/drag-drop';
 // Modules
 import { AppRoutingModule } from './app-routing.module';
 // Angular Material
@@ -57,6 +58,9 @@ import { PaginatorComponent } from './shared/components/paginator/paginator.comp
 import { StudioCardComponent } from './shared/components/studio-card/studio-card.component';
 import { RangeSliderComponent } from './shared/components/range-slider/range-slider.component';
 import { CatalogFilterModalComponent } from './shared/components/modals/catalog-filter-modal/catalog-filter-modal.component';
+import { CalendarComponent } from './shared/components/calendar/calendar.component';
+import { CalendarDayComponent } from './shared/components/calendar-day/calendar-day.component';
+import { CalendarWeekComponent } from './shared/components/calendar-week/calendar-week.component';
 
 
 @NgModule({
@@ -97,7 +101,10 @@ import { CatalogFilterModalComponent } from './shared/components/modals/catalog-
     ImagesComponent,
     StudioCardComponent,
     RangeSliderComponent,
-    CatalogFilterModalComponent
+    CatalogFilterModalComponent,
+    CalendarComponent,
+    CalendarDayComponent,
+    CalendarWeekComponent
   ],
   imports: [
     // Angular
@@ -109,6 +116,7 @@ import { CatalogFilterModalComponent } from './shared/components/modals/catalog-
     HttpClientModule,
     MatPaginatorModule,
     NgxSliderModule,
+    DragDropModule,
 
     //Angular Material
     MatFormFieldModule,

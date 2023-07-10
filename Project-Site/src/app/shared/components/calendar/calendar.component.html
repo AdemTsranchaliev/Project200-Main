@@ -1,0 +1,79 @@
+<div class="container calendar mt-2">
+  <div class="header">
+    <div class="row align-items-center">
+      <div class="col-12 col-md-4 text-center-mobile">
+        <button
+          type="button"
+          class="btn btn-link text-primary fs-3"
+          (click)="prevMonth()"
+        >
+          &lArr;
+        </button>
+        <button
+          type="button"
+          class="btn btn-link text-primary fs-3"
+          (click)="nextMonth()"
+        >
+          &rArr;
+        </button>
+      </div>
+
+      <div class="col-12 col-md-4 text-center-mobile">
+        <h2>{{ currentDate | date : "MMMM yyyy" }}</h2>
+      </div>
+
+      <div class="col-12 col-md-4 text-center-mobile">
+        <button
+          type="button"
+          class="btn btn-link text-primary"
+          (click)="renderComponent(1)"
+        >
+          Месец
+        </button>
+        <button
+          type="button"
+          class="btn btn-link text-primary"
+          (click)="renderComponent(2)"
+        >
+          Седмица
+        </button>
+        <button
+          type="button"
+          class="btn btn-link text-primary"
+          (click)="renderComponent(3)"
+        >
+          Ден
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <ng-container *ngIf="componentToRender === 1">
+    <div class="calendar-init">
+      <div class="row header">
+        <div *ngFor="let day of weekDays" class="col day text-center week-days">
+          {{ day }}
+        </div>
+      </div>
+      <div class="row days">
+        <div
+          *ngFor="let day of calendarDays; index as i"
+          class="col day text-center cursor-pointer calendar-border-rounded"
+          [class.today]="isToday(day)"
+          [class.other-month]="!isCurrentMonth(day)"
+          [class.has-event]="hasEvent(day)"
+        >
+          {{ day | date : "d" }}
+        </div>
+      </div>
+    </div>
+  </ng-container>
+
+  <ng-container *ngIf="componentToRender === 2">
+    <app-calendar-week></app-calendar-week>
+  </ng-container>
+
+  <ng-container *ngIf="componentToRender === 3">
+    <app-calendar-day></app-calendar-day>
+  </ng-container>
+</div>
