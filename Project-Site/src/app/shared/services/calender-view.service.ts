@@ -5,7 +5,7 @@ import { BehaviorSubject } from 'rxjs';
     providedIn: 'root'
 })
 export class CalendarViewService {
-    private componentToRender = new BehaviorSubject<number>(1);
+    private componentToRender = new BehaviorSubject<number>(2);
 
     getComponentToRender() {
         return this.componentToRender.asObservable();

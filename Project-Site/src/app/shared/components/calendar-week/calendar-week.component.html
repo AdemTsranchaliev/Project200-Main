@@ -1,0 +1,263 @@
+<!-- <div class="row">
+  <div class="col-12 mb-2">
+    <div class="row header">
+      <div *ngFor="let day of weekDays" class="col day text-center week-days">
+        {{ day }}
+      </div>
+    </div>
+  </div>
+
+  <div class="content-list-hours col">
+    <div class="content-box-hours" *ngFor="let el of hours">{{ el.hours }}</div>
+  </div>
+
+  <div
+    cdkDropList
+    class="content-list-services col"
+    (cdkDropListDropped)="drop($event)"
+  >
+    <div class="content-box-services" *ngFor="let el of dataSource" cdkDrag>
+      <ng-container *ngIf="el.today !== ''">{{ el.today }}</ng-container>
+      <ng-container *ngIf="el.today === ''">&nbsp;</ng-container>
+    </div>
+  </div>
+
+  <div
+    cdkDropList
+    class="content-list-services col"
+    (cdkDropListDropped)="drop($event)"
+  >
+    <div class="content-box-services" *ngFor="let el of dataSource" cdkDrag>
+      <ng-container *ngIf="el.today !== ''">{{ el.today }}</ng-container>
+      <ng-container *ngIf="el.today === ''">&nbsp;</ng-container>
+    </div>
+  </div>
+
+  <div
+    cdkDropList
+    class="content-list-services col"
+    (cdkDropListDropped)="drop($event)"
+  >
+    <div class="content-box-services" *ngFor="let el of dataSource" cdkDrag>
+      <ng-container *ngIf="el.today !== ''">{{ el.today }}</ng-container>
+      <ng-container *ngIf="el.today === ''">&nbsp;</ng-container>
+    </div>
+  </div>
+
+  <div
+    cdkDropList
+    class="content-list-services col"
+    (cdkDropListDropped)="drop($event)"
+  >
+    <div class="content-box-services" *ngFor="let el of dataSource" cdkDrag>
+      <ng-container *ngIf="el.today !== ''">{{ el.today }}</ng-container>
+      <ng-container *ngIf="el.today === ''">&nbsp;</ng-container>
+    </div>
+  </div>
+
+  <div
+    cdkDropList
+    class="content-list-services col"
+    (cdkDropListDropped)="drop($event)"
+  >
+    <div class="content-box-services" *ngFor="let el of dataSource" cdkDrag>
+      <ng-container *ngIf="el.today !== ''">{{ el.today }}</ng-container>
+      <ng-container *ngIf="el.today === ''">&nbsp;</ng-container>
+    </div>
+  </div>
+
+  <div
+    cdkDropList
+    class="content-list-services col"
+    (cdkDropListDropped)="drop($event)"
+  >
+    <div class="content-box-services" *ngFor="let el of dataSource" cdkDrag>
+      <ng-container *ngIf="el.today !== ''">{{ el.today }}</ng-container>
+      <ng-container *ngIf="el.today === ''">&nbsp;</ng-container>
+    </div>
+  </div>
+
+  <div
+    cdkDropList
+    class="content-list-services col"
+    (cdkDropListDropped)="drop($event)"
+  >
+    <div class="content-box-services" *ngFor="let el of dataSource" cdkDrag>
+      <ng-container *ngIf="el.today !== ''">{{ el.today }}</ng-container>
+      <ng-container *ngIf="el.today === ''">&nbsp;</ng-container>
+    </div>
+  </div>
+</div> -->
+
+<!-- ================================== ===================================== -->
+
+<div class="row">
+  <!-- Week Days + Hours - Header -->
+  <div class="col-12 mb-2">
+    <div class="row header">
+      <div *ngFor="let day of weekDays" class="col day text-center week-days">
+        {{ day }}
+      </div>
+    </div>
+  </div>
+
+  <!-- Hours -->
+  <div class="content-list-hours col">
+    <div class="content-box-hours" *ngFor="let el of hours">{{ el.hours }}</div>
+  </div>
+
+  <!-- ============ Dragable Services ============ -->
+  <!-- Monday -->
+  <div
+    cdkDropList
+    #mondayList="cdkDropList"
+    [cdkDropListData]="monday"
+    [cdkDropListConnectedTo]="[
+      tuesdayList,
+      wednesdayList,
+      thursdayList,
+      fridayList,
+      saturdayList,
+      sundayList
+    ]"
+    class="col content-list-services"
+    (cdkDropListDropped)="drop($event)"
+  >
+    <div class="content-box-services" *ngFor="let item of monday" cdkDrag>
+      <ng-container *ngIf="item !== ''">{{ item }}</ng-container>
+      <ng-container *ngIf="item === ''">&nbsp;</ng-container>
+    </div>
+  </div>
+
+  <!-- Tuesday -->
+  <div
+    cdkDropList
+    #tuesdayList="cdkDropList"
+    [cdkDropListData]="tuesday"
+    [cdkDropListConnectedTo]="[
+      mondayList,
+      wednesdayList,
+      thursdayList,
+      fridayList,
+      saturdayList,
+      sundayList
+    ]"
+    class="col content-list-services"
+    (cdkDropListDropped)="drop($event)"
+  >
+    <div class="content-box-services" *ngFor="let item of tuesday" cdkDrag>
+      <ng-container *ngIf="item !== ''">{{ item }}</ng-container>
+      <ng-container *ngIf="item === ''">&nbsp;</ng-container>
+    </div>
+  </div>
+
+  <!-- Wednesday -->
+  <div
+    cdkDropList
+    #wednesdayList="cdkDropList"
+    [cdkDropListData]="wednesday"
+    [cdkDropListConnectedTo]="[
+      mondayList,
+      tuesdayList,
+      thursdayList,
+      fridayList,
+      saturdayList,
+      sundayList
+    ]"
+    class="col content-list-services"
+    (cdkDropListDropped)="drop($event)"
+  >
+    <div class="content-box-services" *ngFor="let item of wednesday" cdkDrag>
+      <ng-container *ngIf="item !== ''">{{ item }}</ng-container>
+      <ng-container *ngIf="item === ''">&nbsp;</ng-container>
+    </div>
+  </div>
+
+  <!-- Thursday -->
+  <div
+    cdkDropList
+    #thursdayList="cdkDropList"
+    [cdkDropListData]="thursday"
+    [cdkDropListConnectedTo]="[
+      mondayList,
+      tuesdayList,
+      wednesdayList,
+      fridayList,
+      saturdayList,
+      sundayList
+    ]"
+    class="col content-list-services"
+    (cdkDropListDropped)="drop($event)"
+  >
+    <div class="content-box-services" *ngFor="let item of thursday" cdkDrag>
+      <ng-container *ngIf="item !== ''">{{ item }}</ng-container>
+      <ng-container *ngIf="item === ''">&nbsp;</ng-container>
+    </div>
+  </div>
+
+  <!-- Friday -->
+  <div
+    cdkDropList
+    #fridayList="cdkDropList"
+    [cdkDropListData]="friday"
+    [cdkDropListConnectedTo]="[
+      mondayList,
+      tuesdayList,
+      wednesdayList,
+      thursdayList,
+      saturdayList,
+      sundayList
+    ]"
+    class="col content-list-services"
+    (cdkDropListDropped)="drop($event)"
+  >
+    <div class="content-box-services" *ngFor="let item of friday" cdkDrag>
+      <ng-container *ngIf="item !== ''">{{ item }}</ng-container>
+      <ng-container *ngIf="item === ''">&nbsp;</ng-container>
+    </div>
+  </div>
+
+  <!-- Saturday -->
+  <div
+    cdkDropList
+    #saturdayList="cdkDropList"
+    [cdkDropListData]="saturday"
+    [cdkDropListConnectedTo]="[
+      mondayList,
+      tuesdayList,
+      wednesdayList,
+      thursdayList,
+      fridayList,
+      sundayList
+    ]"
+    class="col content-list-services"
+    (cdkDropListDropped)="drop($event)"
+  >
+    <div class="content-box-services" *ngFor="let item of saturday" cdkDrag>
+      <ng-container *ngIf="item !== ''">{{ item }}</ng-container>
+      <ng-container *ngIf="item === ''">&nbsp;</ng-container>
+    </div>
+  </div>
+
+  <!-- Sunday -->
+  <div
+    cdkDropList
+    #sundayList="cdkDropList"
+    [cdkDropListData]="sunday"
+    [cdkDropListConnectedTo]="[
+      mondayList,
+      tuesdayList,
+      wednesdayList,
+      thursdayList,
+      fridayList,
+      saturdayList
+    ]"
+    class="col content-list-services"
+    (cdkDropListDropped)="drop($event)"
+  >
+    <div class="content-box-services" *ngFor="let item of sunday" cdkDrag>
+      <ng-container *ngIf="item !== ''">{{ item }}</ng-container>
+      <ng-container *ngIf="item === ''">&nbsp;</ng-container>
+    </div>
+  </div>
+</div>

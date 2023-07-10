@@ -13,7 +13,7 @@
     align-items: center;
     justify-content: center;
     font-weight: bold;
-    border: 1px solid #dee2e6;
+    border: 1px solid #ccc;
     flex-basis: calc(100% / 7);
     /* Added to set each day to occupy 1/7th of the container */
     box-sizing: border-box;
