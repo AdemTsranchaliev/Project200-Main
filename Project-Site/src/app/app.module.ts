@@ -6,6 +6,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { NgxSliderModule } from '@angular-slider/ngx-slider';
 import { DragDropModule } from '@angular/cdk/drag-drop';
+import { FullCalendarModule } from '@fullcalendar/angular';
 // Modules
 import { AppRoutingModule } from './app-routing.module';
 // Angular Material
@@ -59,8 +60,6 @@ import { StudioCardComponent } from './shared/components/studio-card/studio-card
 import { RangeSliderComponent } from './shared/components/range-slider/range-slider.component';
 import { CatalogFilterModalComponent } from './shared/components/modals/catalog-filter-modal/catalog-filter-modal.component';
 import { CalendarComponent } from './shared/components/calendar/calendar.component';
-import { CalendarDayComponent } from './shared/components/calendar-day/calendar-day.component';
-import { CalendarWeekComponent } from './shared/components/calendar-week/calendar-week.component';
 
 
 @NgModule({
@@ -103,8 +102,6 @@ import { CalendarWeekComponent } from './shared/components/calendar-week/calenda
     RangeSliderComponent,
     CatalogFilterModalComponent,
     CalendarComponent,
-    CalendarDayComponent,
-    CalendarWeekComponent
   ],
   imports: [
     // Angular
@@ -117,6 +114,7 @@ import { CalendarWeekComponent } from './shared/components/calendar-week/calenda
     MatPaginatorModule,
     NgxSliderModule,
     DragDropModule,
+    FullCalendarModule,
 
     //Angular Material
     MatFormFieldModule,
