@@ -1,0 +1,63 @@
+<h2 mat-dialog-title>Събитие</h2>
+<mat-dialog-content class="mat-typography">
+  <form
+    class="row justify-content-center align-items-center"
+    [formGroup]="calendarEventForm"
+  >
+    <div class="col-10 mb-4">
+      <mat-form-field class="w-100">
+        <input
+          type="text"
+          matInput
+          formControlName="clientName"
+          placeholder="Име на клиент..."
+        />
+      </mat-form-field>
+    </div>
+
+    <div class="col-10 mb-4">
+      <mat-form-field class="w-100">
+        <input
+          type="text"
+          matInput
+          formControlName="clientPhone"
+          placeholder="Телефон на клиент..."
+        />
+        <mat-hint>*Полето не е задължително</mat-hint>
+      </mat-form-field>
+    </div>
+
+    <div class="col-10 mb-4">
+      <mat-form-field class="w-100">
+        <mat-label>Изберете процедура:</mat-label>
+        <mat-select formControlName="procedure">
+          <mat-optgroup
+            *ngFor="let group of salonProcedures"
+            [label]="group.name"
+            [disabled]="group.disabled"
+          >
+            <mat-option
+              *ngFor="let service of group.services"
+              [value]="service.value"
+            >
+              {{ service.viewValue }}
+            </mat-option>
+          </mat-optgroup>
+        </mat-select>
+      </mat-form-field>
+    </div>
+  </form>
+</mat-dialog-content>
+
+<mat-dialog-actions class="float-end">
+  <button type="button" class="btn btn-link text-danger me-2" mat-dialog-close>
+    Затвори
+  </button>
+  <button
+    type="button"
+    class="btn btn-link text-primary me-2"
+    (click)="saveEvent()"
+  >
+    Запази
+  </button>
+</mat-dialog-actions>

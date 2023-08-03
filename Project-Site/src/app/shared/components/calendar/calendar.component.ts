@@ -1,11 +1,13 @@
 // Angular
 import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
-import { MatDialog } from '@angular/material/dialog';
+import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { BreakpointObserver, Breakpoints, BreakpointState } from '@angular/cdk/layout';
 // RXJS
 import { Subscription, Observable } from 'rxjs';
+// Components
+import { CalendarEventModalComponent } from '../modals/calendar-event-modal/calendar-event-modal.component';
 // Full Calendar
-import { CalendarOptions, DateSelectArg, EventClickArg, EventApi } from '@fullcalendar/core';
+import { CalendarOptions, EventClickArg, EventApi, DateSelectArg } from '@fullcalendar/core';
 import interactionPlugin from '@fullcalendar/interaction';
 import dayGridPlugin from '@fullcalendar/daygrid';
 import timeGridPlugin from '@fullcalendar/timegrid';
@@ -22,6 +24,9 @@ export class CalendarComponent implements OnInit {
   // Subscriptions
   private subscriptions: Subscription[] = [];
 
+  // Modal Size Variable
+  isExtraSmall: Observable<BreakpointState> = this.breakpointObserver.observe(Breakpoints.XSmall);
+
   calendarOptions: CalendarOptions = {
     plugins: [
       interactionPlugin,
@@ -36,11 +41,12 @@ export class CalendarComponent implements OnInit {
     initialView: 'dayGridMonth',
     initialEvents: INITIAL_EVENTS, // alternatively, use the `events` setting to fetch from a feed
     weekends: true,
+    allDaySlot: false,
     editable: true,
     selectable: true,
     selectMirror: true,
     dayMaxEvents: true,
-    select: this.handleDateSelect.bind(this),
+    select: this.openDialog.bind(this),
     eventClick: this.handleEventClick.bind(this),
     eventsSet: this.handleEvents.bind(this)
     /* you can update a remote database when these fire:
@@ -53,9 +59,9 @@ export class CalendarComponent implements OnInit {
   currentEvents: EventApi[] = [];
 
   constructor(
-    // public dialog: MatDialog,
-    // private breakpointObserver: BreakpointObserver,
-    private changeDetector: ChangeDetectorRef
+    private changeDetector: ChangeDetectorRef,
+    public dialog: MatDialog,
+    private breakpointObserver: BreakpointObserver
   ) { }
 
   ngOnInit(): void {
@@ -66,19 +72,16 @@ export class CalendarComponent implements OnInit {
     this.subscriptions.forEach((el) => el.unsubscribe());
   }
 
-  handleDateSelect(selectInfo: DateSelectArg) {
-    const title = prompt('Please enter a new title for your event');
+  handleDateSelect(selectInfo: DateSelectArg, eventData) {
     const calendarApi = selectInfo.view.calendar;
-
     calendarApi.unselect(); // clear date selection
 
-    if (title) {
+    if (eventData) {
       calendarApi.addEvent({
         id: createEventId(),
-        title,
+        title: eventData.clientName,
         start: selectInfo.startStr,
-        end: selectInfo.endStr,
-        allDay: selectInfo.allDay
+        end: selectInfo.endStr
       });
     }
   }
@@ -92,5 +95,33 @@ export class CalendarComponent implements OnInit {
   handleEvents(events: EventApi[]) {
     this.currentEvents = events;
     this.changeDetector.detectChanges();
+  }
+
+  /**
+   * This Method opens Modal Component & passing data to it
+   */
+  openDialog(selectInfo: DateSelectArg) {
+    // Dialog configuration
+    const dialogConfig: MatDialogConfig = {
+      width: '50%',
+    };
+
+    const dialogRef = this.dialog.open(CalendarEventModalComponent, dialogConfig);
+
+    const smallDialogSubscription = this.isExtraSmall.subscribe(size => {
+      if (size.matches) {
+        dialogRef.updateSize('90%');
+      } else {
+        dialogRef.updateSize('50%');
+      }
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      smallDialogSubscription.unsubscribe();
+
+      if (result) {
+        this.handleDateSelect(selectInfo, result);
+      }
+    });
   }
 }

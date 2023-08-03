@@ -60,6 +60,7 @@ import { StudioCardComponent } from './shared/components/studio-card/studio-card
 import { RangeSliderComponent } from './shared/components/range-slider/range-slider.component';
 import { CatalogFilterModalComponent } from './shared/components/modals/catalog-filter-modal/catalog-filter-modal.component';
 import { CalendarComponent } from './shared/components/calendar/calendar.component';
+import { CalendarEventModalComponent } from './shared/components/modals/calendar-event-modal/calendar-event-modal.component';
 
 
 @NgModule({
@@ -102,6 +103,7 @@ import { CalendarComponent } from './shared/components/calendar/calendar.compone
     RangeSliderComponent,
     CatalogFilterModalComponent,
     CalendarComponent,
+    CalendarEventModalComponent,
   ],
   imports: [
     // Angular
