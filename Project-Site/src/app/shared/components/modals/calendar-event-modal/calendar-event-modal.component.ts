@@ -99,7 +99,7 @@ export class CalendarEventModalComponent implements OnInit {
       const procedure = this.calendarEventForm.get('procedure')?.value;
       const clientPhone = this.calendarEventForm.get('clientPhone')?.value;
 
-      // Emit the event data back to the parent component
+      // Emit the Event data back to the parent component
       this.dialogRef.close({
         clientName,
         procedure,
@@ -107,5 +107,13 @@ export class CalendarEventModalComponent implements OnInit {
         _status: this.data == null ? 'create' : 'edit'
       });
     }
+  }
+
+  /**
+   * This Method returns Flag Data to the Parent Component to delete the Event
+   */
+  deleteEvent() {
+    // Emit the Event data back to the parent component
+    this.dialogRef.close({ delete: true });
   }
 }

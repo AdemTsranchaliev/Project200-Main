@@ -49,6 +49,17 @@
   </form>
 </mat-dialog-content>
 
+<ng-container *ngIf="data != null">
+  <mat-dialog-actions class="float-start">
+    <button
+      type="button"
+      class="btn btn-link text-danger me-2"
+      (click)="deleteEvent()"
+    >
+      Изтрий
+    </button>
+  </mat-dialog-actions>
+</ng-container>
 <mat-dialog-actions class="float-end">
   <button type="button" class="btn btn-link text-danger me-2" mat-dialog-close>
     Затвори

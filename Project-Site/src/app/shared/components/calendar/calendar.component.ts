@@ -30,6 +30,9 @@ export class CalendarComponent implements OnInit {
   // Store temporary the selected event
   currentSelectedInfo: DateSelectArg;
 
+  // Collect All Events
+  currentEvents: EventApi[] = [];
+
   calendarOptions: CalendarOptions = {
     plugins: [
       interactionPlugin,
@@ -66,8 +69,6 @@ export class CalendarComponent implements OnInit {
     eventRemove:
     */
   };
-
-  currentEvents: EventApi[] = [];
 
   constructor(
     private changeDetector: ChangeDetectorRef,
@@ -216,9 +217,9 @@ export class CalendarComponent implements OnInit {
       }
 
       // Condition to remove event
-      // if (result.remove == true) {
-      // clickInfo.event.remove();
-      // }
+      if (result.delete == true) {
+        clickInfo.event.remove();
+      }
     });
   }
 }
