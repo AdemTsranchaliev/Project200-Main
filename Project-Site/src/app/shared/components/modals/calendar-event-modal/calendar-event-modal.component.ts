@@ -1,9 +1,8 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { DateSelectArg } from '@fullcalendar/core';
-import { createEventId } from '../../calendar/event-utils';
 
+// This Interfaces will be add to 'models'
 interface SalonService {
   value: string;
   viewValue: string;
@@ -69,9 +68,11 @@ export class CalendarEventModalComponent implements OnInit {
   ];
 
   constructor(
-    // @Inject(MAT_DIALOG_DATA) public data: any,
+    // If the data is 'null' we create event,
+    // if we recieve data we need to display current Event!
+    @Inject(MAT_DIALOG_DATA) public data: any,
     private formBuilder: FormBuilder,
-    private dialogRef: MatDialogRef<CalendarEventModalComponent> // Inject MatDialogRef
+    private dialogRef: MatDialogRef<CalendarEventModalComponent>, // Inject MatDialogRef
   ) { }
 
   ngOnInit(): void {
@@ -83,9 +84,9 @@ export class CalendarEventModalComponent implements OnInit {
   */
   eventForm(): void {
     this.calendarEventForm = this.formBuilder.group({
-      clientName: ['', [Validators.required]],
-      clientPhone: [''],
-      procedure: ['', [Validators.required]],
+      clientName: [this.data?.title, [Validators.required]],
+      clientPhone: [this.data?.clientPhone],
+      procedure: [this.data?.procedure, [Validators.required]]
     });
   }
 
@@ -95,7 +96,16 @@ export class CalendarEventModalComponent implements OnInit {
   saveEvent() {
     if (!this.calendarEventForm.invalid) {
       const clientName = this.calendarEventForm.get('clientName')?.value;
-      this.dialogRef.close({ clientName }); // Emit the event data back to the parent component
+      const procedure = this.calendarEventForm.get('procedure')?.value;
+      const clientPhone = this.calendarEventForm.get('clientPhone')?.value;
+
+      // Emit the event data back to the parent component
+      this.dialogRef.close({
+        clientName,
+        procedure,
+        clientPhone,
+        _status: this.data == null ? 'create' : 'edit'
+      });
     }
   }
 }
