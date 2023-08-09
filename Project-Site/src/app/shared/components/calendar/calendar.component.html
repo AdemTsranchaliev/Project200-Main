@@ -1,9 +1,12 @@
 <div class="calendar-container">
   <div class="calendar-container-main">
-    <full-calendar [options]="calendarOptions">
+    <full-calendar [options]="calendarOptions" [class.mobile-view]="isExtraSmall | async">
       <ng-template #eventContent let-arg>
         <b>{{ arg.timeText }}</b>
         <i>{{ arg.event.title }}</i>
+        <!-- If extract data from 'extendedProps', will need to be trucated with method -->
+        <!-- Example: truncate() -> similar method like MemoStudio -->
+        <!-- <i>{{ arg.event.extendedProps.procedure }}</i> -->
       </ng-template>
     </full-calendar>
   </div>

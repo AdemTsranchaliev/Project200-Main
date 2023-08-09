@@ -21,7 +21,7 @@
           type="text"
           matInput
           formControlName="clientPhone"
-          placeholder="Телефон на клиент..."
+          placeholder="Телефонен номер на клиент..."
         />
         <mat-hint>*Полето не е задължително</mat-hint>
       </mat-form-field>
@@ -49,8 +49,8 @@
   </form>
 </mat-dialog-content>
 
-<ng-container *ngIf="data != null">
-  <mat-dialog-actions class="float-start">
+<mat-dialog-actions class="float-end">
+  <ng-container *ngIf="data != null">
     <button
       type="button"
       class="btn btn-link text-danger me-2"
@@ -58,10 +58,12 @@
     >
       Изтрий
     </button>
-  </mat-dialog-actions>
-</ng-container>
-<mat-dialog-actions class="float-end">
-  <button type="button" class="btn btn-link text-danger me-2" mat-dialog-close>
+  </ng-container>
+  <button
+    type="button"
+    class="btn btn-link text-secondary me-2"
+    mat-dialog-close
+  >
     Затвори
   </button>
   <button

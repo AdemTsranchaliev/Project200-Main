@@ -12,6 +12,7 @@ import interactionPlugin from '@fullcalendar/interaction';
 import dayGridPlugin from '@fullcalendar/daygrid';
 import timeGridPlugin from '@fullcalendar/timegrid';
 
+// Will be removed when API Ready! (Dummy Data)
 import { INITIAL_EVENTS, createEventId } from './event-utils';
 
 
@@ -38,6 +39,7 @@ export class CalendarComponent implements OnInit {
       interactionPlugin,
       dayGridPlugin,
       timeGridPlugin,
+      // touchDndPlugin, // Add this plugin for better touch interactions
     ],
     headerToolbar: {
       left: 'prev,next today',
@@ -62,7 +64,9 @@ export class CalendarComponent implements OnInit {
     dayMaxEvents: true,
     select: this.prepareViewToCreateEvent.bind(this),
     eventClick: this.prepareToEditEvent.bind(this),
-    eventsSet: this.handleCollectEvents.bind(this)
+    eventsSet: this.handleCollectEvents.bind(this),
+    // Important!!! -> On mobile to to redirect/create/drag we Long Press (Don't use just touch) the buttons!
+    longPressDelay: 100, // Add a delay of 100ms before starting a drag or resize on touch devices
     /* you can update a remote database when these fire:
     eventAdd:
     eventChange:
@@ -72,15 +76,15 @@ export class CalendarComponent implements OnInit {
 
   constructor(
     private changeDetector: ChangeDetectorRef,
+    private breakpointObserver: BreakpointObserver,
     public dialog: MatDialog,
-    private breakpointObserver: BreakpointObserver
   ) { }
 
   ngOnInit(): void {
     // Subscribe to the breakpoint observer
     const sizeSubscription = this.isExtraSmall.subscribe(isXSmall => {
       // Update the FullCalendar options based on the screen size
-      this.updateCalendarOptions(isXSmall.matches);
+      this.updateCalendarViewPort(isXSmall.matches);
     });
     this.subscriptions.push(sizeSubscription);
   }
@@ -93,14 +97,27 @@ export class CalendarComponent implements OnInit {
    * Update the calendar options based on whether it's mobile or not
    * @param isMobile 
    */
-  private updateCalendarOptions(isMobile: boolean) {
+  private updateCalendarViewPort(isMobile: boolean) {
+
     if (isMobile) {
-      // Do Something - Change Style
-      // .fc .fc-toolbar-title { display: none }
+      this.calendarOptions.headerToolbar = {
+        left: 'prev,next today',
+        center: 'title',
+        right: 'dayGridMonth,timeGridWeek,timeGridDay'
+      }
+
     } else {
-      // Do Something - Change Style
-      // .fc .fc-toolbar-title { display: block }
+      this.calendarOptions.headerToolbar = {
+        left: 'prev,next today',
+        center: 'title',
+        right: 'dayGridMonth,timeGridWeek,timeGridDay'
+      }
     }
+  }
+
+  handleCollectEvents(events: EventApi[]) {
+    this.currentEvents = events;
+    this.changeDetector.detectChanges();
   }
 
   /**
@@ -117,11 +134,6 @@ export class CalendarComponent implements OnInit {
     };
 
     this.openDialogToEditEvent(clickInfo, currentEvent);
-  }
-
-  handleCollectEvents(events: EventApi[]) {
-    this.currentEvents = events;
-    this.changeDetector.detectChanges();
   }
 
   /**
@@ -209,7 +221,6 @@ export class CalendarComponent implements OnInit {
       smallDialogSubscription.unsubscribe();
 
       // Update the current event with the new values from the modal
-
       if (result && result._status == 'edit') {
         clickInfo.event.setProp('title', result.clientName);
         clickInfo.event.setExtendedProp('procedure', result.procedure);
@@ -217,7 +228,7 @@ export class CalendarComponent implements OnInit {
       }
 
       // Condition to remove event
-      if (result.delete == true) {
+      if (result?.delete == true) {
         clickInfo.event.remove();
       }
     });
