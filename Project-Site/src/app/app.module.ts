@@ -25,6 +25,8 @@ import { MatSortModule } from '@angular/material/sort';
 import { MatStepperModule } from '@angular/material/stepper';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatButtonModule } from '@angular/material/button';
+import { MatMenuModule } from '@angular/material/menu';
 // Components
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
@@ -61,6 +63,8 @@ import { RangeSliderComponent } from './shared/components/range-slider/range-sli
 import { CatalogFilterModalComponent } from './shared/components/modals/catalog-filter-modal/catalog-filter-modal.component';
 import { CalendarComponent } from './shared/components/calendar/calendar.component';
 import { CalendarEventModalComponent } from './shared/components/modals/calendar-event-modal/calendar-event-modal.component';
+import { HeaderComponent } from './shared/components/header/header.component';
+import { HeaderSearchModalComponent } from './shared/components/modals/header-search-modal/header-search-modal.component';
 
 
 @NgModule({
@@ -104,6 +108,8 @@ import { CalendarEventModalComponent } from './shared/components/modals/calendar
     CatalogFilterModalComponent,
     CalendarComponent,
     CalendarEventModalComponent,
+    HeaderComponent,
+    HeaderSearchModalComponent,
   ],
   imports: [
     // Angular
@@ -117,6 +123,8 @@ import { CalendarEventModalComponent } from './shared/components/modals/calendar
     NgxSliderModule,
     DragDropModule,
     FullCalendarModule,
+    MatButtonModule,
+    MatMenuModule,
 
     //Angular Material
     MatFormFieldModule,
