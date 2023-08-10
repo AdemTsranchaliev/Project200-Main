@@ -35,35 +35,3 @@ b {
     max-width: 1100px;
     margin: 0 auto;
 }
-
-
-/* ================= Demo */
-/* Styles for mobile view */
-
-
-/* Styles for mobile view */
-.fc-header-toolbar {
-    display: flex !important;
-    flex-direction: column !important;
-    align-items: flex-start !important;
-  }
-  
-  .fc-header-toolbar .fc-toolbar-chunk {
-    margin-bottom: 10px !important; /* Adjust as needed */
-  }
-  
-  /* Resetting the default styles for mobile view */
-  .mobile-view .fc-header-toolbar .fc-toolbar-chunk {
-    margin-bottom: 0 !important;
-  }
-  
-  /* Styles for non-mobile view (optional) */
-  .fc-header-toolbar {
-    flex-direction: row !important; /* Reset the flex direction for non-mobile view */
-    align-items: center !important; /* Reset the alignment for non-mobile view */
-  }
-  
-  .fc-header-toolbar .fc-toolbar-chunk {
-    margin-bottom: 0 !important; /* Reset margin for non-mobile view */
-  }
-  
