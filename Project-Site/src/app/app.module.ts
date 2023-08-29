@@ -27,6 +27,7 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatButtonModule } from '@angular/material/button';
 import { MatMenuModule } from '@angular/material/menu';
+import { MatTreeModule } from '@angular/material/tree';
 // Components
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
@@ -125,6 +126,7 @@ import { HeaderSearchModalComponent } from './shared/components/modals/header-se
     FullCalendarModule,
     MatButtonModule,
     MatMenuModule,
+    MatTreeModule,
 
     //Angular Material
     MatFormFieldModule,

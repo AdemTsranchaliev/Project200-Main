@@ -15,16 +15,12 @@ import { HeaderSearchModalComponent } from '../modals/header-search-modal/header
 export class HeaderComponent implements OnInit {
   // Subscriptions
   private subscriptions: Subscription[] = [];
-
   // Modal Size Variable
   isExtraSmall: Observable<BreakpointState> = this.breakpointObserver.observe(Breakpoints.XSmall);
-
   // Mobile Size Variable
   isMobile: Observable<BreakpointState>;
-
   // Search Input
   headerSearchData: string;
-
   // Check View Port
   isMobileViewCheck: boolean = false;
 
